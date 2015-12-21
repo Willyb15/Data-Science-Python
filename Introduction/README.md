@@ -1,4 +1,3 @@
-s
 #Installation Tools
 
 The tools that you will need to have set up are:
