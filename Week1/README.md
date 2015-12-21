@@ -1,5 +1,24 @@
-# Data Science Fundamentals
+#Getting Around in the Shell
 
-The main objective for this course is for you to leave with a fundamental understanding of programming within Python.  If this is your first programming language, then you will feel a very steep learning curve.  The goal of this course is to assist you with overcoming that learning curve, so you can not only continue to grow in this environment, but so that you can start learning from the vast amount of information that is available to you through the online community.  
+At the end of Day 1, you will:
 
-Having a strong foundation in math/statistics and programming is imperative to success in the data science world.  The aim of this course will be at the foundation of programming.  Often the most difficult part is just getting started.  We are here to help with that process.
+* You will be able to:
+	* clone, push, pull, branch, and merge using git
+	* create and remove files from the command line
+	* create and remove directories from the command line
+* You will understand:
+	* the importance of using git for version control
+	* the difference between git and Github
+	* the workflow to be used throughout the rest of the course
+
+At the end of Day 2:
+
+* You will be able to:
+	* perform operations on different variable types
+	* write loops to solve simple numerical aggregation problems
+	* use control flow and logic statements
+* You will understand:
+	* variable types
+		* int, float, string
+	* logic and control flow
+		* if, elif, else, while, break, continue, pass
