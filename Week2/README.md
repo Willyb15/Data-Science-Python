@@ -1,6 +1,6 @@
 #Python Practice
 
-At the end of Day 3, you will:
+At the end of Day 3:
 
 * You will be able to:
 	* iterate through lists, and use list methods
