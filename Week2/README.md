@@ -17,6 +17,7 @@ At the end of Day 4	:
 * You will be able to:
 	* write loops to solve more complex aggregation problems
 	* apply previously learned skills with a larger set of object types
+
 * You will understand:
 	* variable types
 		* tuples, dictionaries, sets
