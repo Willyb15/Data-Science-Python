@@ -1,6 +1,6 @@
 #Getting Around in the Shell
 
-At the end of Day 1, you will:
+At the end of Day 1:
 
 * You will be able to:
 	* clone, push, pull, branch, and merge using git
