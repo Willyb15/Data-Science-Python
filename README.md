@@ -1,5 +1,5 @@
-# DSI-evening-prep
+# Data Science Fundamentals
 
-12/15 At the Info Session we had a number of individuals interested in picking up programming, but they currently have little to no experience and do not want to quit jobs when they are not sure this is even their current route of interest.  Evening classes for these individuals might peak their interest.  They also (likely) have weaker math backgrounds.
+The main objective for this course is for you to leave with a fundamental understanding of programming within Python.  If this is your first programming language, then you will feel a very steep learning curve.  The goal of this course is to assist you with overcoming that learning curve, so you can not only continue to grow in this environment, but so that you can start learning from the vast amount of information that is available to you through the online community.  
 
-Another large group of people are interested in the immersive, and they might want a bit more difficult set of materials to get started.  Most of these individuals still do not have a ton of coding experience - and if they do have experience it does not seem to be with python, but rather with SAS and SQL.  
+Having a strong foundation in math/statistics and programming is imperative to success in the data science world.  The aim of this course will be at the foundation of programming.  Often the most difficult part is just getting started.  We are here to help with that process.
