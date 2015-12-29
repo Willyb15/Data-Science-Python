@@ -1,7 +1,7 @@
 # Installing Sublime
 
 This installation isn't as involved as Anaconda. You just need to navigate
-to the [Sublime](www.sublimetext.com/2) site and download the version of 
+to the [Sublime](https://www.sublimetext.com/2) site and download the version of 
 Sublime corresponding to your operating system (Windows or Mac OS X).
 
 ## Windows Users
