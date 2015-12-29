@@ -49,7 +49,7 @@ distinction between absolute and relative pathnames. In a Unix-based
 operating system, files are ogranized in a tree-like pattern. The first
 directory in a filesystem is called the *root directory*, which contains
 files as well as subdirectories, which contain more files and 
-subdirectories, and so on. If were to look at the file structure of the 
+subdirectories, and so on. If we're to look at the file structure of the 
 repository for this class, we might see something like this: 
 
 ![folder_filestructure](imgs/unix_tree.png)
@@ -65,23 +65,24 @@ whether it is an absolute path or a relative path:
 
 * A **relative pathname** begins with the current working directory
   and follows the filesystem tree branch by branch from the current 
-  working directory. These will note being with a forward slash `/`.  
+  working directory. These will not begin with a forward slash `/`.  
 
 This distinction often doesn't come into play, but there are times where
 programs expect an absolute pathname, in which case you need to make sure 
 to start from the root directory when passing the pathname to the program. 
 
 2.) `cd` allows you to change from one directory to another by simply placing 
-the name of the directory after the `cd` command. `cd` accepts a relative
-pathname or an absolute pathname, but if you pass it a relative pathname
-then that pathname has to be accessible via the current working directory. 
+the name of the directory you want to go to after the `cd` command. `cd` 
+accepts a relative pathname or an absolute pathname, but if you pass it a 
+relative pathname then that pathname has to be accessible via the current 
+working directory. 
 
 Assuming that the repo for this class is located at the path 
-/Users/sallamander/galvanize/DSI-evening-prep, then I can change to it 
+`/Users/sallamander/galvanize/DSI-evening-prep`, then I can change to it 
 via the following: 
 
 ```bash 
-cd galvanize/DSI-evening-prep # To use this the cd command in this way, 
+cd galvanize/DSI-evening-prep # To use the cd command in this way, 
                               # /Users/sallamander must be my current 
                               # directory. 
 cd /Users/sallamander/galvanize/DSI-evening-prep # This will work from 
@@ -102,7 +103,7 @@ directory placed after the `ls` command. Similar to the `cd` command,
 it a relative pathname, then that pathname has to be accessible via the 
 current working directory. 
 
-Assuming that I am in the galvanize/DSI-evening-prep folder, I can 
+Assuming that I am in the `galvanize/DSI-evening-prep` folder, I can 
 issue the following commands: 
 
 ```bash 
