@@ -85,7 +85,7 @@ necessary, it can help understand exactly how Git works. The *index* file
 of all files that the Git repository is actually responsible for tracking. 
 The `git add` command above will put files into the index the first time it 
 is run on a file, and from then on out will only note changes to the file (i.e.
-what's different from the last time it was commited). For example, if I already
+what's different from the last time it was commited). For example, if I had already
 run a `git add` on the `my_file.txt` above, then that `git add my_file.txt` 
 command would have added only changes to that file since the last commit. If 
 I had already added `my_file.txt` to the index but not made changes to it 
@@ -97,8 +97,8 @@ history (the Git history).
 
 ### Initializing a Git Repository Through Cloning
 
-Often times, instead of initializing a new, emptry Git repository locally, 
-we will be downloading an existing repository to use on your local. The 
+Often times, instead of initializing a new, empty Git repository locally, 
+we will be downloading an existing repository to use on our local. The 
 process of creating a new local repository from an existing remote repository
 is known as *cloning* a repository. To clone a repository, we simply issue
 the `git clone` command followed by a URL. 
