@@ -35,9 +35,9 @@ In terms of navigation, the following three commands are going to be your
 bread and butter: 
 
 * `pwd` - Stands for `print working directory`; this will write the full 
-  pathname of the current working directory to standard output (the terminal)
+  pathname of the current working directory to the terminal
 * `cd` - Stands for `change directory`; this will allow you to navigate between
-  different folders/directories in your terminal 
+  different folders/directories in your directory structure 
 * `ls` - Stands for `list`; this will list the files in the current working 
   directory
 
@@ -46,7 +46,7 @@ Let's walk through these in a little more detail.
 1.) `pwd` is fairly straightforward, but in talking about pathnames it's 
 important to talk about the Unix filesystem tree and to make the 
 distinction between absolute and relative pathnames. In a Unix-based 
-operating system, files are ogranized in a tree-like pattern. The first
+operating system, files are ogranized in a tree-like pattern. The top 
 directory in a filesystem is called the *root directory*, which contains
 files as well as subdirectories, which contain more files and 
 subdirectories, and so on. If we're to look at the file structure of the 
@@ -218,3 +218,39 @@ mv dir1 dir2 # Renames dir1 to dir2 if dir2 doesn't exit, and otherwise
 **Note**: `mv` will overwrite files if they already exist. If `file2.txt` had
 already existed in the above, then it would have been overwritten with the 
 contents of `file1.txt`. 
+
+### Keyboard Shortcuts 
+
+Becoming efficient at navigating around your terminal can save you loads of 
+time. Below we'll walk through some commands that can help increase your 
+efficiency right from the command line. 
+
+#### Using The Up/Down/Right/Left Arrows and Tab 
+
+* To revisit commands from you history you can typically press the up arrow, 
+where pressing it multiple times allows you to cycle through all your previous
+commands. You can also use your down arrow to cylce through commands, too. 
+
+* To navigate single characters in a line, you can typically use your left
+and right arrows. Holding down your META key (typically alt on mac; try alt
+or ctrl on Windows) will allow you to navigate through whole words at a time. 
+
+* Tab completion is a thing in most unix shells. What this means is that 
+you can type the beginning couple of letters of a file or directory and 
+hit tab to complete it (so long as the file/directory name is unique, 
+otherwise it will complete up to the point it can). 
+
+#### Control-key Commands
+
+Note here that ^h is the same as ctrl-h on a mac, and the equivalent
+on a windows system (try ctrl or alt).  
+
+```bash 
+^u # Erases input from current location to beginning of line. 
+^k # Erases input from the current location to the end of the line. 
+^a # Jump to beginning of line. 
+^e # Jump to end of line.  
+^z # Suspend a program that may be running and gives you another shell prompt. 
+^c # Kill a program that may be running. 
+^l # Clear the entire screen (works like typing 'clear' ). 
+```
