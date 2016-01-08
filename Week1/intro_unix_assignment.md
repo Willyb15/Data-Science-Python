@@ -6,9 +6,9 @@ working with the terminal throughout the entirety of this program and you
 will be building up familiarity with it throughout the program, this 
 assignment will be fairly brief. 
 
-1.) Open up your terminal and navigate to your root directory. 
+1.) Open up your terminal and navigate to your home directory. 
 
-2.) In your root directory, create a new directory called 
+2.) In your home directory, create a new directory called 
 `test_directory`.
 
 3.) Navigate into `test_directory`, and print the working directory
