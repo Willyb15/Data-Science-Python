@@ -123,28 +123,28 @@ URL of somebody's repo on Github (or your own repo on Github).
 Now that we know how to clone a repository, it's time to talk about pushing
 and pulling, the process by which we keep a remote copy of our repository 
 up to date and in sync with a local copy of our repository (and vice versa). 
-Anytime that we have cloned a repository from a URL, the copy of the 
-repository at that URL will become the *remote* copy of that repository. 
-Pulling is the way that we will keep our local copy of the repository up to 
-date with any changes made to the *remote* (by somebody else), and pushing
-is the way that we will keep the *remote* up to date with changes to the 
-local repository (i.e. changes that we have made that we want to share with
-others). Note that you will have to have push access to the repository to be 
-able to push your changes to it. 
+Anytime that we have cloned a repository from a URL, the repository at that 
+URL will become the *remote* copy of that repository. Pulling is the way that 
+we will keep our local copy of the repository up to date with any changes made 
+to the *remote* (by somebody else), and pushing is the way that we will keep 
+the *remote* up to date with changes to the local repository (i.e. changes 
+that we have made that we want to share with others). Note that you will 
+have to have push access to the repository to be able to push your changes 
+to it. 
 
 The last thing to note about how pushing and pulling work is that they will 
-only work with changes that have been *commited*. This means that if you 
-have changed a file but not gone through the process of *adding* and 
-*committing* it, then issuing the push commands below will not actually push
-any changes to the remote. Similarly, if there have been no changes to the
-remote repository since you last issued a pull, then issuing the pull commands
-below will not actually pull anything. 
+only work with changes that have been *committed*. This means that if you 
+have made changes to a repository, but not gone through the process of
+*adding* and *committing* them, then issuing the push commands below will 
+not actually push any changes to the remote. Similarly, if there have been 
+no changes to the remote repository since you last issued a pull, then issuing 
+the pull commands below will not actually pull anything. 
 
 To issue pushes and pulls: 
 
 ```bash 
-git push # Push any locally commited changes that aren't in the remote to the remote. 
-git pull # Pull any changes in the remote that aren't in the local to the local.
+git push # Apply any locally commited changes that aren't in the remote to the remote. 
+git pull # Apply any changes in the remote that aren't in the local to the local.
 ```
 
 ### Forking
