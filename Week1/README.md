@@ -10,15 +10,26 @@ At the end of Day 1:
 	* the importance of using git for version control
 	* the difference between git and Github
 	* the workflow to be used throughout the rest of the course
+    * the difference between a script and the console
+* You will get practice:
+    * working inside ipython
+        * to test operations
+        * to run scripts
+    * feeling comfortable moving between all of these new tools
 
 At the end of Day 2:
 
 * You will be able to:
-	* perform operations on different variable types
-	* write loops to solve simple numerical aggregation problems
+	* perform operations on numeric variable types
+	* write loops to solve numerically based problems
 	* use control flow and logic statements
+    * test these ideas in the console 
 * You will understand:
 	* variable types
-		* int, float, string
-	* logic and control flow
-		* if, elif, else, while, break, continue, pass
+		* int, float, complex
+	* logic statements
+		* if, elif, else
+        * comparison operators
+        * operators (and / or)
+    * while loops and control flow
+        * break, continue, pass
