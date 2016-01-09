@@ -109,7 +109,7 @@ Out[3]: 2
 
 The name you can give a variable can technically be any contiguous set of character, but there are some conventions followed in Python and programming in general. Python follows a variable naming convention called snake case. To write something in snake case simply use a `_` anywhere you would use a space and make sure every word is lower case. e.g. `this_is_variable`. Giving variables good names makes your code more readable and therefore maintainable. There is a big difference between seeing a variable called `degrees` and one called `y`. You should strive to give your variables good succinct names.
 
-There are of course cases where using less than descript variable names follows convention and is therefore just fine to use. One that comes to mind `i`. Frequently it is used to keep track of an `i`ndex (we will cover this idea next week, but it wouldn't be surprising if you understood the concept already), and because if it's prevalent usage for this purpose it is usually easy to understand what is happening in that context. But the important thing is that the code is _understandable_.
+There are of course cases where using less than descript variable names follows convention and is therefore just fine to use. One that comes to mind `i`. Frequently it is used to keep track of an `i`ndex (we will cover this idea next week, but it wouldn't be surprising if you understood the concept already), and because if it's prevalent usage for this purpose it is usually easy to understand what is happening in that context. But the important thing is that the code is **understandable**.
 
 Note that we saw no output from the first command above. This is because return value that would been printed to the console for output were assigned to the variable x. This is why we had to view it in the next line with a simple call to `x`.
 
@@ -126,7 +126,7 @@ Out[2]: 6
 
 Notice how the first line is formatted. Python knows that the `=` means variable assignment, so when it sees the first line it evaluates the right side of the equals and then puts that value in `x` even though `x` was part of the first calculation.
 
-Changing variables in this way occurs so commonly that there is built-in shorthand for it. The result of the first line could have been achieved with `x += 5`. This _syntatic sugar_ is available for all the simple operations `+`, `-`, `*`, `/` and `**` that we covered earlier.
+Changing variables in this way occurs so commonly that there is built-in shorthand for it. The result of the first line could have been achieved with `x += 5`. This *syntatic sugar* is available for all the simple operations `+`, `-`, `*`, `/` and `**` that we covered earlier.
 
 ### Logic
 
@@ -159,7 +159,7 @@ In [2]: type(False)
 Out[2]: bool
 ```
 
-In addition, a wide variety of statements an evaluate to bools. The ones that we will focus on today are the equalities, _equal to_ and _not equal to_, and the inequalities, _less than_, _greater than_, _less than or equal to_ and _greater than or equal to_. These comparisions are available in python via the `==`, `!=`, `<`, `>`, `<=` and `>=`, respectively.
+In addition, a wide variety of statements an evaluate to bools. The ones that we will focus on today are the equalities, *equal to* and *not equal to*, and the inequalities, *less than*, *greater than*, *less than or equal to* and *greater than or equal to*. These comparisions are available in python via the `==`, `!=`, `<`, `>`, `<=` and `>=`, respectively.
 
 ```python
 In [1]: 1 == 2
@@ -181,6 +181,77 @@ In [6]: 1 >= 2
 Out[6]: False
 ```
 
+#### Using the If
+
+Now that we understand conditionals lets talk about how we can use them with variables to create a powerful construct in which to make dynamic programs. Consider the following code block.
+
+```python
+if x > 5:
+    x += 10
+print(x)
+```
+
+*Note, the print function simply pipes the value passed to it to the console.*
+
+In the above code we don't need to know what the value of `x` is, but we can say that if it's greater than 5 it will come out of the code block 10 greater than before the if statement.
+
+From what we know so far, this functionality isn't super useful. So lets quickly go over a way that that we can make out Python more flexible. Until now, we've had to hard code any variable or value that we want to use in our program. Python has a built in way to accept input from a user of a program. Lets examine this now, consider that the following code was stored in a file named `print_number.py`.
+
+```python
+x = raw_input('Please enter a number: ')
+print(x) 
+```
+
+If we then ran the script from ipython. We would would see:
+
+```python
+In [1]: run print_number.py
+Please enter a number: 
+```
+
+*Note, the raw_input() function accepts character input from the keyboard, printing the message it is passed as a prompt.*
+
+We can then type a number followed by enter, and the script will print that number.
+
+```python
+In [1]: run print_number.py
+Please enter a number: 3
+3
+```
+
+*Note, raw_input() halts the execution of your script, so nothing will happen until you type something a press enter.*
+
+Now that we have a way to get arbitrary input from a user of our program, we can begin to see the full power of the if. Let's combine the last two code blocks from above, and say we stored it in a script named `print_number_with_if.py`.
+
+```python
+x = int(raw_input('Please enter a number: '))
+if x > 5:
+    x += 10
+print(x)
+```
+
+*Note, raw_input() actually interprets the input as strings, so we have to manually tell Python to treat the number we pass as an interger with int(). We'll talk about strings more next week.*
+
+If we then ran the script from ipython as above, lets look at two ways we could interact with it.
+
+```python
+In [1]: run print_number_with_if.py
+Please enter a number: 3
+3
+
+In [2]: run print_number_with_if.py
+Please enter a number: 8
+18
+```
+
+Notice how during the first time we run `print_number_with_if` and give it 3, it acts just like `print_number`. However, the second time, when we give it 8, it adds 10 and prints 18. Why did it do this? Because 8 is greater than 5 so our program added 10 to it before it was printed.
+
+This may seem like a trivial example, and therefore not very exciting; but let me assure you, what you have just learned is amazingly powerful! So congratulations!
+
 #### Building on the If
 
-Now that we understand conditionals we can gain a full understanding of what we can do with if statements. 
+Ok, so, the if is cool. But it seems like, due to it's structure, there are only so many things you can do with it. Lets summarize this with what's known as a flow diagram.
+
+![If Flow](http://www.tutorialspoint.com/cprogramming/images/if_statement.jpg)
+
+You can see that there are two branches created by the if statement, one when the condition is true in which case the conditional code is executed, and the other when it is false, in which case the if block is ignored. But what if we wanted to check more than one thing, have more than two branches?
