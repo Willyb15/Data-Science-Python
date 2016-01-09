@@ -9,40 +9,12 @@ installation of Linux).
 
 ## Windows Users 
 
-1.) You will first need to install Git Bash. This will become the terminal
-through which you run commands, interact with your programs, etc. It also 
-has the benefit of handling git installation on your Windows machine. Download
-it here: 
+1.) Download [Anaconda][Anaconda], making sure to select the Windows 
+version, and the version using **Python 2.7**. **Make sure that you 
+have the `Add Anaconda to my PATH environment variable` checked when going 
+through installation...**
 
-[www.git-scm.com/download/vim](https://www.git-scm.com/download/vim)
-
-Follow through the installation instructions. You should be able to just
-click next through all of the instructions, **but** along the way make
-sure that on the following two screens you make sure the following 
-are checked: 
-
-* `Git Bash Here` in the `Select Components` screen. 
-
-![select_components_img](readme_imgs/select_components.JPG)
-
-* `Use Git from Git Bash only` in the `Adjusting your PATH environment` 
-  screen. 
-
-![path_img](readme_imgs/path.JPG)
-
-2.) Navigate to the folder where Git Bash was installed, and open git-bash
-by clicking on the `git-bash.exe` executable. Once it opens, I would suggest
-either creating a shorcut to it on your Desktop or pinning it to your 
-taskbar. 
-
-3.) Run the following command in the Git Bash terminal: 
-
-```bash
-conda update --all
-```
-
-If prompted, enter `yes` when prompted. If you aren't prompted, then 
-all your packages are up to date and you are good to go!
+![anaconda_img](readme_imgs/anaconda.JPG)
 
 ## Mac OS X Users
 
@@ -70,3 +42,6 @@ conda update --all
 
 If prompted, enter `yes` when prompted. If you aren't prompted, then 
 all your packages are up to date and you are good to go!
+
+
+[Anaconda]:http://docs.continuum.io/anaconda/install#windows-install

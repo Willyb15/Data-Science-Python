@@ -2,9 +2,47 @@
 
 ## Windows Users
 
-If you've gone through the anaconda installation in anaconda.md, you're all 
-set! If you haven't, then visit the anaconda.md file and follow the 
-the instructions to install Git Bash. 
+1.) You will to install Git Bash. This will become the terminal
+through which you run commands, interact with your programs, etc. It also 
+has the benefit of handling git installation on your Windows machine. Download
+it here: 
+
+[www.git-scm.com/download/vim](https://www.git-scm.com/download/vim)
+
+Follow through the installation instructions. You should be able to just
+click next through all of the instructions, **but** along the way make
+sure that on the following two screens you make sure the following 
+are checked: 
+
+* `Git Bash Here` in the `Select Components` screen. 
+
+![select_components_img](readme_imgs/select_components.JPG)
+
+* `Use Git from Git Bash only` in the `Adjusting your PATH environment` 
+  screen. 
+
+![path_img](readme_imgs/path.JPG)
+
+2.) Navigate to the folder where Git Bash was installed, and open git-bash
+by clicking on the `git-bash.exe` executable. Once it opens, I would suggest
+either creating a shorcut to it on your Desktop or pinning it to your 
+taskbar. 
+
+3.) Now that we have Git Bash installed and a Git Bash terminal open (this 
+will be a Unix terminal), we can make sure that we installed Anaconda 
+correctly earlier. Run the following command in the Git Bash terminal: 
+
+```bash
+conda update --all
+```
+
+If you get the error `conda command not found`, or something like it, 
+then Anaconda was not installed correctly. If you don't, then 
+continue on...
+
+If prompted, enter `yes` when prompted. If you aren't prompted, and
+there was no error, then all your packages are up to date and you are 
+good to go!
 
 ## Mac Users
 
