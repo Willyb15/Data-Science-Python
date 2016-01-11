@@ -22,14 +22,14 @@ At the end of Day 2:
 * You will be able to:
 	* perform operations on numeric variable types
 	* write loops to solve numerically based problems
-	* use control flow and logic statements
-    * test these ideas in the console 
+	* fully control the flow of your programs
+    * test these ideas in the console and with scripts
 * You will understand:
 	* variable types
 		* int, float, complex
 	* programming logic
         * comparison operators
 		* if, elif, else
-        * operators (and, or and not)
+        * and, or and not
     * while loops and control flow
-        * break, continue, pass
+        * continue, break, pass
