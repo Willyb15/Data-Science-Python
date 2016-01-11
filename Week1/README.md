@@ -27,7 +27,7 @@ At the end of Day 2:
 * You will understand:
 	* variable types
 		* int, float, complex
-	* logic statements
+	* programming logic
         * comparison operators
 		* if, elif, else
         * operators (and, or and not)
