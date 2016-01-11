@@ -30,6 +30,6 @@ At the end of Day 2:
 	* logic statements
         * comparison operators
 		* if, elif, else
-        * operators (and / or)
+        * operators (and, or and not)
     * while loops and control flow
         * break, continue, pass
