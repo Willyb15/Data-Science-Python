@@ -28,8 +28,8 @@ At the end of Day 2:
 	* variable types
 		* int, float, complex
 	* logic statements
-		* if, elif, else
         * comparison operators
+		* if, elif, else
         * operators (and / or)
     * while loops and control flow
         * break, continue, pass
