@@ -494,3 +494,19 @@ At this point I'm confident that you are tired of looking at tables of values, b
 | 7             |  28       |   8   |    True    |    True     |
 
 At this point total is set to 25 and the message "The sum execeded the max value of 25." is printed. The loop is exited and then 25 (the value of total now) is printed to the screen.
+
+##### Pass
+There's one more statement that allows us control over our programs, it's the `pass`. All the pass does is tell Python to do nothing. Because of this it is rarely used as control flow since the same result could be achieved by doing nothing. Instead it is ofter used as a place holder since Python will complain about empty code blocks.
+
+So while you're building up the skeleton of a program the pass can be useful as a method to get the framework written up without focusing on implementation. To illustrate.
+
+```python
+if x < 0:
+    pass
+elif x > 0:
+    pass
+else:
+    print('x is the value of 0.')
+```
+
+In the above example, we have set it up so that if x is 0 then our program tells us so, otherwise we know that we're going to do something specific when x is positive and something different when x is negative; but we either haven't figured those things out yet, or simply haven't implemented them.
