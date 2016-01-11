@@ -380,10 +380,10 @@ As with the if (notice that this structure looks exactly like the if's) a while 
 Lets look at how we can harness this new structure to solve our previous problem. Take a look at the folling code.
 
 ```python
-total, x = 0, 1
+total, x = 0, 0
 while x <= 8:
-    total += x
     x += 1
+    total += x
 print(total)
 ```
 
@@ -424,7 +424,73 @@ Let's take a look at what the loop table would look like in this situation.
 | 2             |  2        |   1   |    True    |
 | 3             |  3        |   1   |    True    |
 | 4             |  4        |   1   |    True    |
+| Etc.          |  Etc.     |  Etc. | **Always** True |
 
 Aside from the obvious problem that we aren't solving the problem of summing the values 1 through 9, we run into another, very aggregious issue. Will the condition `x <= 8` ever evaluate to False? No. So how do we get out of the loop?? We can't!
 
 We call this idea getting stuck in an *infinite loop*. They are almost **always** bad, they usually manifest themselves as your programming running for way longer than you would expect it to. But the common cause of them is almost always having a condition that evaluates to False.
+
+#### More Control Flow
+
+##### Continue
+
+So what if we want even more control over how the body of our loop is executed? Let's motivate this idea with a problem. Say we want to add all the number between 1 and 9...but not 5. Again, we could solve this with our current solution, and then subtract off 5. But, again, that takes a lot of manipulation. Instead we can use the main structure of our current loop and add in a new coniditon with an if and use a new tool to interupt our program's flow. 
+
+Enter the `continue`. What the continue does is simply tell Python that it should skip the rest of the body of the while block, and jump, continue, to the next iteration of the loop. Lets take a look at `continue` in action.
+
+```python
+total, x = 0, 0
+while x <= 8:
+    x += 1
+    if x == 5:
+        continue
+    total += x
+print(total)
+```
+
+In this updated program we can see that we will, at each iteration of the loop, check to see if the current value that we're about to add on to total is 5, if it isn't we go on with our aggregation of total; however if it is, we execute a `continue` telling Python to skip over the rest of the loops body (in this case not add x to total) and jump immediately to the next iteration of the loop. Let's see how this would look in the loop table.
+
+| After loop #  |   total   |   x   |   x <= 8   |    x == 5   | 
+| ------------- |:---------:|:-----:|:----------:|:-----------:|
+| 1             |  1        |   2   |    True    |    False    |
+| 2             |  3        |   3   |    True    |    False    |
+| 3             |  6        |   4   |    True    |    False    |
+| 4             |  10       |   5   |    True    |    True     |
+| 5             |  10       |   6   |    True    |    False    |
+| 6             |  16       |   7   |    True    |    False    |
+| 7             |  23       |   8   |    True    |    False    |
+| 8             |  31       |   9   |    False   |    False    |
+
+During the fourth iteration of the loop, when x is 5, we see that total does not get 5 added to it and therefore the final answer is as we'd expect, 31.
+
+##### Break
+
+We have another, more aggressive, method to control the flow of our program, the `break`. Where `continue` allowed us to skip the rest of the loop's code block and jump directly to the next iteration of the loop, `break` allows us to manually leave the loop entirely. In this way it is very similar to the condiditon for the loop, however, since we can include it in the body of an if placed arbitrarily within the body of our loop, we don't have to check for a condition at the beginning of the loop and thereby gain more control over the flow.
+
+Time for an illustrative example. Consider trying to write a program that adds the numbers 1 through 9 but only up to 25. If the sum gets over thirty, it is set to 25 and the message, "The sum execeded the max value of 25." is printed. We could certainly do this with the tools that we already possess,however the break is certainly better suited to this situation. Let's take a look at what this implementation would look like.
+
+```python
+total, x = 0, 0
+while x <= 8:
+    x += 1
+    if total > 25:
+        total = 25
+        print('The sum execeded the max value of 25.')
+        break
+    total += x
+print(total)
+```
+
+At this point I'm confident that you are tired of looking at tables of values, but lets do this one last time for consistency under the above program specifications.
+
+| After loop #  |   total   |   x   |   x <= 8   | total > 25  | 
+| ------------- |:---------:|:-----:|:----------:|:-----------:|
+| 1             |  1        |   2   |    True    |    False    |
+| 2             |  3        |   3   |    True    |    False    |
+| 3             |  6        |   4   |    True    |    False    |
+| 4             |  10       |   5   |    True    |    False    |
+| 5             |  15       |   6   |    True    |    False    |
+| 6             |  21       |   7   |    True    |    False    |
+| 7             |  28       |   8   |    True    |    True     |
+
+At this point total is set to 25 and the message "The sum execeded the max value of 25." is printed. The loop is exited and then 25 (the value of total now) is printed to the screen.
