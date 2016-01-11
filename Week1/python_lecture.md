@@ -255,3 +255,91 @@ Ok, so, the if is cool. But it seems like, due to it's structure, there are only
 ![If Flow](http://www.tutorialspoint.com/cprogramming/images/if_statement.jpg)
 
 You can see that there are two branches created by the if statement, one when the condition is true in which case the conditional code is executed, and the other when it is false, in which case the if block is ignored. But what if we wanted to check more than one thing, have more than two branches?
+
+Python allows for two ways for us to do this. One by offering other conditionals, `elif` and `else`; and the other by allowing us to combine conditions with logical `and`, `or` and `not`.
+
+##### Elif and Else
+
+In addition to the if Python provides us with two other statements to build out those logical trees, the elif and the else. The elif is just like the if, it accepts a condition to check the truth of and has an indented code block that is executed when that condition evaluates to True. The else is similar, but it doesn't accept a condition; instead it mainly acts as a catch all for any other situation that you don't need to cover with your ifs and elifs. Note, there can only be a single if and up to a single else, but any number of elifs in an if-elif-else block. Lets take a closer look at this in the following code block that we'll store in `if_elif_else.py`.
+
+```python
+x = int(input('Please enter a number: '))
+if x < 0:
+    print('You entered a negative number.')
+elif x > 0:
+    print('You entered a positive number.')
+else:
+    print('You entered the number 0.')
+```
+
+Running the program and passing a number when prompted will cause the conditions to be checked and result in easily guessed output.
+
+```python
+In [1]: run if_elif_else.py
+Please enter a number: 10
+You entered a positive number.
+
+In [2]: run if_elif_else.py
+Please enter a number: -10
+You entered a negative number.
+
+In [3]: run if_elif_else.py
+Please enter a number: 0
+You entered the number 0.
+```
+
+Lets specifically talk about how the if-elif-else statements work. The programmers of Python designed these statements so that they would execute highly efficiently. They achieved this by making it so that which Python is going through your if-elif-else statements when it encounters a condition that evaluates to True it will execute the corresponding conditional code block and then skip to the line directly following the last conditional block in the. Lets examine this in the following code saved again in `if_elif_else.py`.
+
+```python
+x = int(input('Please enter a number: '))
+if x > 5:
+    print('You entered a number bigger than 5.')
+elif x > 0:
+    print('You entered a positive number.')
+elif x < 0:
+    print('You entered a negative number.')
+else:
+    print('You entered the number 0.')
+```
+
+Running this program produces slightly unexpected results. But they will soon make perfect sense and knowing what is going on will allow you full control over how you control the flow of your programs.
+
+```python
+In [1]: run if_elif_else.py
+Please enter a number: 5
+You entered a positive number.
+
+In [2]: run if_elif_else.py
+Please enter a number: 6
+You entered a number bigger than 5.
+```
+
+In the first example we got something unsurprising. The only condition that evaluates to true when x is 5 is the second one. However, the second example yields only 'You entered a number bigger than 5.' Even though 6 is greater than 0. This shows that only one of the conditional block in an if-elif-else statement will ever be evaluated, and once this happens the rest are skipped.
+
+*Note, the else part of the statement is actually optional. If it is not included then we'd notice that at most one of the conditional blocks in an if-else statement will be evaluated.*
+
+##### And, Or and Not
+
+There are plenty of times when we want execute some specific code when more than one condition is true. Check out the following code snippet.
+
+```python
+if x > 5:
+    if x < 10:
+        print(x)
+```
+
+We can see that what this *nested* if statement is checking for are numbers that lie in the interval (5, 10), if it finds one it prints it. We can intuitively guess that there is a better way to check for this condition. And there is!!!
+
+Python gives us full access to what are known as boolean operations. The ones that we will use most often are and, or and not. Both the `and` and `or` take two conditions as inputs while the not affects only a single condition. They all return a single boolean with the and requiring both conditions to be True to return True; the or requiring only one of the conditions to be True to return True; and the not switching the truth on the input condition. These operations are derived from formal logic with a full discussion of their intricacies found [here](https://en.wikipedia.org/wiki/Truth_table).
+
+What this means is that we now have a natural way to combine conditions. The previous nested if statement can now be written as a simple `if x > 5 and x < 10`. We can also chain other interesting conditionals together.
+
+```python
+if x > 10 or x < 5:
+    print(x)
+
+if not (x > 10 and x < 5):
+    print(x)
+```
+
+Notice how the first if in the above code snippet uses an or, printing x if it is greater than 10 or less than 5. Inherently this statement is also saying that it will print x if x is not less than 10 and greater than 5 which is expressed in the second if statement. This illustrates an important point, that there is always more than one way to accomplish the same thing in programming.
