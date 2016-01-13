@@ -10,7 +10,6 @@ At the end of Day 3:
 	* the difference between while and for loops, and when to use each
 	* how to implement loops pythonically
 	* the basics of iterables, what they are, how they relate to loops
-	* which python objects are iterables vs non-iterables
 
 At the end of Day 4	:
 
