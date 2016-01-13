@@ -22,7 +22,7 @@ At the end of Day 2:
 * You will be able to:
 	* perform operations on numeric variable types
 	* write loops to solve numerically based problems
-	* fully control the flow of your programs
+	* control the flow of your programs
     * test these ideas in the console and with scripts
 * You will understand:
 	* variable types
