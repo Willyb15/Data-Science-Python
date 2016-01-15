@@ -94,6 +94,25 @@ Out [6]: ['this', 'IS', 'my', 'STRING', 'to', 'PLAY', 'around', 'WITH.']
 
 These are some of the most commonly used string methods. We've shown you what they do by default: `.capitalize()` capitalizes the first letter of the string and lowercases the rest; `.upper()` converts all the letters in the string to uppercase, and `.lower()` to lowercase; `.replace()` replaces a given substring in your string with another given substring; finally, `.split()` splits the string by a given string (space by default). There are many more string methods availiabe, and you can check them out in the [docs]('https://docs.python.org/2/library/stdtypes.html#string-methods').
 
+Alternatively, you can find out what methods are availiable to call on strings from the IPython terminal itself (this is one of the really awesome features of IPython)! Using tab completion, if you have string stored in a variable, you can type the variable name followed by a period, and then use tab complete to see all the methods aviliable for strings! 
+
+```python 
+In [1]: my_str.  # Hit tab now! 
+
+my_str.capitalize  my_str.isalnum     my_str.lstrip      my_str.splitlines
+my_str.center      my_str.isalpha     my_str.partition   my_str.startswith
+my_str.count       my_str.isdigit     my_str.replace     my_str.strip
+my_str.decode      my_str.islower     my_str.rfind       my_str.swapcase
+my_str.encode      my_str.isspace     my_str.rindex      my_str.title
+my_str.endswith    my_str.istitle     my_str.rjust       my_str.translate
+my_str.expandtabs  my_str.isupper     my_str.rpartition  my_str.upper
+my_str.find        my_str.join        my_str.rsplit      my_str.zfill
+my_str.format      my_str.ljust       my_str.rstrip      
+my_str.index       my_str.lower       my_str.split
+```
+
+**Note**: This works for all of our variable types!
+
 ### Working with individual characters in strings 
 
 We know how to work with an entire string via some of the methods that we've discussed, but what if we wanted to work with the individual characters? There are a couple of ways to do this, but the first we'll focus on is through indexing. We know that to Python, a string is just a collection of characters, and it turns out that we can access the individual characters simply by asking Python for a given numbered element in our collection (i.e. the string).  We do this by placing the element number that we want in brackets right after our string (or variable, if it's stored in one). This element number is referred to as the **index** that the character (or element, if it's not a string) is at. 
