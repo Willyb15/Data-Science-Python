@@ -376,4 +376,8 @@ In [2]: for idx, num in enumerate(my_lst):
 4 5
 ```
 
-Neat, huh!? The trick here is that when we call `enumerate()` on our list, `enumerate()` gives us back two values at each iteration through the loop. The first value is the current index (which we chose to store as `idx` above), and the second value is the current element of the list (which we chose to store as `num`). 
+Neat, huh!? The trick here is that when we call `enumerate()` on our list, `enumerate()` gives us back two values at each iteration through the loop. The first value is the current index (which we chose to store as `idx` above), and the second value is the current element of the list (which we chose to store as `num`). Note how `idx` tracks one behind `num`... this is because `idx` starts at 0 and `num` starts at 1. 
+
+### The Magic of Iterables
+
+Strings and lists are two kinds of iterables that we have looked at today. There are many other kinds of iterables that we'll work with in Python, and you can even define your own iterable if you'd like. The important thing that we want to note for now, though, is that the `for` loops that we have looked at today will work for any iterable. You can simply write `for my_var in iterable:`, and at each iteration through the loop you will be able to access another element from the iterable. 
