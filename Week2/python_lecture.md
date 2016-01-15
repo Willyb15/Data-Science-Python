@@ -260,5 +260,120 @@ In [1]: my_lst_of_lsts = [[1, 2, 3], ['str1', 'str2', 'str3'], [1, 'mixed', 3]]
 In [2]: my_lst_of_lsts
 Out [2]: [[1, 2, 3], ['str1', 'str2', 'str3'], [1, 'mixed', 3]] 
 ```
+### List Operations
 
+Just as we have  operations (methods) that we can use on strings, we also have them for lists! Here are some of the most common operations that we have availiable for lists... 
 
+```python 
+In [1]: my_lst = [1, 2, 3, 4]
+
+In [2]: my_lst.append(5)
+
+In [3]: my_lst
+Out [3]: [1, 2, 3, 4, 5]
+
+In [4]: my_lst.pop()
+Out [4]: 5 # my_lst now holds [1, 2, 3, 4]
+
+In [5]: my_lst.remove(4)
+
+In [6]: my_lst
+Out [6]: [1, 2, 3]
+
+In [7]: my_lst.reverse()
+
+In [8]: my_lst
+Out [8]: [3, 2, 1]
+
+In [9]: my_lst.sort()
+
+In [10]: my_lst
+Out [10]: [1, 2, 3]
+```
+
+For most of these, you might be able to guess what they do: `.append()` adds an element to the end of the list; `.pop()` removes the last element from the list and returns it back; `.remove()` will remove a given element from the list; `.reverse()` will reverse the elements of the list, in place; and `.sort()` will sort the elements of the list, in place.
+
+Just as we can use tab complete in IPython to see all the availiable methods for strings, we can also do this with lists! 
+
+```python 
+In [1]: my_lst. # Hit tab now!
+
+my_lst.append   my_lst.index    my_lst.remove   
+my_lst.count    my_lst.insert   my_lst.reverse  
+my_lst.extend   my_lst.pop      my_lst.sort
+```
+
+### Working with Individual Elements in Lists
+
+Working with individual elements in a list works the same way as working with them in strings. 
+
+```python
+In [1]: my_lst = [1, 2, 'hello', 'goodbye']
+
+In [2]: my_lst[1]
+Out [2]: 2 
+
+In [3]: my_lst[2:3]
+Out [3]: ['hello'] 
+
+In [4]: my_lst[:]
+Out [4]: [1, 2, 'hello', 'goodbye'] 
+
+In [5]: my_lst[-1]
+Out [5]: 'goodbye' 
+```
+
+**Note**: Remember that the ending index is non-inclusive. 
+
+Just as with strings, We can also add a 3rd number to our list indexing step through the list and only grab certain elements. 
+
+```python 
+In [1]: my_lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+In [2]: my_lst[::3]
+Out [2]: [1, 4, 7, 10]
+
+In [3]: my_lst[4::2]
+Out [3]: [5, 7, 9] 
+
+In [4]: my_lst[:4:3]
+Out [4]: [1, 4] 
+```
+
+### Lists and Iteration
+
+We can also iterate through lists in the same way that we can iterate through strings. I'll only show the final, efficient way that we use to iterate through lists below. 
+
+```python 
+In [1]: my_lst = [1, 2, 3, 4, 5]
+
+In [2]: for num in my_lst: 
+   ...:     print num 
+   ...: 
+1
+2
+3
+4
+5
+```
+
+So just as in the case of iterating through our strings, our `for` loop unpacks all of the values in our iterable (this time a `list`), and then places those values into the variable name we give (`num`) at each iteration of the loop. 
+
+What if I absolutely need the indices, though? Is there a way that I can still iterate through using this way you're telling me is Pythonic and still get the indices, too?? Yes!
+
+There is a function, `enumerate()`, that will allow you to iterate through a list or string (grabbing each of the individual elements in the list or characters in the string) while at the same time keeping track of the index. The trick is that instead of using just one varaible (such as `num` above) to store the elements of the list as you loop through them, you use two variables. One of these variables stores the current index, and the other element stores the current element of the list you're on. Let's see how it works...
+
+```python 
+In [1]: my_lst = [1, 2, 3, 4, 5]
+
+In [2]: for idx, num in enumerate(my_lst): 
+   ...:     print idx, num
+   ...: 
+0 1
+1 2
+2 3
+3 4
+4 5
+```
+
+Neat, huh!? The trick here is that when we call `enumerate()` on our list, `enumerate()` gives us back two values at each iteration through the loop. The first value is the current index (which we chose to store as `idx` above), and the second value is the current element of the list (which we chose to store as `num`). 
