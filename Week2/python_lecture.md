@@ -1,7 +1,7 @@
 ## Introduction to Strings and Lists
 
-### Strings
-Today we are going to learn about another pretty common varaible type, strings. From a high-level perspective, a string is just a bit of text. This could be text that you have read in from a file, html that you pulled from the internet, or any other text. From Python's perspective, a string (type `str`) is simply a collection of encoded characters. Wait, what's an encoding...?
+### Intro to Strings
+Today we are going to learn about another pretty common data type, strings. From a high-level perspective, a string is just a bit of text. This could be text that you have read in from a file, html that you pulled from the internet, or any other text. From Python's perspective, a string (type `str`) is simply a collection of encoded characters. Wait, what's an encoding...?
 
 An encoding is just a fancy way of us saying that the characters in our string follow a certain format, or structure. The reason it matters for us in terms of our Python programs, though, is that Python expects that our strings are in one of a couple of different encodings (either ASCII, utf-8, or unicode). This isn't something you will run into often, and especially not when defining your own strings (it's probably most prevelant when pulling text from the Internet). However, it's worth noting because there is a good chance that sometime in your Python career, you will end up with Python telling you it doesn't recognize a certain character in one of your strings, and an unexpected encoding will most likely be at the heart of that error. 
 
@@ -217,6 +217,29 @@ Why is it more Pythonic? That's a good question. When we say that something is m
 
 Well, we can see that it is more readable since we don't have to index into our string anymore. This means that there is less to follow along with and keep track of; rather than keeping track of both the current index we are on and what letter that index corresponds to in our string, all we have to keep track of is the current letter we're on. We can also just note that our code looks cleaner, too. In terms of making our code more optimal, since we no longer have to index into the string to grab characters, we have fewer steps in each iteration of the loop. This means less work for Python to do, which means that our code will run faster. 
 
+### Intro to Lists
 
+Lists are a more complex type of data structure. From a high level, lists are a collection of ordered items. These items can be any type, and a list can contain items of different types. You can construct a list if one of two ways. The first is simply by passing in an arbitrary number of variables or data structures into square brackets. The second is by passing in an iterable into the `list()` constructor (we'll discuss exactly what an iterable and constructor are later). For example... 
+
+```python 
+In [1]: my_first_lst = [1, 'hello', 3, 'goodbye']
+
+In [2]: my_first_lst
+Out [2]: [1, 'hello', 3, 'goodbye']
+
+In [3]: my_second_lst = list('hello')
+
+In [4]: my_second_lst 
+Out [4]: ['h', 'e', 'l', 'l', 'o']
+```
+
+Note that when we pass an iterable to the `list()` constructor, it breaks up each individual element in the iterable into a separate element in the list. Also, note again that we are able to place multiple different types of data structures into our lists. If we wanted to, we could even create a list of lists (and later we'll see we can make lists of any of the other data structures we learn).  
+
+```python 
+In [1]: my_lst_of_lsts = [[1, 2, 3], ['str1', 'str2', 'str3'], [1, 'mixed', 3]]
+
+In [2]: my_lst_of_lsts
+Out [2]: [[1, 2, 3], ['str1', 'str2', 'str3'], [1, 'mixed', 3]] 
+```
 
 
