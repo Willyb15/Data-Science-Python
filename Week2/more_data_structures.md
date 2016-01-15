@@ -92,3 +92,128 @@ Out[3]: (1, [1, 2, 3])
 ```
 
 One last thing to note is that since tuples are immutable they very few methods associated with them, only `count()` and `index()`. For this reason we say that they are very lightweight, aka they don't take up much space in memory, but also don't have much built in functionality.
+
+### Dictionaries
+
+So far the only collections that we have talked about are ordered and these are great if there is some intrinsic order to that data that we're storing in them. However, there are plenty of times when we don't care about order, either because it simply doesn't matter or because the data is associated with each other in a different way. For example say we have a bunch of state names and we want to associate their capital. How would we do this in a list? One way would be to have tuples that store the state and it's capital together.
+
+```python
+states_caps = [('Georgia', 'Atlanta'), ('Colorado', 'Denver'), ('Indiana', 'Indianapolis')]
+```
+
+But there are limits to how intuitive this storage method is. Consider that, if we wanted to find the capital of Indiana, we would have to search through the entire list checking to see if Indiana is in the first position of each tuple, and when/if we found it, then grab the second position of that tuple.
+
+```python
+search_state = 'Indiana'
+capital = 'State not found'
+for state_cap in states_caps:
+    if state_cap[0] == search_state:
+        capital = state_cap[1]
+        break
+print(capital)
+```
+
+While this isn't horrible, we can do better. Python to the rescue!!!
+
+The dictionary data structure in Python allows us to store data in exactly the way that we wanted, storing a value associated with a keyword. In the example above we wanted to store the capital as the value associated with each state keyword. There are many ways to instantiate a dictionary. Lets look at the simplest way first.
+
+```python
+In [1]: states_caps_dict = {'Georgia': 'Atlanta', 'Colorado': 'Denver', 'Indiana': 'Indianapolis'}
+
+In [2]: states_caps_dict
+Out[2]: {'Colorado': 'Denver', 'Georgia': 'Atlanta', 'Indiana': 'Indianapolis'}
+```
+
+See how it looks very similar to the way the we made lists and tuples, expect now we use curly braces and there is this new use of colons, `:`. On the left side of each colon we have the keyword, and on the right the value associated with it. Each *key-value* pair, as we call them, is separated by a comma.
+
+So how do we use these things once we have them? Lets take the example from above and say we're trying to figure out what the capital of Indiana is. With a list of tuples we had to search through to find the entry with 'Indiana' in the first position and then grab the second entry in that tuple. With dictionaries it's way simpler!
+
+```python
+In [1]: states_caps_dict = {'Georgia': 'Atlanta', 'Colorado': 'Denver', 'Indiana': 'Indianapolis'}
+
+In [2]: states_caps_dict['Indiana']
+Out[2]: 'Indianapolis'
+
+In [3]: states_caps_dict['Washington']
+---------------------------------------------------------------------------
+KeyError                                  Traceback (most recent call last)
+<ipython-input-3-96fac88f6748> in <module>()
+----> 1 states_caps_dict['Washington']
+
+KeyError: 'Washington'
+```
+
+All we had to do was index into the dictionary, like we did with lists, but this time with the keyword, and the dictionary returns the associated value. Notice how, if we tried to find a keyword that wasn't already in the dictionary with `[]` indexing we get a `KeyError` telling us that that key is not stored in the dictionary. 
+
+This shouldn't happen to frequently, because we often know exactly what the keys in our dictionaries are. However, there are times when we don't know if a keyword is in the dictionary already. For these times we luckily have the `get()` method. This method takes the keyword you're trying to find and a default return value to hand back if the key doesn't exist.
+
+```python
+In [4]: states_caps_dict.get('Washington', 'State not found')
+Out[4]: 'State not found'
+```
+
+Above we asked `states_caps_dict` for the value associated with the key `'Washington'`, and told it to return `'State not found'` if the keyword wasn't in the dictionary. And lo-and-behold, we get back `'State not found'` which makes sense because we knew that `'Washington'` wasn't in the dictionary.
+
+#### Mutability of Dictionaries
+
+At this point a question that could be on your mind couple be, are dictionaries mutable? Well, first, great question. And, second, yes, yes they are! Before we talk about how to mutate them, lets describe dictionaries in the language that we used for lists and tuples. A dictionary is defined as an unordered collection of key-value pairs that require unique keys.
+
+With that in mind, lets recall how we mutated a list. To change an element at an existing index we just indexed into the list and did assignment. To make them bigger we used the `append()` method. This method of mutation made a lot of sense considering that lists are ordered. So, in the unordered paradigm where dictionaries live to either change/add a key-value pair to a dictionary all you have to do index into it with the existing/new, respectively, key and assign the value to it. Lets take a look.
+
+```python
+In [1]: my_dict = {'thing': 1, 'other': 2}
+
+In [2]: my_dict['thing']
+Out[2]: 1
+
+In [3]: my_dict['thing'] = 3
+
+In [4]: my_dict['thing']
+Out[4]: 3
+
+In [5]: my_dict['thingy'] = 4
+
+In [6]: my_dict['thingy']
+Out[6]: 4
+
+In [7]: my_dict
+Out[7]: {'other': 2, 'thing': 3, 'thingy': 4}
+```
+
+#### Caveat to Dictionary Keys, More on Mutability
+
+We have learned that dictionaries make it easy to store key-value relationships in a single data structure that is designed for easy value retrieval. So, what are the restrictions on things you can put in a dictionary? As for the values, like in lists, there are none! But the keys those values are associated with, that's a different story.
+
+Keys in dictionaries **must** be an immutable type, and if that type is an container then the container cannot contain any mutable types. Why is this the case? The answer lies in the way that dictionaries store values and associate them with a key under the hood.
+
+Python dictionaries are an implementation of what's known as a *hash map* or *hash table* ([here's](https://en.wikipedia.org/wiki/Hash_table) the wikipedia page for them if you want to learn more). This computer science idea is basically a function that relates any input, in our case the keys, to a location in memory. Thus, retrieval of a value from a dictionary is entirely dependent on what the key originally associated with it was. The consequence of this is that, if we were to use a mutable type as the key for a dictionary and later changed what that key looked like by mutating it, the dictionary wouldn't be able to find the value it was supposed to associate with that key; because that key is no longer the key it was.
+
+```python
+# Original key
+my_bad_key = ['key']
+
+# Dictionary declared with a list as a key
+my_dict = {my_bad_key: 'This wont work'}
+
+# Let's change that key
+my_bad_key[0] = ['other_key']
+
+# How is the dictionary supposed to know what we're looking for???
+my_dict[my_bad_key]
+```
+
+This idea is so important that Python doesn't leave it up to you to remember to make keys types that are immutable. It just flat out wont let you do it.
+
+```python
+In [1]: my_bad_key = ['key']
+
+In [2]: my_dict = {my_bad_key: 'This wont work'}
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-2-a1fb4b3621ba> in <module>()
+----> 1 my_dict = {my_bad_key: 'This wont work'}
+
+TypeError: unhashable type: 'list'
+```
+
+The above code attempts to set a list as a key to a dictionary. Luckily it throws an error as soon as we try, telling us that it can't hash a list, read: list's aren't immutable.
