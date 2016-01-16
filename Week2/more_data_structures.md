@@ -217,3 +217,79 @@ TypeError: unhashable type: 'list'
 ```
 
 The above code attempts to set a list as a key to a dictionary. Luckily it throws an error as soon as we try, telling us that it can't hash a list, read: list's aren't immutable.
+
+#### Getting More Out of Dictionaries
+
+We now know how to make and alter dictionaries and how to use them to store arbitrary key-value pairs; let's talk about how to use them with loops.
+
+As with lists and tuples, dictionaries are iterables in Python. This means that Python knows how to traverse everything that's stored in the collection. The way we did this with list was with a `for` loop. We will again use the `for` loop with dictionaries, however there are a few changes in how it's implemented because dictionaries are unordered key-value pairs whereas lists are ordered collections of values.
+
+Lets revisit how we traverse a list with a `for` loop. Consider the following code that only prints the even numbers between 0 and 9.
+
+```python
+for element in range(10):
+    if element % 2 == 0:
+        print(element)
+```
+
+This specific syntax makes sense because, one at a time, we want to check each value in the list, each time we grab one we give it the name `element`, and check if it's even, printing that value if it is. It's the one at a time part that I want to call you're attention to, lists are an ordered collection of values; dictionaries on the other hand have keys and values that are tied together. However, if we were to traverse a dictionary with a for loop we expect to only get one of these out. Naturally it's the keys.
+
+```python
+In [1]: states_caps_dict = {'Georgia': 'Atlanta', 'Colorado': 'Denver', 'Indiana': 'Indianapolis'}
+
+In [2]: for thing in states_caps_dict:
+   ...:     print(thing)
+
+Georgia
+Indiana
+Colorado
+```
+
+In addition to the states, aka the keys, being what is accessed when looping over a dictionary, notice that they aren't in the order that we we created the dictionary in. Remember that dictionaries are unordered?? Here we see a direct ramification of that fact; we are not guaranteed an particular order when accessing a dictionaries keys. It's not necessarily a problem, just something that's good to know.
+
+The natural question then is to want to loop through all of the values. This can be done with the aptly named `values()` method on dictionaries.
+
+```python
+In [1]: states_caps_dict = {'Georgia': 'Atlanta', 'Colorado': 'Denver', 'Indiana': 'Indianapolis'}
+
+In [2]: for value in states_caps_dict.values():
+   ...:     print(value)
+
+Atlanta
+Indianapolis
+Denver
+```
+
+We can see that all of the capitals, the values, in the dictionary, are printed, again in no particular order. One thing to know is that there is an analogue to values for keys, `keys()` that explicitly does exactly what we saw above when we just looped through the dictionary.
+
+This is a very useful feature, but we can get better! One of the most useful ways to loop through the contents of a dictionary is by getting each key-value pair together in turn within the loop. The `items()` methods does exactly this. To use it we will employ the same syntax as we did with `enumerate`.
+
+```python
+In [1]: states_caps_dict = {'Georgia': 'Atlanta', 'Colorado': 'Denver', 'Indiana': 'Indianapolis'}
+
+In [2]: for state, capital in states_caps_dict.items():
+    print(state, capital)
+
+Colorado Denver
+Indiana Indianapolis
+Georgia Atlanta
+```
+
+This is awesome! But as a learning tangent, lets see what's happening when we use this syntax. As above we are going to use the `items()` method, but this time not sure state *and* capital.
+
+```python
+In [1]: states_caps_dict = {'Georgia': 'Atlanta', 'Colorado': 'Denver', 'Indiana': 'Indianapolis'}
+
+In [2]: for thing in states_caps_dict.items():
+    print(thing)
+   ...:     
+('Georgia', 'Atlanta')
+('Indiana', 'Indianapolis')
+('Colorado', 'Denver')
+```
+
+Now that we're only using only a single variable to grab the output of `items()`, we can clearly see that the method is outputting a tuple. So what was happening when we used `state` and `capital` to grab the output?? Very frequently we want to put the separate values a collection stores into different variables. This happens so frequently, in fact that Python has a built way to do it quickly called **unpacking**. 
+
+So, when, Python sees the two variable names `state` and `capital` in the first implementation, it knows to take the values in the tuple returned from `items()` and put the first one in `state` and the second in `capital`. This is what was happening when you called enumerate, it returned a tuple with the number value it was on, and the value itself. It is up to you whether or not to grab those values in a single variable as a tuple or have Python unpack it for you into two variables. 
+
+`Note, Python will not allow you to "unpack" a single variable into multiple.`
