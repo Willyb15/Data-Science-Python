@@ -31,9 +31,7 @@ x = 2
 
 How can numerics be immutable while, simultaneously, you can change the value of a numeric variable? What's really going on under the hood when you assign to a variable is Python puts that value or data structure in memory, then simply associates the variable name with that value or data structure. Changing a variable then simply amount to associating that name with a different thing in memory.
 
-Using this same logic, it shouldn't be too hard to explain to yourself why strings are immutable as well. The contents of that string are put in memory and the variable name you want to use is associated with that string. When you want to change the variable to a different string, Python simply associates that name with a different, also immutable string.
-
-`Note, the discussion of Python having names, [here](http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html#python-has-names) is really good if you're looking for more clarification.`
+Using this same logic, it shouldn't be too hard to explain to yourself why strings are immutable as well. The contents of that string are put in memory and the variable name you want to use is associated with that string. When you want to change the variable to a different string, Python simply associates that name with a different, also immutable string. *Note, the discussion of Python having names, [here](http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html#python-has-names) is really good if you're looking for more clarification.*
 
 Lists, on the other hand, are mutable. What this really means is that you can change the structure of the list in addition to the names of the things that are in the list (notice the specific use of names there, we'll come back to that in the next section).
 
@@ -56,7 +54,7 @@ for element in some_collection:
         evens.append(element)
 ```
 
-We could try to do this with evens as a tuple instead of a list with `evens = ()`, but once we tried to run our code we would immediately get an error that says `AttributeError: 'tuple' object has no attribute 'append'` The error message is pretty self explanatory, in plain English it tells us that tuples have no ability to append. This is just as we expected given that they are immutable. (There are ways around constructing tuples with more complicated contents without first storing things in a list, we will talk about them later in the course).
+We could try to do this with evens as a tuple instead of a list with `evens = ()`, but once we tried to run our code we would immediately get an error that says `AttributeError: 'tuple' object has no attribute 'append'`. The error message is pretty self explanatory, in plain English it tells us that tuples have no ability to append. This is just as we expected given that they are immutable. (There are ways around constructing tuples with more complicated contents without first storing things in a list, we will talk about them later in the course).
 
 You might be asking yourself, what can a tuple store? The answer is, just as with lists, anything! And just as with lists built in Python containers can all be either homogeneous or heterogeneous (know though, that there structures available that enforce homogeneity). Lets take a look at some of the things we can store. 
 
@@ -135,10 +133,9 @@ In [2]: states_caps_dict['Indiana']
 Out[2]: 'Indianapolis'
 
 In [3]: states_caps_dict['Washington']
----------------------------------------------------------------------------
 KeyError                                  Traceback (most recent call last)
 <ipython-input-3-96fac88f6748> in <module>()
-----> 1 states_caps_dict['Washington']
+    > 1 states_caps_dict['Washington']
 
 KeyError: 'Washington'
 ```
@@ -208,10 +205,9 @@ This idea is so important that Python doesn't leave it up to you to remember to 
 In [1]: my_bad_key = ['key']
 
 In [2]: my_dict = {my_bad_key: 'This wont work'}
----------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
 <ipython-input-2-a1fb4b3621ba> in <module>()
-----> 1 my_dict = {my_bad_key: 'This wont work'}
+    > 1 my_dict = {my_bad_key: 'This wont work'}
 
 TypeError: unhashable type: 'list'
 ```
@@ -262,7 +258,7 @@ Denver
 
 We can see that all of the capitals, the values, in the dictionary, are printed, again in no particular order. One thing to know is that there is an analogue to values for keys, `keys()` that explicitly does exactly what we saw above when we just looped through the dictionary.
 
-This is a very useful feature, but we can get better! One of the most useful ways to loop through the contents of a dictionary is by getting each key-value pair together in turn within the loop. The `items()` methods does exactly this. To use it we will employ the same syntax as we did with `enumerate`.
+This is a very useful feature, but we can get better! One of the most useful ways to loop through the contents of a dictionary is by getting each key-value pair together in turn within the loop. The `items()` methods does exactly this. To use it we will employ the same syntax as we did with `enumerate()`.
 
 ```python
 In [1]: states_caps_dict = {'Georgia': 'Atlanta', 'Colorado': 'Denver', 'Indiana': 'Indianapolis'}
@@ -311,7 +307,7 @@ In [3]: my_set == my_other_set
 Out[3]: True
 ```
 
-Here we see the two ways we have to make sets, both with the constructor, which takes an iterable, and with the syntactic sugary curly braces (*Note, the curly braces are also used for dictionaries. In those we had a colon separating the keywords and values, which is how Python determines whether or not you're declaring a set or a dictionary. The only place where identifier isn't present is when declaring an empty structure. When this happens Python can't figure out if you want a dictionary or a set. For this reason, the empty curly braces `{}` always mean an empty dictionary to remove ambiguity.*). Sets with the same items in them will evaluate as equal.
+Here we see the two ways we have to make sets, both with the constructor, which takes an iterable, and with the syntactic sugary curly braces (*Note, the curly braces are also used for dictionaries. In those we had a colon separating the keywords and values, which is how Python determines whether or not you're declaring a set or a dictionary. The only place where identifier isn't present is when declaring an empty structure. When this happens Python can't figure out if you want a dictionary or a set. For this reason, the empty curly braces `{}` always mean an empty dictionary to remove ambiguity*). Sets with the same items in them will evaluate as equal.
 
 If we take a look at the methods that are available on sets we see:
 ```
@@ -331,23 +327,19 @@ In [1]: my_set, my_other_set = {1, 2, 3}, {5, 6, 7}
 In [2]: my_set.union(my_other_set)
 Out[2]: {1, 2, 3, 5, 6, 7}
 
-In [3]: my_set.add(4)
+In [3]: my_set.add(4) # {1, 2, 3, 4}
 
-In [4]: my_set
-Out[4]: {1, 2, 3, 4}
+In [4]: my_set.update(my_other_set) # {1, 2, 3, 4, 5, 6, 7}
 
-In [5]: my_set.update(my_other_set)
+In [5]: my_set.remove(5) # {1, 2, 3, 4, 6, 7}
 
-In [6]: my_set
-Out[6]: {1, 2, 3, 4, 5, 6, 7}
+In [6]: my_set.intersection(my_other_set)
+Out[6]: {6, 7}
 
-In [7]: my_set.remove(5)
+In [7]: element = my_set.pop(6) # {1, 2, 3, 4, 7}
 
-In [8]: my_set
-Out[8]: {1, 2, 3, 4, 6, 7}
-
-In [9]: my_set.intersection(my_other_set)
-Out[9]: {6, 7}
+In [8]: element
+Out[7]: 7
 ```
 
 All of these methods should look fairly intuitive. The only difference between `pop()` and `remove()` is that pop returns the value that was removed. The `update()` method is like an `add()` en masse. The `union()` method is like adding two sets together, but since there are only unique elements in a set, it removes duplicates. The `intersection()` method return those elements that the sets have in common.
@@ -360,7 +352,7 @@ Alright, that's cool, but when would I use a set, you might be asking. And that'
 
 Remember, when discussing dictionaries above, we talked about how checking if an item is in a list requires us to check every item in the list? This can be computationally expensive and generally we want to avoid it. What do we do instead then? 
 
-We use a set! The reason why lies in the fact that sets in Python are built very similarly to dictionaries. There's an underlying hash table that allows elements to be stored, and, more importantly, queried for membership within a set (*Note, this means that the elements of a set have to be immutable*). This operation happens much faster than with lists ([here's](https://wiki.python.org/moin/TimeComplexity) some coverage on how quickly some Python methods run). Lets take a look at this in action, and simultaneously learn about how to time things in IPython.
+We use a set! The reason why lies in the fact that sets in Python are built very similarly to dictionaries. There's an underlying hash table that allows elements to be stored, and, more importantly, queried for membership within a set (*Note, this means that the elements of a set have to be immutable*). This operation happens much faster with sets than with lists ([here's](https://wiki.python.org/moin/TimeComplexity) some coverage on how quickly some Python methods run). Lets take a look at this in action, and simultaneously learn about how to time things in IPython.
 
 ```python
 In [1]: my_list = range(10000)
