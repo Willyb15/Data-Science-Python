@@ -1,10 +1,10 @@
 ## Introduction to Strings and Lists
 
-Last week we learned about how to use Python's power with `while` loops and conditional, operating on some simple built in numeric types. Today we are going to learn about a couple of data structures that will continue to build up your power in Python and we'll learn about a new type of loop.
+Last week we learned about how to use Python's power with `while` loops and conditional, operating on some simple built in numeric types. Today we are going to learn about a couple of data structures that will continue to build up your power in Python, and we'll learn about a new type of loop.
 
 ### Strings
 
-Today we are going to learn about another common data type, strings. From a high-level perspective, a string is just a bit of text. This could be text that you have read in from a file, html that you pulled from the Internet, or any other text. From Python's perspective, a string (type `str`) is simply a collection of encoded characters. Wait, what's an encoding...?
+Today we are going to learn about another common data type, strings. From a high-level perspective, a string is just a bit of text. This could be text that you have read in from a file, html that you have pulled from the Internet, or any other text. From Python's perspective, a string (type `str`) is simply a collection of encoded characters. Wait, what's an encoding...?
 
 An encoding is just a fancy way of us saying that the characters in our string follow a certain format, or structure. The reason it matters for us in terms of our Python programs, though, is that Python expects our strings to be in one of a couple of different encodings (either `ASCII`, `utf-8`, or `unicode`). This isn't something you will run into often, and especially not when defining your own strings (it's probably most prevalent when pulling text from the Internet). However, it's worth noting because there is a good chance that sometime in your Python career, you will end up with Python telling you it doesn't recognize a certain character in one of your strings, and an unexpected encoding will most likely be at the heart of that error. 
 
@@ -72,7 +72,7 @@ In [1]: ' Repeating string Repeating string Repeating string '.strip()
 Out[2]: 'Repeating string Repeating string Repeating string'
 ```
 
-So what did the `strip()` method do? In the first example, it removed the trailing space from the string. In the second example, it removed both the leading and trailing spaces. In fact this is exactly what the `strip()` method does - by default (without any arguments) it removes leading and trailing whitespace (*Note, the method can actually remove any leading or trailing characters if you pass them to `strip()`, but whitespace is the defult character type that it removes*). 
+So what did the `strip()` method do? In the first example, it removed the trailing space from the string. In the second example, it removed both the leading and trailing spaces. In fact this is exactly what the `strip()` method does - by default (without any arguments) it removes leading and trailing whitespace (*note, the method can actually remove any leading or trailing characters if you pass them to `strip()`, but whitespace is the default character that it removes*). 
 
 Are there other things that we can do with strings? There are tons! Let's store our string in a variable below, so we can get some exposure working with strings in variables. 
 
@@ -95,7 +95,7 @@ In [6]: my_str_variable.split()
 Out[6]: ['this', 'IS', 'my', 'STRING', 'to', 'PLAY', 'around', 'WITH.']
 ```
 
-These are some of the most commonly used string methods. You can see above what they do by default: `capitalize()` capitalizes the first letter of the string and lowercases the rest; `upper()` converts all the letters in the string to uppercase, and `lower()` to lowercase; `replace()` replaces a given substring in your string with another given substring; finally, `split()` splits the string by an inputted string (whitespace by default, just as with strip). There are many more string methods available, and you can check them out in the [docs](https://docs.python.org/2/library/stdtypes.html#string-methods).
+These are some of the most commonly used string methods. You can see above what they do by default: `capitalize()` capitalizes the first letter of the string and lowercases the rest; `upper()` converts all the letters in the string to uppercase, and `lower()` to lowercase; `replace()` replaces a given substring in your string with another given substring; finally, `split()` splits the string by an inputted string (whitespace by default, just as with `strip()`). There are many more string methods available, and you can check them out in the [docs](https://docs.python.org/2/library/stdtypes.html#string-methods).
 
 Alternatively, you can find out what methods are available to call on strings from the IPython terminal itself (this is one of the really awesome features of IPython)! Using tab completion, if you have a string stored in a variable, you can type the variable name followed by a period, and then use tab complete to see all the methods available for strings! 
 
@@ -114,7 +114,7 @@ my_str.format      my_str.ljust       my_str.rstrip
 my_str.index       my_str.lower       my_str.split
 ```
 
-**Note**: This works for all of our variable types! Not only that, we can tab complete the names of variables in that IPython currently knows about, we call this the **namespace**.
+**Note**: This works for all of our variable types! Not only that, but we can also tab complete the names of the variables that IPython currently knows about (those in the **namespace**).
 
 #### Working with individual characters in strings 
 
@@ -136,7 +136,7 @@ In [5]: my_str_varaible[-3]
 Out[5]: 'i'
 ```
 
-Using indices like this, we can access any element of a string. But why is the element at index 1 `e`, and not `T`? After all, `T` is the first element in the string. Also, what are those negative numbers doing? In the case of the former, it turns out that Python (and many programming languages) starts indexing at 0, which means that the first element in our string (and any collection that supports indexing) is accessed via indexing at 0. We refer to languages that work this way as, **zero indexed**. As for the negative numbers, this is a way to access elements starting from the end of the string, rather than the beginning. Indexing from the end starts from -1 and continues downwards from there. So we would use -2 to access the `n` in the string. 
+Using indices like this, we can access any element of a string. But why is the element at index 1 `e`, and not `T`? After all, `T` is the first element in the string. Also, what are those negative numbers doing? In the case of the former, it turns out that Python (and many programming languages) starts indexing at 0, which means that the first element in our string (and any collection that supports indexing) is accessed via indexing at 0. We refer to languages that work this way as **zero indexed**. As for the negative numbers, this is a way to access elements starting from the end of the string, rather than the beginning. Indexing from the end starts from -1 and continues downwards from there. So we would use -2 to access the `n` in the string. 
 
 Note that we can also access any given number of the characters (any **substring**) by combining multiple index numbers separated by a colon `:`. For example: 
 
@@ -159,9 +159,9 @@ In [6]: my_str_variable[:-1]
 Out[6]: 'Test Strin'
 ```
 
-Okay, cool! You might notice, though, that when indexing from `[1:3]`, only the letters at index 1 and 2 are returned; and when indexing from `[5:9]`, we get the letters at indices 5, 6, 7, and 8. This is because the indices that you pass in are inclusive on the left side, and exclusive on the right side. This means that when you index, you will grab letters from the starting index that you give up to but not including letters at the ending index that you give. Also, what about those last two examples, where there isn't an ending index and then no starting one? If you don't give an ending index, then Python assumes that your ending index is the last index in the string, and if you don't give a starting index, Python assumes that your starting index is the first index in the string, which is actually the zeroth index in Python (don't worry if this feels confusing, you'll get used to it quickly).
+Okay, cool! You might notice, though, that when indexing from `[1:3]`, only the letters at index 1 and 2 are returned; and when indexing from `[5:9]`, we get the letters at indices 5, 6, 7, and 8. This is because the indices that you pass in are inclusive on the left side, and exclusive on the right side. This means that when you index, you will grab letters from the starting index that you give up to but not including letters at the ending index that you give. Also, what about those last two examples, where there isn't an ending index and then no starting one? If you don't give an ending index, then Python assumes that your ending index is the last index in the string, and if you don't give a starting index, Python assumes that your starting index is the first index in the string, which again is the zeroth index in Python (don't worry if this feels confusing, you'll get used to it quickly).
 
-Is there a way that to grab elements at regular intervals in a string? For example, what if we wanted to grab every second letter? Python allows you to do this by passing in an optional third number while indexing. This optional third number, also separated by a colon (`:`), tells Python the step size by which to move through the string when indexing. So, if you wanted to grab every second letter from the beginning to end, we could index with `[::2]`. If we wanted to grab every 3rd letter from the letter at index 2 to the letter at index 10, we could use the indexing `[2:10:3]`. 
+Is there a way to grab elements at regular intervals in a string? For example, what if we wanted to grab every second letter? Python allows you to do this by passing in an optional third number while indexing. This optional third number, also separated by a colon (`:`), tells Python the step size by which to move through the string when indexing. So, if you wanted to grab every second letter from the beginning to end, we could index with `[::2]`. If we wanted to grab every 3rd letter from the letter at index 2 to the letter at index 10, we could use the indexing `[2:10:3]`. 
 
 ```python 
 In [1] my_str_variable = 'Test String'
@@ -177,7 +177,7 @@ Got it, enough indexing already! Is there a way to cycle (or step through) each 
 
 #### Iteration and Strings
 
-We can cycle through all of the letters in our string (a process called **iteration**) in one of a couple of different ways. Let's first look at cycling through with a `while` loop, since we've worked with those last week. 
+We can cycle through all of the letters in our string (a process called **iteration**) in one of a couple of different ways. Let's first look at cycling through with a `while` loop, since we worked with those last week. 
 
 ```python 
 my_str, idx = 'hello', 0
@@ -213,7 +213,7 @@ my_str = 'hello'
 for idx in range(len(my_str)): 
     print my_str[idx]
 ```
-**Note**: the `range()` function (which we will cover in more depth when we get to functions) as used above simply gives us a list of numbers from 0 up to but not including the inputted number. So here, since `len(my_str)` is 5, so `range(len(my_str))` returns a list of integers from 0 to 4. 
+**Note**: the `range()` function (which we will cover in more depth when we get to functions) as used above simply gives us a list of numbers from 0 up to but not including the inputted number. So here, since `len(my_str)` is 5, `range(len(my_str))` returns a list of integers from 0 to 4. 
 
 This `for` loop does the exact same thing as the `while` loop we wrote above, but with slightly different syntax. So how does it work? At each iteration of the loop, `idx` is assigned one of the values in `range(len(my_str))`, and then the code within the indented block is run with that value of `idx`. How does Python know what the values of `idx` will be? Python simply goes through the values of whatever is after the `in` statement **in order**, and assigns those values to `idx`, one at a time through each iteration of the loop. So, since `range(len(my_str))` returns to us a list of integers from 0 to 4, those values get assigned to `idx` as we run through the `for` loop. Let's look at one of our favorite kinds of tables to view this: 
 
@@ -235,15 +235,15 @@ for char in my_str:
     print char 
 ```
 
-Woah! What's going on here!? Well, instead of iterating over all of the integers in a `range(len(my_str))` call like we did in our first `for` loop, we've gotten Python to simply iterate over all of the individual characters in our string, `my_str`. So in each iteration of this `for` loop, `char` stores a different letter of `my_str`, and then the call `print char` prints that character.  So, in the end, we get the same result as either of our `while` loops above, and the less Pythonic `for` loop that we wrote above. This way considered to be the Pythonic way to iterate over a string (or other iterable, which we'll cover next class), and so it's an important concept to grasp. 
+Woah! What's going on here!? Well, instead of iterating over all of the integers in a `range(len(my_str))` call like we did in our first `for` loop, we've gotten Python to simply iterate over all of the individual characters in our string, `my_str`. So in each iteration of this `for` loop, `char` stores a different letter of `my_str`, and then the call `print char` prints that character.  So, in the end, we get the same result as either of our `while` loops above, and the less Pythonic `for` loop that we wrote above. This way is considered to be the Pythonic way to iterate over a string (or other iterable, which we'll cover next class), and so it's an important concept to grasp. 
 
 Why is it more Pythonic? That's a good question. When we say that something is more "Pythonic", this means that we are using the language in such a way that makes your code both more readable and simultaneously uses Python's power to make your solutions more optimal. Let's look at how this applies to the final implementation of our `for` loop. 
 
-Well, we can see that it is more readable since we don't have to index into our string anymore. This means that there is less to follow along with and keep track of; rather than keeping track of both the current index we are on and what letter that index corresponds to in our string, all we have to keep track of is the current letter we're on. We can also note that our code just looks cleaner and more simple, too. In terms of making our code more optimal, since we no longer have to index into the string to grab characters, we have fewer steps in each iteration of the loop. This means less work for Python to do, which means that our code will run faster. <-- Question?
+Well, we can see that it is more readable since we don't have to index into our string anymore. This means that there is less to follow along with and keep track of; rather than keeping track of both the current index we are on and what letter that index corresponds to in our string, all we have to keep track of is the current letter we're on. We can also note that our code just looks cleaner and more simple, too. In terms of making our code more optimal, since we no longer have to index into the string to grab characters, we have fewer steps in each iteration of the loop. This means less work for Python to do.
 
 ### Lists
 
-We've been talking about this idea of iterables for a while now and have seen our first example of already, the string. So what other data structures does Python have for us to iterate through?
+We've been talking about this idea of iterables for a while now and have seen our first example of it already, the string. So what other data structures does Python have for us to iterate through?
 
 #### Intro to Lists
 
@@ -334,7 +334,7 @@ Out[5]: 'goodbye'
 
 **Note**: Remember that the ending index is non-inclusive. 
 
-Just as with strings, We can also add a 3rd number to our list indexing to step through the list and only grab certain elements. 
+Just as with strings, we can also add a 3rd number to our list indexing to step through the list and only grab certain elements. 
 
 ```python 
 In [1]: my_lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -389,4 +389,4 @@ Neat, huh!? The trick here is that when we call `enumerate()` on our list, `enum
 
 ### The Magic of Iterables
 
-Strings and lists are two kinds of iterables that we have looked at today. There are many other kinds of iterables that we'll work with in Python, and you can even define your own iterable if you'd like. The important thing that we want to note for now, though, is that the `for` loops that we have looked at today will work for any iterable. You can simply write `for <variable name> in iterable:`, and at each iteration through the loop you will be able to access another element from that iterable. Also, as mentioned above, the `list()` constructor accepts any iterable as an argument, and then creates a `list` where each element in the iterable is a single element in the `list`.
+Strings and lists are two kinds of iterables that we have looked at today. There are many other kinds of iterables that we'll work with in Python, and you can even define your own iterable if you'd like. The important thing that we want to note for now, though, is that the `for` loops that we have looked at today will work for any iterable. You can simply write `for <variable name> in iterable:`, and at each iteration through the loop you will be able to access another element from that iterable. Also, as mentioned above, the `list()` constructor accepts any iterable as an argument, and then creates a `list`, where each element in the iterable is a single element in the `list`.
