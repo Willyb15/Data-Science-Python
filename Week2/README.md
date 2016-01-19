@@ -1,4 +1,4 @@
-#Python Practice
+# Python Practice: Time to Squeeze More Out of the Language (it's a constrictor joke)
 
 At the end of Day 3:
 
