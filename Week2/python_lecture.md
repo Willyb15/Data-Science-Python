@@ -1,6 +1,9 @@
 ## Introduction to Strings and Lists
 
-### Intro to Strings
+Last week we learned about how to use Python's power with `while` loops and conditional, operating on some simple built in numeric types. Today we are going to learn about a couple of data structures that will continue to build up your power in Python and we'll learn about a new type of loop.
+
+### Strings
+
 Today we are going to learn about another common data type, strings. From a high-level perspective, a string is just a bit of text. This could be text that you have read in from a file, html that you pulled from the Internet, or any other text. From Python's perspective, a string (type `str`) is simply a collection of encoded characters. Wait, what's an encoding...?
 
 An encoding is just a fancy way of us saying that the characters in our string follow a certain format, or structure. The reason it matters for us in terms of our Python programs, though, is that Python expects our strings to be in one of a couple of different encodings (either `ASCII`, `utf-8`, or `unicode`). This isn't something you will run into often, and especially not when defining your own strings (it's probably most prevalent when pulling text from the Internet). However, it's worth noting because there is a good chance that sometime in your Python career, you will end up with Python telling you it doesn't recognize a certain character in one of your strings, and an unexpected encoding will most likely be at the heart of that error. 
@@ -37,7 +40,7 @@ In [2]: my_str_variable
 Out[2]: 'This is a string variable.'
 ```
 
-### String Operations
+#### String Operations
 
 Surprisingly, a couple of our standard mathematical operations will work on strings, namely `+` and `*`. We can use the `+` operator to add two strings together (this is know as string **concatenation**), and we can use the `*` operator to repeat a string a given number of times. Let's take a look... 
 
@@ -113,7 +116,7 @@ my_str.index       my_str.lower       my_str.split
 
 **Note**: This works for all of our variable types! Not only that, we can tab complete the names of variables in that IPython currently knows about, we call this the **namespace**.
 
-### Working with individual characters in strings 
+#### Working with individual characters in strings 
 
 We know how to work with an entire string via some of the methods that we've discussed, but what if we wanted to work with the individual characters? There are a couple of ways to do this, but the first we'll focus on is through indexing. We know that to Python, a string is just a collection of characters, and it turns out that we can access the individual characters simply by asking Python for a given numbered element in our collection (i.e. the string).  We do this by placing the element number that we want in square brackets, `[]`,  right after our string (or variable, if it's stored in one). This element number is referred to as the **index** of the character (or element, if it's not a string, more on this soon). 
 
@@ -172,7 +175,7 @@ Out[3]: 'sSi'
 
 Got it, enough indexing already! Is there a way to cycle (or step through) each one of the letters one by one, and do something with the conditional logic we learned, rather than just grabbing a certain letter or group of letters? Of course! (Why would I ask a question for which the answer was no? That would be lame.)
 
-### Iteration and Strings
+#### Iteration and Strings
 
 We can cycle through all of the letters in our string (a process called **iteration**) in one of a couple of different ways. Let's first look at cycling through with a `while` loop, since we've worked with those last week. 
 
