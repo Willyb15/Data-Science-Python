@@ -292,4 +292,86 @@ Now that we're only using only a single variable to grab the output of `items()`
 
 So, when, Python sees the two variable names `state` and `capital` in the first implementation, it knows to take the values in the tuple returned from `items()` and put the first one in `state` and the second in `capital`. This is what was happening when you called enumerate, it returned a tuple with the number value it was on, and the value itself. It is up to you whether or not to grab those values in a single variable as a tuple or have Python unpack it for you into two variables. 
 
-`Note, Python will not allow you to "unpack" a single variable into multiple.`
+`Note, Python will not allow you to "unpack" a collection containing a single item into multiple variables.`
+
+### Sets
+
+There is one more data structure that we're going to take a look at today, the `set`. A set combines some of the awesome features of both the `list` and the `dictionary`. A set is defined as an unordered, mutable collection of unique items. Ok, this sounds like some jargon that we can make sense of these days, it sounds like a set is a data structure where you can store items and not care about their order, knowing that there will always be at most one of them in the structure.
+
+This description, while highly informal, is rather spot on. Sets in Python are actually analogous to sets that you would see in a mathematical setting. For this reason much of the jargon and functionality that you will hear about when learning and talking about Python sets is similar to, if not exactly the same as, that which applies to mathematical sets as well ([here's](https://en.wikipedia.org/wiki/Set_(mathematics)) the wiki on sets if you want a quick overview of them).
+
+Lets take a look at how we construct sets.
+
+```python
+In [1]: my_set = set([1, 2, 3])
+
+In [2]: my_other_set = {1, 2, 3}
+
+In [3]: my_set == my_other_set
+Out[3]: True
+```
+
+Here we see the two ways we have to make sets, both with the constructor, which takes an iterable, and with the syntactic sugary curly braces (*Note, the curly braces are also used for dictionaries. In those we had a colon separating the keywords and values, which is how Python determines whether or not you're declaring a set or a dictionary. The only place where identifier isn't present is when declaring an empty structure. When this happens Python can't figure out if you want a dictionary or a set. For this reason, the empty curly braces `{}` always mean an empty dictionary to remove ambiguity.*). Sets with the same items in them will evaluate as equal.
+
+If we take a look at the methods that are available on sets we see:
+```
+set.add                          set.intersection                 set.remove
+set.clear                        set.intersection_update          set.symmetric_difference
+set.copy                         set.isdisjoint                   set.symmetric_difference_update
+set.difference                   set.issubset                     set.union
+set.difference_update            set.issuperset                   set.update
+set.discard                      set.pop  
+```
+
+As discussed earlier, many of these methods are similar to, if not the same as, those available to mathematical sets. So naturally we see ways to compute set operations (`intersection()`, `union()`, etc.) and alter the set (`add()`, `update()`, `pop()` and `remove()`). Lets take a look at some of these methods in action.
+
+```python
+In [1]: my_set, my_other_set = {1, 2, 3}, {5, 6, 7}
+
+In [2]: my_set.union(my_other_set)
+Out[2]: {1, 2, 3, 5, 6, 7}
+
+In [3]: my_set.add(4)
+
+In [4]: my_set
+Out[4]: {1, 2, 3, 4}
+
+In [5]: my_set.update(my_other_set)
+
+In [6]: my_set
+Out[6]: {1, 2, 3, 4, 5, 6, 7}
+
+In [7]: my_set.remove(5)
+
+In [8]: my_set
+Out[8]: {1, 2, 3, 4, 6, 7}
+
+In [9]: my_set.intersection(my_other_set)
+Out[9]: {6, 7}
+```
+
+All of these methods should look fairly intuitive. The only difference between `pop()` and `remove()` is that pop returns the value that was removed. The `update()` method is like an `add()` en masse. The `union()` method is like adding two sets together, but since there are only unique elements in a set, it removes duplicates. The `intersection()` method return those elements that the sets have in common.
+
+These are some of the most common set operations you will ever use. If you'd like to take a look at the documentation for all of them, check it out [here](https://docs.python.org/2/library/stdtypes.html#set).
+
+#### Why Do We Need Sets?
+
+Alright, that's cool, but when would I use a set, you might be asking. And that's a great question! The most apparent answer is for times when you need to perform set operations, like checking what elements two lists have in common. Take the set of them both and find the intersection of those sets.The most obvious use case is to find the unique items in an iterable. But there's anther amazing place that we want to use sets in that might not be so apparent.
+
+Remember, when discussing dictionaries above, we talked about how checking if an item is in a list requires us to check every item in the list? This can be computationally expensive and generally we want to avoid it. What do we do instead then? 
+
+We use a set! The reason why lies in the fact that sets in Python are built very similarly to dictionaries. There's an underlying hash table that allows elements to be stored, and, more importantly, queried for membership within a set (*Note, this means that the elements of a set have to be immutable*). This operation happens much faster than with lists ([here's](https://wiki.python.org/moin/TimeComplexity) some coverage on how quickly some Python methods run). Lets take a look at this in action, and simultaneously learn about how to time things in IPython.
+
+```python
+In [1]: my_list = range(10000)
+
+In [2]: my_set = set(my_list)
+
+In [3]: timeit 1000 in my_list
+100000 loops, best of 3: 19.2 µs per loop
+
+In [4]: timeit 1000 in my_set
+10000000 loops, best of 3: 87.2 ns per loop
+```
+
+Here we used the magic `timeit` function that's built into IPython. To use it all you have to do is call `timeit` and then a line of code. We can see that the list version of checking membership in a collection took ~200 times longer than the set version. This is two orders of magnitude! That number would only get bigger as the size of the collection that we're checking against grows.
