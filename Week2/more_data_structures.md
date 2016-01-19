@@ -31,7 +31,7 @@ x = 2
 
 How can numerics be immutable while, simultaneously, you can change the value of a numeric variable? What's really going on under the hood when you assign to a variable is Python puts that value or data structure in memory, then simply associates the variable name with that value or data structure. Changing a variable then simply amount to associating that name with a different thing in memory.
 
-Using this same logic, it shouldn't be too hard to explain to yourself why strings are immutable as well. The contents of that string are put in memory and the variable name you want to use is associated with that string. When you want to change the variable to a different string, Python simply associates that name with a different, also immutable string. *Note, the discussion of Python having names, [here](http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html#python-has-names) is really good if you're looking for more clarification.*
+Using this same logic, it shouldn't be too hard to explain to yourself why strings are immutable as well. The contents of that string are put in memory and the variable name you want to use is associated with that string. When you want to change the variable to a different string, Python simply associates that name with a different, also immutable string. *Note, the discussion of Python having names [here](http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html#python-has-names) is really good if you're looking for more clarification.*
 
 Lists, on the other hand, are mutable. What this really means is that you can change the structure of the list in addition to the names of the things that are in the list (notice the specific use of names there, we'll come back to that in the next section).
 
@@ -134,7 +134,7 @@ Out[2]: 'Indianapolis'
 
 In [3]: states_caps_dict['Washington']
 KeyError                                  Traceback (most recent call last)
-<ipython-input-3-96fac88f6748> in <module>()
+<ipython-input-3-fac88f6748> in <module>()
     > 1 states_caps_dict['Washington']
 
 KeyError: 'Washington'
