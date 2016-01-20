@@ -6,7 +6,7 @@ CARY, HELP!!!
 
 ### Intro to Functions
 
-#### Function Definition
+#### Function Definition Part 1
 
 The first thing we're going to figure out how to do is actually define these things. To build up to this, let's take a look back at some code we previously wrote to output a list of all of the even elements in `some_collection`.
 
@@ -32,13 +32,13 @@ What if we wanted to throw this into a function, so that we could then get a lis
 
 While not every function definition in Python will look the same (they'll have different names, different arguments passed to them, etc.), there is a general syntax that every function definition will follow. This syntax will look somewhat similar to the `while` and `for` loops in the sense that we will start off with some line (this line will define the function) followed by an indented block of code. That indented block of code will define what the function does. Okay, awesome! So what goes on that first line, though?
 
-The first line will always start off with a `def` statement followed by a space. What follows will then be the function name, a set of parentheses (without or without function arguments with them), and finally a colon. Let's see what this looks like.
+The first line will always start off with a `def` statement followed by a space. What follows will then be the function name, a set of parentheses (without or without function parameters in them), and finally a colon. Let's see what this looks like.
 
 ```python
 def my_func():
     pass # This pass just acts as a filler right now. 
 ```
-Let's dive a little more into each of the parts and note what's important to know about them. First off, the `def` statement. This is what is going to tell Python that what's coming after is a function, and what will make Python store your function in such a way that it is callable later on in your program. Second, the function name. The only real thing to note about this is that function naming conventions follow variable naming conventions (i.e. snakecase, where we lowercase our words and separate them by underscores). Next up are the parentheses. These are going to be filled with an optional and arbitrary number of arguments (which will dive into a little later). Finally, the colon, `:`. This is what is going to signal to Python that the function definition is over, and what follows will be the block of code that the function operates. 
+Let's dive a little more into each of the parts and note what's important to know about them. First off, the `def` statement. This is what is going to tell Python that what's coming after is a function, and what will make Python store your function in such a way that it is callable later on in your program. Second, the function name. The only real thing to note about this is that function naming conventions follow variable naming conventions (i.e. snakecase, where we lowercase our words and separate them by underscores). Next up are the parentheses. These are going to be filled with an optional and arbitrary number of parameters (which will dive into a little later). Finally, the colon, `:`. This is what is going to signal to Python that the function definition is over, and what follows will be the block of code that the function operates. 
 
 So how would we build our evens code from ealier into a function? All we have to do is simply copy and paste that block of code after our function definition. Let's be sure to give it a more descriptive name, though...
 
@@ -91,4 +91,40 @@ Out[2]: [0]
 So we've now moved the `return` statement into the `if` block of our function, and we notice we get a different result. Why is this? Well, like we discussed, when the function encounters that `return` statement, it immediately gives back whatever output it has. When we called `get_evens()` above, it encountered that `return` statement in our first iteration through our for loop, when `element` was equal to `0`. As a result, `0` got appended to the `evens` list, and then in the next line that `evens` list got returned from the function. 
 
 Okay, cool! 
+
+#### Function Definitions Part 2
+
+As we've been hinting at, you can define functions in such a way that you can pass arguments in. Let's start out using the `get_evens()` function that we defined above. We'll use this as our base and build off of it as we work through defining functions with parameters, and calling functions with arguments passed in. We'll begin this exploration by adding in parameter to the function definition. This parameter will control the range of numbers that we will grab evens from. 
+
+```python 
+In [1]: def get_evens(n): 
+   ...:     evens = []
+   ...:     for element in range(n): 
+   ...:         if element % 2 == 0: 
+   ...:             evens.append(element)
+   ...:     return evens
+```
+
+With this implementation of our function, we can now pass in an arbitrary number to our function call, and then we will search for evens in a `range()` built with that arbitrary number. How exactly does this work, though? Well, we've told Python that our function will expect one argument to be passed in. When we call the function and pass in that argument, it will get assigned to whatever name we have given in the function definition (here it's `n`). Then, anytime we reference that given name (`n`) within the function, it will replace that given name with the value that we passed in. Let's check out a couple of different calls with this function, and see what they return. 
+
+```python
+In [1]: def get_evens(n): 
+   ...:     evens = []
+   ...:     for element in range(n): 
+   ...:         if element % 2 == 0: 
+   ...:             evens.append(element)
+   ...:     return evens
+
+In [2]: get_evens(5)
+Out[2]: [0, 2, 4]
+
+In [3]: get_evens(14)
+Out[3]: [0, 2, 4, 6, 8, 10, 12]
+
+In [4]: get_evens(20)
+Out[4]: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+```
+
+Neat, huh!? Turns out we're just getting started...
+
 
