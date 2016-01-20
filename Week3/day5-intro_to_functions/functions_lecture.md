@@ -207,4 +207,33 @@ SyntaxError: non-default argument follows default argument
 
 Hopefully this pretty clearly demonstrates this 'rule'. In the first case, we defined our parameters that have default values (which is only one, `divisor`, here) after defining our parameters that don't have default values (which is only one, `n`, here), just we are supposed to. And everything worked fine! In the second case, we defined a parameter with a default value before a parameter without a default value. That's a no no! 
 
+#### Calling functions with Positional Versus Keyword Arguments
 
+So far, we've been calling this function that we built, and when we call it Python assigns the values to the correct parameters (for example, 5 to `n` and 2 to `divisor` above). But how does it know this - how does Python know that when we call `get_multiples(5, 2)`, 5 should get assigned to `n` and 2 should get assigned to `divisor`? It turns out that by default, Python simply matches up the position of the arguments that are passed in with the position of the parameters that are given in the function definition. So, in our `get_multiples(5, 2)` call, it takes the first argument passed, `5`, and assigns that to the first parameter in the function definition, `n`. Similarly, it takes the second argument passed, `2`, and assigns it to the second parameter in the function definition, `divisor`. This method of passing arguments is **by position**, and the arguments `5` and `2` in this example are considered to be **positional arguments**. 
+
+As you might have guessed from the title of this section, there is also another method of passing arguments, and that is **by keword**. The way this works is that instead of passing just the values in the function call, we call the values with the parameter name that they correspond to. Building off of our example above, using **keyword arguments** would mean our function call would look like this: `get_multiples(n=5, divisor=2)`. 
+
+Okay, got it! But, there are one or two more things that we need to cover with regards to this topic. In the above examples, we used either **all** positional arguments or **all** keyword arguments. However, there is the possibility that we can use a **mixture** of position and keyword arguments if we'd like. The only caveat is that we have to pass all positional arguments **before** passing any keyword arguments. For example: 
+
+```python
+In [1]: def get_multiples(n=5, divisor=2): 
+   ...:     multiples_lst = []
+   ...:     for element in range(n): 
+   ...:         if element % divisor == 0: 
+   ...:             multiples_lst.append(element)
+   ...:     return multiples_lst
+
+In [2]: get_multiples(5, 2) # All arguments passed by position. 
+Out[2]: [0, 2, 4] 
+
+In [3]: get_multiples(n=5, divisor=2) # All arguments passed by keyword. 
+Out[3]: [0, 2, 4]
+
+In [4]: get_multiples(10, divisor=3) # Okay mix of positional and keyword arguments.
+Out[4]: [0, 3, 6, 9] 
+
+In [5]: get_multiples(n=10, 3) # Not okay mix of positional and keyword arguments.
+  File "<ipython-input-15-e4167d3728c9>", line 1
+    get_multiples(n=10, 3)
+SyntaxError: non-keyword arg after keyword arg
+```
