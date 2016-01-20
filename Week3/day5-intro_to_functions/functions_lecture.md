@@ -127,4 +127,27 @@ Out[4]: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
 
 Neat, huh!? Turns out we're just getting started...
 
+In addition to defining our function with the ability to now have an argument passed in, we can also build it so that if our function is called without an argument passed in, our parameter gets a value **by default**. This is useful if you want to build your function to have some default behavior but still allow users to pass in arguments that change the default behavior or build off of it somehow. So how do specify a default parameter value for our function? It's actually pretty simple. In the function definition itself, we just place an equals sign (`=`) after the parameter name, and then the default value that we want to specify.
 
+```python
+In [1]: def get_evens(n=5): 
+   ...:     evens = []
+   ...:     for element in range(n): 
+   ...:         if element % 2 == 0: 
+   ...:             evens.append(element)
+   ...:     return evens
+
+In [2]: get_evens()
+Out[2]: [0, 2, 4]
+
+In [3]: get_evens(5)
+Out[3]: [0, 2, 4]
+
+In [4]: get_evens(14)
+Out[4]: [0, 2, 4, 6, 8, 10, 12]
+
+In [5]: get_evens(20)
+Out[5]: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+```
+
+Here, we've specified the default value for `n` to be 5. That is, if no value is passed in for `n`, we assign the value of 5 to it. So you'll notice in the first function call to `get_evens()` where we pass no arguments, we get the same output as if we pass in the value 5 (which makes sense, since we set 5 as the default). Meanwhile, when we pass in other values (14 and 20), we get the same results as before. This is the point of setting a default parameter value - if the caller of the function specifies a value for that parameter, then that is the value used in the function; otherwise, the default value that was specified is used. 
