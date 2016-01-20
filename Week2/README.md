@@ -1,4 +1,4 @@
-#Python Practice
+# Python Practice
 
 At the end of Day 3:
 
