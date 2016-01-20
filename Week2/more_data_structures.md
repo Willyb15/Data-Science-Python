@@ -1,10 +1,10 @@
 ## Data Structures Continued
 
-Up till now you have learned about some very useful data structures in Python, numeric types, strings and lists. However, the fun doesn't stop there! Today we are going to talk about some which will help us solve very different problems than we could up till now.
+Up till now you have learned about some very useful data structures in Python: numeric types, strings and lists. However, the fun doesn't stop there! Today we are going to talk about some other data structures that will allow us to solve very different problems from those what we have been solving so far.
 
 ### Mutability
 
-One thing that will come up as important distinction in the structures we learn about today is the concept of mutability. Mutability refers to the capability of an object to be changes after it has been instantiated. Remember that with lists we could change the contents at any arbitrary index and even grow the list dynamically. Just to refresh your memory.
+One thing that will come up as important distinction in the structures we learn about today is the concept of mutability. **Mutability** refers to the capability of an object to be changed after it has been instantiated. With lists, we can change the contents at any arbitrary index and even grow the list dynamically...
 
 ```python
 # Declare a simple list
@@ -17,9 +17,9 @@ l[4] = 0  # [0, 1, 2, 3, 0, 5, 6, 7, 8 , 9]
 l.append(1)  # [0, 1, 2, 3, 0, 5, 6, 7, 8 , 9, 1] 
 ```
 
-However, there are times when you don't want your data structure to be mutable. For example, if you're allowing a user of your program to have access to a data structure, one way to ensure that they wont mess with it (sometimes users do this out of malice so we want to try and prevent it) is to make the structure immutable. There are many more reasons why mutability is a desired trait, we will discuss plenty more of them throughout the rest of the course.
+Mutability is nice, but there are times when you won't want your data structure to be mutable. For example, if you're allowing a user of your program to have access to a data structure, one way to ensure that they wont mess with it (sometimes users do this out of malice, and we want to try and prevent it) is to make the structure **immutable**. There are many more reasons why mutability is a desired trait, and we will discuss plenty more of them throughout the rest of the course.
 
-Let's quickly discuss the mutability of objects you already know about. The first type you learned about were various numerics, these are all immutable. What?! Immutable you say? But I can change a value in a variable after it's been declared. Consider the following simple code.
+Let's quickly discuss the mutability of objects you already know about. The first type you learned about were various numerics (`int`, `float`, `complex`) - these are all immutable. What?! Immutable you say? But I can change a value in a variable after it's been declared. Consider the following simple code.
 
 ```python
 # First mention of x
@@ -29,7 +29,7 @@ x = 1
 x = 2
 ```
 
-How can numerics be immutable while, simultaneously, you can change the value of a numeric variable? What's really going on under the hood when you assign to a variable is Python puts that value or data structure in memory, then simply associates the variable name with that value or data structure. Changing a variable then simply amount to associating that name with a different thing in memory.
+How can numerics be immutable while at the same time allowing us to change the value of a variable that holds a numeric? What's really going on under the hood when you assign a value to a variable is that Python puts that value or data structure in memory, and then simply associates the variable name with that value or data structure. Changing a variable, then, simply amounts to associating that name with a different thing in memory.
 
 Using this same logic, it shouldn't be too hard to explain to yourself why strings are immutable as well. The contents of that string are put in memory and the variable name you want to use is associated with that string. When you want to change the variable to a different string, Python simply associates that name with a different, also immutable string. *Note, the discussion of Python having names [here](http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html#python-has-names) is really good if you're looking for more clarification.*
 
@@ -45,7 +45,7 @@ my_other_tuple = (1, 2)
 my_third_tuple = 1, 2
 ```
 
-Alright, thats all well and good. But what are the direct implications of using a tuple versus a list. Well, suppose we are trying to grab the even numbers, stored in some collection, somewhere. If we were to do this with a list that might look like. 
+Alright, thats all well and good. But what are the direct implications of using a tuple versus a list. Well, suppose we are trying to grab the even numbers, stored in some collection, somewhere. If we were to do this with a list, that might look like the following...
 
 ```python
 evens = []
@@ -54,9 +54,9 @@ for element in some_collection:
         evens.append(element)
 ```
 
-We could try to do this with evens as a tuple instead of a list with `evens = ()`, but once we tried to run our code we would immediately get an error that says `AttributeError: 'tuple' object has no attribute 'append'`. The error message is pretty self explanatory, in plain English it tells us that tuples have no ability to append. This is just as we expected given that they are immutable. (There are ways around constructing tuples with more complicated contents without first storing things in a list, we will talk about them later in the course).
+We could try to do this with evens as a tuple instead of a list with `evens = ()`, but once we tried to run our code we would immediately get an error that says `AttributeError: 'tuple' object has no attribute 'append'`. The error message is pretty self explanatory. In plain English, it tells us that tuples have no ability to append. This is just as we expected given that they are immutable.
 
-You might be asking yourself, what can a tuple store? The answer is, just as with lists, anything! And just as with lists built in Python containers can all be either homogeneous or heterogeneous (know though, that there structures available that enforce homogeneity). Lets take a look at some of the things we can store. 
+You might be asking yourself what a tuple can store? The answer is, just as with lists, anything! And just as with lists, the elements in a tuple can be either homogeneous or heterogeneous (know though, that there are structures in Python that enforce homogeneity). Lets stick with looking at tuples for now, and take a look at some of the things we can store. 
 
 ```python
 In [1]: t = (1, 3.5)
@@ -89,17 +89,17 @@ In [3]: t
 Out[3]: (1, [1, 2, 3])
 ```
 
-One last thing to note is that since tuples are immutable they very few methods associated with them, only `count()` and `index()`. For this reason we say that they are very lightweight, aka they don't take up much space in memory, but also don't have much built in functionality.
+One last thing to note is that since tuples are immutable, they have very few methods associated with them - only `count()` and `index()`. For this reason we say that they are very lightweight; they don't take up much space in memory, but also don't have much built in functionality.
 
 ### Dictionaries
 
-So far the only collections that we have talked about are ordered and these are great if there is some intrinsic order to that data that we're storing in them. However, there are plenty of times when we don't care about order, either because it simply doesn't matter or because the data is associated with each other in a different way. For example say we have a bunch of state names and we want to associate their capital. How would we do this in a list? One way would be to have tuples that store the state and it's capital together.
+So far, the only collections that we have talked about are ordered.  These are great if there is some intrinsic order to that data that we're storing in them. However, there are plenty of times when we don't care about order, either because it simply doesn't matter or because the data is associated with each other in a different way. For example, say we have a bunch of state names and we want to associate each state's name with their capital. How would we do this in a list? One way would be to have tuples that store pairs of states and their capitals.
 
 ```python
 states_caps = [('Georgia', 'Atlanta'), ('Colorado', 'Denver'), ('Indiana', 'Indianapolis')]
 ```
 
-But there are limits to how intuitive this storage method is. Consider that, if we wanted to find the capital of Indiana, we would have to search through the entire list checking to see if Indiana is in the first position of each tuple, and when/if we found it, then grab the second position of that tuple.
+There are limits to how intuitive this storage method is, though. Consider that if we wanted to find the capital of Indiana, we would have to search through the entire list, checking to see if Indiana is in the first position of each tuple. If/when we found it, we would then have to grab the second position of that tuple.
 
 ```python
 search_state = 'Indiana'
@@ -113,7 +113,7 @@ print(capital)
 
 While this isn't horrible, we can do better. Python to the rescue!!!
 
-The dictionary data structure in Python allows us to store data in exactly the way that we wanted, storing a value associated with a keyword. In the example above we wanted to store the capital as the value associated with each state keyword. There are many ways to instantiate a dictionary. Lets look at the simplest way first.
+The dictionary data structure in Python allows us to store data in a way that is more intuitive for this problem. Dictionaries allow us to store a value associated with a keyword. In the example above, we wanted to store the capital as the value, where that capital value was associated with its state keyword. There are many ways to instantiate a dictionary. Lets look at the simplest way first.
 
 ```python
 In [1]: states_caps_dict = {'Georgia': 'Atlanta', 'Colorado': 'Denver', 'Indiana': 'Indianapolis'}
@@ -122,9 +122,9 @@ In [2]: states_caps_dict
 Out[2]: {'Colorado': 'Denver', 'Georgia': 'Atlanta', 'Indiana': 'Indianapolis'}
 ```
 
-See how it looks very similar to the way the we made lists and tuples, expect now we use curly braces and there is this new use of colons, `:`. On the left side of each colon we have the keyword, and on the right the value associated with it. Each *key-value* pair, as we call them, is separated by a comma.
+This looks very similar to the way that we made lists and tuples, expect now we use curly braces, and there is this new use of colons (`:`). On the left side of each colon we have the keyword, and on the right the value associated with it. Each *key-value* pair, as we call them, is separated by a comma.
 
-So how do we use these things once we have them? Lets take the example from above and say we're trying to figure out what the capital of Indiana is. With a list of tuples we had to search through to find the entry with 'Indiana' in the first position and then grab the second entry in that tuple. With dictionaries it's way simpler!
+So how do we use these things once we have them? Lets take the example from above and say we're trying to figure out what the capital of Indiana is. With a list of tuples, we had to search through the tuple from the beginning to find the entry with 'Indiana' in the first position, and then grab the second entry in that tuple. With dictionaries it's way simpler!
 
 ```python
 In [1]: states_caps_dict = {'Georgia': 'Atlanta', 'Colorado': 'Denver', 'Indiana': 'Indianapolis'}
@@ -140,22 +140,22 @@ KeyError                                  Traceback (most recent call last)
 KeyError: 'Washington'
 ```
 
-All we had to do was index into the dictionary, like we did with lists, but this time with the keyword, and the dictionary returns the associated value. Notice how, if we tried to find a keyword that wasn't already in the dictionary with `[]` indexing we get a `KeyError` telling us that that key is not stored in the dictionary. 
+All we had to do was index into the dictionary, like we did with lists, but this time with the keyword, and the dictionary returns the associated value. Notice that if we tried to find a keyword that wasn't already in the dictionary with `[]` indexing, we get a `KeyError` telling us that that key is not stored in the dictionary. 
 
-This shouldn't happen to frequently, because we often know exactly what the keys in our dictionaries are. However, there are times when we don't know if a keyword is in the dictionary already. For these times we luckily have the `get()` method. This method takes the keyword you're trying to find and a default return value to hand back if the key doesn't exist.
+This shouldn't happen too frequently, because we often know exactly what the keys in our dictionaries are. However, there are times when we don't know if a keyword is in the dictionary already. For these times we luckily have the `get()` method. This method takes the keyword you're trying to find and a default return value to hand back if the key doesn't exist.
 
 ```python
 In [4]: states_caps_dict.get('Washington', 'State not found')
 Out[4]: 'State not found'
 ```
 
-Above we asked `states_caps_dict` for the value associated with the key `'Washington'`, and told it to return `'State not found'` if the keyword wasn't in the dictionary. And lo-and-behold, we get back `'State not found'` which makes sense because we knew that `'Washington'` wasn't in the dictionary.
+Above, we asked `states_caps_dict` for the value associated with the key `'Washington'`, and told it to return `'State not found'` if the keyword wasn't in the dictionary. And lo-and-behold, we get back `'State not found'`, which makes sense because we knew that `'Washington'` wasn't in the dictionary.
 
 #### Mutability of Dictionaries
 
-At this point a question that could be on your mind couple be, are dictionaries mutable? Well, first, great question. And, second, yes, yes they are! Before we talk about how to mutate them, lets describe dictionaries in the language that we used for lists and tuples. A dictionary is defined as an unordered collection of key-value pairs that require unique keys.
+At this point a question that could be on your mind is whether or not dictionaries are mutable? Well, first, great question. And, second, yes, yes they are! Before we talk about how to mutate them, lets describe dictionaries in the language that we used for lists and tuples. A dictionary is defined as an unordered collection of key-value pairs that require unique keys.
 
-With that in mind, lets recall how we mutated a list. To change an element at an existing index we just indexed into the list and did assignment. To make them bigger we used the `append()` method. This method of mutation made a lot of sense considering that lists are ordered. So, in the unordered paradigm where dictionaries live to either change/add a key-value pair to a dictionary all you have to do index into it with the existing/new, respectively, key and assign the value to it. Lets take a look.
+With that in mind, lets recall how we mutated a **list**. To change an element at an existing index, we just indexed into the list and did assignment. To make them bigger, we used the `append()` method. This method of mutation made a lot of sense, considering that lists are ordered. So, in the unordered paradigm where dictionaries live, to either change/add a key-value pair to a dictionary, all you have to do index into it with the existing/new key and assign the value to it. Lets take a look.
 
 ```python
 In [1]: my_dict = {'thing': 1, 'other': 2}
@@ -179,11 +179,11 @@ Out[7]: {'other': 2, 'thing': 3, 'thingy': 4}
 
 #### Caveat to Dictionary Keys, More on Mutability
 
-We have learned that dictionaries make it easy to store key-value relationships in a single data structure that is designed for easy value retrieval. So, what are the restrictions on things you can put in a dictionary? As for the values, like in lists, there are none! But the keys those values are associated with, that's a different story.
+We have learned that dictionaries make it easy to store key-value relationships in a single data structure that is designed for easy value retrieval. So, what are the restrictions on things you can put in a dictionary? As for the values, like in lists, there are none! But in terms of the keys those values are associated with, that's a different story.
 
-Keys in dictionaries **must** be an immutable type, and if that type is an container then the container cannot contain any mutable types. Why is this the case? The answer lies in the way that dictionaries store values and associate them with a key under the hood.
+Keys in dictionaries **must** be an immutable type, and if that type is a container then the container cannot contain any mutable types. Why is this the case? The answer lies in the way that dictionaries store values and associate them with a key.
 
-Python dictionaries are an implementation of what's known as a *hash map* or *hash table* ([here's](https://en.wikipedia.org/wiki/Hash_table) the wikipedia page for them if you want to learn more). This computer science idea is basically a function that relates any input, in our case the keys, to a location in memory. Thus, retrieval of a value from a dictionary is entirely dependent on what the key originally associated with it was. The consequence of this is that, if we were to use a mutable type as the key for a dictionary and later changed what that key looked like by mutating it, the dictionary wouldn't be able to find the value it was supposed to associate with that key; because that key is no longer the key it was.
+Python dictionaries are an implementation of what's known as a *hash map* or *hash table* ([here's](https://en.wikipedia.org/wiki/Hash_table) the wikipedia page for them if you want to learn more). This computer science idea is basically a function that relates any input, in our case the keys, to a location in memory. Thus, retrieval of a value from a dictionary is entirely dependent on what the key originally associated with it was. The consequence of this is that, if we were to use a mutable type as the key for a dictionary and later change what that key looked like by mutating it, the dictionary wouldn't be able to find the value it was supposed to associate with that key (since the key is no longer the key it originally was). 
 
 ```python
 # Original key
@@ -212,13 +212,13 @@ TypeError                                 Traceback (most recent call last)
 TypeError: unhashable type: 'list'
 ```
 
-The above code attempts to set a list as a key to a dictionary. Luckily it throws an error as soon as we try, telling us that it can't hash a list, read: list's aren't immutable.
+The above code attempts to set a list as a key to a dictionary. Luckily it throws an error as soon as we try, telling us that it can't hash a list (read: list's aren't immutable). 
 
 #### Getting More Out of Dictionaries
 
 We now know how to make and alter dictionaries and how to use them to store arbitrary key-value pairs; let's talk about how to use them with loops.
 
-As with lists and tuples, dictionaries are iterables in Python. This means that Python knows how to traverse everything that's stored in the collection. The way we did this with list was with a `for` loop. We will again use the `for` loop with dictionaries, however there are a few changes in how it's implemented because dictionaries are unordered key-value pairs whereas lists are ordered collections of values.
+As with lists and tuples, dictionaries are iterables in Python. This means that Python knows how to traverse everything that's stored in the collection. The way we did this with list was with a `for` loop. We will again use the `for` loop with dictionaries, but there are a few changes in how it's implemented, since dictionaries are unordered key-value pairs whereas lists are ordered collections of values.
 
 Lets revisit how we traverse a list with a `for` loop. Consider the following code that only prints the even numbers between 0 and 9.
 
@@ -228,7 +228,7 @@ for element in range(10):
         print(element)
 ```
 
-This specific syntax makes sense because, one at a time, we want to check each value in the list, each time we grab one we give it the name `element`, and check if it's even, printing that value if it is. It's the one at a time part that I want to call you're attention to, lists are an ordered collection of values; dictionaries on the other hand have keys and values that are tied together. However, if we were to traverse a dictionary with a for loop we expect to only get one of these out. Naturally it's the keys.
+This specific syntax makes sense because, one at a time, we want to check each value in the list.  Each time we grab a number from the list, we give it the name `element`, check if it's even, and then print that value if it is. It's the one at a time part that I want to call you're attention to. Lists are an ordered collection of values; dictionaries, on the other hand, have keys and values that are tied together. However, if we were to traverse a dictionary with a for loop, we would expect to only get one of these out. Naturally, it's the keys.
 
 ```python
 In [1]: states_caps_dict = {'Georgia': 'Atlanta', 'Colorado': 'Denver', 'Indiana': 'Indianapolis'}
@@ -241,9 +241,9 @@ Indiana
 Colorado
 ```
 
-In addition to the states, aka the keys, being what is accessed when looping over a dictionary, notice that they aren't in the order that we we created the dictionary in. Remember that dictionaries are unordered?? Here we see a direct ramification of that fact; we are not guaranteed an particular order when accessing a dictionaries keys. It's not necessarily a problem, just something that's good to know.
+In addition to the states, aka the keys, being what is accessed when looping over a dictionary, notice that they aren't in the order that we we created the dictionary in. Remember that dictionaries are unordered?? Here we see a direct ramification of that fact; we are not guaranteed any particular order when accessing a dictionaries keys. It's not necessarily a problem, just something that's good to know.
 
-The natural question then is to want to loop through all of the values. This can be done with the aptly named `values()` method on dictionaries.
+The natural question, then, is if can loop through all of the values? This can be done with the aptly named `values()` method on dictionaries.
 
 ```python
 In [1]: states_caps_dict = {'Georgia': 'Atlanta', 'Colorado': 'Denver', 'Indiana': 'Indianapolis'}
@@ -256,9 +256,9 @@ Indianapolis
 Denver
 ```
 
-We can see that all of the capitals, the values, in the dictionary, are printed, again in no particular order. One thing to know is that there is an analogue to values for keys, `keys()` that explicitly does exactly what we saw above when we just looped through the dictionary.
+We can see that all of the capitals (the values in the dictionary) are printed, again in no particular order. One thing to know is that there is an analogue to `values()` for keys, `keys()`. 
 
-This is a very useful feature, but we can get better! One of the most useful ways to loop through the contents of a dictionary is by getting each key-value pair together in turn within the loop. The `items()` methods does exactly this. To use it we will employ the same syntax as we did with `enumerate()`.
+This is a very useful feature, but it gets even better! One of the most useful ways to loop through the contents of a dictionary is by getting each key-value pair together in turn within the loop. The `items()` methods does exactly this. To use it we will employ a similar syntax to what we used with `enumerate()`.
 
 ```python
 In [1]: states_caps_dict = {'Georgia': 'Atlanta', 'Colorado': 'Denver', 'Indiana': 'Indianapolis'}
@@ -271,7 +271,7 @@ Indiana Indianapolis
 Georgia Atlanta
 ```
 
-This is awesome! But as a learning tangent, lets see what's happening when we use this syntax. As above we are going to use the `items()` method, but this time not sure state *and* capital.
+This is awesome! But as a learning tangent, lets see what's happening when we use this syntax. As above we are going to use the `items()` method, but this time not store state *and* capital.
 
 ```python
 In [1]: states_caps_dict = {'Georgia': 'Atlanta', 'Colorado': 'Denver', 'Indiana': 'Indianapolis'}
@@ -284,17 +284,17 @@ In [2]: for thing in states_caps_dict.items():
 ('Colorado', 'Denver')
 ```
 
-Now that we're only using only a single variable to grab the output of `items()`, we can clearly see that the method is outputting a tuple. So what was happening when we used `state` and `capital` to grab the output?? Very frequently we want to put the separate values a collection stores into different variables. This happens so frequently, in fact that Python has a built way to do it quickly called **unpacking**. 
+Now that we're only using only a single variable to grab the output of `items()`, we can clearly see that the method is outputting a tuple. So what was happening when we used `state` and `capital` to grab the output?? Very frequently we want to put the separate values a collection stores into different variables. This happens so frequently, in fact, that Python has a built way to do it quickly (called **unpacking**). 
 
-So, when, Python sees the two variable names `state` and `capital` in the first implementation, it knows to take the values in the tuple returned from `items()` and put the first one in `state` and the second in `capital`. This is what was happening when you called enumerate, it returned a tuple with the number value it was on, and the value itself. It is up to you whether or not to grab those values in a single variable as a tuple or have Python unpack it for you into two variables. 
+So, when, Python sees the two variable names `state` and `capital` in the first implementation, it knows to take the values in the tuple returned from `items()` and put the first one in `state` and the second in `capital`. This is what was happening when you called enumerate - it returned a tuple with the index it was on as well as the value itself. It is up to you whether or not to grab those values in a single variable as a tuple or have Python unpack it for you into two variables. 
 
-`Note, Python will not allow you to "unpack" a collection containing a single item into multiple variables.`
+**Note**: Python will not allow you to "unpack" a collection containing a single item into multiple variables.
 
 ### Sets
 
-There is one more data structure that we're going to take a look at today, the `set`. A set combines some of the awesome features of both the `list` and the `dictionary`. A set is defined as an unordered, mutable collection of unique items. Ok, this sounds like some jargon that we can make sense of these days, it sounds like a set is a data structure where you can store items and not care about their order, knowing that there will always be at most one of them in the structure.
+There is one more data structure that we're going to take a look at today, the `set`. A set combines some of the awesome features of both the `list` and the `dictionary`. A set is defined as an unordered, mutable collection of unique items. Ok, this sounds like some jargon that we can make sense of. It sounds like a set is a data structure where you can store items and not care about their order, knowing that there will always be at most one of them in the structure.
 
-This description, while highly informal, is rather spot on. Sets in Python are actually analogous to sets that you would see in a mathematical setting. For this reason much of the jargon and functionality that you will hear about when learning and talking about Python sets is similar to, if not exactly the same as, that which applies to mathematical sets as well ([here's](https://en.wikipedia.org/wiki/Set_(mathematics)) the wiki on sets if you want a quick overview of them).
+This description, while highly informal, is rather spot on. Sets in Python are actually analogous to sets that you would see in a mathematical setting. For this reason, much of the jargon and functionality that you will hear about when learning and talking about Python sets is similar to, if not exactly the same as, that which applies to mathematical sets ([here's](https://en.wikipedia.org/wiki/Set_(mathematics)) the wiki on sets if you want a quick overview of them).
 
 Lets take a look at how we construct sets.
 
@@ -307,7 +307,7 @@ In [3]: my_set == my_other_set
 Out[3]: True
 ```
 
-Here we see the two ways we have to make sets, both with the constructor, which takes an iterable, and with the syntactic sugary curly braces (*Note, the curly braces are also used for dictionaries. In those we had a colon separating the keywords and values, which is how Python determines whether or not you're declaring a set or a dictionary. The only place where identifier isn't present is when declaring an empty structure. When this happens Python can't figure out if you want a dictionary or a set. For this reason, the empty curly braces `{}` always mean an empty dictionary to remove ambiguity*). Sets with the same items in them will evaluate as equal.
+Here we see the two ways we have to make sets, both with the constructor, which takes an iterable, and with the syntactic sugary curly braces (*Note, the curly braces are also used for dictionaries. In those we had a colon separating the keywords and values, which is how Python determines whether or not you're declaring a set or a dictionary. The only place where Python doesn't know is when declaring an empty structure. When this happens, Python can't figure out if you want a dictionary or a set. For this reason, the empty curly braces `{}` always mean an empty dictionary to remove ambiguity*). Sets with the same items in them will evaluate as equal.
 
 If we take a look at the methods that are available on sets we see:
 ```
@@ -348,9 +348,9 @@ These are some of the most common set operations you will ever use. If you'd lik
 
 #### Why Do We Need Sets?
 
-Alright, that's cool, but when would I use a set, you might be asking. And that's a great question! The most apparent answer is for times when you need to perform set operations, like checking what elements two lists have in common. Take the set of them both and find the intersection of those sets.The most obvious use case is to find the unique items in an iterable. But there's anther amazing place that we want to use sets in that might not be so apparent.
+Alright, that's cool, but when would I use a set, you might be asking. And that's a great question! The most apparent answer is for times when you need to perform set operations, like checking what elements two lists have in common. Take the set of them both and find the intersection of those sets.The most obvious use case is to find the unique items in an iterable. There's also another amazing place that we want to use sets in that might not be so apparent.
 
-Remember, when discussing dictionaries above, we talked about how checking if an item is in a list requires us to check every item in the list? This can be computationally expensive and generally we want to avoid it. What do we do instead then? 
+Remember, when discussing dictionaries above, we talked about how checking if an item is in a list requires us to check every item in the list? This can be computationally expensive and generally we want to avoid it. What do we do instead, then? 
 
 We use a set! The reason why lies in the fact that sets in Python are built very similarly to dictionaries. There's an underlying hash table that allows elements to be stored, and, more importantly, queried for membership within a set (*Note, this means that the elements of a set have to be immutable*). This operation happens much faster with sets than with lists ([here's](https://wiki.python.org/moin/TimeComplexity) some coverage on how quickly some Python methods run). Lets take a look at this in action, and simultaneously learn about how to time things in IPython.
 
