@@ -90,6 +90,7 @@ Out[2]: [0]
 
 So we've now moved the `return` statement into the `if` block of our function, and we notice we get a different result. Why is this? Well, like we discussed, when the function encounters that `return` statement, it immediately gives back whatever output it has. When we called `get_evens()` above, it encountered that `return` statement in our first iteration through our for loop, when `element` was equal to `0`. As a result, `0` got appended to the `evens` list, and then in the next line that `evens` list got returned from the function. 
 
+
 Okay, cool! 
 
 #### Function Definitions Part 2
@@ -150,4 +151,37 @@ In [5]: get_evens(20)
 Out[5]: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
 ```
 
-Here, we've specified the default value for `n` to be 5. That is, if no value is passed in for `n`, we assign the value of 5 to it. So you'll notice in the first function call to `get_evens()` where we pass no arguments, we get the same output as if we pass in the value 5 (which makes sense, since we set 5 as the default). Meanwhile, when we pass in other values (14 and 20), we get the same results as before. This is the point of setting a default parameter value - if the caller of the function specifies a value for that parameter, then that is the value used in the function; otherwise, the default value that was specified is used. 
+Here, we've specified the default value for `n` to be 5. That is, if no value is passed in for `n`, we assign the value of 5 to it. So you'll notice in the first function call to `get_evens()` where we pass no arguments, we get the same output as if we pass in the value 5 (which makes sense, since we set 5 as the default). Meanwhile, when we pass in other values (14 and 20), we get the same results as before. This is the point of setting a default parameter value - if the caller of the function specifies a value for that parameter, then that is the value used in the function; otherwise, the default value that was specified is used.
+
+Okay, so those are the basics! We can of course define our functions with multiple parameters, and then pass in multiple arguments for those parameters when calling the function. And just like we can specify a default value for a single parameter, we can also specify default values for multiple parameters if we would like. Let's first modify our function so that we return a list of evens from the user inputted range (defined by `n`) by default, but also give the user to input a different divisor (instead of 2) that will then return numbers in the inputted range that are divisible by the inputted divisor (i.e. the multiples of that number). We'll also change our function name and the name of the returned list (`evens`) so that they become more descriptive (our function is no longer ouputting just evens).  
+
+```python 
+In [1]: def get_multiples(n=5, divisor=2): 
+   ...:     multiples_lst = []
+   ...:     for element in range(n): 
+   ...:         if element % divisor == 0: 
+   ...:             multiples_lst.append(element)
+   ...:     return multiples_lst 
+
+In [2]: get_multiples()
+Out[2]: [0, 2, 4]
+
+In [3]: get_multiples(5)
+Out[3]: [0, 2, 4]
+
+In [4]: get_multiples(5, 2)
+Out[4] [0, 2, 4]
+
+In [5]: get_multiples(10, 2)
+Out[5]: [0, 2, 4, 6, 8]
+
+In [6]: get_multiples(10, 3)
+Out[6]: [0, 3, 6, 9]
+
+In [7]: get_multiples(100, 10)
+Out[7]: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+```
+
+As you can see from our first three examples above, the output of our function hasn't changed - by default we still output a list of the even numbers up to 5, and when we pass in 5 as the value passed to `n` and 2 as the value passed to `divisor`, we also output a list of the evens up to 5. Cool! 
+
+
