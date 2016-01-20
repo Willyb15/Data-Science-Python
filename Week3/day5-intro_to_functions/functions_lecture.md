@@ -184,4 +184,27 @@ Out[7]: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
 
 As you can see from our first three examples above, the output of our function hasn't changed - by default we still output a list of the even numbers up to 5, and when we pass in 5 as the value passed to `n` and 2 as the value passed to `divisor`, we also output a list of the evens up to 5. Cool! 
 
+Now let's get down to a syntatical 'rule' that we have to follow when we define functions with default arguments. When we do this, we have to make sure that any parameters we are giving default arguments are **after** any parameters that we are not giving default arguments. Let's check out some examples...
+
+```python
+In [1]: def get_multiples(n, divisor=2): 
+   ...:     multiples_lst = []
+   ...:     for element in range(n): 
+   ...:         if element % divisor == 0: 
+   ...:             multiples_lst.append(element)
+   ...:     return multiples_lst 
+
+In [2]: def get_multiples(n=5, divisor): 
+   ...:     multiples_lst = []
+   ...:     for element in range(n): 
+   ...:         if element % divisor == 0: 
+   ...:             multiples_lst.append(element)
+   ...:     return multiples_lst 
+  File "<ipython-input-2-fa1c095e8bea>", line 1
+    def get_multiple(n=5, divisor): 
+SyntaxError: non-default argument follows default argument
+```
+
+Hopefully this pretty clearly demonstrates this 'rule'. In the first case, we defined our parameters that have default values (which is only one, `divisor`, here) after defining our parameters that don't have default values (which is only one, `n`, here), just we are supposed to. And everything worked fine! In the second case, we defined a parameter with a default value before a parameter without a default value. That's a no no! 
+
 
