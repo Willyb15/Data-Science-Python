@@ -1,1 +1,7 @@
 ## Functions
+
+### Motivation 
+
+CARY, HELP!!! 
+
+ 
