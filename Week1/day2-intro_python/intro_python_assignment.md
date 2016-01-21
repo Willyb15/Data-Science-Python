@@ -22,7 +22,7 @@ In [1]: my_num = 7
 
 In [2]: whos
 Variable   Type    Data/Info
-----------------------------
+============================
 my_num     int     7
 ```
 
@@ -98,10 +98,10 @@ This is awesome! We now have a script that will solve a problem for arbitrary in
 
 ## Assignment Questions
 
-1. Write a script that computes and prints the factorial of a user inputted number.
-2. Write a script that determines whether or not a user inputted number is a [prime](https://en.wikipedia.org/wiki/Prime_number) and prints `'The number you inputted is a prime/ not a prime number.'` depending on what your script finds.
-3. One can use loops to compute the elements of a mathematical series. Series can be defined recursively with the value of each element depending on the one that comes before it. Consider the series created by the rules: 
+1.  Write a script that computes and prints the factorial of a user inputted number.
+2.  Write a script that determines whether or not a user inputted number is a [prime](https://en.wikipedia.org/wiki/Prime_number) and prints `'The number you inputted is a prime/ not a prime number.'` depending on what your script finds.
+3.  One can use loops to compute the elements of a mathematical series. Series can be defined recursively with the value of each element depending on the one that comes before it. Consider the series created by the rules:  
 
-![series](imgs/series.png) 
+    ![series](imgs/series_pic.png)  
    
-   Write a script that prints the element in the series as determined by input from the user. e.g. If the user inputs the number `3`, your script should print `15`. You're welcome to check the math!
+    Write a script that prints the element in the series as determined by input from the user. e.g. If the user inputs the number `3`, your script should print `15`. You're welcome to check the math!
