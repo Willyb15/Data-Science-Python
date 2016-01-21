@@ -105,3 +105,7 @@ This is awesome! We now have a script that will solve a problem for arbitrary in
     ![series](imgs/series_pic.png)  
    
     Write a script that prints the element in the series as determined by input from the user. e.g. If the user inputs the number `3`, your script should print `15`. You're welcome to check the math!
+
+### Extra Credit
+
+Try to break your scripts by passing them something other than a number. Make your scripts robust to poorly formatted input. Hint: Look at the [isinstance()](https://docs.python.org/2/library/functions.html#isinstance) function. How can we use this and conditionals to guarentee only good input, ints, will be processed. If the input ends up being bad, print a message notifying the user.
