@@ -6,6 +6,10 @@ CARY, HELP!!!
 
 ### Intro to Functions
 
+#### Built-in functions  
+
+In our programming journey so far, we've actually see a number of functions. We've worked with the `len()` function, which returns the length of an inputted iterable. We've also worked with the `range()` function, which returns back to us a list of numbers from an inputted mininum number to an inputted maximum number. There are a number of built-in functions that are available in Python, and you can find them [here](https://docs.python.org/2/library/functions.html). Each one of these functions is built and constructed in a very similar way, and they all take some arbitrary number of arguments. Tonight we'll learn how to define our own functions in such a way that we can use them as we have been using the built-ins! 
+
 #### Function Definition Part 1
 
 The first thing we're going to figure out how to do is actually define these things. To build up to this, let's take a look back at some code we previously wrote to output a list of all of the even elements in `some_collection`.
@@ -237,3 +241,43 @@ In [5]: get_multiples(n=10, 3) # Not okay mix of positional and keyword argument
     get_multiples(n=10, 3)
 SyntaxError: non-keyword arg after keyword arg
 ```
+
+### Variable Scope
+
+Variable scope is a topic in and of itself, but up until now we haven't really had a good reason to discuss it. **Variable scope** is going to define the part (or block) of your program in which that variable is visible. We typically refer to to one of two scopes of variables - **global** scope and **local** scope. A variable with **global** scope is visible everywhere. It can be used anywhere in your program, including any of the functions you have written (it can even be used inside of a function written inside of a function). A variable with **local** scope, on the other hand, is only visible in the scope in which it was enclosed (typically a function). 
+
+When referencing a variable, Python will search the following scopes (in order) to resolve the reference: 
+
+1. The current function's scope. 
+2. Any enclosing scopes (like other containing functions). 
+3. The scope of the module (i.e. program) that contains the code (often referred to as the **global** scope. 
+4. The built-in scope (contains the built-in functions.
+
+This is kind of a confusing concept to grasp, so let's look at an example. 
+
+```python 
+In [1]: my_global_var = 5
+
+In [2]: def my_test_func(): 
+   ...:     print "My global variable:",  my_global_var # Accessible and will print. 
+   ...:     my_local_var = 10 # This is only accessible in my_test_func. 
+   ...:     print "My local variable:", my_local_var  
+   ...:
+
+In [3]: my_global_var # Remember it's accessible anywhere. 
+Out[3]: 5
+
+In [4]: my_test_func()
+My global variable 5
+My local variable 10
+
+In [5]: print my_local_var
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-4-b0b2b2a41781> in <module>()
+----> 1 print my_local_var
+
+NameError: name 'my_local_var' is not defined
+```
+
+Notice that `my_global_var` is accessible anywhere - both inside and outside of our function. This is because it is in the **global scope**. `my_local_var`, on the other hand, was defined within `my_test_func`. As a result, it is enclosed within the scope of `my_test_func`, and not accessible outside of it.   
