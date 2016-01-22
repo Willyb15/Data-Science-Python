@@ -19,3 +19,20 @@ The motivation for object-oriented programming (OOP) is actually heavily rooted 
 * **Polymorphism** - The provision of a single interface to entities of different types. This enables us to use a shared interface for similar classes while at the same time still allowing each class to have its own specialized behavior. 
 
 While OOP does enjoy the benefits of the above design principles, it also kind of matches how we thing about the world. The world is composed of objects, where objects can be people, houses, cars, buildings, etc. These objects have some properties about them (i.e. they contain data), and they can do things (i.e. they have methods that can be applied). Object oriented programming approaches a programming problem by using objects that interact with each other, much like they do in the real world. 
+
+#### Terminology
+
+Before we get to actually learning how to build a class, it'll be helpful to define some of the terminology surrounding classes/OOP. Often times, the terminology can be the most confusing part of learning OOP. 
+
+1. Class - used to refer to the abstract concept of an object.
+2. Object - An actual instance of a class.
+3. Instance - What Python returns when you tell it to create a class.
+4. Instantiation - A fancy for saying that we're going to create an instance of a class. 
+5. Constructor - What we call to instantiate a class. 
+6. self - Inside of a class, a variable for the instance/object being accessed (i.e. it holds a reference to the instance/object of that class).
+7. attribute/field/property - A property or piece of data that a class has, stored in a variable. Inside of a class definition, all attributes/fields/properties are assigned via self, while outside of a class definition, they are accessed via *dot notation*.
+8. method/procedure - A block of code that is accessible via the class, and typically acts on or with the classes attributes/fields/properties. Inside of a class definition, all methods/procedures are created via def. (they are really just functions) and accessible via self, while outside of a class definition, they are accessed via *dot notation*. 
+
+Don't worry if this terminology isn't 100% clear at this point in time. It should become more clear as we work through these notes, and should be a useful reference. From here on out, we'll treat attribute, field, and property as interchangeable, and we'll do the same with method and procedure.
+
+
