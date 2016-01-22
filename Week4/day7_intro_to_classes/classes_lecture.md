@@ -56,3 +56,12 @@ our_class = OurClass()
 
 Okay, cool! Let's revisit some of the terminology that we discuss above. We've shown you how to define a class, and **instantiate** it using a **constructor**. What we've done directly above, with `our_class`, is created an **instance** of `OurClass` that we've stored in the `our_class` variable. This variable is an object that theoretically has **attributes** and **methods** which we can use to interact with it (we say theoretically because we didn't actually define any attributes or methods above). Awesome! Now let's look at how to actually build a class that does something.   
 
+#### Inner Workings (defining attributes and methods) 
+
+As review, remember that inside of a class, we can have both attributes and methods. We can then think of these attributes and methods as belonging to the class, and they become accessible via any instances of the class (through dot notation, which we'll get to in a second). Inside of the class, all of these attributes and methods are set and retrieved via self. Let's dive in...
+
+##### The \__init\__()
+
+Almost every class you ever write will have an \__init\__() method. This method gets called every time that you create a new instance of a class, and handles any kind of setup that the class may require. Setup typically just involves assigning values to variables, which we can do with or without passing values in (similar to how we interact with functions).
+
+
