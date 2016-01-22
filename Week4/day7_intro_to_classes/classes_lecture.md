@@ -2,9 +2,9 @@
 
 ### Background/Motivation 
 
-From [wikipedia](https://en.wikipedia.org/wiki/Object-oriented_programming): 'Object-oriented programming (OOP) is a programming paradigm based on the concept of "objects", which are data structures that contain data, in the form of fields, often known as attributes; and code, in the form of procedures, often known as methods.'
+From [wikipedia](https://en.wikipedia.org/wiki/Object-oriented_programming): Object-oriented programming (OOP) is a programming paradigm based on the concept of "objects", which are data structures that contain data, in the form of fields, often known as attributes; and code, in the form of procedures, often known as methods.
 
-Okay, so I now have this vague idea of what an 'object' is, but how does it relate to Python? It turns out, everything in Python is an object. Everything in Python stores data, and has methods that operate on that data. Strings are a perfect example of this. When we have a string, it stores the individual characters that make up the string (*this is the __data__*), and we have **methods** (`lower()`, `upper()`, `replace()`, etc.) that operate on that data.
+Okay, so I now have this vague idea of what an 'object' is, but how does it relate to Python? It turns out, everything in Python is an object. Everything in Python stores data, and has methods that operate on that data. Strings are a perfect example of this. When we have a string, it stores the individual characters that make up the string (*these are the __attributes__*), and we have **methods** (`lower()`, `upper()`, `replace()`, etc.) that operate on that data.
 
 With knowledge of what an object is, let's discuss how they are related to **classes**. It turns out that a **class** is simply a blueprint for how to create an object. It tells us what data an object will store, and what methods that object will have available.  By building different classes (i.e. blueprints), we can build different objects (and then they can interact with each other, which we'll get to). Okay, cool. But why use classes? 
 
@@ -24,14 +24,14 @@ While OOP does enjoy the benefits of the above design principles, it also kind o
 
 Before we get to actually learning how to build a class, it'll be helpful to define some of the terminology surrounding classes/OOP. Often times, the terminology can be the most confusing part of learning OOP. 
 
-1. Class - used to refer to the abstract concept of an object.
-2. Object - An actual instance of a class.
-3. Instance - What Python returns when you tell it to create a class.
-4. Instantiation - A fancy for saying that we're going to create an instance of a class. 
-5. Constructor - What we call to instantiate a class. 
-6. self - Inside of a class, a variable for the instance/object being accessed (i.e. it holds a reference to the instance/object of that class).
-7. attribute/field/property - A property or piece of data that a class has, stored in a variable. Inside of a class definition, all attributes/fields/properties are assigned via self, while outside of a class definition, they are accessed via *dot notation*.
-8. method/procedure - A block of code that is accessible via the class, and typically acts on or with the classes attributes/fields/properties. Inside of a class definition, all methods/procedures are created via def. (they are really just functions) and accessible via self, while outside of a class definition, they are accessed via *dot notation*. 
+1. **Class** - used to refer to the abstract concept of an object.
+2. **Object** - An actual instance of a class.
+3. **Instance** - What Python returns when you tell it to create a class.
+4. **Instantiation** - A fancy for saying that we're going to create an instance of a class. 
+5. **Constructor** - What we call to instantiate a class. 
+6. **self** - Inside of a class, a variable for the instance/object being accessed (i.e. it holds a reference to the instance/object of that class).
+7. **attribute**/**field**/**property** - A property or piece of data that a class has, stored in a variable. Inside of a class definition, all attributes/fields/properties are assigned via self, while outside of a class definition, they are accessed via *dot notation*.
+8. **method**/**procedure** - A block of code that is accessible via the class, and typically acts on or with the classes attributes/fields/properties. Inside of a class definition, all methods/procedures are created via def. (they are really just functions) and accessible via self, while outside of a class definition, they are accessed via *dot notation*. 
 
 Don't worry if this terminology isn't 100% clear at this point in time. It should become more clear as we work through these notes, and should be a useful reference. From here on out, we'll treat attribute, field, and property as interchangeable, and we'll do the same with method and procedure.
 
