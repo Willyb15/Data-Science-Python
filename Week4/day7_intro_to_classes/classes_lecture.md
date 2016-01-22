@@ -35,4 +35,24 @@ Before we get to actually learning how to build a class, it'll be helpful to def
 
 Don't worry if this terminology isn't 100% clear at this point in time. It should become more clear as we work through these notes, and should be a useful reference. From here on out, we'll treat attribute, field, and property as interchangeable, and we'll do the same with method and procedure.
 
+### Defining A Class
+
+Much like defining a function, there is a common format to defining a class. It is almost exactly the same as defining a function, but we replace `def` with `class`. That is, we write `class`, then the name of the class that we are defining, followed by a set of parentheses, and finally a colon. After the colon is an indented block of code that we use to define the class attributes and methods. One subtle difference is that with functions, the standard is to name these beginning in lowercase and separating words with underscores (i.e. snake_case), while with classes, the standard is to name these beginning in uppercase, and not separate words at all (i.e. CamelCase). For example...
+
+```python 
+class OurClass(): 
+    # attributes and methods go in here.
+```
+
+*Note*: As we'll show below, `OurClass()` is exactly what we'd used to create an instance of this class, and is the **constructor** for this class. 
+
+#### Instantiation 
+
+Like we mentioned above, **instantiation** is just a fancy word for saying that we're going to create an instance of a particular class. We do this by calling the **constructor** for our class, which is the name that we give our class right after the `class` statement in its definition. 
+
+```python 
+our_class = OurClass() 
+```
+
+Okay, cool! Let's revisit some of the terminology that we discuss above. We've shown you how to define a class, and **instantiate** it using a **constructor**. What we've done directly above, with `our_class`, is created an **instance** of `OurClass` that we've stored in the `our_class` variable. This variable is an object that theoretically has **attributes** and **methods** which we can use to interact with it (we say theoretically because we didn't actually define any attributes or methods above). Awesome! Now let's look at how to actually build a class that does something.   
 
