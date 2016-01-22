@@ -191,7 +191,7 @@ if x > 5:
 print x
 ```
 
-*Note: The print function simply pipes the value passed to it to the console.*
+**Note**: The print function simply pipes the value passed to it to the console.
 
 In the above code we don't need to know what the value of `x` is, but we can say that if it's greater than 5, it will come out of the code block 10 greater than before the if statement.
 
@@ -209,7 +209,7 @@ In [1]: run print_number.py
 Please enter a number: 
 ```
 
-*Note: The raw_input() function accepts character input from the keyboard, printing the message it is passed as a prompt.*
+**Note**: The `raw_input()` function accepts character input from the keyboard, printing the message it is passed as a prompt.
 
 We can then type a number followed by enter, and the script will print that number.
 
@@ -219,7 +219,7 @@ Please enter a number: 3
 3
 ```
 
-*Note: raw_input() halts the execution of your script, so nothing will happen until you type something a press enter.*
+**Note**: `raw_input()` halts the execution of your script, so nothing will happen until you type something a press enter.
 
 Now that we have a way to get arbitrary input from the user of our program, we can begin to see the full power of the `if`. Let's combine the last two code blocks from above, and say we stored it in a script named `print_number_with_if.py`.
 
@@ -230,7 +230,7 @@ if x > 5:
 print(x)
 ```
 
-*Note: raw_input() actually interprets the input as strings, so we have to manually tell Python to treat the number we pass as an interger with int(). We'll talk about strings more next week.*
+**Note**: `raw_input()` actually interprets the input as strings, so we have to manually tell Python to treat the number we pass as an interger with int(). We'll talk about strings more next week.
 
 If we then ran the script from IPython as above, lets look at two ways we could interact with it.
 
@@ -316,7 +316,7 @@ You entered a number bigger than 5.
 
 In the first example we got something surprising. The only condition that evaluates to true when `x` is 5 is the second one. However, the second example yields only 'You entered a number bigger than 5.', even though 6 is greater than 0. This shows that only one of the conditional blocks in an `if`-`elif`-`else` statement will ever be evaluated, and once this happens the rest are skipped.
 
-*Note: The else part of the statement is actually optional. If it is not included, then we'd notice that at most one of the conditional blocks in an `if`-`else` statement will be evaluated.*
+**Note**: The else part of the statement is actually optional. If it is not included, then we'd notice that at most one of the conditional blocks in an `if`-`else` statement will be evaluated.
 
 ##### And, Or and Not
 
