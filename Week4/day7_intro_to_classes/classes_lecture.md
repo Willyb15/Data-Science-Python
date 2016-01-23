@@ -18,7 +18,7 @@ The motivation for object-oriented programming (OOP) is actually heavily rooted 
 * **Encapsulation** - The practice of hiding the inner workings of our class, and only exposing what is necessary to the outside world. This idea is effectively the same as the idea of **abstraction**, and allows users of our classes to only care about the what (i.e. what our class can do) and not the how (i.e. how our class does what it does). 
 * **Polymorphism** - The provision of a single interface to entities of different types. This enables us to use a shared interface for similar classes while at the same time still allowing each class to have its own specialized behavior. 
 
-While OOP does enjoy the benefits of the above design principles, it also kind of matches how we thing about the world. The world is composed of objects, where objects can be people, houses, cars, buildings, etc. These objects have some properties about them (i.e. they contain data), and they can do things (i.e. they have methods that can be applied). Object oriented programming approaches a programming problem by using objects that interact with each other, much like they do in the real world. 
+While OOP does enjoy the benefits of the above design principles, it also kind of matches how we think about the world. The world is composed of objects, where objects can be people, houses, cars, buildings, etc. These objects have some properties about them (i.e. they contain data), and they can do things (i.e. they have methods that can be applied). Object oriented programming approaches a programming problem by using objects that interact with each other, much like they do in the real world. 
 
 ### Terminology
 
@@ -27,17 +27,17 @@ Before we get to actually learning how to build a class, it'll be helpful to def
 1. **Class** - used to refer to the abstract concept of an object.
 2. **Object** - An actual instance of a class.
 3. **Instance** - What Python returns when you tell it to create a class.
-4. **Instantiation** - A fancy for saying that we're going to create an instance of a class. 
+4. **Instantiation** - A fancy way of saying that we're going to create an instance of a class. 
 5. **Constructor** - What we call to instantiate a class. 
 6. **self** - Inside of a class, a variable for the instance/object being accessed (i.e. it holds a reference to the instance/object of that class).
-7. **attribute**/**field**/**property** - A property or piece of data that a class has, stored in a variable. Inside of a class definition, all attributes/fields/properties are assigned via self, while outside of a class definition, they are accessed via *dot notation*.
-8. **method**/**procedure** - A block of code that is accessible via the class, and typically acts on or with the classes attributes/fields/properties. Inside of a class definition, all methods/procedures are created via def. (they are really just functions) and accessible via self, while outside of a class definition, they are accessed via *dot notation*. 
+7. **attribute**/**field**/**property** - A property or piece of data that a class has, stored in a variable. Inside of a class definition, all attributes/fields/properties are assigned via *self*, while outside of a class definition, they are accessed via *dot notation*.
+8. **method**/**procedure** - A block of code that is accessible via the class, and typically acts on or with the classes attributes/fields/properties. Inside of a class definition, all methods/procedures are created via def. (they are really just functions) and accessible via *self*, while outside of a class definition, they are accessed via *dot notation*. 
 
 Don't worry if this terminology isn't 100% clear at this point in time. It should become more clear as we work through these notes, and should be a useful reference. From here on out, we'll treat attribute, field, and property as interchangeable, and we'll do the same with method and procedure.
 
 ### Defining A Class
 
-Much like defining a function, there is a common format to defining a class. It is almost exactly the same as defining a function, but we replace `def` with `class`. That is, we write `class`, then the name of the class that we are defining, followed by a set of parentheses, and finally a colon. After the colon is an indented block of code that we use to define the class attributes and methods. One subtle difference is that with functions, the standard is to name these beginning in lowercase and separating words with underscores (i.e. snake_case), while with classes, the standard is to name these beginning in uppercase, and not separate words at all (i.e. CamelCase). For example...
+Much like defining a function, there is a common syntax when defining a class. It is almost exactly the same as defining a function, but we replace `def` with `class`. That is, we write `class`, then the name of the class that we are defining, followed by a set of parentheses, and finally a colon. After the colon is an indented block of code that we use to define the class attributes and methods. One subtle difference is that with functions, the standard is to name these beginning in lowercase and separating words with underscores (i.e. *snake_case*), while with classes, the standard is to name these beginning in uppercase, and not separate words at all (i.e. *CamelCase*). For example...
 
 ```python 
 class OurClass(): 
@@ -48,13 +48,13 @@ class OurClass():
 
 #### Instantiation 
 
-Like we mentioned above, **instantiation** is just a fancy word for saying that we're going to create an instance of a particular class. We do this by calling the **constructor** for our class, which is the name that we give our class right after the `class` statement in its definition. 
+Like we mentioned above, **instantiation** is just a fancy word for saying that we're going to create an instance of a particular class. We do this by calling the **constructor** for our class, which is the name that we give our class right after the `class` statement in its definition. Using this **constructor**, we create an instance of our class, and store that instance in a variable. 
 
 ```python 
 our_class = OurClass() 
 ```
 
-Okay, cool! Let's revisit some of the terminology that we discuss above. We've shown you how to define a class, and **instantiate** it using a **constructor**. What we've done directly above, with `our_class`, is created an **instance** of `OurClass` that we've stored in the `our_class` variable. This variable is an object that theoretically has **attributes** and **methods** which we can use to interact with it (we say theoretically because we didn't actually define any attributes or methods above). Awesome! Now let's look at how to actually build a class that does something.   
+Okay, cool! Let's revisit some of the terminology that we discussed above. We've shown you how to define a class, and **instantiate** it using a **constructor**. What we've done directly above, with `our_class`, is created an **instance** of `OurClass` that we've stored in the `our_class` variable. This variable is an object that theoretically has **attributes** and **methods** which we can use to interact with it (we say theoretically because we didn't actually define any attributes or methods above). Awesome! Now let's look at how to actually build a class that does something.   
 
 #### Inner Workings (defining attributes and methods) 
 
@@ -76,7 +76,7 @@ In [3]: our_class.name
 Out[3]: 'Intro Python'
 ```
 
-First things first - how does the `\__init\__()` method work? As mentioned above, it is called whenver we instantiate an instance of `OurClass()` (or whatever class it is a part of), and any arguments that we pass to the `OurClass()` constructor that we use during instantiation are passed to the `\__init\__()` method. But wait... In the `\__init\__()` method definition you have it accepting the `self` parameter, but don't pass any arguments during instantiation. The reason for this is that by default, Python passes a reference to the class itself (which is what `self` is) as the first argument in any method that is defined within the class. Let's dive into this a little deeper...   
+First things first - how does the `__init__()` method work? As mentioned above, it is called by default whenver we instantiate an instance of `OurClass()` (or whatever class it is a part of), and any arguments that we pass to the `OurClass()` constructor that we use during instantiation are passed to the `__init__()` method. But wait... In the `__init__()` method definition you have it accepting the `self` parameter, but don't pass any arguments during instantiation. The reason for this is that by default, Python passes a reference to the class itself (which is what `self` is) as the first argument in any method that is defined within the class. Let's dive into this a little deeper...   
 
 `self` is what we use inside of the class to access attributes or methods of the class. Notice that we do this with dot notation - e.g. by placing a period after `self`, and then the name of the attribute or method that we want to access. When we write `self.name = 'Intro Python'`, then, what we are doing is accessing `self.name` and then assigning it the value of 'Intro Python'. Outside of the class, we access this attribute (or any attribute/method) again via dot notation, but replacing `self` with the variable name that holds our instantiated object (above this is `our_class`). 
 
@@ -97,7 +97,7 @@ In [5]: our_ds_class.name
 Out[5]: 'Data Science'
 
 In [6]: our_last_class = OurClass()
--------------------------------------------------------------
+______________________________________________________________
 TypeError                    Traceback (most recent call last)
 <ipython-input-6-36aa0dd92460> in <module>()
 ----> 1 our_last_class = OurClass()
@@ -105,9 +105,9 @@ TypeError                    Traceback (most recent call last)
 TypeError: __init__() takes exactly 2 arguments (1 given)
 ```
 
-Cool! So what's happening here? Well, in our `\__init\__()` method, we have included another parameter in addition to `self`. In doing so, when we instantiate our class, the constructor expects an argument (in addition to `self`, which remember is automatically passed by default). It then takes that expected argument, and assigns it to the `name` attribute, which we access via dot notation, prefaced with  `self` inside of the class and the variable name of your object outside of the class.
+Cool! So what's happening here? Well, in our `__init__()` method, we have included another parameter in addition to `self`. In doing so, when we instantiate our class, the constructor expects an argument (in addition to `self`, which remember is automatically passed by default). It then takes that expected argument, and assigns it to the `name` attribute, which we access via dot notation, prefaced with  `self` inside of the class and the variable name of your object outside of the class.
 
-What happened in that last example, though? Here we tried to instantiate the class without an argument, and got an error. This is because we didn't pass in an argument for the `name` parameter. Methods within classes work exactly like functions (in fact they are functions, we just call them methods since they are inside classes). As a result, when we call them, we have to pass the expected number of arguments in (with the caveat that `self` is passed by default, and that `\__init\__()` is called by default when a class is instantiated).
+What happened in that last example, though? Here we tried to instantiate the class without an argument, and got an error. This is because we didn't pass in an argument for the `name` parameter. Methods within classes work exactly like functions (in fact they are functions, we just call them methods since they are inside classes). As a result, when we call them, we have to pass the expected number of arguments in (with the caveat that `self` is passed by default, and that `__init__()` is called by default when a class is instantiated).
 
 Let's look at one last example to hammer home the `__init__()` method. Remember that it's just like a function (a kind of special function). This means that we can pass it multiple arguments, and even give parameters default values. Awesome! 
 
@@ -169,7 +169,7 @@ In [7]: our_class.questions_asked
 Out[7]: ['Why Python?', 'Why not R?']
 ```
 
-Here, we have now defined another method within our class - `add_question_asked`. Notice that we call this method *after* we have instantiated an instance of `OurClass()` (stored in the variable in `our_class`), and we use dot notation to access it via our variable. This `add_question_asked` method takes in a string (or really anything) and appends it to the object's `questions_asked` attribute. But how does it know where to find the `questions_asked` attribute if it isn't passed into the `add_question_asked` method? This comes back to the beauty of the `self` reference that is *automatically* passed as the first argument in any method call on an object. That `self` reference holds access to *any* of the objects attributes, no matter where they were defined (in the `__init__()`, in another method, etc.). *As long as* that attribute as assign via dot notation using `self`, then it will be accessible via `self` in any method of the class.
+Here, we have now defined another method within our class - `add_question_asked`. Notice that we call this method *after* we have instantiated an instance of `OurClass()` (stored in the variable `our_class`), and we use dot notation to access it via our variable. This `add_question_asked` method takes in a string (or really anything) and appends it to the object's `questions_asked` attribute. But how does it know where to find the `questions_asked` attribute if it isn't passed into the `add_question_asked` method? This comes back to the beauty of the `self` reference that is *automatically* passed as the first argument in any method call on an object. That `self` reference holds access to *any* of the objects attributes, no matter where they were defined (in the `__init__()`, in another method, etc.). *As long as* that attribute was assigned via dot notation using `self`, then it will be accessible via `self` in any method of the class.
 
 Note, too, that any method within the class can alter the attributes that are accessible via `self`. Above, we used the `add_question_asked` method to alter the `questions_asked` attribute. However, if use a variable within a method and don't assign it as an attribute accessible via `self`, then it won't be accessible in other methods of the class (this is because it will be enclosed in the scope of that method only). Let's hammer this home with another example. 
 
@@ -216,21 +216,21 @@ In [9]: our_class.size
 Out[9]: 23
 
 In [10]: our_class.check_if_at_capacity()
-_____________________________________________________________________
+______________________________________________________________________
 NameError                           Traceback (most recent call last)
 <ipython-input-21-bd556e9468f1> in <module>()
 ----> 1 our_class.check_if_at_capacity()
 
 <ipython-input-9-f631bd9392f0> in check_if_at_capacity(self)
-     13             at_capacity = True
-     14     def check_if_at_capacity(self): 
----> 15         return at_capacity == True
-     16
+      13             at_capacity = True
+      14     def check_if_at_capacity(self): 
+----> 15         return at_capacity == True
+      16
 
 AttributeError: OurClass instance has no attribute 'at_capacity'
 ```
 
-Okay, so let's highlight a couple of things in our last example here. The main point of this example is to show that any method can access any attribute of the class **that is assigned via `self`**. We see this in two of our methods above - `add_question_asked` is able to access the `questions_asked` attribute (just as before), and `add_class_members` is able to access `size`. Both of these attributes are accessed via `self`. When we get to `check_if_at_capacity`, though, it tries to access `at_capacity` which was never assigned via `self`, and hence not available via `self`. The way this code is written, at_capacity is only ever set and accessible within the `add_class_members` method itself. Let's fix this by assigning it via `self` and seeing what that does. 
+Let's highlight a couple of things in our last example here. The main point of this example is to show that any method can access any attribute of the class **that is assigned via `self`**. We see this in two of our methods above - `add_question_asked` is able to access the `questions_asked` attribute (just as before), and `add_class_members` is able to access `size`. Both of these attributes are accessed via `self`. When we get to `check_if_at_capacity`, though, it tries to access `at_capacity`, which was never assigned via `self`, and hence not available via `self`. The way this code is written, at_capacity is only ever set and accessible within the `add_class_members` method itself. Let's fix this by assigning it via `self` and seeing what that does. 
 
 ```python
 In [1]: class OurClass(): 
@@ -266,7 +266,7 @@ In [5]: our_class.check_if_at_capacity()
 Out[5]: True
 ```
 
-Alright, cool! So here we can see that not only can we create attributes in the `__init__()` method, but in other methods as well. Before our line `our_class.add_class_members(5)` was called, there was no `at_capacity` attribute on `our_class` object. After, however, there was! This is because it got created in the `if` block within the `add_class_memebers` method. Furthermore, because we assigned it via `self`, it was accessible in the `check_if_at_capacity` method when we called it. Neat! 
+Here we can see that not only can we create attributes in the `__init__()` method, but in other methods as well. Before our line `our_class.add_class_members(5)` was called, there was no `at_capacity` attribute on `our_class` object. After, however, there was! This is because it got created in the `if` block within the `add_class_memebers` method. Furthermore, because we assigned it via `self`, it was accessible in the `check_if_at_capacity` method when we called it. Neat! 
 
 As a final note, you can also perform tab completion on your own objects. If we were to tab complete the last instance of `OurClass()` from directly above, we would have seen this: 
 
