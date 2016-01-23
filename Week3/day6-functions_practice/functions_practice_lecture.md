@@ -171,4 +171,97 @@ def create_report(file_path):
     with open(file_path) as txt_file:
         for line in txt_file:
             update_counts(line, counts_dict)
+    return counts_dict
 ```
+
+We don't need to return anything from `update_counts()` because it is directly altering the state of `counts_dict` this was one of the arguments it was passed. At this point we can now return the `counts_dict` from `create_report()` and begin testing our full function.
+
+To check how our function is working we will need to have access to it. One way that we could use it is by adding some code to our script not inside of a function that calls the function. Possibly like this... 
+
+```python
+def update_counts(line, counts_dict):
+    counts_dict['sentences'] += line.count('.')
+    counts_dict['words'] += len(line.split())
+    counts_dict['characters'] += len(line)
+
+def create_report(file_path):
+    counts_dict = {'sentences': 0, 'words': 0, 'characters': 0}
+    with open(file_path) as txt_file:
+        for line in txt_file:
+            update_counts(line, counts_dict)
+    return counts_dict
+
+print(create_report('test_text.txt'))
+```
+
+If we then run our script, we can see how or function is working.
+
+```python
+
+In [1]: run txt_file_processing.py
+{'words': 16, 'sentences': 2, 'characters': 76}
+```
+
+#### Importing Detour
+
+While this works, it turns out that it is generally bad practice. The reason has to do with what happens when we do something called importing. The **import** statement allows us to access code, functions generally, from other existing scripts. These could be ones that are written by the creators of Python and are in libraries included with Python distributions, or ones that you've written yourself. We can test importing by trying to do it in IPython. Let's see what happens when we try to import the script we've just saved.
+
+```python
+In [1]: import txt_file_processing
+{'words': 16, 'sentences': 2, 'characters': 76}
+
+In [2]: txt_file_processing.create_report('test_text.txt')
+Out[2]: {'characters': 76, 'sentences': 2, 'words': 16}
+```
+
+We can see importing in action here, the magic of the second line will be explained shortly. But first, focus your attention on the first line. When we import a script Python actually runs the code that is contained in the imported script making it as though it was written in yours. While this is a very powerful concept, we can see a downfall here. The `print` function was run when the import happened for this reason, and this is far from desirable behavior.
+
+Luckily we have a way to avoid this, it's know as a **main-block**. Any code that is defined within a main-block will only be executed when the script is run, as opposed to when it is imported, in which case the contents of the main-block are ignored. We can see a main-block defined below.
+
+```python
+def update_counts(line, counts_dict):
+    counts_dict['sentences'] += line.count('.')
+    counts_dict['words'] += len(line.split())
+    counts_dict['characters'] += len(line)
+
+def create_report(file_path):
+    counts_dict = {'sentences': 0, 'words': 0, 'characters': 0}
+    with open(file_path) as txt_file:
+        for line in txt_file:
+            update_counts(line, counts_dict)
+    return counts_dict
+
+if __name__ == '__main__':
+    print(create_report('test_text.txt'))
+```
+
+Now if we import the script we will not see the `print()` statement in the main-block run. Magic!
+
+```python
+In [1]: import txt_file_processing
+
+In [2]: txt_file_processing.create_report('test_text.txt')
+Out[2]: {'characters': 76, 'sentences': 2, 'words': 16}
+```
+
+Back to the second line here is the same as above. Via importing we gained access to `create_report()` as it is stored in the `txt_file_processing.py` script. The syntax of importing allows us to do a number of other things as well. We can change the name that we will use to reference the script that contains the functions we want to access from our import via the `as` statement. We can also import specific functions from a script using the `from` statement. These two statements can also be used together. Let's see them in action.
+
+```python
+In [1]: import txt_file_processing as tfp
+{'characters': 76, 'sentences': 2, 'words': 16}
+
+In [2]: tfp.create_report('test_text.txt')
+Out[2]: {'characters': 76, 'sentences': 2, 'words': 16}
+
+In [3]: from txt_file_processing import create_report
+
+In [4]: create_report('test_text.txt')
+Out[4]: {'characters': 76, 'sentences': 2, 'words': 16}
+
+In [5]: from txt_file_processing import create_report as cr
+
+In [6]: cr('test_text.txt')
+Out[6]: {'characters': 76, 'sentences': 2, 'words': 16}
+```
+
+This is very convenient, and we will use it extensively later in this course; but for now know that you can and often want to import from within a script to get access to functions from other scripts.
