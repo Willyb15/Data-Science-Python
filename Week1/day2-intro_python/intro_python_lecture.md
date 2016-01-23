@@ -12,7 +12,7 @@ In [1]: 7
 Out[1]: 7
 ```
 
-The IPython console will accept arbitrary Python commands, entered after the `In [#]:`, and execute them, handing you back the results of the computation, displayed after the `Out [#]:`.
+The IPython console will accept arbitrary Python commands, entered after the `In [#]:`, and execute them, handing you back the results of the computation, displayed after the `Out[#]:`.
 
 You can test this out with other numbers. Try one with a decimal and another by passing two numbers to the `complex()` constructor (we will talk about what these things are later).
 
@@ -191,7 +191,7 @@ if x > 5:
 print x
 ```
 
-*Note: The print function simply pipes the value passed to it to the console.*
+**Note**: The print function simply pipes the value passed to it to the console.
 
 In the above code we don't need to know what the value of `x` is, but we can say that if it's greater than 5, it will come out of the code block 10 greater than before the if statement.
 
@@ -209,7 +209,7 @@ In [1]: run print_number.py
 Please enter a number: 
 ```
 
-*Note: The raw_input() function accepts character input from the keyboard, printing the message it is passed as a prompt.*
+**Note**: The `raw_input()` function accepts character input from the keyboard, printing the message it is passed as a prompt.
 
 We can then type a number followed by enter, and the script will print that number.
 
@@ -219,7 +219,7 @@ Please enter a number: 3
 3
 ```
 
-*Note: raw_input() halts the execution of your script, so nothing will happen until you type something a press enter.*
+**Note**: `raw_input()` halts the execution of your script, so nothing will happen until you type something a press enter.
 
 Now that we have a way to get arbitrary input from the user of our program, we can begin to see the full power of the `if`. Let's combine the last two code blocks from above, and say we stored it in a script named `print_number_with_if.py`.
 
@@ -230,7 +230,7 @@ if x > 5:
 print(x)
 ```
 
-*Note: raw_input() actually interprets the input as strings, so we have to manually tell Python to treat the number we pass as an interger with int(). We'll talk about strings more next week.*
+**Note**: `raw_input()` actually interprets the input as strings, so we have to manually tell Python to treat the number we pass as an interger with int(). We'll talk about strings more next week.
 
 If we then ran the script from IPython as above, lets look at two ways we could interact with it.
 
@@ -316,7 +316,7 @@ You entered a number bigger than 5.
 
 In the first example we got something surprising. The only condition that evaluates to true when `x` is 5 is the second one. However, the second example yields only 'You entered a number bigger than 5.', even though 6 is greater than 0. This shows that only one of the conditional blocks in an `if`-`elif`-`else` statement will ever be evaluated, and once this happens the rest are skipped.
 
-*Note: The else part of the statement is actually optional. If it is not included, then we'd notice that at most one of the conditional blocks in an `if`-`else` statement will be evaluated.*
+**Note**: The else part of the statement is actually optional. If it is not included, then we'd notice that at most one of the conditional blocks in an `if`-`else` statement will be evaluated.
 
 ##### And, Or and Not
 
@@ -328,7 +328,7 @@ if x > 5:
         print x
 ```
 
-We can see that what this *nested* `if` statement is checking for are numbers that lie in the interval (5, 10), and if it finds one it prints it. We can intuitively guess that there is a better way to check for this condition. And there is!!!
+We can see that what this **nested** `if` statement is checking for are numbers that lie in the interval (5, 10), and if it finds one it prints it. We can intuitively guess that there is a better way to check for this condition. And there is!!!
 
 Python gives us full access to what are known as boolean operations. The ones that we will use most often are `and`, `or` and `not`. Both `and` and `or` take two conditions as inputs, while `not` takes only a single condition. They all return a single boolean, with `and` requiring both conditions to be True to return True, and the `or` requiring only one of the conditions to be True to return True. The `not` switches the truth of the input condition. These operations are derived from formal logic, and you can find a full discussion of their intricacies found [here](https://en.wikipedia.org/wiki/Truth_table).
 
@@ -358,11 +358,11 @@ print(sum_1_8)
 
 While this definitely works, there are a couple of things I want to draw your attention to (which will become themes about how to analyze how well code is written). First, what happens if we want to add the numbers 1 through 9 together? Not that hard, just add 9 to `sum_1_8` you say. Ok, fine. What if you want to add 2 through 9 together? Now we could take `sum_1_8`, add 9 and subtract off 1. And that works, but it involves some thinking to make work with the existing code that we have.
 
-Instead of having all of these *hard coded* values in our definition of `sum_1_8`, we could instead *abstract* away part of our problem. What is this abstraction? In programming we talk about abstraction when we want to refer to an idea whose implementation is more general and/or hidden from us. In the above example, we see exactly what we're doing to sum the numbers 1 through 8. This isn't abstracted at all. So how are we to solve this problem more abstractly?
+Instead of having all of these **hard coded** values in our definition of `sum_1_8`, we could instead **abstract** away part of our problem. What is this abstraction? In programming we talk about abstraction when we want to refer to an idea whose implementation is more general and/or hidden from us. In the above example, we see exactly what we're doing to sum the numbers 1 through 8. This isn't abstracted at all. So how are we to solve this problem more abstractly?
 
 This is a question that you will frequently be faced with; how do you do something...in code? A good strategy to solve these problems is to approach the problem from a high level (i.e. in plain english, no code). 
 
-So let's do that with our coding problem above. We were asked to add together the numbers 1 through 8. This can be thought of as given a starting number, 1, and then adding on the next number, 2 to get 3. Then we can repeat this process, taking the next number, 4 and adding it on, giving us 7. We could then continue this process until we reach the final number 8, and then stop. (This is inherently what we were doing in that single line of Python when we said `1 + 2 + 3 + 4 + 5 + 6 + 7 + 8`, but that implementation is what we call *brittle*- it only works for that specific case and breaks whenever we want to do something even slightly different.)
+So let's do that with our coding problem above. We were asked to add together the numbers 1 through 8. This can be thought of as given a starting number, 1, and then adding on the next number, 2 to get 3. Then we can repeat this process, taking the next number, 4 and adding it on, giving us 7. We could then continue this process until we reach the final number 8, and then stop. (This is inherently what we were doing in that single line of Python when we said `1 + 2 + 3 + 4 + 5 + 6 + 7 + 8`, but that implementation is what we call **brittle** - it only works for that specific case and breaks whenever we want to do something even slightly different.)
 
 #### While Loops
 
