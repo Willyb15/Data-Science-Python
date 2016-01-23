@@ -14,6 +14,8 @@ Ok, time to solve a problem:
 
     Write a function, call it `create_report` that takes the path for a text file and tells you the number of sentences, words and characters in that file.
 
+#### Starting Slow
+
 This doesn't seem to bad, there are obvious use cases for the function, so having it all bundled up in a reusable form makes a lot of sense. Let's start off by opening a new Python script file, call it `txt_file_processing.py`. Throughout the rest of this lecture we will being seeing updates of the code in this file so that we can watch the solution evolve in the iterative manner which was discussed above. What's the first thing that we put in `txt_file_processing.py`? The function that we want to write! For the code to run, whenever we set up a skeleton for a functionality that isn't yet implemented we'll use a `pass` until we figure out how it's going to work. So our script currently looks like this:
 
 ```python
@@ -77,8 +79,9 @@ def create_report(file_path):
             pass
 ```
 
-Back to the problem specification. We need to take these lines and get the number of sentences, words and characters contained within them. At this point we should realize that we need to aggregate these counts somewhere. There are a lot of ways that we could do that, here we're going to do it with a dictionary. Let's initialize one now.
+#### Let's Put the FUN in Functions!
 
+Back to the problem specification. We need to take these lines and get the number of sentences, words and characters contained within them. At this point we should realize that we need to aggregate these counts somewhere. There are a lot of ways that we could do that, here we're going to do it with a dictionary. Let's initialize one now.
 
 ```python
 def create_report(file_path):
@@ -106,3 +109,66 @@ def create_report(file_path):
 ```
 
 **Note**: While the names of the variables that we're passing to `update_counts()` are the same as the names of the parameters we defined in the function definition, this is not necessary. Sometimes this is useful so that it's easier to follow the flow of variables being passed between functions. But sometimes the names need to be more general because the function is performing a more general task.
+
+What exactly does `update_counts()` need to do with a line? Well, we know that we're going to have to count the number of words in it, and the number of characters in those words. As for the number of sentences, this is a fairly difficult problem. One way that we could solve this is by counting the number of periods, ".", assuming that any sentences we will see will end in one. Admittedly, this is a fairly naive way to solve the problem, sentences can end with other punctuation, exclaimation points and question marks immediately come to mind. This solution is also susceptable to the ellipsis which has three periods all in a row. 
+
+For now we will neglect these obvious defects in our solution and go back later to make it better. This type of practice is very regular when solving programming problems. As we've talked about, solutions are often built up in an iterative, testing as you go manner. In addition, there's a decent chance there are other edge cases that haven't even been considered. That's part of the beauty of using functions. Since they abstract away the implementation of counting sentences, words and characters, we can later go back and change this single piece of our problem, potentially making it more complete or possibly more efficient.
+
+At this point lets set up an even smaller test case so that we can verify the functionality of just `update_counts()`. Consider the string 'This is a test string. Only for testing'. We can see that it has 1 well defined sentence, 8 words and 39 characters counting spaces. Lets set up a counts dictionary and this string in an IPython environment.
+
+```python
+
+In [1]: test_string = 'This is a test string. Only for testing'
+
+In [2]: counts_dict = {'sentences': 0, 'words': 0, 'characters': 0}
+```
+
+We can immediately see that the number of characters in this string can be easily found using the `len()` function.
+
+```python
+In [3]: len(test_string)
+Out[3]: 39
+
+In [4]: counts_dict['characters'] += len(test_string)
+```
+
+As for counting the words, we can count (get it??) on the `split()` method to separate our string into individual words.
+
+```python
+In [5]: test_string.split()
+Out[5]: ['This', 'is', 'a', 'test', 'string.', 'Only', 'for', 'testing']
+
+In [6]: len(_)
+Out[6]: 8
+
+In [7]: counts_dict['words'] += len(test_string.split())
+```
+
+**Note**: The underscore, `_` can be used in IPython to access the most recent output.
+
+As for finding the number of periods within our string, there happens to be a very useful string method called `count()`.
+
+```python
+In [8]: test_string.count('.')
+Out[8]: 1
+
+In [9]: counts_dict['sentences'] += test_string.count('.')
+
+In [10]: counts_dict
+Out[10]: {'characters': 39, 'sentences': 1, 'words': 8}
+```
+
+With all of this testing done, verified by checking what's stored in `counts_dict`, we can now go back to our script and implement what we've found in `update_counts()`knowing that the string that is accessable within its scope is named `line`.
+
+```python
+def update_counts(line, counts_dict):
+    counts_dict['sentences'] += line.count('.')
+    counts_dict['words'] += len(line.split())
+    counts_dict['characters'] += len(line)
+
+def create_report(file_path):
+    counts_dict = {'sentences': 0, 'words': 0, 'characters': 0}
+    with open(file_path) as txt_file:
+        for line in txt_file:
+            update_counts(line, counts_dict)
+```
