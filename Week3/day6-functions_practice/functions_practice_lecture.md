@@ -12,7 +12,7 @@ Basically, this involves writing some code to start solving the first part of th
 
 Ok, time to solve a problem:
 
-    Your boss comes to you and asks you to write a function, call it `create_report` that takes the path for a text file and tells you the number of sentences, words and characters in that file.
+Your boss comes to you and asks you to write a function, call it `create_report` that takes the path for a text file and tells you the number of sentences, words and characters in that file.
 
 #### Starting Slow
 
@@ -319,12 +319,7 @@ This looks like it worded...wait! Does that say we only got 7 words?? We know th
 |            |  1        |    5    |     23     |
 | O          |  1        |    5    |     24     |
 | n          |  1        |    5    |     25     |
-| l          |  1        |    5    |     26     |
-| y          |  1        |    5    |     27     |
 | ...        |  ...      |    ...  |     ...    |
-| t          |  1        |    7    |     33     |
-| e          |  1        |    7    |     34     |
-| s          |  1        |    7    |     35     |
 | t          |  1        |    7    |     36     |
 | i          |  1        |    7    |     37     |
 | n          |  1        |    7    |     38     |
