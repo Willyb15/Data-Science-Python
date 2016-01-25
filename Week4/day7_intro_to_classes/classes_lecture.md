@@ -14,7 +14,7 @@ We use classes for much the same reasons that we use functions - *reusability* a
 
 The motivation for object-oriented programming (OOP) is actually heavily rooted in design principles, namely the principles of *inheritance*, *encapsulation*, and *polymorphism*. This terminology is more of an advanced topic in computer programming, and so we'll only cover it briefly here (while it is advanced, any treatment of OOP should at least mention these, which is why we do here).
 
-* **Inheritance** - When a class is based on another class, building off of the existing class to take advantage of existing behavior, while having additional specific behavior of it's own. 
+* **Inheritance** - When a class is based on another class, building off of the existing class to take advantage of existing behavior, while having additional specific behavior of its own. 
 * **Encapsulation** - The practice of hiding the inner workings of our class, and only exposing what is necessary to the outside world. This idea is effectively the same as the idea of **abstraction**, and allows users of our classes to only care about the what (i.e. what our class can do) and not the how (i.e. how our class does what it does). 
 * **Polymorphism** - The provision of a single interface to entities of different types. This enables us to use a shared interface for similar classes while at the same time still allowing each class to have its own specialized behavior. 
 
@@ -31,7 +31,7 @@ Before we get to actually learning how to build a class, it'll be helpful to def
 5. **Constructor** - What we call to instantiate a class. 
 6. **self** - Inside of a class, a variable for the instance/object being accessed (i.e. it holds a reference to the instance/object of that class).
 7. **attribute**/**field**/**property** - A piece of data that a class has, stored in a variable. Inside of a class definition, all attributes/fields/properties are accessed via `self.<attribute>`, while on an instance, they are accessed via `<variable name>.<attribute>`.
-8. **method**/**procedure** - A block of code that is accessible via the class, and typically acts on or with the classes attributes/fields/properties. Inside of a class definition, all methods/procedures are created via def. (they are really just functions) and accessible via `self.<method>`, while on an instance, they are accessed via `<variable name>.<method>()`. 
+8. **method**/**procedure** - A block of code that is accessible via the class, and typically acts on or with the classes' attributes/fields/properties. Inside of a class definition, all methods/procedures are created via def. (they are really just functions) and accessible via `self.<method>`, while on an instance, they are accessed via `<variable name>.<method>()`. 
 
 Don't worry if this terminology isn't 100% clear at this point in time. It should become more clear as we work through these notes, and should be a useful reference. From here on out, we'll treat attribute, field, and property as interchangeable, and we'll do the same with method and procedure.
 
