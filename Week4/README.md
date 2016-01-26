@@ -21,4 +21,4 @@ At the end of Day 8:
 	* use magic methods to make more complicated classes
 * You will understand:
 	* magic method overriding
-	* how everything in Python is a class and why it matters
+	* how everything in Python is an object and why it matters
