@@ -278,7 +278,7 @@ In [1]: class OurClass():
    ...:         self.location = location
    ...:         self.size = size
    ...:         self.questions_asked = []
-   ...:         if self.at_capacity >= 20: 
+   ...:         if self.size >= 20: 
    ...:             self.at_capacity = True
    ...:         else: 
    ...:             self.at_capacity = False
