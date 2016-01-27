@@ -38,6 +38,76 @@ Speaking of which. How do we define these "magic" methods?? End detour.
 
 #### Defining a Magic Method
 
+Defining a magic method is as easy as defining any other method in a class. We actually did it last time with the `__init__()` method, so all you have to do is start with a def and then the name of the magic with the double underscores. **Note**: All methods with names beginning and ending with double underscores are magic methods, this naming convention is reserved for them.
+
+Let's take a look at this with the `OurClass` class we created last time. I'm going to add a `__len__()` implementation to the code from last lecture. Considering that the, logically, the `len()` function should return a number of something it seems reasonable to have it return the number of questions asked we have stored. Instead of putting our code directly into IPython, this time we're going to store it in a script, `lecture.py`, and get some practice importing. Let's take a look.
+
+```python
+class OurClass(): 
+    
+    def __init__(self, name, location, size=0): 
+        self.name = name
+        self.location = location
+        self.size = size
+        self.questions_asked = []
+        if self.size >= 20: 
+            self.at_capacity = True
+        else: 
+            self.at_capacity = False
+
+    def __len__(self):
+        return len(self.questions_asked)
+
+    def add_question_asked(self, question): 
+        self.questions_asked.append(question)
+    
+    def add_class_members(self, num): 
+        self.size += num
+
+        if self.size >= 20: 
+            print 'Capacity Reached!!'
+            self.at_capacity = True
+
+    def check_if_at_capacity(self): 
+        return self.at_capacity
+```
+
+Now we can have `len()` interact with instances of `OurClass`.
+
+```python
+In [1]: from lecture import OurClass
+
+In [2]: our_class = OurClass('Intro Python', 'Platte', 15)
+
+In [3]: len(our_class)
+Out[3]: 0
+
+In [4]: our_class.add_question_asked("What's he going to show?")
+
+In [5]: our_class.add_question_asked('Do you know the answer?')
+
+In [6]: len(our_class)
+Out[6]: 2
+```
+
+Just as we'd expect if we want to get the number of questions when calling `len()`. For reference, check out what would happen if we hadn't defined an implementation for `__len__()`.
+
+```python
+In [1]: from lecture import OurClass
+
+In [2]: our_class = OurClass('Intro Python', 'Platte', 15)
+
+In [3]: len(our_class)
+___________________________________________________________________________
+TypeError                                 Traceback (most recent call last)
+<ipython-input-3-ae0663a04767> in <module>()
+    > 1 len(our_class)
+
+TypeError: object of type 'OurClass' has no len()
+```
+
+An error! At least Python let's us know that it's related to having no length, a problem that we now know how to fix!
+
 ### Everything in Python is an Object!
 
 
