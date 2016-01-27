@@ -80,7 +80,7 @@ def create_report(file_path):
 
 #### Let's Put the FUN in Functions!
 
-Back to the problem specification. We need to take these lines and get the number of sentences, words, and characters contained within them. At this point we should realize that we need to aggregate these counts somewhere. There are a lot of ways that we could do that; here we're going to do it with a dictionary. Let's initialize one now.
+Back to the problem specification. We need to take these lines and get the number of sentences, words, and characters contained within them. At this point we should realize that we need to aggregate these counts somewhere. There are a lot of ways that we could do that, one way would be to have each count stored in it's own variable. Here we're going to do it with a dictionary, we'll see why this is a good idea very soon. Let's initialize one now.
 
 ```python
 def create_report(file_path):
@@ -94,7 +94,7 @@ Now that we have a place to store the counts that we come across while looping t
 
 So what does this process look like? We don't have any code to put into a function - what are we supposed to do? Consider the fact that we didn't have any code when we started writing `create_report()`, but we started anyways! Let's do something like that here, but this time realize that we're tasked with identifying the function that we're trying to write. To do this, let's think about what we want to do inside the loop. We said it above - we're "updating our counts with the info from the current line". 
 
-Let's start a function with an appropriate name, knowing that it's going to need a `line` passed to it, as well as `counts_dict`. The first, `line`, will be necessary because the line we're analyzing changes in each iteration of the loop; the second, `counts_dict`, is necessary because it's keeping track of all the counts and therefore needs to be accessible for update while `line` is being processed. Thinking things through in this way makes is easy to write out a function definition.
+Let's start a function with an appropriate name, knowing that it's going to need a `line` passed to it, as well as `counts_dict`. The first, `line`, will be necessary because the line we're analyzing changes in each iteration of the loop; the second, `counts_dict`, is necessary because it's keeping track of all the counts and therefore needs to be accessible for update while `line` is being processed. We now see why keeping a dictionary of all the counts is a good idea, only one variable needs to be passed to our function, the dictionary, as opposed to three if we were storing the counts in three separate variables. Thinking things through in this way makes is easy to write out a function definition.
 
 ```python
 def update_counts(line, counts_dict):
@@ -108,11 +108,11 @@ def create_report(file_path):
             update_counts(line, counts_dict)
 ```
 
-**Note**: While the names of the variables that we're passing to `update_counts()` are the same as the names of the parameters we defined in the function definition, this is not necessary. Sometimes this is useful so that it's easier to follow the flow of variables being passed between functions, and other times the names need to be more general because the function is performing a more general task.
+**Note**: While the names of the variables that we're passing to `update_counts()` are the same as the names of the parameters we defined in the function definition, this is not necessary. Sometimes this is useful so that it's easier to follow the flow of variables being passed between functions, and other times parameter names need to be more general because the function is performing a more general task.
 
 What exactly does `update_counts()` need to do with a line? Well, we know that we're going to have to count the number of words in it, and the number of characters in those words. As for the number of sentences, this is a fairly difficult problem. One way that we could solve this is by counting the number of periods, ".", assuming that any sentences we will see will end in one. Admittedly, this is a fairly naive way to solve the problem; sentences can end with other punctuation (for example, exclamation points and question marks). This solution is also susceptible to the ellipsis, which has three periods all in a row. 
 
-For now, we will neglect these obvious defects in our solution, and go back later to make it better. This type of practice is very regular when solving programming problems. As we've talked about, solutions are often built up in an iterative, testing as you go manner. In addition, there's a decent chance that there are other edge cases that haven't even been considered. That's part of the beauty of using functions. Since they abstract away the implementation of counting sentences, words, and characters, we can later go back and change this single piece of our problem.
+For now, we will neglect these obvious defects in our solution, we can always go back later to make it better. This type of practice is very regular when solving programming problems. As we've talked about, solutions are often built up in an iterative, testing as you go, manner. In addition, there's a decent chance that there are other edge cases that haven't even been considered. That's part of the beauty of using functions. Since they abstract away the implementation of counting sentences, words, and characters, we can later go back and change this single piece of our problem.
 
 At this point, let's set up a small test case so that we can verify the functionality of `update_counts()`. Consider the string 'This is a test string. Only for testing'. We can see that it has 1 well defined sentence, 8 words, and 39 characters counting spaces. Lets set up a counts dictionary and test this string in an IPython environment.
 
@@ -131,7 +131,7 @@ Out[3]: 39
 In [4]: counts_dict['characters'] += len(test_string)
 ```
 
-As for counting the words, we can call `len` on the results of the `split()` method, which will separate our string into individual words.
+As for counting the words, we can call `len()` on the results of the `split()` method, which will separate our string into individual words.
 
 ```python
 In [5]: test_string.split()
@@ -174,7 +174,7 @@ def create_report(file_path):
     return counts_dict
 ```
 
-We don't need to return anything from `update_counts()` because it is directly altering the state of `counts_dict`, which was one of the arguments it was passed. At this point we can now return the `counts_dict` from `create_report()` and begin testing our full function.
+We don't need to return anything from `update_counts()` because it is directly altering the state of `counts_dict`, which was one of the arguments it was passed. At this point we can now return `counts_dict` from `create_report()` and begin testing our full function.
 
 To check how our function is working, we will need to have access to it. One way that we could use it is by adding some code to our script that calls the function. Possibly like this... 
 
@@ -277,7 +277,7 @@ We've now verified the accuracy of our solution, and so you use `create_report()
 
 Alright, I guess we didn't think about speed too much (if at all) while we were writing `create_report()`. So what are we going to do to make it faster? Well, it might not be obvious at first, so lets walk though the code (specifically `update_counts()`) and think about what's happening.
 
-On the first line of `update_counts()`, we count the number of periods in the line and add that to the 'sentence' entry in `counts_dict`. On the second we take the line, split it apart on spaces, and add the number of words that come out to the 'words' entry of `counts_dict`. Lastly, we count the number of characters in the line with `len()` and add that to the 'characters' entry of `counts_dict`. All of this makes perfect sense. So how can we make it better? One way to make this better is by realizing that this method is actually going over the contents of `line` 3 separate times to perform all of our updates. This isn't particularly efficient.
+On the first line of `update_counts()`, we count the number of periods in `line` and add that to the 'sentence' entry in `counts_dict`. On the second we take `line`, split it apart on spaces, and add the number of words that come out to the 'words' entry of `counts_dict`. Lastly, we count the number of characters in `line` with `len()` and add that to the 'characters' entry of `counts_dict`. All of this makes perfect sense. So how can we make it better? One way to make this better is by realizing that this approach is actually going over the contents of `line` 3 separate times to perform all of our updates. This isn't particularly efficient.
 
 How can we make all of the necessary updates in fewer passes then?? We'll, we could write our own loop to go over the line, character by character, and perform updates to the 'sentences', 'words' and 'characters' entries of `counts_dict` all within that loop. This is possible because we know that when we see a space we just finished another word, and when we see a period we just finished another sentence. Characters are self explanatory. Let's see what this might look like back in IPython.
 
