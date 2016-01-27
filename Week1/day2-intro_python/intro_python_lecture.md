@@ -12,7 +12,7 @@ In [1]: 7
 Out[1]: 7
 ```
 
-The IPython console will accept arbitrary Python commands, entered after the `In [#]:`, and execute them, handing you back the results of the computation, displayed after the `Out [#]:`.
+The IPython console will accept arbitrary Python commands, entered after the `In [#]:`, and execute them, handing you back the results of the computation, displayed after the `Out[#]:`.
 
 You can test this out with other numbers. Try one with a decimal and another by passing two numbers to the `complex()` constructor (we will talk about what these things are later).
 
@@ -328,7 +328,7 @@ if x > 5:
         print x
 ```
 
-We can see that what this *nested* `if` statement is checking for are numbers that lie in the interval (5, 10), and if it finds one it prints it. We can intuitively guess that there is a better way to check for this condition. And there is!!!
+We can see that what this **nested** `if` statement is checking for are numbers that lie in the interval (5, 10), and if it finds one it prints it. We can intuitively guess that there is a better way to check for this condition. And there is!!!
 
 Python gives us full access to what are known as boolean operations. The ones that we will use most often are `and`, `or` and `not`. Both `and` and `or` take two conditions as inputs, while `not` takes only a single condition. They all return a single boolean, with `and` requiring both conditions to be True to return True, and the `or` requiring only one of the conditions to be True to return True. The `not` switches the truth of the input condition. These operations are derived from formal logic, and you can find a full discussion of their intricacies found [here](https://en.wikipedia.org/wiki/Truth_table).
 
@@ -358,11 +358,11 @@ print(sum_1_8)
 
 While this definitely works, there are a couple of things I want to draw your attention to (which will become themes about how to analyze how well code is written). First, what happens if we want to add the numbers 1 through 9 together? Not that hard, just add 9 to `sum_1_8` you say. Ok, fine. What if you want to add 2 through 9 together? Now we could take `sum_1_8`, add 9 and subtract off 1. And that works, but it involves some thinking to make work with the existing code that we have.
 
-Instead of having all of these *hard coded* values in our definition of `sum_1_8`, we could instead *abstract* away part of our problem. What is this abstraction? In programming we talk about abstraction when we want to refer to an idea whose implementation is more general and/or hidden from us. In the above example, we see exactly what we're doing to sum the numbers 1 through 8. This isn't abstracted at all. So how are we to solve this problem more abstractly?
+Instead of having all of these **hard coded** values in our definition of `sum_1_8`, we could instead **abstract** away part of our problem. What is this abstraction? In programming we talk about abstraction when we want to refer to an idea whose implementation is more general and/or hidden from us. In the above example, we see exactly what we're doing to sum the numbers 1 through 8. This isn't abstracted at all. So how are we to solve this problem more abstractly?
 
 This is a question that you will frequently be faced with; how do you do something...in code? A good strategy to solve these problems is to approach the problem from a high level (i.e. in plain english, no code). 
 
-So let's do that with our coding problem above. We were asked to add together the numbers 1 through 8. This can be thought of as given a starting number, 1, and then adding on the next number, 2 to get 3. Then we can repeat this process, taking the next number, 4 and adding it on, giving us 7. We could then continue this process until we reach the final number 8, and then stop. (This is inherently what we were doing in that single line of Python when we said `1 + 2 + 3 + 4 + 5 + 6 + 7 + 8`, but that implementation is what we call *brittle*- it only works for that specific case and breaks whenever we want to do something even slightly different.)
+So let's do that with our coding problem above. We were asked to add together the numbers 1 through 8. This can be thought of as given a starting number, 1, and then adding on the next number, 2 to get 3. Then we can repeat this process, taking the next number, 4 and adding it on, giving us 7. We could then continue this process until we reach the final number 8, and then stop. (This is inherently what we were doing in that single line of Python when we said `1 + 2 + 3 + 4 + 5 + 6 + 7 + 8`, but that implementation is what we call **brittle** - it only works for that specific case and breaks whenever we want to do something even slightly different.)
 
 #### While Loops
 
