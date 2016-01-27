@@ -137,6 +137,7 @@ In [2]: states_caps_dict['Indiana']
 Out[2]: 'Indianapolis'
 
 In [3]: states_caps_dict['Washington']
+___________________________________________________________________________
 KeyError                                  Traceback (most recent call last)
 <ipython-input-3-fac88f6748> in <module>()
     > 1 states_caps_dict['Washington']
