@@ -114,7 +114,37 @@ One question that comes up frequently in languages like Python that don't fall i
 
 Part of the confusion in answering this question frequently stems from an incomplete understanding OOP's purpose in life, to take advantage of the ideas of inheritance, encapsulation and polymorphism.With this in mind let's discuss classes at a high level and see what kinds of problem attributes lend themselves to being solved with functions, procedurally, vs with OOP.
 
-Similarly to one of the motivations for functions, abstraction, we see the idea of encapsulation espoused by OOP. Encapsulation is very much like abstraction in that it hides implementation details; however, with it we see the distinction that many functions, abstractions, can be bundled up together in a class. In addition we also see anther aspect of abstraction introduced, abstraction of the data itself. While we can instantiate a class with whatever properties we dictate, often these will specify the nature of the data (though sometimes it wont), we have the bundled methods that act on the data which are designed to keep us from caring about the exact state of that data. Sometimes this can be good and sometimes it can be bad.
+Similarly to one of the motivations for functions, abstraction, we see the idea of encapsulation espoused by OOP. Encapsulation is very much like abstraction in that it hides implementation details; however, with it we see the distinction that many functions, abstractions, can be bundled up together in a class. In addition we also see anther aspect of abstraction introduced, abstraction of the data itself. While we can instantiate a class with whatever properties we dictate, often these will specify the nature of the data (though sometimes it wont), we have the bundled methods that act on the data which are designed to keep us from caring about the exact state of that data. Sometimes this can be good and sometimes not so much.
+
+Consider an example. You have a dictionary with keys as country names and values as list of all historical presidents for that country. You want to have the ability to see what presidents names start with a given letter. You could easily write a function for this. Maybe it looks like:
+
+```python
+def presidents_by_letter(country_pres_dict, letter):
+    letter_pres = []
+    for pres_list in country_pres_dict.values():
+        for pres in pres_list:
+            if pres[0].lower() == letter:
+                letter_pres.append(pres)
+    return letter_pres 
+```
+
+This seems really reasonable. But we could also make a class for this task. It would contain the dictionary of countries and presidents. And have a method that does the same thing as `presidents_by_letter()` above. Maybe it looks like:
+
+```python
+class CountiesPresidents():
+    def __init__(self, country_pres_dict):
+        self.country_pres_dict = country_pres_dict
+
+    def presidents_by_letter(self, letter):
+        letter_pres = []
+        for pres_list in self.country_pres_dict.values():
+            for pres in pres_list:
+                if pres[0].lower() == letter:
+                    letter_pres.append(pres)
+        return letter_pres 
+```
+
+So. Which is better, the function or the class??
 
 #### Python has both functions and classes, so you can choose the one that suits your needs!
 
