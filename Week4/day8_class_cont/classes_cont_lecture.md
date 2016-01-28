@@ -106,10 +106,16 @@ TypeError                                 Traceback (most recent call last)
 TypeError: object of type 'OurClass' has no len()
 ```
 
-An error! At least Python let's us know that it's related to having no length, a problem that we now know how to fix!
+An error! At least Python lets us know that it's related to having no length, a problem that we now know how to fix!
+
+### Using Classes Pragmatically
+
+One question that comes up frequently in languages like Python that don't fall into a single [paradigm](https://en.wikipedia.org/wiki/Programming_paradigm) is learning when to use the different features of the language. As applied to our current circumstance, when should we be making classes instead of just using functions?
+
+Part of the confusion in answering this question frequently stems from an incomplete understanding OOP's purpose in life, to take advantage of the ideas of inheritance, encapsulation and polymorphism.With this in mind let's discuss classes at a high level and see what kinds of problem attributes lend themselves to being solved with functions, procedurally, vs with OOP.
+
+Similarly to one of the motivations for functions, abstraction, we see the idea of encapsulation espoused by OOP. Encapsulation is very much like abstraction in that it hides implementation details; however, with it we see the distinction that many functions, abstractions, can be bundled up together in a class. In addition we also see anther aspect of abstraction introduced, abstraction of the data itself. While we can instantiate a class with whatever properties we dictate, often these will specify the nature of the data (though sometimes it wont), we have the bundled methods that act on the data which are designed to keep us from caring about the exact state of that data. Sometimes this can be good and sometimes it can be bad.
+
+#### Python has both functions and classes, so you can choose the one that suits your needs!
 
 ### Everything in Python is an Object!
-
-
-
-### When to Use Classes
