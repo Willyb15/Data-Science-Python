@@ -154,8 +154,47 @@ Generally with think of use cases for classes as ones that align with the princi
 
 Yes. This all seems a little hand wavy, but the method of reasoning is quite sound. In addition we have access to another amazing tool to make our decision process easier, **refactoring**. Refactoring is the process of restructuring your code without changing it's behavior. When we took advantage of function abstraction in the other lecture and changed the internals of `update_counts()` we were actually refactoring.
 
-Refactoring can also be a more overhauling process, wherein you change the entire structure of your programs. To illustrate this lets look at a problem that extends the one that we solved when learning how to make functions work together, the `create_report()` problem. Along the way we will discuss why the problem would be solved with functions and then talk about when an extension/refactor to a class would be appropriate.
+Refactoring can also be a more overhauling process, wherein you change the entire structure of your programs. To illustrate this lets look at a problem that extends the one we solved when learning how to make functions work together, the `create_report()` project. Along the way we will discuss why the problem would be solved with functions and then talk about when an extension/refactor to a class would be appropriate.
 
-#### Python has both functions and classes, so you can choose the one that suits your needs!
+### Python's Multi-paradigmatic Toolbox For the Win
+
+Let's start this gedanken with a refresher of the `create_report()` project. We had our "boss" come to us and ask for a program that takes the path for a text file and tells you the number of sentences, words, and characters in that file. Below is the code we came up with for this project.
+
+```python
+def update_counts(line, counts_dict):
+    for char in line:
+        counts_dict['characters'] += 1
+        if char == '.':
+            counts_dict['sentences'] += 1
+        elif char == ' ':
+            counts_dict['words'] += 1
+    counts_dict['words'] += 1
+
+
+def create_report(file_path):
+    counts_dict = {'sentences': 0, 'words': 0, 'characters': 0}
+    with open(file_path) as txt_file:
+        for line in txt_file:
+            update_counts(line, counts_dict)
+    return counts_dict
+```
+
+We went through a couple of iterations improving on this code to get it where it is and our boss seemed pleased with the result. Now he's back, though. He wants more functionality built into our solution. This time he asks us to expand our program so that we can easily create reports as it did before, but also keep an aggregated count of all the reports produced, abililty to produce a summary of those counts (mean, median, mode) and a library of words from all the documents.
+
+Alright! Well, that's certainly a bit more functionality. How are we going to solve this? Simple answer, one step at a time. Ok that's wasn't particularly specific...what's the first step then?? As before we are going to embrace an iterative approach to developing functionality. As it's frequently hard to see the forest through the trees, one of the best starting places is identifying a tree and working on that one, slowly building the forest up. First task then, we want to be able to produce a bunch of reports so lets create a function for that.
+
+If we want to the same thing repeatedly while programming, what tool do we use? A loop! Ok, that's awesome, we already have an idea how we're going to approach this problem, so what are we going to loop over? An obvious answer is a list of file paths. Let's take a look at some psuedo code that will achieve this.
+
+```python
+def create_reports(file_paths):
+    for file_path in file_paths:
+        create_report(file_path)
+```
+
+This skeleton makes some sense, for each file path we want to create a report. However, the current way that we have `create_report()` set up returns a dictionary of counts. What are we going to do with these? How are we going to collect all the counts together so that we can create summary statistics? Further, how are we going to create a library of words contained in all the documents??
+
+These are great questions and to answer them we need to think hard about the structure of our program. If we want to aggregate all of the counts together we could have a seperate dictionary devoted to that task. Now the question would be, where should that dictionary be created and where will updates to it be made?
+
+Questions like this one go a long way to directing decisions on how to structure your programs. Things to think about when you're answering these questions are that functions should be resuable, meaning that if it's, for example, creating and returning data structures within it's scope it's potentially less generaly than if it accepts an existing data structure as a parameter. However you need to think about needlessly passing around objects that might just be best stored in a class with the functions being made into methods for that class. This brings up an important point, Python has both functions and classes, so you can choose the one that suits your needs! What's important is that you're aware of both and are concious about thinking over the costs and benefits of each when you're writing your programs.
 
 ### Everything in Python is an Object!
