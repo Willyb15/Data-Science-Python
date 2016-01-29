@@ -31,7 +31,7 @@ Before we get to actually learning how to build a class, it'll be helpful to def
 5. **Constructor** - What we call to instantiate a class. 
 6. **self** - Inside of a class, a variable for the instance/object being accessed (i.e. it holds a reference to the instance/object of that class).
 7. **attribute**/**field**/**property** - A piece of data that a class has, stored in a variable. Inside of a class definition, all attributes/fields/properties are accessed via `self.<attribute>`, while on an instance, they are accessed via `<variable name>.<attribute>`.
-8. **method**/**procedure** - A block of code that is accessible via the class, and typically acts on or with the classes' attributes/fields/properties. Inside of a class definition, all methods/procedures are created via def. (they are really just functions) and accessible via `self.<method>`, while on an instance, they are accessed via `<variable name>.<method>()`. 
+8. **method**/**procedure** - A block of code that is accessible via the class, and typically acts on or with the classes' attributes/fields/properties. Inside of a class definition, all methods/procedures are created via def. (they are really just functions) and accessible via `self.<method>()`, while on an instance, they are accessed via `<variable name>.<method>()`. 
 
 Don't worry if this terminology isn't 100% clear at this point in time. It should become more clear as we work through these notes, and should be a useful reference. From here on out, we'll treat attribute, field, and property as interchangeable, and we'll do the same with method and procedure.
 
