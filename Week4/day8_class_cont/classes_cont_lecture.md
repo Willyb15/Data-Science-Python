@@ -146,6 +146,16 @@ class CountiesPresidents():
 
 So. Which is better, the function or the class??
 
+#### Function or Class?
+
+In the case outlined above there is a pretty strong case for not going with the more heavy-weight option of a class and stick with a simple function. Is there a rule then, that governs when you should use one over the other? Kinda and no...but we do have a good solution to the problem. So let's discuss that.
+
+Generally with think of use cases for classes as ones that align with the principles of OOP, the inheritance, encapsulation and polymorphism. If we think that we are in a situation where encapsulation, having multiple layers of abstraction that between the user and their data, all of which make sense to bundle together, then using classes makes sense.
+
+Yes. This all seems a little hand wavy, but the method of reasoning is quite sound. In addition we have access to another amazing tool to make our decision process easier, **refactoring**. Refactoring is the process of restructuring your code without changing it's behavior. When we took advantage of function abstraction in the other lecture and changed the internals of `update_counts()` we were actually refactoring.
+
+Refactoring can also be a more overhauling process, wherein you change the entire structure of your programs. To illustrate this lets look at a problem that extends the one that we solved when learning how to make functions work together, the `create_report()` problem. Along the way we will discuss why the problem would be solved with functions and then talk about when an extension/refactor to a class would be appropriate.
+
 #### Python has both functions and classes, so you can choose the one that suits your needs!
 
 ### Everything in Python is an Object!
