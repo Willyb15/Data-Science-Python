@@ -197,4 +197,78 @@ These are great questions and to answer them we need to think hard about the str
 
 Questions like this one go a long way to directing decisions on how to structure your programs. Things to think about when you're answering these questions are that functions should be resuable, meaning that if it's, for example, creating and returning data structures within it's scope it's potentially less generaly than if it accepts an existing data structure as a parameter. However you need to think about needlessly passing around objects that might just be best stored in a class with the functions being made into methods for that class. This brings up an important point, Python has both functions and classes, so you can choose the one that suits your needs! What's important is that you're aware of both and are concious about thinking over the costs and benefits of each when you're writing your programs.
 
+How do we apply all of this to our current problem? Well, we know that we're going to want to have some sort of object storing all of our counts and our vocabulary, so this is starting to sound like maybe we should create a class. Keep in mind that this decision, to make the jump to class usage, can happen at any time during your process, and you can always go back! (**Note**: frequently you'll want to try out a change, be it large, a huge refactor, or small, a tiny implementation change, but not want to affect all of your current work. This happens so frequently that there is amazing functionality to solve this exact problem built into your version control system, git, called branches. [Here](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) is a great into to branching and, what is known as, merging from the git docs if you want to learn about this amazing feature.)
+
+Let's make the jump to classes then!
+
+#### Functions to Classes
+
+When you're thinking about refactoring your function based code to classes you frequently have an idea what the methods are going to do, you have already written some functions, so need to think about what the class' attributes will look like. For us it's not too bad, we know that we're going to need a dictionary to hold our master counts and a place to store our vocabulary. In this case a set makes the most sense since we don't need repeats of words. If instead we wanted to keep track of all the documents a word was found in we could do that with a dictionary. Let's start setting up the structure our our class now including the `create_reports()` function we started earlier.
+
+```python
+class ReportCreator():
+    def __init__(self):
+        self.vocabulary = set()
+        self.master_counts_dict = {'sentences': 0, 'words': 0, 'characters': 0}
+
+    def create_reports(self, file_paths):
+        for file_path in file_paths:
+            pass
+```
+
+Nice and easy. So now we want to transition our functions to methods so that they will be accessible within the class. Remember that we need to pass `self` as the first parameter to methods.
+
+```python
+class ReportCreator():
+    def __init__(self):
+        self.vocabulary = set()
+        self.master_counts_dict = {'sentences': 0, 'words': 0, 'characters': 0}
+
+    def create_reports(self, file_paths):
+        for file_path in file_paths:
+            pass
+
+    def create_report(self, file_path):
+        counts_dict = {'sentences': 0, 'words': 0, 'characters': 0}
+        with open(file_path) as txt_file:
+            for line in txt_file:
+                self._update_counts(line, counts_dict)
+        return counts_dict
+
+    def _update_counts(self, line, count_dict):
+        for char in line:
+            counts_dict['characters'] += 1
+            if char == '.':
+                counts_dict['sentences'] += 1
+            elif char == ' ':
+                counts_dict['words'] += 1
+        counts_dict['words'] += 1
+```
+
+Now we've got access to the functionality we had in our old functions within the class. Let's talk about two things quickly. One, you might have noticed that `update_counts()` was changed to `_update_counts()`. The leading underscore is a single to Python users that this particular method is for use internal to the class only, similar to the double underscores we see with the magic methods, it also makes the method hidden when tab completing on instances of this class unless you start with an understore. e.g. In IPython type `<instance of ReportCreator>._<tab>`. It makes sense to make this a hidden method because, realistically, a user of this class will never need to update the counts of a single counts dictionary with a single line. Two, we see that we'll have to change what happens in the `_update_counts()` method so that we can keep track of all the words our class has seen.
+
+This second part forces us to rethink how we will loop over each line. Currently we don't store anything about the characters we're looping over but now we need to store them and add logic to figure out when to add a word to our vocabulary. Check out the implementation below.
+
+```python
+class ReportCreator():
+    ...
+
+    def _update_counts(self, line, counts_dict):
+        word = ''
+        for char in line:
+            counts_dict['characters'] += 1
+            if char in '?.!':
+                counts_dict['sentences'] += 1
+            elif char == ' ':
+                counts_dict['words'] += 1
+                self.vocabulary.add(word)
+                word = ''
+            else:
+                word += char.lower()
+        counts_dict['words'] += 1
+        self.vocabulary.add(word)
+```
+
+Notice how this solution isn't robust to random puncutation characters like @ or &, but we can deal with that later if we find, during testing or usage, it necessary. Ahhhh, abstraction. Also, it seems that we are actually repeating the lines `counts_dict['words'] += 1` and `self.vocabulary.add(word)` in one of our conditions and at the end of the function. In the name of the DRY methodology we could consider putting this into a funciton and calling it twice in place of those 4 lines.
+
 ### Everything in Python is an Object!
