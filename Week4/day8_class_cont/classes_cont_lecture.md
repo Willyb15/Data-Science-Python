@@ -269,6 +269,8 @@ class ReportCreator():
         self.vocabulary.add(word)
 ```
 
-Notice how this solution isn't robust to random puncutation characters like @ or &, but we can deal with that later if we find, during testing or usage, it necessary. Ahhhh, abstraction. Also, it seems that we are actually repeating the lines `counts_dict['words'] += 1` and `self.vocabulary.add(word)` in one of our conditions and at the end of the function. In the name of the DRY methodology we could consider putting this into a funciton and calling it twice in place of those 4 lines.
+Notice how this solution isn't robust to random puncutation characters like @ or &, but we can deal with that later if we find, during testing or usage, it necessary. Ahhhh, abstraction. At least we're considering other ways for sentences to end with `if char in '?.!'`. Also, it seems that we are actually repeating the lines `counts_dict['words'] += 1` and `self.vocabulary.add(word)` in one of our conditions and at the end of the function. In the name of the DRY methodology we could consider putting this into a funciton and calling it twice in place of those 4 lines.
+
+Now that we have figured out how `_update_counts()` is going to work we need to decide how to make `create_reports()` is going to interact with `create_report()`. As mentioned earlier, it's best to keep functions/methods specialized, this means that if we wanted to create reports and update our class with a list of file paths the functionality should be the same as if we wanted to create a single report and update the class with a single file path except for a single one. This means that we should be doing updates to `master_counts_dict` from within `create_report()`.
 
 ### Everything in Python is an Object!
