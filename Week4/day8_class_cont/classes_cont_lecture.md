@@ -157,7 +157,7 @@ Refactoring can also be a more overhauling process, wherein you change the entir
 
 ### Python's Multi-paradigmatic Toolbox For the Win
 
-Let's start this gedanken with a refresher of the `create_report()` project. We had our "boss" come to us and ask for a program that takes the path for a text file and tells you the number of sentences, words, and characters in that file. Below is the code we came up with for this project.
+Let's start this [gedankenexperiment](https://en.wikipedia.org/wiki/Thought_experiment) with a refresher of the `create_report()` project. We had our "boss" come to us and ask for a program that takes the path for a text file and tells you the number of sentences, words, and characters in that file. Below is the code we came up with for this project.
 
 ```python
 def update_counts(line, counts_dict):
@@ -178,7 +178,7 @@ def create_report(file_path):
     return counts_dict
 ```
 
-We went through a couple of iterations improving on this code to get it where it is and our boss seemed pleased with the result. Now he's back, though. He wants more functionality built into our solution. This time he asks us to expand our program so that we can easily create reports as it did before, but also keep an aggregated count of all the reports produced, ability to produce a summary of those counts (mean, median, mode) and a library of words from all the documents.
+We went through a couple of iterations improving on this code to get it where it is and our boss seemed pleased with the result. Now he's back, though. He wants more functionality built into our solution. This time he asks us to expand our program so that we can easily create reports as it did before, but also keep an aggregated count of the sentences, words and characters over all the reports produced, a library of words from all the documents, and make it easy to get the size of this vocabulary.
 
 Alright! Well, that's certainly a bit more functionality. How are we going to solve this? Simple answer, one step at a time. Ok that's wasn't particularly specific...what's the first step then?? As before we are going to embrace an iterative approach to developing functionality. As it's frequently hard to see the forest through the trees, one of the best starting places is identifying a tree and working on that one, slowly building the forest up. First task then, we want to be able to produce a bunch of reports so lets create a function for that.
 
@@ -246,7 +246,9 @@ class ReportCreator():
 
 Now we've got access to the functionality we had in our old functions within the class. Let's talk about two things quickly. One, you might have noticed that `update_counts()` was changed to `_update_counts()`. The leading underscore is a signal to Python users that this particular method (also applies to attributes) is for use internal to the class only, similar to the double underscores we see with the magic methods, it also makes the method hidden when tab completing on instances of this class unless you start with an underscore. e.g. In IPython type `<instance of ReportCreator>._<tab>`. It makes sense to make this a hidden method because, realistically, a user of this class will never need to update the counts of a single counts dictionary with a single line. Two, we see that we'll have to change what happens in the `_update_counts()` method so that we can keep track of all the words our class has seen.
 
-This second part forces us to rethink how we will loop over each line. Currently we don't store anything about the characters we're looping over but now we need to store them and add logic to figure out when to add a word to our vocabulary. Check out the implementation below.
+#### Making Our Class Work with Itself
+
+That second part forces us to rethink how we will loop over each line. Currently we don't store anything about the characters we're looping over but now we need to store them and add logic to figure out when to add a word to our vocabulary. Check out the implementation below.
 
 ```python
 class ReportCreator():
@@ -319,6 +321,103 @@ Alright, a lot of stuff happened in that change. Let's list off what was changed
 
 2) We see the update to the `master_counts_dict` attribute on line 17. This is happening from within `create_report()` so that the user can call either `create_reports()` to make more than one report, or make a single report with `create_report()` and both will update the `master_counts_dict` attribute. Useful functionality.
 
-3) This update that we implemented in (2) was made easier by using the Counter class (imported from the collections library). The Counter class keeps, as you could easily guess, counts of things. This is exactly what we were doing before with out dictionaries. So why are we using Counters now. Well, as you may have guessed, we get some extra functionality when using Counters. Because the Counter class knows that it will only ever have integers stored as values, it has the built in ability to add the values from two Counters by key and make a new Counter. That's what we see happening in line 17. Other functionality of Counters can be found in the [docs](https://docs.python.org/2/library/collections.html#collections.Counter), you all learn things like Counters being a subclass of `dict`, which makes sense when you think about it!
+3) This update that we implemented in (2) was made easier by using the Counter class (imported from the collections library). The Counter class keeps, as you could easily guess, counts of things. This is exactly what we were doing before with out dictionaries. So why are we using Counters now. Well, as you may have guessed, we get some extra functionality when using Counters. Because the Counter class knows that it will only ever have integers stored as values, it has the built in ability to add the values from two Counters by key and make a new Counter. That's what we see happening in line 17. Other functionality of Counters can be found in the [docs](https://docs.python.org/2/library/collections.html#collections.Counter), you can learn things like Counters being a subclass of `dict`, which makes sense when you think about it!
+
+#### Magic Methods with Your Classes
+
+We now have a well encapsulated class that not only allows us to create reports but keeps track of the counts over all the documents it's been used for and the vocabulary used in those documents. We could implement some functionality that allows the user to control how a report is printed to the user or to keep track of the average number of words in each document, etc. Who knows what our boss will want us to do next. Instead, the last bit of functionality that we're going to implement on this class is making it respond to the `len()` function as this seems an intuitive way to get the size of the classes vocabulary.
+
+As we discussed earlier we can perform tasks like this, ones that allow custom classes to interact with the Python interpreter in an intuitive way, can be accomplished with magic methods. In this case we're going the need the, you guessed it, `__len__()` method ([here](https://docs.python.org/2/reference/datamodel.html#object.__len__) are the docs).
+
+While it might seem intuitive that Python should be able to figure out that you want the size of the set stored on instances of your class if you were to pass one of those instances to the `len()` function, how else does it know how long a list or a dictionary is?? Remember it's because the classes implement a specific version of the `__len__()` method so that when an instance of those classes are passed to `len()` Python knows how to find the "length".
+
+What do we want to return from the `ReportCreator`'s `__len__()` method then. The size of the vocabulary set. To get that we need to call `len()`! This might seem a little self-defining/cyclic in it's logic, however, note that if we call `len(self.vocabulary)`, Python knows how to find the length of the set. If we return that value from `__len__()` then we extend that functionality to apply to instances of our class.
+
+```python
+from collections import Counter
+
+class ReportCreator():
+    ...
+
+    def __len__(self):
+        return len(self.vocabulary)
+```
+
+Simple enough! Let's take a look at what the entire class we've written looks like when we call `create_report()` from within `create_reports`.
+
+```python
+from collections import Counter
+
+class ReportCreator():
+    def __init__(self):
+        self.vocabulary = set()
+        self.master_counts_dict = Counter(sentences=0, words=0, characters=0)
+
+    def create_reports(self, file_paths):
+        for file_path in file_paths:
+            self.create_report(file_path)
+
+    def create_report(self, file_path):
+        counts_dict = Counter(sentences=0, words=0, characters=0)
+        with open(file_path) as txt_file:
+            for line in txt_file:
+                self._update_counts(line, counts_dict)
+            self.master_counts_dict += counts_dict
+        return counts_dict
+
+    def _update_counts(self, line, counts_dict):
+
+        def update_words(word):
+            counts_dict['words'] += 1
+            self.vocabulary.add(word)
+            return ''
+
+        word = ''
+        for char in line:
+            counts_dict['characters'] += 1
+            if char in '?.!':
+                counts_dict['sentences'] += 1
+            elif char == ' ':
+                word = update_words(word)
+            else:
+                word += char.lower()
+        update_words(word)
+
+    def __len__(self):
+        return len(self.vocabulary)
+```
+
+With that all done and store in `lecture.py`. Let's test it out in IPython on the same test text file that we used last week but pass it's path twice to the `create_reports()` method. As a reminder the stats from that file when we used our `create_report()` function were `{'words': 16, 'characters': 76, 'sentences': 2}`.
+
+```python
+In [1]: from lecture import ReportCreator
+
+In [2]: rc = ReportCreator()
+
+In [3]: rc.create_reports(['test_text.txt', 'test_text.txt'])
+
+In [4]: rc.master_counts_dict
+Out[4]: Counter({'characters': 152, 'sentences': 4, 'words': 32})
+
+In [5]: len(rc)
+Out[5]: 16
+```
+
+And if we try to use just the `create_report()` method.
+
+```python
+In [6]: rc.create_report('test_text.txt')
+Out[6]: Counter({'characters': 76, 'sentences': 2, 'words': 16})
+
+In [7]: rc.master_counts_dict
+Out[7]: Counter({'characters': 228, 'sentences': 6, 'words': 48})
+
+In [8]: len(rc)
+Out[8]: 16
+```
+
+Holy moly, everything works! Trust me, I'm as surprised as you are!
 
 ### Everything in Python is an Object!
+
+One final note. Its important to remember that everything in Python is an object. This means that even seemingly simple data structures have attributes and methods stored on them. In addition they are great starting places to think about when you're building your own custom classes. Both to use a attributes or, if you're sure you want to, to inherit from.
