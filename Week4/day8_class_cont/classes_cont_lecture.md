@@ -244,7 +244,7 @@ class ReportCreator():
         counts_dict['words'] += 1
 ```
 
-Now we've got access to the functionality we had in our old functions within the class. Let's talk about two things quickly. One, you might have noticed that `update_counts()` was changed to `_update_counts()`. The leading underscore is a single to Python users that this particular method is for use internal to the class only, similar to the double underscores we see with the magic methods, it also makes the method hidden when tab completing on instances of this class unless you start with an underscore. e.g. In IPython type `<instance of ReportCreator>._<tab>`. It makes sense to make this a hidden method because, realistically, a user of this class will never need to update the counts of a single counts dictionary with a single line. Two, we see that we'll have to change what happens in the `_update_counts()` method so that we can keep track of all the words our class has seen.
+Now we've got access to the functionality we had in our old functions within the class. Let's talk about two things quickly. One, you might have noticed that `update_counts()` was changed to `_update_counts()`. The leading underscore is a signal to Python users that this particular method (also applies to attributes) is for use internal to the class only, similar to the double underscores we see with the magic methods, it also makes the method hidden when tab completing on instances of this class unless you start with an underscore. e.g. In IPython type `<instance of ReportCreator>._<tab>`. It makes sense to make this a hidden method because, realistically, a user of this class will never need to update the counts of a single counts dictionary with a single line. Two, we see that we'll have to change what happens in the `_update_counts()` method so that we can keep track of all the words our class has seen.
 
 This second part forces us to rethink how we will loop over each line. Currently we don't store anything about the characters we're looping over but now we need to store them and add logic to figure out when to add a word to our vocabulary. Check out the implementation below.
 
@@ -270,6 +270,55 @@ class ReportCreator():
 
 Notice how this solution isn't robust to random punctuation characters like @ or &, but we can deal with that later if we find, during testing or usage, it necessary. Ahhhh, abstraction. At least we're considering other ways for sentences to end with `if char in '?.!'`. Also, it seems that we are actually repeating the lines `counts_dict['words'] += 1` and `self.vocabulary.add(word)` in one of our conditions and at the end of the function. In the name of the DRY methodology we could consider putting this into a function and calling it twice in place of those 4 lines.
 
-Now that we have figured out how `_update_counts()` is going to work we need to decide how to make `create_reports()` is going to interact with `create_report()`. As mentioned earlier, it's best to keep functions/methods specialized, this means that if we wanted to create reports and update our class with a list of file paths the functionality should be the same as if we wanted to create a single report and update the class with a single file path except for a single one. This means that we should be doing updates to `master_counts_dict` from within `create_report()`.
+Now that we have figured out how `_update_counts()` is going to work we need to decide how to make `create_reports()` is going to interact with `create_report()`. As mentioned earlier, it's best to keep functions/methods specialized, this means that if we wanted to create reports and update our class with a list of file paths the functionality should be the same as if we wanted to create a single report and update the class with a single file path except. This means that we should be doing updates to `self.master_counts_dict` from within `create_report()`.
+
+Here's what our code might look like if we updated it with those ideas.
+
+{% highlight python linenos %}
+    from collections import Counter
+
+    class ReportCreator():
+        def __init__(self):
+            self.vocabulary = set()
+            self.master_counts_dict = Counter(sentences=0, words=0, characters=0)
+
+        def create_reports(self, file_paths):
+            for file_path in file_paths:
+                pass
+
+        def create_report(self, file_path):
+            counts_dict = Counter(sentences=0, words=0, characters=0)
+            with open(file_path) as txt_file:
+                for line in txt_file:
+                    self._update_counts(line, counts_dict)
+                self.master_counts_dict += counts_dict
+            return counts_dict
+
+        def _update_counts(self, line, counts_dict):
+
+            def update_words(word):
+                counts_dict['words'] += 1
+                self.vocabulary.add(word)
+                return ''
+
+            word = ''
+            for char in line:
+                counts_dict['characters'] += 1
+                if char in '?.!':
+                    counts_dict['sentences'] += 1
+                elif char == ' ':
+                    word = update_words(word)
+                else:
+                    word += char.lower()
+            update_words(word)
+{% endhighlight %}
+
+Alright, a lot of stuff happened in that change. Let's list off what was changed and describe those changes quickly. 1) We added a function to `_update_counts()` called `update_words()` for DRY purposes. 2) We updated `create_report()` so that it changed the `master_counts_dict` attribute with the count dictionary from `_update_counts()`. 3) We changed the data structure we used to keep track of out counts to make (2) easier. One by one, slowly now.
+
+1) As we talked about earlier we wanted to make a function that updated our words information as we wrote the same lines for this task twice in our original implementation of `_update_counts()`. Here we are seeing a function, aptly named `update_words()`, which is defined within the scope of `_update_counts()`. We call functions like these nested functions, or helper functions, and because they are defined within the scope of another function it has access to all the variables within the scope of its parent function. The upshot of this is that we don't have to pass `_update_counts()`'s `counts_dict` variable to `update_words()` as it automatically has access to that variable because of the scope it was defined in.
+
+2) We see the update to the `master_counts_dict` attribute on line 17. This is happening from within `create_report()` so that the user can call either `create_reports()` to make more than one report, or make a single report with `create_report()` and both will update the `master_counts_dict` attribute. Useful functionality.
+
+3) This update that we implemented in (2) was made easier by using the Counter class (imported from the collections library). The Counter class keeps, as you could easily guess, counts of things. This is exactly what we were doing before with out dictionaries. So why are we using Counters now. Well, as you may have guessed, we get some extra functionality when using Counters. Because the Counter class knows that it will only ever have integers stored as values, it has the built in ability to add the values from two Counters by key and make a new Counter. That's what we see happening in line 17. Other functionality of Counters can be found in the [docs](https://docs.python.org/2/library/collections.html#collections.Counter), you all learn things like Counters being a subclass of `dict`, which makes sense when you think about it!
 
 ### Everything in Python is an Object!
