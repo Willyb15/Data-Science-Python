@@ -4,9 +4,9 @@
 
 Last class we learned about the programming paradigm known as OOP and we got some practice writing simple classes in Python. Today we are going to build on that knowledge and discuss a number of important things regarding classes and their use:
 
-    * Python classes magic methods.
-    * How everything in Python is actually an object (instantiated class)!
-    * How to analyze when to use classes.
+* Python classes magic methods.
+* How everything in Python is actually an object (instantiated class)!
+* How to analyze when to use classes.
 
 ### Magic Methods
 
@@ -276,44 +276,44 @@ Now that we have figured out how `_update_counts()` is going to work we need to 
 
 Here's what our code might look like if we updated it with those ideas.
 
-{% highlight python linenos %}
-    from collections import Counter
+```python
+from collections import Counter
 
-    class ReportCreator():
-        def __init__(self):
-            self.vocabulary = set()
-            self.master_counts_dict = Counter(sentences=0, words=0, characters=0)
+class ReportCreator():
+    def __init__(self):
+        self.vocabulary = set()
+        self.master_counts_dict = Counter(sentences=0, words=0, characters=0)
 
-        def create_reports(self, file_paths):
-            for file_path in file_paths:
-                pass
+    def create_reports(self, file_paths):
+        for file_path in file_paths:
+            pass
 
-        def create_report(self, file_path):
-            counts_dict = Counter(sentences=0, words=0, characters=0)
-            with open(file_path) as txt_file:
-                for line in txt_file:
-                    self._update_counts(line, counts_dict)
-                self.master_counts_dict += counts_dict
-            return counts_dict
+    def create_report(self, file_path):
+        counts_dict = Counter(sentences=0, words=0, characters=0)
+        with open(file_path) as txt_file:
+            for line in txt_file:
+                self._update_counts(line, counts_dict)
+            self.master_counts_dict += counts_dict
+        return counts_dict
 
-        def _update_counts(self, line, counts_dict):
+    def _update_counts(self, line, counts_dict):
 
-            def update_words(word):
-                counts_dict['words'] += 1
-                self.vocabulary.add(word)
-                return ''
+        def update_words(word):
+            counts_dict['words'] += 1
+            self.vocabulary.add(word)
+            return ''
 
-            word = ''
-            for char in line:
-                counts_dict['characters'] += 1
-                if char in '?.!':
-                    counts_dict['sentences'] += 1
-                elif char == ' ':
-                    word = update_words(word)
-                else:
-                    word += char.lower()
-            update_words(word)
-{% endhighlight %}
+        word = ''
+        for char in line:
+            counts_dict['characters'] += 1
+            if char in '?.!':
+                counts_dict['sentences'] += 1
+            elif char == ' ':
+                word = update_words(word)
+            else:
+                word += char.lower()
+        update_words(word)
+```
 
 Alright, a lot of stuff happened in that change. Let's list off what was changed and describe those changes quickly. 1) We added a function to `_update_counts()` called `update_words()` for DRY purposes. 2) We updated `create_report()` so that it changed the `master_counts_dict` attribute with the count dictionary from `_update_counts()`. 3) We changed the data structure we used to keep track of out counts to make (2) easier. One by one, slowly now.
 
