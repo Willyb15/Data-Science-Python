@@ -27,4 +27,4 @@ Now you're going to work with strings, along with your knowledge of `for` loops 
 1. Write a script that creates a list of only the even numbers between 0 and a user inputted number. 
 2. Write a script that creates a list of only numbers divisible by a user inputted number that are between 0 and a user inputted number (**Hint**: Use `raw_input()` twice to get both of the user inputs). 
 3. Given the list `[0, 3, 6, 9, 10, 2, 5]` and `[2, 6, 4, 7, 8, 1, 15]`, write a script that finds the common elements between them. Store them in a list, and print that list, sorted, as the final output.  
-4. For a user inputted number, write a script that outputs a list of multiples of that number from 0 up to another user inputted number. Example, for numbers 4, 20 your script should print the numbers 4, 8, 12, and 16.
+4. For a user inputted number, write a script that outputs a list of multiples of that number from 0 up to another user inputted number. For example, given the numbers 4 and 20, your script should print the numbers 4, 8, 12, and 16.
