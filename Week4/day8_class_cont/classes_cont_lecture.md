@@ -44,7 +44,6 @@ Let's take a look at this with the `OurClass` class we created last time. I'm go
 
 ```python
 class OurClass(): 
-    
     def __init__(self, name, location, size=0): 
         self.name = name
         self.location = location
