@@ -24,23 +24,23 @@ In [4]: len(my_dict)
 Out[4]: 2
 ```
 
-Here we are using the `len()` function, a Python built-in and passing it both a list and a dictionary. This might seem fairly natural now, if you take a moment to think about how this works you may run into some logical stops. One thing that my come to mind is, considering our knowledge of how functions work, how are we passing two different data structures to `len()` and Python is still able to know what we're asking, number one, and number two, reason about how "long" these decidedly different data structures are?
+Here we are using the `len()` function (a Python built-in), and passing it both a list and a dictionary. This might seem fairly natural now, but if you take a moment to think about how this works, you may run into some logical stops. One question that might come to mind is how we are able to pass two different data structures to `len()` and have that `len()` function know what we're asking? Furthermore, how does it reason about how "long" these different data structures are? Especially given our knowledge of how functions work, how does this `len()` function do what it does above? 
 
-What's really happening under the hood when we pass a data structure to the `len()` function is that Python is going to that object and running its `__len__()` method. Ok, that sounds cool, but what does it all mean? This is an example of a **magic method** and we will dive into them shortly. For now, know that magic methods allow us, as creators of custom classes, to give them more robust functionality in terms of interacting with Python. So, just as the `__len__()` method was called when both a list and a dictionary was passed to the `len()` function, we can define a `__len__()` method on our custom classes so that Python knows what to do when you pass an instance of that class to the `len()` method; in addition, how Python gets a "length" from your class is entirely up to you!
+What's really happening under the hood when we pass a data structure to the `len()` function is that Python is going to that object and running its `__len__()` method. Ok, that sounds cool, but what does it all mean? This is an example of a **magic method**, and we will dive into them shortly. For now, know that magic methods allow us, as creators of custom classes, to give them more robust functionality in terms of interacting with Python. So, just as the `__len__()` method was called when both a list and a dictionary was passed to the `len()` function, we can define a `__len__()` method on our custom classes so that Python knows what to do when you pass an instance of that class to the `len()` method (the exact implementation of how that `__len__()` works is entirely up to you!)
 
 #### Polymorphism Detour
 
-The above example is a great example of polymorphism, that idea we quickly discussed last class. Let's take a moment to get a better handle on this idea. Polymorphism is defined as the provision of the same interface for entities of different types.
+The above example is a great example of **polymorphism**, an idea we quickly discussed last class. Let's take a moment to get a better handle on this idea. **Polymorphism** is defined as the provision of the same interface for entities of different types.
 
-We see that idea in direct action in the above example. Though we were passing different types of entities to the `len()` function, because it implements the `__len__()` method on whatever object was passed to it, and any object can implement that method, we this notion of the same interface. And, even further, we see the benefits of setting up a paradigm with this design principle implemented. To make something work with `len()` all you have to do is make sure it defines the `__len()__` method. And, tada! The general structure of the interface, polymorphism in action, takes care of the rest.
+We see that idea in direct action in the above example. Though we were passing different types of entities to the `len()` function, because it implements the `__len__()` method on whatever object was passed to it, and any object can implement that method, we see this notion of the same interface. And, even further, we see the benefits of setting up a paradigm with this design principle implemented. To make something work with `len()`, all you have to do is make sure it defines the `__len()__` method. And, tada! The general structure of the interface, polymorphism in action, takes care of the rest.
 
 Speaking of which. How do we define these "magic" methods?? End detour.
 
 #### Defining a Magic Method
 
-Defining a magic method is as easy as defining any other method in a class. We actually did it last time with the `__init__()` method, so all you have to do is start with a def and then the name of the magic with the double underscores. **Note**: All methods with names beginning and ending with double underscores are magic methods, this naming convention is reserved for them.
+Defining a magic method is as easy as defining any other method in a class. We actually did it last time with the `__init__()` method, so all you have to do is start with a `def` and then the name of the magic function with the double underscores. **Note**: All methods with names beginning and ending with double underscores are magic methods, and this naming convention is reserved for them.
 
-Let's take a look at this with the `OurClass` class we created last time. I'm going to add a `__len__()` implementation to the code from last lecture. Considering that the, logically, the `len()` function should return a number of something it seems reasonable to have it return the number of questions asked we have stored. Instead of putting our code directly into IPython, this time we're going to store it in a script, `lecture.py`, and get some practice importing. Let's take a look.
+Let's take a look at this with the `OurClass` class we created last time. I'm going to add a `__len__()` implementation to the code from last lecture. Considering that the `len()` function should return a number, it seems reasonable to have it return the number of questions asked. Instead of putting our code directly into IPython, this time we're going to store it in a script, `lecture.py`, and get some practice importing. Let's take a look.
 
 ```python
 class OurClass(): 
@@ -89,7 +89,7 @@ In [6]: len(our_class)
 Out[6]: 2
 ```
 
-Just as we'd expect if we want to get the number of questions when calling `len()`. For reference, check out what would happen if we hadn't defined an implementation for `__len__()`.
+Just as we'd expect, we get the number of questions when calling `len()`. For reference, check out what would happen if we hadn't defined an implementation for `__len__()`.
 
 ```python
 In [1]: from lecture import OurClass
@@ -109,13 +109,13 @@ An error! At least Python lets us know that it's related to having no length, a 
 
 ### Using Classes Pragmatically
 
-One question that comes up frequently in languages like Python that don't fall into a single [paradigm](https://en.wikipedia.org/wiki/Programming_paradigm) is learning when to use the different features of the language. As applied to our current circumstance, when should we be making classes instead of just using functions?
+One question that comes up frequently in languages like Python that don't fall into a single [paradigm](https://en.wikipedia.org/wiki/Programming_paradigm)(such as functional or OOP) is learning when to use the different features of the language. As applied to our current circumstance, when should we be making classes instead of just using functions?
 
-Part of the confusion in answering this question frequently stems from an incomplete understanding OOP's purpose in life, to take advantage of the ideas of inheritance, encapsulation and polymorphism.With this in mind let's discuss classes at a high level and see what kinds of problem attributes lend themselves to being solved with functions, procedurally, vs with OOP.
+Part of the confusion in answering this question frequently stems from an incomplete understanding OOP's purpose in life - to take advantage of inheritance, encapsulation and polymorphism. With this in mind, let's discuss classes at a high level, and see what kinds of problems lend themselves to being solved with functions (e.g. procedurally) vs. with OOP.
 
-Similarly to one of the motivations for functions, abstraction, we see the idea of encapsulation espoused by OOP. Encapsulation is very much like abstraction in that it hides implementation details; however, with it we see the distinction that many functions, abstractions, can be bundled up together in a class. In addition we also see anther aspect of abstraction introduced, abstraction of the data itself. While we can instantiate a class with whatever properties we dictate, often these will specify the nature of the data (though sometimes it wont), we have the bundled methods that act on the data which are designed to keep us from caring about the exact state of that data. Sometimes this can be good and sometimes not so much.
+Similar to one of the motivations for functions, **abstraction**, we see the idea of **encapsulation** espoused by OOP. Encapsulation is very much like abstraction in that it hides implementation details; however, with it we see the distinction that many functions can be bundled up together in a class. In addition, we also see anther aspect of abstraction introduced - abstraction of the data itself. While we can instantiate a class with whatever properties we dictate, often these will specify the nature of the data (though sometimes it wont). We then have our bundled methods that act on the data,  and these methods are designed to keep us from caring about the exact state of that data. Sometimes this can be good, and sometimes not so much.
 
-Consider an example. You have a dictionary with keys as country names and values as list of all historical presidents for that country. You want to have the ability to see what presidents names start with a given letter. You could easily write a function for this. Maybe it looks like:
+Consider an example. You have a dictionary with keys as country names and values as a list of all historical presidents for that country. You want to have the ability to see what presidents names start with a given letter. You could easily write a function for this. Maybe it looks like the following:
 
 ```python
 def presidents_by_letter(country_pres_dict, letter):
@@ -127,10 +127,10 @@ def presidents_by_letter(country_pres_dict, letter):
     return letter_pres 
 ```
 
-This seems really reasonable. But we could also make a class for this task. It would contain the dictionary of countries and presidents. And have a method that does the same thing as `presidents_by_letter()` above. Maybe it looks like:
+This seems pretty reasonable. However, we could also make a class for this task. It would contain the dictionary of countries and presidents as an attribute, and have a method that does the same thing as `presidents_by_letter()` above. Maybe it looks like the following: 
 
 ```python
-class CountiesPresidents():
+class CountriesPresidents():
     def __init__(self, country_pres_dict):
         self.country_pres_dict = country_pres_dict
 
@@ -147,13 +147,13 @@ So. Which is better, the function or the class??
 
 #### Function or Class?
 
-In the case outlined above there is a pretty strong case for not going with the more heavy-weight option of a class and stick with a simple function. Is there a rule then, that governs when you should use one over the other? Kinda and no...but we do have a good solution to the problem. So let's discuss that.
+In the case outlined above, there is a pretty strong case for not going with the more heavy-weight option of a class and sticking with a simple function. Is there a rule then, that governs when you should use one over the other? Yes and no. Let's discuss how we make the decision of whether or not to use a class.
 
-Generally with think of use cases for classes as ones that align with the principles of OOP, the inheritance, encapsulation and polymorphism. If we think that we are in a situation where encapsulation, having multiple layers of abstraction that between the user and their data, all of which make sense to bundle together, then using classes makes sense.
+Generally we think of use cases for classes as ones that align with the principles of OOP - **inheritance**, **encapsulation**, and **polymorphism**. If we think that we are in a situation where encapsulation (having multiple layers of abstraction between the user and their data) makes sense, then using classes makes sense.
 
-Yes. This all seems a little hand wavy, but the method of reasoning is quite sound. In addition we have access to another amazing tool to make our decision process easier, **refactoring**. Refactoring is the process of restructuring your code without changing it's behavior. When we took advantage of function abstraction in the other lecture and changed the internals of `update_counts()` we were actually refactoring.
+This probably all seems a little hand wavy, but the method of reasoning is quite sound. In addition, we have access to another amazing tool to make our decision process easier - **refactoring**. **Refactoring** is the process of restructuring your code without changing it's behavior. When we took advantage of function abstraction in the other lecture and changed the internals of `update_counts()`, we were actually refactoring.
 
-Refactoring can also be a more overhauling process, wherein you change the entire structure of your programs. To illustrate this lets look at a problem that extends the one we solved when learning how to make functions work together, the `create_report()` project. Along the way we will discuss why the problem would be solved with functions and then talk about when an extension/refactor to a class would be appropriate.
+Refactoring can also be a more overhauling process, wherein you change the entire structure of your programs. To illustrate this, lets look at a problem that extends the `create_report()` project that we built when we were learning how to make functions work together. Along the way we will discuss why the problem should be solved with functions and then talk about when an extension/refactor to a class would be appropriate.
 
 ### Python's Multi-paradigmatic Toolbox For the Win
 
@@ -178,11 +178,11 @@ def create_report(file_path):
     return counts_dict
 ```
 
-We went through a couple of iterations improving on this code to get it where it is and our boss seemed pleased with the result. Now he's back, though. He wants more functionality built into our solution. This time he asks us to expand our program so that we can easily create reports as it did before, but also keep an aggregated count of the sentences, words and characters over all the reports produced, a library of words from all the documents, and make it easy to get the size of this vocabulary.
+We went through a couple of iterations of this project, improving on this code to get it to where it is above, and as a result our boss seemed pleased with the result. Now he's back, though. He wants more functionality built into our solution. This time he asks us to expand our program so that we can easily create reports as it did before, but also do a couple of other things. He also wants our solution to keep an aggregated count of the sentences, words and characters over all the reports produced, and a library of words from all the documents. Lastly, he wants us to make it easy to get the size of this vocabulary.
 
-Alright! Well, that's certainly a bit more functionality. How are we going to solve this? Simple answer, one step at a time. Ok that's wasn't particularly specific...what's the first step then?? As before we are going to embrace an iterative approach to developing functionality. As it's frequently hard to see the forest through the trees, one of the best starting places is identifying a tree and working on that one, slowly building the forest up. First task then, we want to be able to produce a bunch of reports so lets create a function for that.
+Alright! Well, that's certainly a bit more functionality. How are we going to solve this? Simple answer - one step at a time. Ok, that's wasn't particularly specific...what's the first step, then?? As before, we are going to embrace an iterative approach to developing functionality. As it's frequently hard to see the forest through the trees, one of the best starting places is identifying a tree and working on that one, slowly building the forest up. Our first task, then, will be to build a function that will produce a bunch of reports.
 
-If we want to the same thing repeatedly while programming, what tool do we use? A loop! Ok, that's awesome, we already have an idea how we're going to approach this problem, so what are we going to loop over? An obvious answer is a list of file paths. Let's take a look at some pseudo code that will achieve this.
+If we want to do the same thing repeatedly while programming, what tool do we use? A loop! Ok, that's awesome. We already have an idea of how we're going to approach this problem, but what are we going to loop over? An obvious answer is a list of file paths. Let's take a look at some pseudo code that will achieve this.
 
 ```python
 def create_reports(file_paths):
@@ -190,19 +190,19 @@ def create_reports(file_paths):
         create_report(file_path)
 ```
 
-This skeleton makes some sense, for each file path we want to create a report. However, the current way that we have `create_report()` set up returns a dictionary of counts. What are we going to do with these? How are we going to collect all the counts together so that we can create summary statistics? Further, how are we going to create a library of words contained in all the documents??
+This skeleton makes some sense, since for each file path we want to create a report. However, the current way that we have `create_report()` set up returns a dictionary of counts. What are we going to do with these? How are we going to collect all the counts together so that we can create summary statistics? Further, how are we going to create a library of words contained in all the documents??
 
-These are great questions and to answer them we need to think hard about the structure of our program. If we want to aggregate all of the counts together we could have a separate dictionary devoted to that task. Now the question would be, where should that dictionary be created and where will updates to it be made?
+These are great questions, and to answer them we need to think hard about the structure of our program. If we want to aggregate all of the counts together, we could have a separate dictionary devoted to that task. Then, we would have to ask ourselves where that dictionary should be created, and where the updates to it should be made? 
 
-Questions like this one go a long way to directing decisions on how to structure your programs. Things to think about when you're answering these questions are that functions should be reusable, meaning that if it's, for example, creating and returning data structures within it's scope it's potentially less generally than if it accepts an existing data structure as a parameter. However you need to think about needlessly passing around objects that might just be best stored in a class with the functions being made into methods for that class. This brings up an important point, Python has both functions and classes, so you can choose the one that suits your needs! What's important is that you're aware of both and are conscious about thinking over the costs and benefits of each when you're writing your programs.
+Questions like this one go a long way in terms of directing decisions on how to structure your programs. One thing to think about when you're answering these questions are that functions should be reusable. This means that if it's, for example, creating and returning data structures within it's scope, it's potentially less general than if it accepts an existing data structure as a parameter. However, you need to think about needlessly passing around objects that might just be best stored in a class, with the functions that operate on those objects being made into methods for that class. This brings up an important point - Python has both functions and classes, so you can choose the one that suits your needs! What's important is that you're aware of both and are conscious about thinking over the costs and benefits of each when you're writing your programs. Often times, the boundary between choosing one over the other can be a little fuzzy, and so as long as you're actually thinking critically about it, that's a good sign!
 
-How do we apply all of this to our current problem? Well, we know that we're going to want to have some sort of object storing all of our counts and our vocabulary, so this is starting to sound like maybe we should create a class. Keep in mind that this decision, to make the jump to class usage, can happen at any time during your process, and you can always go back! (**Note**: frequently you'll want to try out a change, be it large, a huge refactor, or small, a tiny implementation change, but not want to affect all of your current work. This happens so frequently that there is amazing functionality to solve this exact problem built into your version control system, git, called branches. [Here](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) is a great into to branching and, what is known as, merging from the git docs if you want to learn about this amazing feature.)
+How do we apply all of this to our current problem? Well, we know that we're going to want to have some sort of object storing all of our counts and our vocabulary. This is starting to sound like maybe we should create a class. Keep in mind that this decision, to make the jump to class usage, can happen at any time during your process, and you can always go back! (**Note**: Frequently you'll want to try out a change, be it a large change that requires a huge refactortor or a small change that requires a tiny implementation change, but not want it to affect all of your current work. This happens so frequently that there is some amazing functionality to solve this exact problem built into your version control system, `git`. It involves the use of **branches**. [Here](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) is a great intro to branching and merging from the git docs if you want to learn about this amazing feature.)
 
-Let's make the jump to classes then!
+Let's make the jump to classes, then!
 
 #### Functions to Classes
 
-When you're thinking about refactoring your function based code to classes you frequently have an idea what the methods are going to do, you have already written some functions, so need to think about what the class' attributes will look like. For us it's not too bad, we know that we're going to need a dictionary to hold our master counts and a place to store our vocabulary. In this case a set makes the most sense since we don't need repeats of words. If instead we wanted to keep track of all the documents a word was found in we could do that with a dictionary. Let's start setting up the structure our our class now including the `create_reports()` function we started earlier.
+When you're thinking about refactoring your function based code to classes, you frequently have an idea what the methods are going to do and have already written some functions. The next thing you need to think about is what the class' attributes will look like. For us it's not too bad - we know that we're going to need a dictionary to hold our master counts and a place to store our vocabulary. In this case, a set makes the most sense, since we don't want repeats of words. If instead we wanted to keep track of all the documents a word was found in, we could do that with a dictionary. Let's start setting up the structure of our class, starting with the inclusion of the `create_reports()` function we started with earlier.
 
 ```python
 class ReportCreator():
@@ -244,11 +244,11 @@ class ReportCreator():
         counts_dict['words'] += 1
 ```
 
-Now we've got access to the functionality we had in our old functions within the class. Let's talk about two things quickly. One, you might have noticed that `update_counts()` was changed to `_update_counts()`. The leading underscore is a signal to Python users that this particular method (also applies to attributes) is for use internal to the class only, similar to the double underscores we see with the magic methods, it also makes the method hidden when tab completing on instances of this class unless you start with an underscore. e.g. In IPython type `<instance of ReportCreator>._<tab>`. It makes sense to make this a hidden method because, realistically, a user of this class will never need to update the counts of a single counts dictionary with a single line. Two, we see that we'll have to change what happens in the `_update_counts()` method so that we can keep track of all the words our class has seen.
+Now we've got access to the functionality we had in our old functions within the class. Let's talk about two things real quickly. First off, you might have noticed that `update_counts()` was changed to `_update_counts()`. The leading underscore is a signal to users of our class that this particular method is for use internal to the class only, similar to the double underscores we see with the magic methods (**Note**: The single underscore can also be used with attributes, and it means the same thing). It also makes the method hidden when tab completing on instances of this class, unless you start with an underscore (e.g. In IPython type `<instance of ReportCreator>._<tab>`). It makes sense to make this a hidden method, because realistically a user of this class will never need to update the counts of a single counts dictionary with a single line. Second, you might also notice that we'll have to change what happens in the `_update_counts()` method so that we can keep track of all the words our class has seen.
 
 #### Making Our Class Work with Itself
 
-That second part forces us to rethink how we will loop over each line. Currently we don't store anything about the characters we're looping over but now we need to store them and add logic to figure out when to add a word to our vocabulary. Check out the implementation below.
+That second part forces us to rethink how we will loop over each line. Currently we don't store anything about the characters we're looping over. Now we'll need to store them and add logic to figure out when to add a word to our vocabulary. Let's see if we can make this work... 
 
 ```python
 class ReportCreator():
@@ -270,9 +270,9 @@ class ReportCreator():
         self.vocabulary.add(word)
 ```
 
-Notice how this solution isn't robust to random punctuation characters like @ or &, but we can deal with that later if we find, during testing or usage, it necessary. Ahhhh, abstraction. At least we're considering other ways for sentences to end with `if char in '?.!'`. Also, it seems that we are actually repeating the lines `counts_dict['words'] += 1` and `self.vocabulary.add(word)` in one of our conditions and at the end of the function. In the name of the DRY methodology we could consider putting this into a function and calling it twice in place of those 4 lines.
+Notice how this solution isn't robust to random punctuation characters like @ or &, but we can deal with that later. Ahhhh, abstraction. At least we're considering other ways for sentences to end with `if char in '?.!'`. Also, it seems that we are actually repeating the lines `counts_dict['words'] += 1` and `self.vocabulary.add(word)` in one of our conditions and at the end of the function. In the name of the DRY methodology we could consider putting this into a function and calling it twice in place of those 4 lines.
 
-Now that we have figured out how `_update_counts()` is going to work we need to decide how to make `create_reports()` is going to interact with `create_report()`. As mentioned earlier, it's best to keep functions/methods specialized, this means that if we wanted to create reports and update our class with a list of file paths the functionality should be the same as if we wanted to create a single report and update the class with a single file path except. This means that we should be doing updates to `self.master_counts_dict` from within `create_report()`.
+Now that we have figured out how `_update_counts()` is going to work, we need to decide how `create_reports()` is going to interact with `create_report()`. As mentioned earlier, it's best to keep functions/methods specialized; this means that if we wanted to create reports and update our class with a list of file paths, the functionality should be the same as if we wanted to create a single report and update the class with a single file path. This means that we should be doing updates to `self.master_counts_dict` from within `create_report()`.
 
 Here's what our code might look like if we updated it with those ideas.
 
@@ -317,21 +317,21 @@ class ReportCreator():
 
 Alright, a lot of stuff happened in that change. Let's list off what was changed and describe those changes quickly. 1) We added a function to `_update_counts()` called `update_words()` for DRY purposes. 2) We updated `create_report()` so that it changed the `master_counts_dict` attribute with the count dictionary from `_update_counts()`. 3) We changed the data structure we used to keep track of out counts to make (2) easier. One by one, slowly now.
 
-1) As we talked about earlier we wanted to make a function that updated our words information as we wrote the same lines for this task twice in our original implementation of `_update_counts()`. Here we are seeing a function, aptly named `update_words()`, which is defined within the scope of `_update_counts()`. We call functions like these nested functions, or helper functions, and because they are defined within the scope of another function it has access to all the variables within the scope of its parent function. The upshot of this is that we don't have to pass `_update_counts()`'s `counts_dict` variable to `update_words()` as it automatically has access to that variable because of the scope it was defined in.
+1. As we talked about earlier, we wanted to make a function that updated our words information, as we wrote the same lines for this task twice in our original implementation of `_update_counts()`. Here we are seeing a function, aptly named `update_words()`, which is defined within the scope of `_update_counts()`. We call functions like these nested functions, or helper functions. Because they are defined within the scope of another function, our `update_words()` has access to all the variables within the scope of its parent function. The upshot of this is that we don't have to pass `_update_counts()`'s `counts_dict` variable to `update_words()`, as it automatically has access to that variable because of the scope it was defined in.
 
-2) We see the update to the `master_counts_dict` attribute on line 17. This is happening from within `create_report()` so that the user can call either `create_reports()` to make more than one report, or make a single report with `create_report()` and both will update the `master_counts_dict` attribute. Useful functionality.
+2. We see the update to the `master_counts_dict` attribute on line 17. This is happening from within `create_report()` so that the user can call either `create_reports()` to make more than one report, or make a single report with `create_report()`. Both will update the `master_counts_dict` attribute, which is useful functionality for our class.
 
-3) This update that we implemented in (2) was made easier by using the Counter class (imported from the collections library). The Counter class keeps, as you could easily guess, counts of things. This is exactly what we were doing before with out dictionaries. So why are we using Counters now. Well, as you may have guessed, we get some extra functionality when using Counters. Because the Counter class knows that it will only ever have integers stored as values, it has the built in ability to add the values from two Counters by key and make a new Counter. That's what we see happening in line 17. Other functionality of Counters can be found in the [docs](https://docs.python.org/2/library/collections.html#collections.Counter), you can learn things like Counters being a subclass of `dict`, which makes sense when you think about it!
+3. This update that we implemented in (2) was made easier by using the Counter class (imported from the collections library). The Counter class keeps counts of things. This is exactly what we were doing before with our dictionaries. So why are we using Counters now? Well, as you may have guessed, we get some extra functionality when using Counters. Because the Counter class knows that it will only ever have integers stored as values, it has the built in ability to add the values from two Counters by key and make a new Counter. That's what we see happening in line 17. Other functionality of Counters can be found in the [docs](https://docs.python.org/2/library/collections.html#collections.Counter). Here you can learn things like Counters being a subclass of `dict`, which makes sense when you think about it!
 
 #### Magic Methods with Your Classes
 
-We now have a well encapsulated class that not only allows us to create reports but keeps track of the counts over all the documents it's been used for and the vocabulary used in those documents. We could implement some functionality that allows the user to control how a report is printed to the user or to keep track of the average number of words in each document, etc. Who knows what our boss will want us to do next. Instead, the last bit of functionality that we're going to implement on this class is making it respond to the `len()` function as this seems an intuitive way to get the size of the classes vocabulary.
+We now have a well encapsulated class that not only allows us to create reports, but also keeps track of the word counts and vocabulary over all the documents it's seen. To add additional functionality, we could implement some methods that allow the user to control how a report is printed to the user, or to keep track of the average number of words in each document, etc. Who knows what our boss will want us to do next. Instead, the last bit of functionality that we're going to implement on this class is making it respond to the `len()` function, as this seems like an intuitive way to get the size of the classes vocabulary.
 
-As we discussed earlier we can perform tasks like this, ones that allow custom classes to interact with the Python interpreter in an intuitive way, can be accomplished with magic methods. In this case we're going the need the, you guessed it, `__len__()` method ([here](https://docs.python.org/2/reference/datamodel.html#object.__len__) are the docs).
+As we discussed earlier, we can perform tasks like this (ones that allow custom classes to interact with the Python interpreter in an intuitive way) by using magic methods. In this case we're going the need the `__len__()` method ([here](https://docs.python.org/2/reference/datamodel.html#object.__len__) are the docs).
 
-While it might seem intuitive that Python should be able to figure out that you want the size of the set stored on instances of your class if you were to pass one of those instances to the `len()` function, how else does it know how long a list or a dictionary is?? Remember it's because the classes implement a specific version of the `__len__()` method so that when an instance of those classes are passed to `len()` Python knows how to find the "length".
+While it might seem intuitive that Python should be able to figure out that you want the size of the set stored on instances of your class if you were to pass one of those instances to the `len()` function, how does it know how long a list or a dictionary is?? Remember, it's because those classes implement a specific version of the `__len__()` method so that when an instance of those classes are passed to `len()`, Python knows how to find the "length".
 
-What do we want to return from the `ReportCreator`'s `__len__()` method then. The size of the vocabulary set. To get that we need to call `len()`! This might seem a little self-defining/cyclic in it's logic, however, note that if we call `len(self.vocabulary)`, Python knows how to find the length of the set. If we return that value from `__len__()` then we extend that functionality to apply to instances of our class.
+What do we want to return from the `ReportCreator`'s `__len__()` method, then? We want to return the size of the vocabulary set. To get that, we need to call `len()`! This might seem a little self-defining/cyclic in it's logic. Note, however, that if we call `len(self.vocabulary)`, Python knows how to find the length of the set. If we return that value from `__len__()`, then, we extend that functionality to apply to instances of our class.
 
 ```python
 from collections import Counter
@@ -387,7 +387,7 @@ class ReportCreator():
         return len(self.vocabulary)
 ```
 
-With that all done and store in `lecture.py`. Let's test it out in IPython on the same test text file that we used last week but pass it's path twice to the `create_reports()` method. As a reminder the stats from that file when we used our `create_report()` function were `{'words': 16, 'characters': 76, 'sentences': 2}`.
+Now that we have all that done and stored in `lecture.py`, let's test it out in IPython on the same test text file that we used last week. This time, though, let's pass it's path twice to the `create_reports()` method. As a reminder, the stats from that file when we used our `create_report()` function were `{'words': 16, 'characters': 76, 'sentences': 2}`.
 
 ```python
 In [1]: from lecture import ReportCreator
@@ -420,4 +420,4 @@ Holy moly, everything works! Trust me, I'm as surprised as you are!
 
 ### Everything in Python is an Object!
 
-One final note. Its important to remember that everything in Python is an object. This means that even seemingly simple data structures have attributes and methods stored on them. In addition they are great starting places to think about when you're building your own custom classes. Both to use a attributes or, if you're sure you want to, to inherit from.
+One final note. Its important to remember that everything in Python is an object. This means that even seemingly simple data structures have attributes and methods stored on them. In addition, they are great starting places to think about when you're building your own custom classes. 
