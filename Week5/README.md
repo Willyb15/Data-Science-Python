@@ -9,7 +9,7 @@ At the end of Day 10:
 * You will be able to:
 	* use DataFrames within Pandas
 	* obtain summary statistics
-	* obtain visuals using Matplotlib
+	* obtain visuals using Pandas DataFrames 
 * You will understand:
 	* when, why and how to create visuals 
 	* how to interpret summary statistics

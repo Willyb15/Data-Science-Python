@@ -6,8 +6,6 @@ At the end of Day 11:
 	* aggregate, merge and create pivot tables from DataFrames
 	* use numpy statements on columns and rows of your DataFrame
 * You will understand:
-	* how to work with null values in DataFrames
-	* the purpose and implementation of aggregation
 	* different types of merges
 
 At the end of Day 12:

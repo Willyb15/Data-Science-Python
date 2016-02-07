@@ -23,6 +23,7 @@ var/
 .installed.cfg
 *.egg
 *.DS_Store
+*.ipynb_checkpoints 
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
