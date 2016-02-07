@@ -137,6 +137,7 @@ In [2]: states_caps_dict['Indiana']
 Out[2]: 'Indianapolis'
 
 In [3]: states_caps_dict['Washington']
+___________________________________________________________________________
 KeyError                                  Traceback (most recent call last)
 <ipython-input-3-fac88f6748> in <module>()
     > 1 states_caps_dict['Washington']
@@ -209,6 +210,7 @@ This idea is so important that Python doesn't leave it up to you to remember to 
 In [1]: my_bad_key = ['key']
 
 In [2]: my_dict = {my_bad_key: 'This wont work'}
+___________________________________________________________________________
 TypeError                                 Traceback (most recent call last)
 <ipython-input-2-a1fb4b3621ba> in <module>()
     > 1 my_dict = {my_bad_key: 'This wont work'}
