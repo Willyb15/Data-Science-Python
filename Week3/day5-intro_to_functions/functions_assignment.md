@@ -15,4 +15,13 @@ print my_func(param15, param25, param35)
 
 Note above that I've called my function five times after I defined it (and I've put a print in front of it so that when I call the script from the command line it'll print the results) - this is to test out that it works correctly with different sets of arguments. You should aim to test yours at least 5 times tonight after you write it. 
 
+# Assignment Questions 
+
+### Part 1 - Basic Practice 
+
+For the first part of the assignment, we're going to get some practice taking something we've already written and translating it to a function. In continuation of prior assignments, let's work with a couple of the scripts that we wrote in `intro_python_assignment.md` in Week 1, Day 2, and then re-worked in `string_lsts_assignments.md` in Week 2, Day 1. Let's start out and just move the first two into functions (for extra practice you could do this with the rest of the problems that we worked through in those assignments): 
+
+1. Write a function that computes and prints the factorial for an inputted number.
+2. Write a function that determines whether or not an inputted number is a prime, and then prints 'The number you inputted is a prime/ not a prime number.' depending on what your script find. 
+
 
