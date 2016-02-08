@@ -24,4 +24,15 @@ For the first part of the assignment, we're going to get some practice taking so
 1. Write a function that computes and prints the factorial for an inputted number.
 2. Write a function that determines whether or not an inputted number is a prime, and then prints 'The number you inputted is a prime/ not a prime number.' depending on what your script find. 
 
+### Part 2 - Advanced Practice 
 
+Now we're going to work our problem solving and programming chops even more by coding up functions to solve new problems. For each of the problems below, I would suggest coding it up in a similar way to how you did the other two (building the function, and then calling it some number of times (5) to test it out after that). 
+
+1. Write a function that counts the number of words in an inputted string, where we consider spaces to be word separators. 
+2. Write a function that counts the number of words in an inputted string, where we consider words to be separated by an inputted delimiter (so you're function should accept two arguments), where the default delimiter used is a space.  
+3. Write a function that takes in a string, and returns a list that holds the length of each word in the phrase, separated by an inputted delimiter (so you're function should accept two arguments), where the default delimiter used is a space. For an example here, if the arguments to your function were `This is a test string` (and nothing else), your function should return `[4, 2, 1, 4, 6]`.   
+4. Write a function that returns all the prime numbers up to an inputted number (**Hint**: It might be helpful to use/modify the prime function you wrote earlier.    
+5. Write a function that takes in a list of numbers, as well as an additional number (i.e. two arguments), and returns a list of `yes` or `no` as to whether each number in the list is divisible by the additional number. For example, if I input `[10, 25, 36, 12, 20]` as the list of numbers, and `5` as the additional number, your function should return `['yes', 'yes', 'no', 'no', 'yes']`.
+6. Write a function that takes in a list of strings, as well as an inputted letter, and returns a list of only those strings from the list that end with that letter. For example, if I input `['I', 'am', 'in', 'love', 'with', 'python']` as the list of strings, and `n` as the inputted letter, your function should return ['in', 'python'].
+7. Write a function that takes in a list of strings, as well as an inputted substring (i.e. another string), and returns a list of the indices of the strings that contain that inputted substring. For example, if I input `['This', 'is, 'an' , 'example']` as the list of strings, and `is` as the substring, your function should return `['This', 'is']`.
+ 
