@@ -35,4 +35,9 @@ Now we're going to work our problem solving and programming chops even more by c
 5. Write a function that takes in a list of numbers, as well as an additional number (i.e. two arguments), and returns a list of `yes` or `no` as to whether each number in the list is divisible by the additional number. For example, if I input `[10, 25, 36, 12, 20]` as the list of numbers, and `5` as the additional number, your function should return `['yes', 'yes', 'no', 'no', 'yes']`.
 6. Write a function that takes in a list of strings, as well as an inputted letter, and returns a list of only those strings from the list that end with that letter. For example, if I input `['I', 'am', 'in', 'love', 'with', 'python']` as the list of strings, and `n` as the inputted letter, your function should return ['in', 'python'].
 7. Write a function that takes in a list of strings, as well as an inputted substring (i.e. another string), and returns a list of the indices of the strings that contain that inputted substring. For example, if I input `['This', 'is, 'an' , 'example']` as the list of strings, and `is` as the substring, your function should return `['This', 'is']`.
- 
+
+### Extra Credit
+
+1. Let's build a calculator for figuring out how much I owe in taxes (and by calculator, I mean function). Write a function that takes in a dictionary and an income. In the dictionary, the keys will hold the top dollar limit for some tax range, and the values will hold the tax rate for that tax range. You need to build a calculator that will calculate the tax for all income up to each key value (if it goes up that high) for the given tax rate.  
+
+For example, let's say my tax dictionary is `{50000: 0.08, 100000: 0.10, 150000: 0.15}`. This means that the first 50k of income is taxed at 8%, the second 50k at 10%, and the rest at 15%. So, if the inputted income was 70k, then my taxes would be 50 * 0.08 + 20 * 0.10 = 6k. You should write your function to be generalized and accept any kind of tax dictionary and any inputted income. 
