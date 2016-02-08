@@ -6,15 +6,15 @@ Your assignment today is to implement a program that functions as a calculator; 
 
 Many of us are solely used to entering computations into a calculator by putting an operation between two values. E.g.
 
+| value | operation | value |
 |:-----:|:---------:|:-----:|
 |   3   |     +     |   4   |
-| value | operation | value |
 
 However there are other notations that can be used to express mathematical operations, prefix, also known as Polish, notation and postfix, also know as Reverse Polish, notation. Today we will be implementing a calculator that implements Reverse Polish Notation ([RPN](https://en.wikipedia.org/wiki/Reverse_Polish_notation)). E.g.
 
+| value | value | operation |
 |:-----:|:-----:|:---------:|
 |   3   |   4   |     +     |
-| value | value | operation |
 
 This method of inputting computations actually makes it easier to write logic, for the computer, to perform the operations. This is because the format lends itself to storing computations in a [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)). A stack is a specific type of queue (know as last in, first out, LIFO)  which only supports two types of operations, pushing and popping.
 
