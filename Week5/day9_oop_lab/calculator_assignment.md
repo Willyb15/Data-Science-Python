@@ -25,7 +25,7 @@ You can think of a stack as a list with less functionality. (**Note**: the [dequ
 Say we want to calculate, in infix notation, the value resulting from the calculation: `6 + ((5 + 3) / 4) - 3`. In RPN that calculation is written: `6 5 3 + 4 / + 3 −`. To input this calculation into a RPN calculator one would enter those elements, in turn, and the corresponding operations would occur in the following order.
 
 | Input |  Operation   |    Stack    |                   Other                   |
-|:-----:|:------------:|:-----------:|:-----------------------------------------:|
+|:-----:|:------------:| ----------- |:-----------------------------------------:|
 |   6   |  Push Value  | [ 6 ]       |                                           |
 |   5   |  Push Value  | [ 6, 5 ]    |                                           |
 |   3   |  Push Value  | [ 6, 5, 3 ] |                                           |
@@ -38,3 +38,7 @@ Say we want to calculate, in infix notation, the value resulting from the calcul
 |       |    Return    |   5         |                                           |
 
 If you want to play around with a RPN calculator to get a feel for them and how they operate check out [this](http://www.meta-calculator.com/learning-lab/reverse-polish-notation-calculator.php) link.
+
+### RPN Calculator
+
+Your assignment is to implement a calculator that operates with reverse polish notation. This can be done with solely functions, and while this is supposed to be an OOP lab, if you'd like you're welcome to start off by writing functions that solve the problem. Though, at some point in the assignment there will be a part that nearly necessitates implementation of the calculator in a class.
