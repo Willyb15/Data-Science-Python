@@ -53,3 +53,11 @@ Now we're going to start working on the `Member` class. Then we'll cycle back to
 * Define and build the `get_coding_level` method, as described above. 
 * Anytime that you add a line of code in the `add_coded_line` method, check if adding that line of code puts the `Member` at a new coding level by calling the `get_coding_level` method.  
 
+### Part 3 - Having our `Member` and `OurClass` classes interact 
+
+For this part, we're going to assume that the `members` attribute that you create in `OurClass` holds a bunch of instantiated `Member` objects (remember we just instantiated it as an empty list earlier). 
+
+1. Now, let's have the two classes we have built interact with each other. The first think you'll do is write a method in `OurClass` that takes each of the members in the `members` attribute and calculates the total number of questions asked across all members. Call this method `get_num_questions_asked`. 
+2. Next, let's do the same, but this time calculate the total number of lines of code that have been written by all our members. Let's put this in a method called `get_num_lines_code`.
+3. Finally, let's write a method that gets the most common coding level of the members. Do this by taking the mode of programming levels across all members in `OurClass`, and returning the string 'None' if there is no model. Put this in a method called `get_coding_level`. 
+
