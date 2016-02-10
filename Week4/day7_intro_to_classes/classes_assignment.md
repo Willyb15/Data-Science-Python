@@ -61,3 +61,13 @@ For this part, we're going to assume that the `members` attribute that you creat
 2. Next, let's do the same, but this time calculate the total number of lines of code that have been written by all our members. Let's put this in a method called `get_num_lines_code`.
 3. Finally, let's write a method that gets the most common coding level of the members. Do this by taking the mode of programming levels across all members in `OurClass`, and returning the string 'None' if there is no model. Put this in a method called `get_coding_level`. 
 
+# Extra Credit
+
+1. Create a new class, called `Instructor`, that has two attributes, `name` and `questions_answered`, where `name` is an argument that users of the class have to pass in when instantiating it, and `questions_answered` is initialized as an empty list.  
+2. Create a method on the `Instructor` class, called `add_question_answered`, that takes in a string (a `question` parameter), and adds it to the `questions_anwered` attribute. 
+3. Now, on the `OurClass` class, build a method that calculates the total number of questions answered across all the instructors. This will involve a few things: 
+
+* Adding an `instructors` attribute (here it'll be a list) to the `__init__` method. 
+* Build a method, which we'll call `get_num_questions_answered`, that cycles over the instructors list (which we'll assume is full of a bunch of `Instructor` objects), and calculates the total number of questions answered across all instructors. 
+
+4. Now write a method that checks whether there are any outstanding questions not answered (**Hint**: Use the results from the `get_num_questions_asked` and `get_num_questions_answered` methods that you have already written). 
