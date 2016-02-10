@@ -62,7 +62,14 @@ In line with the top-down tactics that we have previously discussed, consider ho
 * What parts of what it needs to do could be assigned to other functions? 
 * What would they be called?
 
-Once you have answered some or all of these questions you are well on your way to writing some pseudocode.
+
+Take a look at [this](http://codereview.stackexchange.com/questions/79795/reverse-polish-notation-calculator-in-python) stack exchange post. Notice how this solution uses a list to keep track of the state of the stack. As it evaluates the elements in the calculation it pops, evaluates and inserts as dictated by the algorithm until the calculation is completed. As one of the comments on the post says, lists are optimized to grow and shrink from their end. While they support popping and inserting at any index these operations are compute intensive.
+
+This code is pretty decent apart from the way it keeps track of the stack. Consider understanding what that solution is doing and using it as a starting place for the next step. Make sure that you don't use the same methods it uses to keep track of the stack. i.e. Popping/inserting from/at somewhere other than the end of the list. You can still use a list to keep track of the state of the stack, however make sure you only alter from the end of the list. You could also use the `deque` class that was mentioned above.
+
+You can also see the use of the `operator` library. This class turns the standard mathematical calculations you write with, for example, `+` and `-` into functions. These functions can make your life easier as your trying to implement your program. Note too that the linked solution provides more complicated operations (`sin`, `tan`, `cos`, and `pi`) you don't need to implement these if you don't want for simplicity. Remember, you can always add functionality later.
+
+Once you have looked at the code and answered some or all of the above questions you are well on your way to writing some pseudocode.
 
 #### Step 3: Pseudocode
 
@@ -103,6 +110,31 @@ Don't fret, this is part of the programming process, even the best programmers h
 
 There are many methods by which you can debug. You can read through your code for syntax/logic errors, you can print things out to make it easier to follow the flow of your program as it actually runs. You can also use the Python Debugger, [pdb](https://docs.python.org/2/library/pdb.html) for short. This tool can be really helpful if you want to interact with your program similarly to way you interact with IPython, it allows you to stall the state of the Python interpreter while it is running your script so that you have a chance to poke around and see the state of your program, the variables that exist, what their values are, etc., at any point in the execution. Check out this [blog post](https://pythonconquerstheuniverse.wordpress.com/2009/09/10/debugging-in-python/) for a great intro on using this tool.
 
-#### Step 6: Persist the Stack
+#### Step 6: Building the User Interface
 
-Now you have a way 
+Now you have function that will parse a string of operations. How will a user of your calculator interact with this function? Are they going to be prompted for input, do they have to give it to the function in the script? The former is suggested, you can use [raw_input](https://docs.python.org/2/library/functions.html#raw_input) to get this information from the user.
+
+In addition, will the user be able to enter more than one calculation? If so, how can you use a look to have your function called over and over? There's a tactic we use in Python when we don't know how long a loop is going to last, we'll use a `while True` statement and have logic in the loop determine when to `break` out of it.
+
+Putting your function in a loop might change the way it needs to interact with the user. This change might look like print a result in a different part of the program. Maybe it changes what is returned from one of your functions to then be displayed. Again, there is no right answer, you'll just need to think critically about how your program is running.
+
+
+#### Step 7: A Better Calculator
+
+Now you have a way to calculate an arbitrary RPN style string of operations. But a real calculator does more, it keeps track of the state of your stack and the user can decide when they want to evaluate the stack. 
+
+In order to implement functionality of this nature you will need to persist the stack in some way. This can be done with functions or with OOP. Consider the tenants of OOP and how they might fit in with this new version of the problem. Which method of solving the problem do you think will fit better. I would say that OOP fits well and the rest of the assignment is built on that assumption; however, if you think that functions will be sufficient, or easier, than OOP then, by all means tackle the problem that way!
+
+With OOP in mind we now need to move our current functionality into a class. We obviously have some  methods, though they will need to be changed; what attributes will out class need to have?
+
+#### Step 8: Implement a Class
+
+Time to transition from procedural code to OOP code. You've thought about the attributes of the class and have some existing functions, now you need to make the switch. As you do this think about how you can take advantage of the pluses of OOP to make your solution more elegant.
+
+You'll probably quickly see that having the stack stored as an attribute will make your life easier. But how are we going to make a real calculator?
+
+#### Step 9: Persist the Stack
+
+You will almost certainly have to change some implementation details of how your function that evaluates RPN strings since, now, we have to consider what's on the stack already. This also means that we have to be ok with things remaining on the stack after we try to evaluate it. Making this functionality will be the crux of getting full calculator-like functionality to work in your program. Once you get to this section it might be worth talking to an instructor aside to discuss different tactics for approaching this problem.
+
+Remember, there are many ways to solve this problem, and while there will be a solution posted for you to look at it is definitely worth you time to struggle through this problem and learn from it while you have the instructors to talk to you about tactics.
