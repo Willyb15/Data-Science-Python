@@ -17,8 +17,10 @@ At the end of Day 5:
 At the end of Day 6:
 
 * You will be able to:
+
 	* apply what we have learned to:
 		* break problems down into parts
 		* implement those parts into functions that work together
 * You will understand:
+
 	* the greater purpose of what we covered in the previous classes
