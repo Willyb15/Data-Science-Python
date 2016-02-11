@@ -138,3 +138,7 @@ You'll probably quickly see that having the stack stored as an attribute will ma
 You will almost certainly have to change some implementation details of how your function that evaluates RPN strings since, now, we have to consider what's on the stack already. This also means that we have to be ok with things remaining on the stack after we try to evaluate it. Making this functionality will be the crux of getting full calculator-like functionality to work in your program. Once you get to this section it might be worth talking to an instructor aside to discuss different tactics for approaching this problem.
 
 Remember, there are many ways to solve this problem, and while there will be a solution posted for you to look at it is definitely worth you time to struggle through this problem and learn from it while you have the instructors to talk to you about tactics.
+
+### Extra Credit
+
+Try to break your solution by entering calculations that make no sense. Can you make your program robust to these poorly/incorrectly formatted inputs? It's good to think about these things, though frequently it's very difficult to foresee all the possibilities of bad input. So don't drive yourself crazy trying to protect against everything.
