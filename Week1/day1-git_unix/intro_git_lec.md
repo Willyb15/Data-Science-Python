@@ -8,7 +8,7 @@ At the end of this lesson, you should be able to:
 * Understand basic Git/Github commands and how to use them, namely
 adding, committing, cloning, pushing, pulling, and forking
 
-## Background 
+### Background 
 
 At the heart of Github is Git, a distributed version control system for 
 software development. It allows us to keep track of and manage all of the 
@@ -17,14 +17,14 @@ history of all of the changes we have ever made to our files, and effectively wo
 
 While Git is a distributed version control system, Github is a hosting service for Git repositories (you can think of a repository as a directory/folder). Another way of looking at this is that Github is a hosting service for projects that use Git. Github allows us to share our projects with other people, and to allow other people to collaborate with us on our projects. We interact with Git locally on our labtops/desktops, whereas we interact with Github through our web browser.
 
-## Diving In
+### Diving In
 
 Before we can work and interact with a Git repository (either locally or 
 through Github), we first have to get a Git repository! We get this through 
 initializing one, so we'll cover that first. Then we'll move on to the actual
 commands that we'll use to interact with our Git repository. 
 
-### Intializing a Git Repository Locally 
+#### Intializing a Git Repository Locally 
 
 A Git repository is a **local** collection of files and contains a `.git` 
 subdirectory in its root. Git keeps track of the state of the files in the 
@@ -43,7 +43,7 @@ git init my_new_repo # Initialize a new git repository called my_new_repo.
 git init # Initialize the current directory to be a git repository. 
 ```
 
-### Interacting with a Git Repository
+#### Interacting with a Git Repository
 
 Now that we have a Git repository, we can start working in that repository 
 (directory), and have Git keep track of the changes that we are making to 
@@ -71,7 +71,7 @@ git commit -m 'I committed!' # Commit all files in the index staging area with
 
 I've mentioned the *index* file above, and while understanding it isn't necessary, it can help us to understand exactly how Git works. The *index* file (which is hidden in the .git subdirectory of any Git repository) keeps track of all files that the Git repository is actually responsible for tracking. The `git add` command above will put files into the index the first time it is run on a file, and from then on out will only note *changes* to the file (i.e.what's different from the last time it was committed). For example, if I had already run a `git add` on the `my_file.txt` above, then that `git add my_file.txt` command would have added only changes to that file since the last commit. If I had already added `my_file.txt` to the index but not made changes to it since the last commit, then the `git add my_file.txt` would be worthless. `git commit` simply commits the files or changes to files that have been added to the *index* in the repository. You can more or less think of the `git commit` command as making your changes official; they've gone down in history (the Git history). 
 
-### Initializing a Git Repository Through Cloning
+#### Initializing a Git Repository Through Cloning
 
 Often times, instead of initializing a new, empty Git repository locally, we will be downloading an existing repository to use on our local machine. The process of creating a new local repository from an existing remote repository is known as *cloning* a repository. To clone a repository, we simply issue the `git clone` command followed by a URL. 
 

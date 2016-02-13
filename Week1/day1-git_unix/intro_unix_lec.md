@@ -7,7 +7,7 @@ At the end of this lesson, you should be able to:
 * Create and remove directories from the command line
 * Move files and directories around from the command line
 
-## Background 
+### Background 
 
 Unix is a multitasking, multiuser computer operating system. Today, most 
 computers are either built on top of a unix operating system or Microsoft
@@ -22,14 +22,14 @@ of the programs in each Unix distribution will be the same. Today we're going
 to be working with some of the programs that are common across all 
 distributions. 
 
-## Diving in
+### Diving in
 
 One thing to note before actually getting to Unix commands is that 
 these **commands** are the programs referred to in the background 
 section. Technically speaking, each one of these commands is actually a small
 little program that somebody has built. 
 
-### Navigation 
+#### Navigation 
 
 In terms of navigation, the following three commands are going to be your 
 bread and butter: 
@@ -115,7 +115,7 @@ ls /Users/sallamander/galvanize/DSI-evening-prep/Introduction # Same thing as
                                                               # above 
 ```
 
-### Creating and Removing files 
+#### Creating and Removing files 
 
 In terms of creating and removing files, the following commands are used: 
 
@@ -149,7 +149,7 @@ rm file2.txt file3.txt # Delete both file2.txt and file3.txt
 **Note**: The results of the `rm` command are permanent, so **be careful**
 when using it. 
 
-### Creating and Removing Directories 
+#### Creating and Removing Directories 
 
 In terms of creating and removing directories, the following commands are used:
 
@@ -180,7 +180,7 @@ rm -r nonempty_dir # Recursively deletes all files in the nonempty_dir,
                    # and then deletes the nonempty_dir itself. 
 ```
 
-### Moving files and Directories
+#### Moving files and Directories
 
 The two commands that we use to move files and directories around are: 
 
