@@ -46,15 +46,15 @@ Let's walk through these in a little more detail.
 1.) `pwd` is fairly straightforward, but in talking about pathnames it's 
 important to talk about the Unix filesystem tree and to make the 
 distinction between absolute and relative pathnames. In a Unix-based 
-operating system, files are ogranized in a tree-like pattern. The top 
+operating system, files are organized in a tree-like pattern. The top 
 directory in a filesystem is called the *root directory*, which contains
 files as well as subdirectories, which contain more files and 
-subdirectories, and so on. If we're to look at the file structure of the 
+subdirectories, and so on. If we were to look at the file structure of the 
 repository for this class, we might see something like this: 
 
 ![folder_filestructure](imgs/unix_tree.png)
 
-Note that the terms directory and subdirectory are synonymous with a folder. 
+Note that the terms directory and subdirectory are synonymous with the term folder. Also note that this picture above was taken when most of the folders were only populated with README.md files, which is why that's all you see in each one of the weekly folders. 
 
 When discussing the pathname of a file or subdirectory, we need to note
 whether it is an absolute path or a relative path: 
@@ -74,7 +74,7 @@ to start from the root directory when passing the pathname to the program.
 2.) `cd` allows you to change from one directory to another by simply placing 
 the name of the directory you want to go to after the `cd` command. `cd` 
 accepts a relative pathname or an absolute pathname, but if you pass it a 
-relative pathname then that pathname has to be accessible via the current 
+relative pathname, then that pathname has to be accessible via the current 
 working directory. 
 
 Assuming that the repo for this class is located at the path 
@@ -119,8 +119,8 @@ ls /Users/sallamander/galvanize/DSI-evening-prep/Introduction # Same thing as
 
 In terms of creating and removing files, the following commands are used: 
 
-* `touch` - Create a file/Change the timestamp on an already existent file
-* `rm` - Remove/Delete a file
+* `touch` - create a file/change the timestamp on an already existent file
+* `rm` - remove/delete a file
 
 1.) In its default usage, `touch` is a command that will open and close a file
 while leaving its contents unchanged. The end result is that it changes 
@@ -134,7 +134,7 @@ touch already_existent.txt # Assuming already_existent.txt is an existing
 touch new_file1.txt # Assuming new_file1.txt doesn't exist, this creates a 
                     # file named new_file1.txt in the current directory. 
 touch new_file2.txt new_file3.txt # Assuming that both new_file2.txt and 
-                                  # new file_3.txt don't exist, this creates
+                                  # new_file3.txt don't exist, this creates
                                   # them in the current working directory. 
 ```
 
@@ -153,11 +153,10 @@ when using it.
 
 In terms of creating and removing directories, the following commands are used:
 
-* `mkdir` - Create a directory
-* `rmdir` - Remove a Directory 
+* `mkdir` - create a directory
+* `rmdir` - remove a Directory 
 
-1.) `mkdir` allows us to create a new directory simply by placing the name of 
-our newly created directory(s) right after the `mkdir` command: 
+1.) `mkdir` allows us to create a new directory(s) simply by placing the name of our newly created directory(s) right after the `mkdir` command: 
 
 ```bash
 mkdir new_dir1 # Create new directory called new_dir1 in the current directory
@@ -185,8 +184,8 @@ rm -r nonempty_dir # Recursively deletes all files in the nonempty_dir,
 
 The two commands that we use to move files and directories around are: 
 
-* `cp` - Copy files and directories
-* `mv` - Move and rename files and directories 
+* `cp` - copy files and directories
+* `mv` - move and rename files and directories 
 
 1.) `cp` allows us to copy a file or directory from one location to another. 
 It takes two arguments - the name of the file or directory to copy, and 
@@ -203,10 +202,7 @@ cp file1.txt directory1/file11.txt # Copy file1.txt to directory1, but
 cp -r dir1 dir2 # Copy dir1 and all its concents into dir2.  
 ```
 
-2.) `mv` allows us to move and rename a file or directory (getting rid of the 
-original). Similar to the `cp` command, it takes two arguments - the name of 
-the file or directory to move or rename, and the name of the file or directory 
-to move it or rename it to. 
+2.) `mv` allows us to move and rename a file or directory (getting rid of the original). Similar to the `cp` command, it takes two arguments - the name of the file or directory to move or rename, and the name of the file or directory to move it or rename it to. 
 
 ```bash
 mv file1.txt file2.txt # Move the contents of file1.txt to file2.txt. This
@@ -222,18 +218,15 @@ contents of `file1.txt`.
 ### Keyboard Shortcuts 
 
 Becoming efficient at navigating around your terminal can save you loads of 
-time. Below we'll walk through some commands that can help increase your 
+time. Below, we'll walk through some commands that can help increase your 
 efficiency right from the command line. 
 
 #### Using The Up/Down/Right/Left Arrows and Tab 
 
-* To revisit commands from you history you can typically press the up arrow, 
-where pressing it multiple times allows you to cycle through all your previous
-commands. You can also use your down arrow to cylce through commands, too. 
+* To revisit commands from your history, you can typically press the up arrow, where pressing it multiple times allows you to cycle through all your previous commands. You can also use your down arrow to cycle through commands, too. 
 
 * To navigate single characters in a line, you can typically use your left
-and right arrows. Holding down your META key (typically alt on mac; try alt
-or ctrl on Windows) will allow you to navigate through whole words at a time. 
+and right arrows. Holding down your META key (typically `alt` on mac; try `alt` or `ctrl` on Windows) will allow you to navigate through whole words at a time. 
 
 * Tab completion is a thing in most unix shells. What this means is that 
 you can type the beginning couple of letters of a file or directory and 
@@ -242,8 +235,8 @@ otherwise it will complete up to the point it can).
 
 #### Control-key Commands
 
-Note here that ^h is the same as ctrl-h on a mac, and the equivalent
-on a windows system (try ctrl or alt).  
+Note here that `^h` is the same as `ctrl-h` on a mac, and the equivalent
+on a Windows system (try `ctrl` or `alt`).  
 
 ```bash 
 ^u # Erases input from current location to beginning of line. 
