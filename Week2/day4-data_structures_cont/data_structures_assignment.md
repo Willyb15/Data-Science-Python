@@ -11,3 +11,9 @@ As with your previous assignment, tonight's will get you practice with the data 
  Example: If you inputted the numbers `1, 2, 3, 4, 5, 6`, your script would print `[(1, 2), (3, 4), (5, 6)]`. If you inputted the numbers `1, 2, 3, 4, 5`, your script would print `[(1, 2), (3, 4)]` 
 
  **Hint**: Check out the [zip](https://docs.python.org/2/library/functions.html#zip) function.
+
+### Part 2 - Practice with Dictionaries
+
+1. Write a script that prompts the user to input numbers separated by dashes ( - ). Your script will take make and print a dictionary where the keys are the inputted numbers and the values are the squares of those numbers. 
+
+ Example: If you inputted the numbers `1 - 5 - 8 - 10`, your script would print `{8: 64, 1: 1, 10: 100, 5: 25}`.
