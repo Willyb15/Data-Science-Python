@@ -6,6 +6,8 @@ As with your previous assignment, tonight's will get you practice with the data 
 
 ### Part 1 - Practice with Tuples
 
-1. Write a script that prompts the user to input numbers numbers separated by commas. Your script will take these numbers and store them as a list of tuples, taken two at a time, and print that to the user.
+1. Write a script that prompts the user to input numbers separated by commas. Your script will take these numbers and store them as a list of tuples, taken two at a time, and print that to the user. If the user inputs an odd number of numbers only make a list of the largest number of pairs of two possible.
  
- Example: If you inputted the numbers `1, 2, 3, 4, 5, 6` to your script would print `[(1, 2), (3, 4), (5, 6)]`
+ Example: If you inputted the numbers `1, 2, 3, 4, 5, 6`, your script would print `[(1, 2), (3, 4), (5, 6)]`. If you inputted the numbers `1, 2, 3, 4, 5`, your script would print `[(1, 2), (3, 4)]` 
+
+ **Hint**: Check out the [zip](https://docs.python.org/2/library/functions.html#zip) function.
