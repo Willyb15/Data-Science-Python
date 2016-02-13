@@ -20,10 +20,12 @@ As with your previous assignment, tonight's will get you practice with the data 
 
 2. Write a script that prompts the user for a state name. It then checks against a dictionary it has written below to give back the capital of that state. However, it doesn't know the capitals for all the states. If the user inputs the name of a state that isn't in the dictionary your script should print that the capital is unknown.
 
+```python
     state_dictionary = {'Colorado': 'Denver', 'Alaska': 'Juneau', 'California': 'Sacramento',
                         'Georgia': 'Atlanta', 'Kansas': 'Topeka', 'Nebraska': 'Lincoln', 
                         'Oregon': 'Salem', 'Texas': 'Austin', 'New York': 'Albany'}
+```
 
  Example: If you inputted the state name `Kansas` your script would print `Topeka`. If you inputted the state name `Washington` your script would print `Capital unknown`.
   
-  How could you make it so that your script isn't sensitive to the case of the inputted state? (**Hint**: one of the easiest ways is by changing the state dictionary slightly.)
+  How could you make it so that your script isn't sensitive to the case of the inputted state? (**Hint**: one of the easiest ways is by changing the state dictionary slightly and using a method on your input string.)
