@@ -7,7 +7,7 @@ Let's walk through an example. You should make sure to follow along so you get s
     
     Write a script that prints the sum of the whole numbers between 1 and a user inputted number.
 
-Alright, first we want to open up IPython and your favorite text editor (sublime if you followed our advice from day 1). I prefer to have these two side by side so that it's easy to look at and work in each.
+Alright, first we want to open up IPython and our favorite text editor (Sublime if you followed our advice from day 1). I prefer to have these two side by side so that it's easy to look at and work in each.
 
 We're going to have to start a new file in our text editor to store our script. You should give your script a short name that quickly describes what it does. Python scripts are appended with the file extension `.py`. So, for this problem I would name my script something like `sum_whole_numbers.py`. Now we're off to the races.
 
@@ -34,14 +34,14 @@ In [3]: sum_result = 0
 In [4]: current = 1
 ```
 
-I know that I'm going to need a while loop that terminates when `current` is less than or equal to `my_num`.
+I know that I'm going to need a while loop that terminates when `current` is greater than `my_num` (i.e. keeps running while `current` is less than or equal to `my_num`).
 
 ```python
 In [5]: while current <= my_num:
    ...:     
 ```
 
-Notice that when we start a while loop IPython knows that we're going to want to write the while block, so it prompts for that with the `...:`. What is this while going to do at each iteration? Well, we need to add the value of `current` (remember we will only make it into the loop if `current` is less than or equal to `my_num`) to `sum_result`, and then increment `current` by one. Let's let IPython know what we want to do now!
+Notice that when we start a `while` loop IPython knows that we're going to want to write the `while` block, so it prompts for that with the `...:`. What is this `while` going to do at each iteration? Well, we need to add the value of `current` (remember we will only make it into the loop if `current` is less than or equal to `my_num`) to `sum_result`, and then increment `current` by one. Let's let IPython know what we want to do now!
 
 ```python
 In [5]: while current <= my_num:
@@ -59,7 +59,7 @@ Out[6]: 28
 
 ### Tying it All Together
 
-This is great! Now that we know how we're solving our problem in Python we can go back to writing our script. Let's take what we've written and put it in our text file, `sum_whole_numbers.py`.
+This is great! Now that we know how we're solving our problem in Python, we can go back to writing our script. Let's take what we've written and put it in our text file, `sum_whole_numbers.py`.
 
 ```python
 my_num = 7
@@ -112,4 +112,4 @@ This is awesome! We now have a script that will solve a problem for arbitrary in
 
 ### Extra Credit
 
-Try to break your scripts by passing them something other than a number. Make your scripts robust to poorly formatted input. Hint: Look at the [isinstance()](https://docs.python.org/2/library/functions.html#isinstance) function. How can we use this function and conditionals to guarentee only good input (i.e. an `int`), will be processed? If the input ends up being bad, print a message notifying the user.
+Try to break your scripts by passing them something other than a number. Make your scripts robust to poorly formatted input. Hint: Look at the [isinstance()](https://docs.python.org/2/library/functions.html#isinstance) function. How can we use this function and conditionals to guarantee only good input (i.e. an `int`), will be processed? If the input ends up being bad, print a message notifying the user.
