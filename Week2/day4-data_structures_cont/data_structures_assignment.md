@@ -20,12 +20,28 @@ As with your previous assignment, tonight's will get you practice with the data 
 
 2. Write a script that prompts the user for a state name. It then checks against a dictionary it has written below to give back the capital of that state. However, it doesn't know the capitals for all the states. If the user inputs the name of a state that isn't in the dictionary your script should print that the capital is unknown.
 
-```python
+ ```python
     state_dictionary = {'Colorado': 'Denver', 'Alaska': 'Juneau', 'California': 'Sacramento',
                         'Georgia': 'Atlanta', 'Kansas': 'Topeka', 'Nebraska': 'Lincoln', 
                         'Oregon': 'Salem', 'Texas': 'Austin', 'New York': 'Albany'}
-```
+ ```
 
  Example: If you inputted the state name `Kansas` your script would print `Topeka`. If you inputted the state name `Washington` your script would print `Capital unknown`.
   
   How could you make it so that your script isn't sensitive to the case of the inputted state? (**Hint**: one of the easiest ways is by changing the state dictionary slightly and using a method on your input string.)
+
+3. Write a script that will continually prompt the user for a set of three things to be separated by commas. The first two things will be an (x, y) coordinate of the word that follows. So the user would input a string that is formatted like `x, y, word`. Your script will use the string to build a dictionary with the first to inputs from each string as keys to a dictionary with values as the words. The script will continually prompt the user to input strings in this format until the user inputs nothing, i.e. hits enter with no input.
+
+ At this point your script will allow the user to query the dictionary it built by accepting strings of the format `x, y`. It will check if the coordinate is in the dictionary, if it is it will return the corresponding word. If it isn't it will print `Coordinate not found`. This will continue until the user inputs the letter `q`, at which point the script will exit.
+
+ Example usage:
+ ```
+ Please enter a coordinate-word pair in the format (x, y, word): 1, 2, hello
+ Please enter a coordinate-word pair in the format (x, y, word): 2, 3, world 
+ Please enter a coordinate-word pair in the format (x, y, word): 
+ Please enter a coordinate to look up: 2, 3  
+ world
+ Please enter a coordinate to look up: 3, 4
+ Coordinate not found
+ Please enter a coordinate to look up: q
+ ```
