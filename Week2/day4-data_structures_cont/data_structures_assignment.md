@@ -52,8 +52,22 @@ As with your previous assignment, tonight's will get you practice with the data 
 
  Example: If you inputted the numbers `1, 2, 3, 5, 6` first, and `2, 3, 4, 6, 7` second, your script should print `2, 3, 6`. Make sure to use sets, as they are optimal for this problem. 
  
- **Hint**: For the output to be formatted in the prescribed way you could use the `join()` method avaliable on strings.
+ **Hint**: For the output to be formatted in the prescribed way you could use the `join()` method available on strings.
 
-2. Write a script that promts a user to input a list of words separated by commas, and then prints out the unique words in the list. 
+2. Write a script that prompts a user to input a list of words separated by commas, and then prints out the unique words in the list. 
 
  Example: If you inputted the words `hello, there, how, are, you, hello, you`, your script would print `how, you, there, hello, are`.
+
+3. Write a script that continually accepts words from the user. As it goes does it will add words to a set. If the user enters the letter `v` your script will display all the known words, it's vocabulary. This will continue until the user enters the letter `q` which will quit the program.
+
+ Example usage:
+ ```
+ Enter a word to add to the vocabulary: thing 
+ Enter a word to add to the vocabulary: stuff 
+ Enter a word to add to the vocabulary: v
+ thing stuff
+ Enter a word to add to the vocabulary: hello
+ Enter a word to add to the vocabulary: v
+ thing stuff hello
+ Enter a word to add to the vocabulary: q
+ ```
