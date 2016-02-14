@@ -117,8 +117,9 @@ git pull # Apply any changes in the remote that aren't in the local to the local
 
 * *Forking* occurs on Github, and is specific to Github (i.e. you can't 
 *Fork* on your local machine - it's not an option). 
-* *Forking* does not set up the repository that you fork as a remote. It 
-creates you're own personalized copy of the repository on your Github account. 
-It's as if you cloned the repository, but now any changes that you make will 
-not be pushed to where you forked it from, but rather to your personal copy 
-on Github. 
+* *Forking* creates you're own personalized copy of the repository on your 
+Github account. It's as if you cloned the repository, but you cloned it to 
+your Github account (not to your local).  Now, if you would like to make
+changes, you would clone your forked repository.  Then any changes that you 
+make will not be pushed to where you forked it from, but rather to your 
+personal copy on Github. 
