@@ -1,6 +1,6 @@
 ## Introduction to Strings and Lists
 
-Last week we learned about how to use Python's power with `while` loops and conditional, operating on some simple built in numeric types. Today we are going to learn about a couple of data structures that will continue to build up your power in Python, and we'll learn about a new type of loop.
+Last week we learned about how to use Python's power with `while` loops and conditionals, operating on some simple built in numeric types. Today we are going to learn about a couple of data structures that will continue to build up your power in Python, and we'll learn about a new type of loop.
 
 ### Strings
 
@@ -22,7 +22,7 @@ In [3]: 'They told me not to do this, but I didn't listen.'
 SyntaxError: invalid syntax
 ```
 
-Just like we expected, we can use both single and double quotation marks. But what happened in the 3rd case there? Well, we opened the string with a single quotation mark, and Python started looking for the next single quotation mark to close your string. When it found that quotation mark in the word `didn't`, it assumed the string was closed after `didn`. As a result, this left `t listen.'` just hanging out, and Python didn't know how to interpret that, resulting in our error. The solution to this, as mentioned above, is to use double quotation marks in any case where your text will have single quotation marks in it. For example...
+Just like we expected, we can use both single and double quotation marks. But what happened in the 3rd case there? Well, we opened the string with a single quotation mark, and Python started looking for the next single quotation mark to close the string. When it found that quotation mark in the word `didn't`, it assumed the string was closed after `didn`. As a result, this left `t listen.'` just hanging out, and Python didn't know how to interpret that, resulting in our error. The solution to this, as mentioned above, is to use double quotation marks in any case where your text will have single quotation marks in it. For example...
 
 ```python 
 In [1]: "Now that I've got double quotes, I can use all the contractions!"
@@ -118,7 +118,7 @@ my_str.index       my_str.lower       my_str.split
 
 #### Working with individual characters in strings 
 
-We know how to work with an entire string via some of the methods that we've discussed, but what if we wanted to work with the individual characters? There are a couple of ways to do this, but the first we'll focus on is through indexing. We know that to Python, a string is just a collection of characters, and it turns out that we can access the individual characters simply by asking Python for a given numbered element in our collection (i.e. the string).  We do this by placing the element number that we want in square brackets, `[]`,  right after our string (or variable, if it's stored in one). This element number is referred to as the **index** of the character (or element, if it's not a string, more on this soon). 
+We know how to work with an entire string via some of the methods that we've discussed, but what if we wanted to work with the individual characters? There are a couple of ways to do this, but the first we'll focus on is through indexing. We know that to Python, a string is just a collection of characters, and it turns out that we can access the individual characters simply by asking Python for a given numbered element in our collection (i.e. the string).  We do this by placing the element number that we want in square brackets, `[]`,  right after our string (or variable, if it's stored in one). This element number is referred to as the **index** of the character (or element, if it's not a string - more on this soon). 
 
 ```python 
 In [1]: my_str_variable = 'Test String'
@@ -195,7 +195,7 @@ In [2]: len(my_str)
 Out[2]: 5 
 ```
 
-Now we can write our `while` loop to loop over the letters to be a little bit more general: 
+Now we can write our `while` loop to be a little bit more general: 
 
 ```python 
 my_str, idx = 'hello', 0
@@ -204,7 +204,7 @@ while idx < len(my_str):
     idx += 1
 ```
 
-Great! But I did mention that there are other ways to iterate over the letters in our string, and in general we try to stay away from `while` loops in Python (we'll get to why shortly), so let's dive into those. 
+Great! But I did mention that there are other ways to iterate over the letters in our string, and in general we try to stay away from `while` loops in Python, so let's dive into those. 
 
 The other way that we can iterate over the letters in our string is to use a `for` loop. `for` loops are built off of the same idea of `while` loops (doing something over and over again), but instead of continuing until some condition is no longer met, `for` loops operate directly on iterables, leaving the concern about when to stop for Python to figure out. With a `for` loop, you don't have to care how many iterations/cycles the loop will go through. Let's look at the syntax of a `for` loop.   
 

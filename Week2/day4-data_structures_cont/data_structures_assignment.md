@@ -6,11 +6,11 @@ As with your previous assignment, tonight's will get you practice with the data 
 
 ### Part 1 - Practice with Tuples
 
-1. Write a script that prompts the user to input numbers separated by commas. Your script will then take these inputted numbers numbers and store them as a list of tuples, two at a time. Finally, your script will print that list of tuples to the user. If the user inputs an odd number of numbers, then only make a list of the largest number of pairs of two that are possible.
+1. Write a script that prompts the user to input numbers separated by commas. Your script will then take these inputted numbers and store them as a list of tuples, two at a time. Finally, your script will print that list of tuples to the user. If the user inputs an odd number of numbers, then only make a list of the largest number of pairs of two that are possible.
  
  Example: If you inputted the numbers `1, 2, 3, 4, 5, 6`, your script should print `[(1, 2), (3, 4), (5, 6)]`. If you inputted the numbers `1, 2, 3, 4, 5`, your script should print `[(1, 2), (3, 4)]`.
 
- **Hint**: Check out the [zip](https://docs.python.org/2/library/functions.html#zip) function. While you don't have to use it, it could things easier. 
+ **Hint**: Check out the [zip](https://docs.python.org/2/library/functions.html#zip) function. While you don't have to use it, it could make things easier. 
 
 ### Part 2 - Practice with Dictionaries
 
@@ -52,13 +52,13 @@ As with your previous assignment, tonight's will get you practice with the data 
 
  Example: If you inputted the numbers `1, 2, 3, 5, 6` first, and `2, 3, 4, 6, 7` second, your script should print `2, 3, 6`. Make sure to use sets, as they are optimal for this problem. 
  
- **Hint**: For the output to be formatted in the prescribed way you could use the `join()` method available on strings.
+ **Hint**: For the output to be formatted in the prescribed way, you could use the `join()` method available on strings.
 
 2. Write a script that prompts a user to input a list of words separated by commas, and then prints out the unique words in the list. 
 
  Example: If you inputted the words `hello, there, how, are, you, hello, you`, your script would print `how, you, there, hello, are`.
 
-3. Write a script that continually accepts a word from the user. As it does it will add the word to a set. If the user enters the letter `v` your script will display all the known words, it's vocabulary. This will continue until the user enters the letter `q` which will quit the program.
+3. Write a script that continually accepts a word from the user. As it does, it should add the word to a set. If the user enters the letter `v`, your script should display all the known words, it's vocabulary. This will continue until the user enters the letter `q`, which should quit the program.
 
  Example usage:
  ```
