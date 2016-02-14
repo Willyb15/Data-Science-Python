@@ -45,3 +45,9 @@ As with your previous assignment, tonight's will get you practice with the data 
  Coordinate not found
  Please enter a coordinate to look up: q
  ```
+
+### Part 3 - Practice with Sets
+
+1. Write a script that prompts the user to input a list of numbers separated by commas, and then does so again. It will print those number that were common in both entries.
+
+ Example: If you inputted the numbers `1, 2, 3, 5, 6` first and then `2, 3, 4, 6, 7` second, your script would print `2, 3, 6`. Make sure to use sets as they are optimal for this problem. **Hint**: for the output to be formatted in the prescribed way you could use the `join()` method avaliable on strings.
