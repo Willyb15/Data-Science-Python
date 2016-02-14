@@ -1,13 +1,5 @@
 # Intro to Git and Github
 
-At the end of this lesson, you should be able to: 
-
-* Describe the importance of using Git for version control
-* Describe the difference between Git and Github
-* Understand how to initialize a Git repository 
-* Understand basic Git/Github commands and how to use them, namely
-adding, committing, cloning, pushing, pulling, and forking
-
 ## Background 
 
 At the heart of Github is Git, a distributed version control system for 

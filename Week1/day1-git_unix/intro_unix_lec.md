@@ -1,12 +1,5 @@
 # Intro to Unix 
 
-At the end of this lesson, you should be able to: 
-
-* Navigate around and be comfortable in the terminal
-* Create and remove files from the command line
-* Create and remove directories from the command line
-* Move files and directories around from the command line
-
 ## Background 
 
 Unix is a multitasking, multiuser computer operating system. Today, most 
