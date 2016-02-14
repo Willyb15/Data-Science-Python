@@ -12,9 +12,10 @@ While Git is a distributed version control system, Github is a hosting service f
 ### Diving In
 
 Before we can work and interact with a Git repository (either locally or 
-through Github), we first have to get a Git repository! We get this through 
-initializing one, so we'll cover that first. Then we'll move on to the actual
-commands that we'll use to interact with our Git repository. 
+through Github), we first have to get a Git repository! We can obtain
+our first Git repository by initializing one, so we'll cover that first. 
+Then we'll move on to the commands that we'll use to interact with our 
+Git repository. 
 
 #### Intializing a Git Repository Locally 
 
