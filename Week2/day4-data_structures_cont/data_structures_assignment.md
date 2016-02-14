@@ -58,7 +58,7 @@ As with your previous assignment, tonight's will get you practice with the data 
 
  Example: If you inputted the words `hello, there, how, are, you, hello, you`, your script would print `how, you, there, hello, are`.
 
-3. Write a script that continually accepts words from the user. As it goes does it will add words to a set. If the user enters the letter `v` your script will display all the known words, it's vocabulary. This will continue until the user enters the letter `q` which will quit the program.
+3. Write a script that continually accepts a word from the user. As it does it will add the word to a set. If the user enters the letter `v` your script will display all the known words, it's vocabulary. This will continue until the user enters the letter `q` which will quit the program.
 
  Example usage:
  ```
