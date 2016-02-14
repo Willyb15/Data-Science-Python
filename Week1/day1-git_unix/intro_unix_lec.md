@@ -224,7 +224,7 @@ and right arrows. Holding down your META key (typically `alt` on mac; try `alt` 
 * Tab completion is a thing in most unix shells. What this means is that 
 you can type the beginning couple of letters of a file or directory and 
 hit tab to complete it (so long as the file/directory name is unique, 
-otherwise it will complete up to the point just prior no longer being unique). 
+otherwise it will complete up to the point that it can). 
 
 #### Control-key Commands
 
