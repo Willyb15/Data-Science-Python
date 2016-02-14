@@ -9,7 +9,7 @@ come over time as you interact with them more and more.
 1.) Open up your browser and navigate to this program's repository on 
 [Github](https://github.com/zipfian/DSI-evening-prep). 
 
-2.) Fork a copy of this repository, making sure to fork it to your Github
+2.) Fork this repository, making sure to fork it to your Github
 account (usually it forks to your Github account by default, so if you're not
 prompted, then you should be fine). The button to `Fork` should be up in the 
 top right of the page: 
