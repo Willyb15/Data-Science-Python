@@ -1,7 +1,7 @@
 #Installation Tools
 
 The tools that you will need to have set up are below. Follow along with the 
-install instructions in the `.md` files in this folder, and please install 
+install instructions in the `.md` files in this folder, and install 
 these in the following order: 
 
 * [Anaconda](https://www.continuum.io/downloads)

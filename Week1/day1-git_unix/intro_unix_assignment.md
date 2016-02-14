@@ -33,5 +33,5 @@ in your directory now?
 10.) In one command, delete `inner_directory` and all its contents. 
 
 11.) Navigate back to your root directory, and delete `test_directory` using 
-`rmdir`. Why does `rmdir` work here (**Hint**: Think about what's left in 
+`rmdir`. Why does `rmdir` work here (**Hint**: think about what's left in 
 `test_directory`)?

@@ -1,6 +1,6 @@
 # Practicing with Git and Github
 
-This assignment will walk you through forking the respository for this 
+This assignment will walk you through forking the repository for this 
 program, cloning your forked copy to your local machine, and some of the 
 Git commands discussed in lecture. Similar to the Unix assignment, this 
 assignment will be fairly brief, as familiarity with Git and Github will 
@@ -9,7 +9,7 @@ come over time as you interact with them more and more.
 1.) Open up your browser and navigate to this program's repository on 
 [Github](https://github.com/zipfian/DSI-evening-prep). 
 
-2.) Fork a copy of this repository, making sure to fork it to your Github
+2.) Fork this repository, making sure to fork it to your Github
 account (usually it forks to your Github account by default, so if you're not
 prompted, then you should be fine). The button to `Fork` should be up in the 
 top right of the page: 
@@ -29,7 +29,7 @@ where you are okay storing this repository.
 5.) Navigate into the repository, and create a file called `test_git_file.txt`.
 This will require some of the Unix commands that we have previously discussed. 
 
-6.) Add this file to the .git index (we're now back to using Git commands). 
+6.) Add this file to the `.git` index (we're now back to using Git commands). 
 
 7.) Commit this file, and then push it to your forked copy of the repository 
 on Github. Navigate to your forked version of the repository on Github, and 
