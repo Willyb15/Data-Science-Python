@@ -58,7 +58,7 @@ for element in some_collection:
 
 We could try to do this with evens as a tuple instead of a list with `evens = ()`, but once we tried to run our code we would immediately get an error that says `AttributeError: 'tuple' object has no attribute 'append'`. The error message is pretty self explanatory. In plain English, it tells us that tuples have no ability to append. This is just as we expected given that they are immutable.
 
-You might be asking yourself what a tuple can store? The answer is, just as with lists, anything! And just as with lists, the elements in a tuple can be either homogeneous or heterogeneous (know though, that there are structures in Python that enforce homogeneity). Lets stick with looking at tuples for now, and take a look at some of the things we can store. 
+You might be asking yourself what a tuple can store? The answer is, just as with lists, anything! Just as with lists, the elements of tuples can be accessed via zero-based indexing, and looped through with a `for` loop. And just as with lists, the elements in a tuple can be either homogeneous or heterogeneous (know though, that there are structures in Python that enforce homogeneity). Lets stick with looking at tuples for now, and take a look at some of the things we can store. 
 
 ```python
 In [1]: t = (1, 3.5)
