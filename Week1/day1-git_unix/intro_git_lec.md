@@ -80,13 +80,12 @@ git clone URL unique-folder-name # This will also clone the existing repository
                                  # unique-folder-name. 
 ```
 
-The URL that you copy an existing repository from will almost always be the 
-URL of somebody's repo on Github (or your own repo on Github). 
+The URL that you copy an existing repository from will almost always be the URL of somebody's repo on Github (or your own repo on Github). Directions for how to create your own repository on Github (that you then clone to your local) can be found [here](https://help.github.com/articles/create-a-repo/). 
 
 ### Working with a Cloned Repository 
 
 Now that we know how to clone a repository, it's time to talk about pushing
-and pulling, the process by which we keep a remote copy of our repository 
+and pulling, the process by which we keep a remote copy of our repository (on Github) 
 up to date and in sync with a local copy of our repository (and vice versa). 
 Anytime that we have cloned a repository from a URL, the repository at that 
 URL will become the *remote* copy of that repository. Pulling is the way that 
@@ -101,7 +100,7 @@ The last thing to note about how pushing and pulling work is that they will
 only work with changes that have been *committed*. This means that if you 
 have made changes to a repository, but not gone through the process of
 *adding* and *committing* them, then issuing the push commands below will 
-not actually push any changes to the remote. Similarly, if there have been 
+not actually push any changes to the remote repository. Similarly, if there have been 
 no changes to the remote repository since you last issued a pull, then issuing 
 the pull commands below will not actually pull anything. 
 
@@ -116,7 +115,7 @@ git pull # Apply any changes in the remote that aren't in the local to the local
 
 *Forking* is kind of like *cloning*, but there are two important distinctions: 
 
-* *Forking* occurs on Github, and is specific to Github (i.e. you can't go 
+* *Forking* occurs on Github, and is specific to Github (i.e. you can't 
 *Fork* on your local machine - it's not an option). 
 * *Forking* does not set up the repository that you fork as a remote. It 
 creates you're own personalized copy of the repository on your Github account. 
