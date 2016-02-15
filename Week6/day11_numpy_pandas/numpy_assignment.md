@@ -18,6 +18,8 @@ As a final note, a lot of the questions below are kind of simplistic, and could 
 10. Write a function that takes in two two-dimensional `numpy arrays`, and performs matrix multiplication between the two. You should construct it such that the first array is multiplied by the second (i.e. the number of columns of the first has to equal the number of rows of the second; you can assume that your inputs will meet this criteria). Return the result of the multiplication. 
 11. Write a function that takes in two two-dimensional `numpy arrays`, and performs 
 element-wise multiplication between the two. Return the result of the multiplication. 
+12. Write a function that takes in a one-dimensional `numpy array`, and returns the top 5 elements (you can assume it's an array of numbers). 
+13. Write a function that takes in a two-dimensional `numpy array`, and returns the smallest 5 elements of each column (*Hint*: The `axis` argument might come in handy here). 
 
 # Extra-Credit 
 
