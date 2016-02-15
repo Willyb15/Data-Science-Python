@@ -5,7 +5,7 @@ Today we are going to learn about base numeric variable types in Python, and lea
 
 There are a number of base numeric variable types built into Python. The ones that we will be looking at today are `ints` (short for integers), `floats` (short for floating point decimal numbers), and `complex`, which contain real and imaginary parts stored as floats.
 
-Lets experiment with using these types in the IPython console. Type the number 7 and hit enter. You should see something like this.
+Let's experiment with using these types in the IPython console. Type the number 7 and hit enter. You should see something like this.
 
 ```python
 In [1]: 7
@@ -26,7 +26,7 @@ Out[2]: (3+4j)
 
 One thing that is important to note about Python is that it is a duck typed language. What does this mean? The name duck comes from the classic "If it walks like a duck, and quacks like a duck, then it must be a duck" adage. As applied to our situation, it simply means that Python will determine what it thinks is the best type to call a variable when you use it, unless explicitly told otherwise.
 
-To inspect what type Python thinks a number (or anything else is), you can pass it to the `type()` function. Lets see what we get out when we pass numbers of various types to this function.
+To inspect what type Python thinks a number (or anything else is), you can pass it to the `type()` function. Let's see what we get out when we pass numbers of various types to this function.
 
 #### Types
 
@@ -41,7 +41,7 @@ In [3]: type(complex(3, 4))
 Out[3]: complex
 ```
 
-As you can see, Python assumes that a number with no decimal point is an `int, those with a decimal point a `float`, and (surprise!) those from the `complex()` constructor as `complex`. 
+As you can see, Python assumes that a number with no decimal point is an `int, those with a decimal point a `float`, and (surprise!) those from the `complex()` constructor as `complex`.
 
 While very frequently these subtle differences wont matter too much, there are plenty of occasions where Python hiding this implementation detail will make you think that something will work, when really it won't. Making sure you know how to check is very important.
 
@@ -107,13 +107,13 @@ In [3]: x + 1
 Out[3]: 2
 ```
 
-The name you can give a variable can technically be any contiguous set of characters, but there are some conventions followed in Python and programming in general. Python follows a variable naming convention called snake case. To write something in snake case simply use a `_` anywhere you would use a space and make sure every word is lower case. For example, `this_is_a_variable`. Giving variables good names makes your code more readable and therefore maintainable. There is a big difference between seeing a variable called `degrees` and one called `y`. You should strive to give your variables good, succinct names.
+The name you can give a variable can technically be any contiguous set of characters, but there are some conventions followed in Python and programming in general. Python follows a variable naming convention called snake case. To write something in snake case simply use a `_` anywhere you would use a space and make sure every word is lower case. For example, `this_is_a_variable`. Giving variables good names makes your code more readable and therefore maintainable. There is a big difference between seeing a variable called `degrees` and one called `y`. You should strive to give your variables well-defined, succinct names.
 
-There are of course cases where using less than descript variable names follows convention and is therefore just fine to use. One that comes to mind is the use of `i` to keep track of an index (we will cover this idea next week, but it wouldn't be surprising if you understood the concept already). Because of its prevalent usage for this purpose, it is usually easy to understand what is happening in that context, and the lack of descriptiveness is okay. The important thing is that the code is **understandable**.
+There are of course cases where using less than descriptive variable names follows convention and is, therefore, just fine to use. One that comes to mind is the use of `i` to keep track of an index (we will cover this idea next week, but it wouldn't be surprising if you understood the concept already). Because of its prevalent usage for this purpose, it is usually easy to understand what is happening in that context, and the lack of descriptiveness is okay. The important thing is that the code is **understandable**.
 
-Note that we saw no output from the first command above. This is because the return value that would been printed to the console for output was assigned to the variable `x`. This is why we had to view it in the next line with a simple call to `x`.
+Note that we saw no output from the first command above. This is because the return value that would have been printed to the console for output was assigned to the variable `x`. This is why we had to view it in the next line with a simple call to `x`.
 
-A large part of the power of variables is the fact that they can change. This allows us to use a single variable name to keep track of a single thing throughout the life of a program. The exact same syntax can be used to change the value stored in the variable. 
+A large part of the power of variables is the fact that they can change. This allows us to use a single variable name to keep track of a single thing throughout the life of a program. The exact same syntax can be used to change the value stored in the variable.
 
 Say we want to add 5 to `x` from the previous code example and store it in `x`.
 
@@ -130,11 +130,11 @@ Changing variables in this way occurs so commonly that there is built-in shortha
 
 ### Logic
 
-Now that we have a thorough understanding of base numeric types and how to play with them and store them in Python, lets keep building our tools so that we can use them to control the flow of our program. 
+Now that we have a thorough understanding of base numeric types and how to play with them and store them in Python, let's keep building our tools so that we can use them to control the flow of our program.
 
-The most simple way to control the flow of your Python program is with an `if` statement. From a high level, an `if` statement allows us to check whether or not a certain condition is true, and perform operations specific to that situation if it is. 
+The most simple way to control the flow of your Python program is with an `if` statement. From a high level, an `if` statement allows us to check whether or not a certain condition is true, and perform operations specific to that situation if the condition is true.
 
-For example, say we're asked to write a program that takes a bunch of numbers and gives back to us those that are even. We would need to write an `if` statement that identifies whether or not a number is even (we'll talk about how to do this), and then give back only those that meet the even condition. This is a program that will be entirely within our ability to implement at the end of next week; for now though, lets focus on the `if` statement.
+For example, say we're asked to write a program that takes a bunch of numbers and gives back to us those that are even. We would need to write an `if` statement that identifies whether or not a number is even (we'll talk about how to do this), and then give back only those that meet the even condition. This is a program that will be entirely within our ability to implement at the end of next week; for now though, let's focus on the `if` statement.
 
 The general syntax of an `if` statement in Python is:
 
@@ -147,9 +147,9 @@ Notice how the `if` statement ends in a colon `:`. This is the way that Python d
 
 #### Conditionals
 
-Let's tackle this one part at a time. What does it mean to be a condition? Really, all an `if` is checking is for whether the conditional evaluates to `True` or `False`. If it is true, then the body of the `if` statement is executed. If it is false, the `if` block is skipped. Intuitively, true and false are concepts that make perfect sense to us. But we should take the time to clearly define them in a programming context here.
+Let's tackle this one part at a time. What does it mean to be a condition? Really, all an `if` is checking is whether the conditional evaluates to `True` or `False`. If the condition is true, then the body of the `if` statement is executed. If the condition is false, the `if` block is skipped. Intuitively, true and false are concepts that make perfect sense to us. But we should take the time to clearly define them in a programming context here.
 
-`True` and `False` are what we call booleans in logic (`bool` for short), and what Python calls them. They are a special variable type with many potential uses; mainly they are used as a way to put a label on the truth of a statement. There are two specifically reserved words for bools in Python, `True` and `False`. Note that these begin with capital letters. 
+`True` and `False` are what we call booleans in logic (`bool` for short), and what Python calls them. They are a special variable type with many potential uses; mainly they are used as a way to put a label on the truth of a statement. There are two specifically reserved words for bools in Python, `True` and `False`. Note that these begin with capital letters.
 
 ```python
 In [1]: type(True)
@@ -159,7 +159,7 @@ In [2]: type(False)
 Out[2]: bool
 ```
 
-In addition, a wide variety of statements can evaluate to booleans. The ones that we will focus on today are the equalities, *equal to* and *not equal to*, and the inequalities, *less than*, *greater than*, *less than or equal to* and *greater than or equal to*. These comparisions are available in Python via `==`, `!=`, `<`, `>`, `<=` and `>=`, respectively.
+In addition, a wide variety of statements can evaluate to booleans. The ones that we will focus on today are the equalities, *equal to* and *not equal to*, and the inequalities, *less than*, *greater than*, *less than or equal to* and *greater than or equal to*. These comparisons are available in Python via `==`, `!=`, `<`, `>`, `<=` and `>=`, respectively.
 
 ```python
 In [1]: 1 == 2
@@ -183,7 +183,7 @@ Out[6]: False
 
 #### Using the If
 
-Now that we understand conditionals, lets talk about how we can use them with variables to make our programs dynamic. Consider the following code block.
+Now that we understand conditionals, let's talk about how we can use them with variables to make our programs dynamic. Consider the following code block.
 
 ```python
 if x > 5:
@@ -195,18 +195,18 @@ print x
 
 In the above code we don't need to know what the value of `x` is, but we can say that if it's greater than 5, it will come out of the code block 10 greater than before the `if` statement.
 
-From what we know so far, this functionality isn't super useful. So lets quickly go over a way that that we can make our Python more flexible. Until now, we've had to hard code any variable or value that we want to use in our program. Python has a built in way to accept input from the user of a program. Lets examine this now. Consider that the following code was stored in a file named `print_number.py`.
+From what we know so far, this functionality isn't super useful. So let's quickly go over a way that we can make our Python more flexible. Until now, we've had to hard code any variable or value that we want to use in our program. Python has a built in way to accept input from the user of a program. Let's examine this now. Consider that the following code was stored in a file named `print_number.py`.
 
 ```python
 x = raw_input('Please enter a number: ')
-print(x) 
+print(x)
 ```
 
 If we then ran the script from IPython, we would would see:
 
 ```python
 In [1]: run print_number.py
-Please enter a number: 
+Please enter a number:
 ```
 
 **Note**: The `raw_input()` function accepts character input from the keyboard, printing the message it is passed as a prompt.
@@ -232,7 +232,7 @@ print(x)
 
 **Note**: `raw_input()` actually interprets the input as strings, so we have to manually tell Python to treat the number we pass as an integer with `int()`. We'll talk about strings more next week.
 
-If we then ran the script from IPython as above, lets look at two ways we could interact with it.
+If we then ran the script from IPython as above, let's look at two ways we could interact with it.
 
 ```python
 In [1]: run print_number_with_if.py
@@ -246,11 +246,11 @@ Please enter a number: 8
 
 Notice that the first time we run `print_number_with_if` and give it 3, it acts just like `print_number`. However, the second time, when we give it 8, it adds 10 and prints 18. Why did it do this? Because 8 is greater than 5, so our program added 10 to it before it was printed.
 
-This may seem like a trivial example, and therefore not very exciting. Let me assure you, though, that what you have just learned is amazingly powerful! So congratulations!
+This may seem like a trivial example, and therefore, not very exciting. Let me assure you, though, that what you have just learned is amazingly powerful! So congratulations!
 
 #### Building on the If
 
-Ok, so, the `if` is cool. But it seems like, due to it's structure, there are only so many things you can do with it. Lets summarize this with what's known as a *flow diagram*.
+Ok, so, the `if` is cool. But it seems like, due to it's structure, there are only so many things you can do with it. Let's summarize this with what's known as a *flow diagram*.
 
 ![If Flow](http://www.tutorialspoint.com/cprogramming/images/if_statement.jpg)
 
@@ -260,7 +260,7 @@ Python gives us two ways to do this. One by offering other conditionals, `elif` 
 
 ##### Elif and Else
 
-In addition to the `if`, Python provides us with two other statements to build out those logical trees, the `elif` and the `else`. The `elif` is just like the `if` - it accepts a condition to check the truth of and has an indented code block that is executed when that condition evaluates to `True`. The `else` is similar, but it doesn't accept a condition. Instead, it mainly acts as a catch all for any other situation that you don't need to cover with your `if`s and `elif`s. Note that there can only be a single `if` and up to a single `else`, but any number of `elif`s in an `if`-`elif`-`else` block. Lets take a closer look at this in the following code block that we'll store in `if_elif_else.py`.
+In addition to the `if`, Python provides us with two other statements to build out those logical trees, the `elif` and the `else`. The `elif` is just like the `if` - it accepts a condition to check the truth of and has an indented code block that is executed when that condition evaluates to `True`. The `else` is similar, but it doesn't accept a condition. Instead, it mainly acts as a catch all for any other situation that you don't need to cover with your `if`s and `elif`s. Note that there can only be a single `if` and up to a single `else`, but any number of `elif`s in an `if`-`elif`-`else` block. Let's take a closer look at this in the following code block that we'll store in `if_elif_else.py`.
 
 ```python
 x = int(input('Please enter a number: '))
@@ -288,7 +288,7 @@ Please enter a number: 0
 You entered the number 0.
 ```
 
-Lets specifically talk about how the `if`-`elif`-`else` statements work. The programmers of Python designed these statements so that they would execute highly efficiently. They achieved this by making it so that when Python is going through your `if`-`elif`-`else` statements and encounters a condition that evaluates to `True`, it will execute the corresponding conditional code block and then skip to the line directly following the last conditional block. Lets examine this in the following code saved again in `if_elif_else.py`.
+Let's specifically talk about how the `if`-`elif`-`else` statements work. The programmers of Python designed these statements so that they would execute highly efficiently. They achieved this by making it so that when Python is going through your `if`-`elif`-`else` statements and encounters a condition that evaluates to `True`, it will execute the corresponding conditional code block and then skip to the line directly following the last conditional block. Let's examine this in the following code saved again in `if_elif_else.py`.
 
 ```python
 x = int(input('Please enter a number: '))
@@ -347,7 +347,7 @@ Notice how the first `if` in the above code snippet uses an `or`, printing `x` i
 ### Looping
 We are now prepared to learn about another extremely powerful programming construct. Everything that we learned in the last section on logic is part of an idea called **control flow**. Flow refers to the order in which statements in your program are executed. Controlling this flow can be done in many ways; so far we have learned about `if`-`elif`-`else` statements, but there are a number of others.
 
-One thing that we find in programming is that we want to do something over and over (and over), possibly under the same circumstances each time, but frequently under slightly different circumstances each time. With the tools that we currently possess, we have to write out a line of Python for each time that we want to do that something. Lets go through a more concrete example.
+One thing that we find in programming is that we want to do something over and over (and over), possibly under the same circumstances each time, but frequently under slightly different circumstances each time. With the tools that we currently possess, we have to write out a line of Python for each time that we want to do that something. Let's go through a more concrete example.
 
 Consider that you are asked to write a program to calculate the sum of the numbers between 1 and 8 (without the use of any built-in Python functions). We could write an extremely simple program to do this for us.
 
@@ -356,60 +356,60 @@ sum_1_8 = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8
 print(sum_1_8)
 ```
 
-While this definitely works, there are a couple of things I want to draw your attention to (which will become themes about how to analyze how well code is written). First, what happens if we want to add the numbers 1 through 9 together? Not that hard, just add 9 to `sum_1_8` you say. Ok, fine. What if you want to add 2 through 9 together? Now we could take `sum_1_8`, add 9 and subtract off 1. And that works, but it involves some thinking to make work with the existing code that we have.
+While this definitely works, there are a couple of things I want to draw your attention to (which will become themes about how to analyze how well code is written). First, what happens if we want to add the numbers 1 through 9 together? Not that hard, just add 9 to `sum_1_8` you say. Ok, fine. What if you want to add 2 through 9 together? Now we could take `sum_1_8`, add 9 and subtract off 1. And that works, but it involves some thinking to make this new idea work with the existing code that we have written.
 
-Instead of having all of these **hard coded** values in our definition of `sum_1_8`, we could instead **abstract** away part of our problem. What is this abstraction? In programming we talk about abstraction when we want to refer to an idea whose implementation is more general and/or hidden from us. In the above example, we see exactly what we're doing to sum the numbers 1 through 8. This isn't abstracted at all. So how are we to solve this problem more abstractly?
+Instead of having all of these **hard coded** values in our definition of `sum_1_8`, we could instead **abstract** away part of our problem. What is this abstraction? In programming, we talk about abstraction when we want to refer to an idea whose implementation is more general and/or hidden from us. In the above example, we see exactly what we're doing to sum the numbers 1 through 8. This isn't abstracted at all. So how are we to solve this problem more abstractly?
 
-This is a question that you will frequently be faced with; how do you do something...in code? A good strategy to solve these problems is to approach the problem from a high level (i.e. in plain english, no code). 
+This is a question that you will frequently be faced with; how do you do something... in code? A good strategy to solve these problems is to approach the problem from a high level (i.e. in plain english, no code).
 
-So let's do that with our coding problem above. We were asked to add together the numbers 1 through 8. This can be thought of as given a starting number, 1, and then adding on the next number, 2, to get 3. Then we can repeat this process, taking the next number, 4, and adding it on, giving us 7. We could then continue this process until we reach the final number ,8, and then stop. (This is inherently what we were doing in that single line of Python when we said `1 + 2 + 3 + 4 + 5 + 6 + 7 + 8`, but that implementation is what we call **brittle** - it only works for that specific case and breaks whenever we want to do something even slightly different.)
+So let's do that with our coding problem above. We were asked to add together the numbers 1 through 8. This can be thought of as given a starting number, 1, and then adding on the next number, 2, to get 3. Then we can repeat this process, taking the next number, 3, and adding it on, giving us 6. We could then continue this process until we reach the final number ,8, and then stop. (This is inherently what we were doing in that single line of Python when we said `1 + 2 + 3 + 4 + 5 + 6 + 7 + 8`, but that implementation is what we call **brittle** - it only works for that specific case and breaks whenever we want to do something even slightly different.)
 
 #### While Loops
 
-Notice how in our high level description of the problem solution, we kept saying "and then". This repetitious language brings us to our next control flow tool, loops. There are two types of loops in Python, but today we're going to focus on `while` loops. `while` loops are an amazing tool which simply allow us to have a predefined chunk of code which we tell Python we want to run over and over under certain conditions. 
+Notice how in our high level description of the problem solution, we kept saying "and then". This repetitious language brings us to our next control flow tool, loops. There are two types of loops in Python, but today we're going to focus on `while` loops. `while` loops are an amazing tool which simply allow us to have a predefined chunk of code which we tell Python we want to run over and over under certain conditions.
 
-So what are these conditions? They are in fact the conditions we learned about in the logic section (i.e. any expression that is evaluated to a boolean). So how does this work with `while`? Lets take a look at the structure of a `while` statement.
+So what are these conditions? They are in fact the conditions we learned about in the logic section (i.e. any expression that is evaluated to a boolean). So how does this work with `while`? Let's take a look at the structure of a `while` statement.
 
 ```python
 while condition:
     while_block_statement
 ```
 
-As with  `if`, a `while` statement has a condition; unlike the `if`, though, is that the magic in the `while` happens in that as long as the condition is `True`, the while block will exectute over and over again. This is where we get the name loop from - as long as the condition evaluates to `True`, we will execute the code inside the `while` block, looping over it. This condition is checked each time, before the `while` statement block is executed.
+As with  `if`, a `while` statement has a condition; unlike the `if`, the while block will execute over and over again as long as the condition is `True`. This is where we get the name `while` loop from - as long as the condition evaluates to `True`, we will execute the code inside the `while` block, looping over it. The `while` condition is checked each time before the `while` statement block is executed.
 
 
-Lets look at how we can harness this new structure to solve our previous problem. Take a look at the following code.
+Let's look at how we can harness this new structure to solve our previous problem. Take a look at the following code.
 
 ```python
 total, x = 0, 0
-while x <= 8:
+while x < 8:
     x += 1
     total += x
 print(total)
 ```
 
-Lets break down this code to see what is going on. On the first line we declare a couple of variables (that is the syntax in Python used to do multiple assignments on a single line), `total` and `x`. `total` is the variable that we are going to aggregate our sum into, and `x` is the first number that we start our adding at. The next line declares the start of our newly learned `while` block. It's condition is x <= 8, and naturally reads as: "while x is less than or equal to 8", do stuff in the block. The block then says we are to add the current value of `x` to total, then add one to `x`.
+Let's break down this code to see what is going on. On the first line, we declare a couple of variables (that is the syntax in Python used to do multiple assignments on a single line), `total` and `x`. `total` is the variable that we are going to aggregate our sum into, and `x` is the first number that we start our adding at. The next line declares the start of our newly learned `while` block. It's condition is x < 8, and naturally reads as: "while x is less than 8", do stuff in the block. The block then says we are to add the current value of `x` to total, then add one to `x`.
 
-We know that this `while` statement will loop through the `while` block many times, but the values of `total` and `x` will change each time through the loop. So, lets take a look at what the value of both these variables are throughout the execution of the loop.
+We know that this `while` statement will loop through the `while` block many times, but the values of `total` and `x` will change each time through the loop. So, let's take a look at what the values of both of these variables are throughout the execution of the loop.
 
-| After loop #  |   total   |   x   |   x <= 8   | 
+| After loop #  |   total   |   x   |   x < 8    |
 | ------------- |:---------:|:-----:|:----------:|
-| 1             |  1        |   2   |    True    |
-| 2             |  3        |   3   |    True    |
-| 3             |  6        |   4   |    True    |
-| 4             |  10       |   5   |    True    |
-| 5             |  15       |   6   |    True    |
-| 6             |  21       |   7   |    True    |
-| 7             |  28       |   8   |    True    |
-| 8             |  36       |   9   |    False   |
+| 1             |  1        |   1   |    True    |
+| 2             |  3        |   2   |    True    |
+| 3             |  6        |   3   |    True    |
+| 4             |  10       |   4   |    True    |
+| 5             |  15       |   5   |    True    |
+| 6             |  21       |   6   |    True    |
+| 7             |  28       |   7   |    True    |
+| 8             |  36       |   8   |    False   |
 
-We see that as we continue through the loop, `total` is growing by the current value of `x`, and this continues until the condition `x <= 8` evaluates to `False`. This happens when `x` is 9, at which point we exit the loop, and `total` has accrued the sum of the numbers 1 through 8. Magic!!
+We see that as we continue through the loop, `total` is growing by the current value of `x`, and this continues until the condition `x < 8` evaluates to `False`. This happens when `x` is 8, at which point we exit the loop, and `total` has accrued the sum of the numbers 1 through 8. Magic!!
 
 To solidify this idea in the framework of control flow, take a look at the structure of the `while` loop as a flow diagram.
 
 ![While Flow](http://www.programiz.com/sites/tutorial2program/files/C_while_loop.jpg)
 
-We see that the trick to the loop, in terms of control flow, is that we return to check the condition each time after the `while` block is executed to determine if we should exectute it again.
+We see that the trick to the loop, in terms of control flow, is that we return to check the condition each time after the `while` block is executed to determine if we should execute it again.
 
 #### Infinite Loops
 
@@ -419,7 +419,7 @@ Notice that our condition in the `while` loop example made sense because we were
 
 Let's take a look at what the loop table would look like in this situation.
 
-| After loop #  |   total   |   x   |   x <= 8   | 
+| After loop #  |   total   |   x   |   x < 8    |
 | ------------- |:---------:|:-----:|:----------:|
 | 1             |  1        |   1   |    True    |
 | 2             |  2        |   1   |    True    |
@@ -427,74 +427,75 @@ Let's take a look at what the loop table would look like in this situation.
 | 4             |  4        |   1   |    True    |
 | Etc.          |  Etc.     |  Etc. | **Always** True |
 
-Aside from the obvious problem that we aren't solving the problem of summing the values 1 through 9, we run into another, very aggregious issue. Will the condition `x <= 8` ever evaluate to `False`? No. So how do we get out of the loop?? We can't!
+Aside from the obvious problem that we aren't solving the problem of summing the values 1 through 8, we run into another, very egregious issue. Will the condition `x < 8` ever evaluate to `False`? No. So how do we get out of the loop?? We can't!
 
-We call this idea getting stuck in an *infinite loop*. They are almost **always** bad, and they usually manifest themselves as your programming running for way longer than you would expect it to. The common cause of them is almost always having a condition that always evaluates to `True`.
+We call this idea getting stuck in an *infinite loop*. They are almost **always** bad, and they usually manifest themselves as your programming running for way longer than you would expect it to run. The common cause of these infinite loops is almost always having a condition that always evaluates to `True`.
 
 #### More Control Flow
 
 ##### Continue
 
-So what if we want even more control over how the body of our loop is executed? Let's motivate this idea with a problem. Say we want to add all the number between 1 and 9...but not 5. Again, we could solve this with our current solution, and then subtract off 5. But, again, that takes a lot of manipulation. Instead, we can use the main structure of our current loop and add in a new coniditon with an `if` and use a new tool to interupt our program's flow. 
+So what if we want even more control over how the body of our loop is executed? Let's motivate this idea with a problem. Say we want to add all the numbers from 1 to 8... but not 5. Again, we could solve this with our current solution, and then subtract off 5. But, again, that takes a lot of manipulation. Instead, we can use the main structure of our current loop and add in a new condition with an `if` and use a new tool to interrupt our program's flow.
 
-Enter `continue`. What `continue` does is simply tell Python that it should skip the rest of the body of the `while` block, and jump (`continue`) to the next iteration of the loop. Lets take a look at `continue` in action.
+Enter `continue`. What `continue` does is simply tell Python that it should skip the rest of the body of the `while` block, and jump (`continue`) to the next iteration of the loop. Let's take a look at `continue` in action.
 
 ```python
 total, x = 0, 0
-while x <= 8:
+while x < 8:
     x += 1
     if x == 5:
         continue
     total += x
+    print (x, total)
 print(total)
 ```
 
-In this updated program we can see that we will, at each iteration of the loop, check to see if the current value that we're about to add on to `total` is 5. If it isn't, we go on with our aggregation of `total`. If it is, we execute a `continue`, telling Python to skip over the rest of the loops body (in this case not add `x` to total) and jump immediately to the next iteration of the loop. Let's see how this would look in the loop table.
+In this updated program we can see that we will, at each iteration of the loop, check to see if the current value that we're about to add on to `total` is 5. If it isn't, we go on with our aggregation of `total`. If it is, we execute a `continue`, telling Python to skip over the rest of the loops' body (in this case not add `x` to total) and jump immediately to the next iteration of the loop. Let's see how this would look in the loop table.
 
-| After loop #  |   total   |   x   |   x <= 8   |    x == 5   | 
+| After loop #  |   total   |   x   |   x < 8    |    x == 5   |
 | ------------- |:---------:|:-----:|:----------:|:-----------:|
-| 1             |  1        |   2   |    True    |    False    |
-| 2             |  3        |   3   |    True    |    False    |
-| 3             |  6        |   4   |    True    |    False    |
-| 4             |  10       |   5   |    True    |    True     |
-| 5             |  10       |   6   |    True    |    False    |
-| 6             |  16       |   7   |    True    |    False    |
-| 7             |  23       |   8   |    True    |    False    |
-| 8             |  31       |   9   |    False   |    False    |
+| 1             |  1        |   1   |    True    |    False    |
+| 2             |  3        |   2   |    True    |    False    |
+| 3             |  6        |   3   |    True    |    False    |
+| 4             |  10       |   4   |    True    |    False    |
+| 5             |  10       |   5   |    True    |    True     |
+| 6             |  16       |   6   |    True    |    False    |
+| 7             |  23       |   7   |    True    |    False    |
+| 8             |  31       |   8   |    False   |    False    |
 
-During the fourth iteration of the loop, when `x` is 5, we see that `total` does not get 5 added to it and therefore the final answer is as we'd expect, 31.
+During the fifth iteration of the loop, when `x` is 5, we see that `total` does not get 5 added to it.  Therefore, the final answer is as we'd expect, 31.
 
 ##### Break
 
-We have another, more aggressive, method to control the flow of our program - `break`. Where `continue` allowed us to skip the rest of the loop's code block and jump directly to the next iteration of the loop, `break` allows us to manually leave the loop entirely. 
+We have another, more aggressive, method to control the flow of our program - `break`. Where `continue` allowed us to skip the rest of the loop's code block and jump directly to the next iteration of the loop, `break` allows us to manually leave the loop entirely.
 
-Time for an illustrative example. Consider trying to write a program that adds the numbers 1 through 9, but only up to 25. If the sum gets over thirty, it is set to 25 and the message, "The sum execeded the max value of 25." is printed. We could certainly do this with the tools that we already possess, but `break` is certainly better suited to this situation. Let's take a look at what this implementation would look like.
+Time for an illustrative example. Consider trying to write a program that adds the numbers 1 to 8, but only up to 25. If the sum exceeds 25, the total is set to 25 and the message, "The sum exceeded the max value of 25." is printed. We could certainly complete this task with the tools that we already possess, but `break` is better suited to meet the needs of this situation. Let's take a look at what this implementation would look like.
 
 ```python
 total, x = 0, 0
-while x <= 8:
+while x < 8:
     x += 1
     if total > 25:
         total = 25
-        print('The sum execeded the max value of 25.')
+        print('The sum exceeded the max value of 25.')
         break
     total += x
 print(total)
 ```
 
-At this point I'm confident that you are tired of looking at tables of values, but lets do this one last time for consistency under the above program specifications.
+At this point I'm confident that you are tired of looking at tables of values, but let's do this one last time for consistency under the above program specifications.
 
-| After loop #  |   total   |   x   |   x <= 8   | total > 25  | 
+| After loop #  |   total   |   x   |   x < 8    | total > 25  |
 | ------------- |:---------:|:-----:|:----------:|:-----------:|
-| 1             |  1        |   2   |    True    |    False    |
-| 2             |  3        |   3   |    True    |    False    |
-| 3             |  6        |   4   |    True    |    False    |
-| 4             |  10       |   5   |    True    |    False    |
-| 5             |  15       |   6   |    True    |    False    |
-| 6             |  21       |   7   |    True    |    False    |
-| 7             |  28       |   8   |    True    |    True     |
+| 1             |  1        |   1   |    True    |    False    |
+| 2             |  3        |   2   |    True    |    False    |
+| 3             |  6        |   3   |    True    |    False    |
+| 4             |  10       |   4   |    True    |    False    |
+| 5             |  15       |   5   |    True    |    False    |
+| 6             |  21       |   6   |    True    |    False    |
+| 7             |  28       |   7   |    True    |    True     |
 
-At this point `total` is set to 25 and the message "The sum execeded the max value of 25." is printed. The loop is exited and then 25 (the value of `total` now) is printed to the screen.
+At this point `total` is set to 25 and the message "The sum exceeded the max value of 25." is printed. The loop is exited and then 25 (the value of `total` now) is printed to the screen.
 
 ##### Pass
 There's one more statement that allows us control over our programs: it's `pass`. All `pass` does is tell Python to do nothing. Because of this, it is rarely used for control flow, since the same result could be achieved by doing nothing. Instead, it is offered as a place holder, since Python will complain about empty code blocks.
@@ -510,4 +511,4 @@ else:
     print('x is the value of 0.')
 ```
 
-In the above example, we have set it up so that if `x` is 0, then our program tells us so. Otherwise, we know that we're going to do something specific when `x` is positive and something different when `x` is negative; but we either haven't figured those things out yet, or simply haven't implemented them.
+In the above example, we have set it up so that if `x` is 0, then our program tells us so. Otherwise, we know that we're going to do something specific when `x` is positive and something different when `x` is negative.  We have used pass to suggest that we either haven't figured those things out yet, or simply haven't implemented them.
