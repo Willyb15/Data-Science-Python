@@ -17,3 +17,12 @@ For the first part of the assignment, we'll solving problems by using `numpy`. S
 11. Write a function that takes in two two-dimensional `numpy arrays`, and performs 
 element-wise multiplication between the two. Return the result of the multiplication. 
 
+# Extra-Credit 
+
+1. Write a function that takes in an integer, and does the following: 
+
+* Creates an array of the numbers from 0 up to that inputted integer 
+* Reshapes it to be the largest `n` * `n` array that it could be, discarding 
+any elements that are extra (i.e. if you want to make a 10 x 10, but have 102 elements, discard the last 2)
+* Returns the cumulative sum of the column means
+
