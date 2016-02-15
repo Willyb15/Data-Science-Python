@@ -2,3 +2,17 @@
 
 For the first part of the assignment, we'll solving problems by using `numpy`. Since `Pandas` is built on top of `numpy`, it's good to be familiar with `numpy`, and know what it provides. Below, we'll ask that you solve functions **by using `numpy`**. While you could answer the questions below without using `numpy` arrays, the focus of these questions is for you to use `numpy` arrays. Remember how fast they are compared to the `list` as alternative! 
 
+# Assignment Questions
+
+1. Write a function that takes in a one-dimensional `numpy array` and normalizes it (i.e. subtracts off the mean and divides by the standard deviation). 
+2. Now create a version of `1` that takes in a two-dimensional `numpy array` and normalizes it along the columns (i.e. for each column subtract off its mean and divide by its standard deviation).  
+3. Write a function that creates a `numpy array` of an inputted shape, filled with an inputted number. Your function should have three parameters - `num_cols`, `num_rows`, and `fill_value`. As an example, if I called your function with `num_cols=4`, `num_rows=3`, and `fill_value=2`, then your function should output a 3 by 4 array of 2's. 
+4. Write a function that takes in a one-dimensional `numpy array`, an `int`, and a mathematical operator (either `+`, `-`, `/`, or `*`), and then performs the indicated operation on each element of the `array`, using the inputted `int`. For example, if I inputted a `numpy array`, 2, and `*`, you should multiply each element of the `array` by 2. If I inputted a `numpy array`, 5, and `-`, then you should subtract 5 from every element in the array. 
+5. Write a function that takes in one argument, an `int`, and creates a one-dimensional array that is the inputted number of elements long. Make the one-dimensional array of floating point integers between 0 and 1 (*Hint*: Check out `numpy.random.random()`). 
+6. Now, alter your solution to `5` to take in two additional parameters that will denote the final shape of your array of random floating point integers (so now you will potentially end up with a two-dimensional array). Name these parameters `num_rows` and `num_cols`.
+7. Write a function that will take in a one-dimensional `numpy array`, as well as an `int`, and randomly samples the inputted integer number of elements from the inputted array (*Hint*: Check out `numpy.random.choice()`). 
+8. Write a function that will take in a one-dimensional `numpy array`, and replaces the maximum element in it with a `0`. 
+9. Write a function that takes in an `int`, creates a one-dimensional `numpy array` of the numbers from `0` up to `int`, and then returns the cumulative sum of all those numbers. 
+10. Write a function that takes in two two-dimensional `numpy arrays`, and performs matrix multiplication between the two. 
+11. Write a function that takes in two two-dimensional `numpy arrays`, and performs 
+element-wise multiplication between the two.
