@@ -428,7 +428,7 @@ Let's take a look at what the loop table would look like in this situation.
 | 4             |  4        |   1   |    True    |
 | Etc.          |  Etc.     |  Etc. | **Always** True |
 
-Aside from the obvious problem that we aren't finding the sum of the values 1 through 8, we run into another, very egregious issue. Will the condition `x <= 8` ever evaluate to `False`? No. So will the loop ever finished executing?? It won't!!
+Aside from the obvious problem that we aren't finding the sum of the values 1 through 8, we run into another, very egregious issue. Will the condition `x <= 8` ever evaluate to `False`? No. So will the loop ever finish executing?? It won't!!
 
 We call this idea getting stuck in an **infinite loop**. They are almost *always* bad, and they usually manifest themselves as your program running for way longer than you would expect it to run, at which point you realize that something weird is happening. The common cause of these infinite loops is almost always having a condition that always evaluates to `True`.
 
