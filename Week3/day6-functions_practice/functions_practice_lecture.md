@@ -6,7 +6,7 @@ Up until now we've only written one-off functions (ones that operate independent
 
 One difficulty with this approach is that it requires full vision about how a problem should be broken down before you get into the nitty-gritty implementation of any base tasks. This is a problem that is oft discussed during software design. Luckily, for most of the problems that we will want to solve on our own, we can manage them with an iterative approach to implementing top-down.
 
-Basically, this involves writing some code to start solving the first part of the problem, then once that code starts becoming it's own independent piece, putting it into a function. At that point, we start writing more code that will likely become it's own function, and so on and so forth. This mish-mash of an approach can be difficult to get used to, and is by no means perfect. But with practice, it starts feeling like second nature. To that end, we will being going through that process today and solving a problem that is too large to be implemented in a single function. Along the way, we will learn about a few more Python tools, be able to see how the solution to a problem can evolve over time, and see how functions in action are such a powerful tool (both in taking advantage of employing a DRY methodology and seeing the power of abstraction).
+Basically, this involves writing some code to start solving the first part of the problem, and once that code starts becoming it's own independent piece, putting it into a function. At that point, we start writing more code that will likely become it's own function, and so on and so forth. This mish-mash of an approach can be difficult to get used to, and is by no means perfect. But with practice, it starts feeling like second nature. To that end, we will be going through that process today and solving a problem that is too large to be implemented in a single function. Along the way, we will learn about a few more Python tools, be able to see how the solution to a problem can evolve over time, and see how functions in action are such a powerful tool (both in taking advantage of employing a DRY methodology and seeing the power of abstraction).
 
 ### Let's Do Python
 
@@ -40,9 +40,9 @@ def create_report(file_path):
 
 Let's talk about what this line does. The `open()` (docs [here](https://docs.python.org/2/library/functions.html#open)), takes a file path and returns a "file object" which we are storing in the variable `txt_file`. The `with` statement allows us to not be concerned with closing the connection to the file object when we're done with it. Notice that we're in an indented block for the body of the `with` - when we end that block, the `with` will automatically deal with closing the file for us, and for that reason is considered the Pythonic way to handle files.
 
-At this point we now have access to the contents of the file via the variable `txt_file` within the scope of the `with`. So what do we do with it? There are a couple of things that are advised at this point. One is reading the documentation for [file objects](https://docs.python.org/2/library/stdtypes.html#bltin-file-objects). Reading documentation is almost never a bad idea. Another option would be for you to get your hands dirty in IPython. This would require you to have a test file to play with, which is a great thing to have in general so that you can verify whether the code your writing is working as you move through solving the problem. 
+At this point, we now have access to the contents of the file via the variable `txt_file` within the scope of the `with`. So what do we do with it? There are a couple of things that are advised at this point. One is reading the documentation for [file objects](https://docs.python.org/2/library/stdtypes.html#bltin-file-objects). Reading documentation is almost never a bad idea. Another option would be for you to get your hands dirty in IPython. This would require you to have a test file to play with, which is a great thing to have in general so that you can verify whether the code your writing is working as you move through solving the problem. 
 
-Check out the included `test_text.txt` file, which is filled with a small amount of text so that it's easy to play with. We can use it to test out some of the code we've written inside of IPython. Frequently a simple `print()` will allow you to get a handle on what's going on, but sometimes its necessary to inspect things with `type()` or by calling other functions. Let's see how we would figure out what's going on with the `txt_file` variable that we get back from the `with` statement.
+Check out the included `test_text.txt` file, which is filled with a small amount of text so that it's easy to play with. We can use it to test out some of the code we've written inside of IPython. Frequently a simple `print()` will allow you to get a handle on what's going on, but sometimes its necessary to inspect things with `type()`, or by calling other functions. Let's see how we would figure out what's going on with the `txt_file` variable that we get back from the `with` statement.
 
 ```python
 In [1]: with open('test_text.txt') as txt_file:
@@ -80,7 +80,7 @@ def create_report(file_path):
 
 #### Let's Put the FUN in Functions!
 
-Back to the problem specification. We need to take these lines and get the number of sentences, words, and characters contained within them. At this point we should realize that we need to aggregate these counts somewhere. There are a lot of ways that we could do that, one way would be to have each count stored in it's own variable. Here we're going to do it with a dictionary, we'll see why this is a good idea very soon. Let's initialize one now.
+Back to the problem specification. We need to take these lines and get the number of sentences, words, and characters contained within them. At this point we should realize that we need to aggregate these counts somewhere. There are a lot of ways that we could do that. One way would be to have each count stored in it's own variable, but here we're going to do it with a dictionary (we'll see why this is a good idea very soon). Let's initialize one now.
 
 ```python
 def create_report(file_path):
@@ -90,11 +90,11 @@ def create_report(file_path):
             pass
 ```
 
-Now that we have a place to store the counts that we come across while looping through our lines, we can start writing the body of our loop. Here's a place where our workflow could diverge. We could start writing code inside the body of our loop and later figure out what of that code completed a specific, independent task, or we could recognize that what we're about to do in the loop is it's own distinct task and start writing a function now. Let's go with the latter option, since we've seen plenty of examples of turning existing code into a function. 
+Now that we have a place to store the counts that we come across while looping through our lines, we can start writing the body of our loop. Here's a place where our workflow could diverge. We could start writing code inside the body of our loop and later figure out what of that code completed a specific, independent task, or we could recognize that what we're about to do in the loop is it's own distinct task and start writing a function. Let's go with the latter option, since we've seen plenty of examples of turning existing code into a function. 
 
 So what does this process look like? We don't have any code to put into a function - what are we supposed to do? Consider the fact that we didn't have any code when we started writing `create_report()`, but we started anyways! Let's do something like that here, but this time realize that we're tasked with identifying the function that we're trying to write. To do this, let's think about what we want to do inside the loop. We said it above - we're "updating our counts with the info from the current line". 
 
-Let's start a function with an appropriate name, knowing that it's going to need a `line` passed to it, as well as `counts_dict`. The first, `line`, will be necessary because the line we're analyzing changes in each iteration of the loop; the second, `counts_dict`, is necessary because it's keeping track of all the counts and therefore needs to be accessible for update while `line` is being processed. We now see why keeping a dictionary of all the counts is a good idea, only one variable needs to be passed to our function, the dictionary, as opposed to three if we were storing the counts in three separate variables. Thinking things through in this way makes is easy to write out a function definition.
+Let's start a function with an appropriate name, knowing that it's going to need a `line` passed to it, as well as `counts_dict`. The first, `line`, will be necessary because the line we're analyzing changes in each iteration of the loop; the second, `counts_dict`, is necessary because it's keeping track of all the counts, and therefore needs to be accessible for update while `line` is being processed. We now see why keeping a dictionary of all the counts is a good idea - only one variable needs to be passed to our function, the dictionary, as opposed to three if we were storing the counts in three separate variables. Thinking things through in this way makes is easy to write out a function definition.
 
 ```python
 def update_counts(line, counts_dict):
@@ -112,9 +112,9 @@ def create_report(file_path):
 
 What exactly does `update_counts()` need to do with a line? Well, we know that we're going to have to count the number of words in it, and the number of characters in those words. As for the number of sentences, this is a fairly difficult problem. One way that we could solve this is by counting the number of periods, ".", assuming that any sentences we will see will end in one. Admittedly, this is a fairly naive way to solve the problem; sentences can end with other punctuation (for example, exclamation points and question marks). This solution is also susceptible to the ellipsis, which has three periods all in a row. 
 
-For now, we will neglect these obvious defects in our solution, we can always go back later to make it better. This type of practice is very regular when solving programming problems. As we've talked about, solutions are often built up in an iterative, testing as you go, manner. In addition, there's a decent chance that there are other edge cases that haven't even been considered. That's part of the beauty of using functions. Since they abstract away the implementation of counting sentences, words, and characters, we can later go back and change this single piece of our problem.
+For now, we will neglect these obvious defects in our solution - we can always go back later to make it better. This type of practice is very regular when solving programming problems. As we've talked about, solutions are often built up in an iterative, testing as you go, manner. In addition, there's a decent chance that there are other edge cases that haven't even been considered. That's part of the beauty of using functions. Since they abstract away the implementation of counting sentences, words, and characters, we can later go back and change this single piece of our problem.
 
-At this point, let's set up a small test case so that we can verify the functionality of `update_counts()`. Consider the string 'This is a test string. Only for testing'. We can see that it has 1 well defined sentence, 8 words, and 39 characters counting spaces. Lets set up a counts dictionary and test this string in an IPython environment.
+At this point, let's set up a small test case so that we can verify the functionality of `update_counts()`. Consider the string 'This is a test string. Only for testing'. We can see that it has 1 well defined sentence, 8 words, and 39 characters counting spaces. Let's set up a counts dictionary and test this string in an IPython environment.
 
 ```python
 In [1]: test_string = 'This is a test string. Only for testing'
@@ -157,7 +157,7 @@ In [10]: counts_dict
 Out[10]: {'characters': 39, 'sentences': 1, 'words': 8}
 ```
 
-With all of this testing done, verified by checking what's stored in `counts_dict`, we can now go back to our script and implement what we've found in `update_counts()`, knowing that the string that is accessible within its scope is named `line`.
+With all of this testing done, verified by checking what's stored in `counts_dict`, we can now go back to our script and implement what we've found in `update_counts()`. The only difference is that the string that is accessible within its scope is named `line`.
 
 ```python
 def update_counts(line, counts_dict):
@@ -218,7 +218,7 @@ Out[2]: {'characters': 76, 'sentences': 2, 'words': 16}
 
 We can see importing in action here (the magic of the second line will be explained shortly). First, focus your attention on the first line. When we import a script, Python actually runs the code that is contained in the imported script, making it as though it was written in yours. While this is a very powerful concept, we can see a downfall here. The `print` function that we included in our `txt_file_processing` script was run when the import happened, and this is far from desirable behavior.
 
-Luckily we have a way to avoid this, and it's know as a **main-block**. Any code that is defined within a main-block will only be executed when the script is run, as opposed to when it is imported (in which case the contents of the main-block are ignored). We can see a main-block defined below.
+Luckily, we have a way to avoid this, and it's know as a **main-block**. Any code that is defined within a main-block will only be executed when the script is run, as opposed to when it is imported (in which case the contents of the main-block are ignored). We can see a main-block defined below.
 
 ```python
 def update_counts(line, counts_dict):
@@ -239,7 +239,7 @@ if __name__ == '__main__':
     print(create_report('test_text.txt'))
 ```
 
-Now if we import the script we will not see the `print()` statement in the main-block run. Magic!
+Now, if we import the script we will not see the `print()` statement in the main-block run. Magic!
 
 ```python
 In [1]: import txt_file_processing
@@ -275,11 +275,11 @@ Back to testing. Now that we have importing and access to the main-block, we hav
 
 We've now verified the accuracy of our solution, and so you use `create_report()` to help your boss out with his problem. He tries it out on a couple of text files and is pleased with the results. Happy, you take the rest of the day off of work. The next day you come into work and you have an email in your inbox from your boss. It says that they tried to use `create_report()` overnight on a bunch of files and it took way too long - it was still running when they came back in the morning. You are told to make `create_report()` run faster.
 
-Alright, I guess we didn't think about speed too much (if at all) while we were writing `create_report()`. So what are we going to do to make it faster? Well, it might not be obvious at first, so lets walk though the code (specifically `update_counts()`) and think about what's happening.
+Alright, I guess we didn't think about speed too much (if at all) while we were writing `create_report()`. So, what are we going to do to make it faster? Well, it might not be obvious at first, so let's walk though the code (specifically `update_counts()`) and think about what's happening.
 
-On the first line of `update_counts()`, we count the number of periods in `line` and add that to the 'sentence' entry in `counts_dict`. On the second we take `line`, split it apart on spaces, and add the number of words that come out to the 'words' entry of `counts_dict`. Lastly, we count the number of characters in `line` with `len()` and add that to the 'characters' entry of `counts_dict`. All of this makes perfect sense. So how can we make it better? One way to make this better is by realizing that this approach is actually going over the contents of `line` 3 separate times to perform all of our updates. This isn't particularly efficient.
+On the first line of `update_counts()`, we count the number of periods in `line` and add that to the 'sentence' entry in `counts_dict`. On the second, we take `line`, split it apart on spaces, and add the number of words that come out to the 'words' entry of `counts_dict`. Lastly, we count the number of characters in `line` with `len()` and add that to the 'characters' entry of `counts_dict`. All of this makes perfect sense. So, how can we make it better? One way to make this better is by realizing that this approach is actually going over the contents of `line` 3 separate times to perform all of our updates. This isn't particularly efficient.
 
-How can we make all of the necessary updates in fewer passes then?? We'll, we could write our own loop to go over the line, character by character, and perform updates to the 'sentences', 'words' and 'characters' entries of `counts_dict` all within that loop. This is possible because we know that when we see a space we just finished another word, and when we see a period we just finished another sentence. Characters are self explanatory. Let's see what this might look like back in IPython.
+How can we make all of the necessary updates in fewer passes, then?? We'll, we could write our own loop to go over the line, character by character, and perform updates to the 'sentences', 'words' and 'characters' entries of `counts_dict` all within that loop. This is possible because we know that when we see a space we just finished another word, and when we see a period we just finished another sentence. Characters are self explanatory. Let's see what this might look like back in IPython.
 
 ```python
 In [1]: test_string = 'This is a test string. Only for testing'
@@ -298,7 +298,7 @@ In [4]: counts_dict
 Out[4]: {'characters': 39, 'sentences': 1, 'words': 7}
 ```
 
-This looks like it worked...wait! Does that say we only got 7 words?? We know that we're supposed to have 8. What happened?? Fixing these problems, either when our programs don't work and we're trying to make them functional, or ones that work but aren't giving us the expected output, is a process called **debugging**. Debugging can be very time consuming and frustrating, often because it's a super small error in your logic that is causing the problem. I find one good approach to debugging is isolating where the problem is occurring and then stepping through the logic from that point. Being conscious about what you think the state of your program should be at each stage of execution and then verifying that is the approach that I take. Let's do that now for the for loop above, keeping track of what the character we're on is and what the counts in `counts_dict` are.
+This looks like it worked...wait! Does that say we only got 7 words?? We know that we're supposed to have 8. What happened?? Fixing these problems, either when our programs don't work and we're trying to make them functional, or ones that work but aren't giving us the expected output, is a process called **debugging**. Debugging can be very time consuming and frustrating, often because it's a super small error in your logic that is causing the problem. I find one good approach to debugging is isolating where the problem is occurring, and then stepping through the logic from that point. Being conscious about what you think the state of your program should be at each stage of execution, and then verifying that that state, is the approach that I take. Let's do that now for the for loop above, keeping track of what the character we're on is and what the counts in `counts_dict` are.
 
 | Character  | sentences |  words  | characters |
 | ---------- |:---------:|:-------:|:----------:|
@@ -324,7 +324,7 @@ This looks like it worked...wait! Does that say we only got 7 words?? We know th
 | n          |  1        |    7    |     38     |
 | g          |  1        |    7    |     39     |
 
-Alright, that was straightforward (if a little time consuming), and we can immediately see the problem. We don't see a space after the last word in a line, so our algorithm doesn't add another word!! Alright, a simple solution to this is to add one to our word count after our loop. While it's fair to say that this solution fails in the case that the last character of a line is a space, that was actually a problem that using `split()` in our earlier solution solved (check what the output of calling split on a string that ends in a space is). Realistically, we haven't removed any ability from the function, then. Let's implement our new solution and test it on `test_text.txt`.
+Alright, that was straightforward (if a little time consuming), and we can immediately see the problem. We don't see a space after the last word in a line, so our algorithm doesn't add another word!! Alright, a simple solution to this is to add one to our word count after our loop. While it's fair to say that this solution fails in the case that the last character of a line is a space, we're going to ignore that edge case for now.  
 
 ```python
 def update_counts(line, counts_dict):
@@ -358,6 +358,6 @@ Success!!!
 
 While this may have seemed a somewhat contrived problem, the way we went about solving it and building upon it when we realized it needed better/smarter implementation was very much illustrative of how you should go about solving many programming problems.
 
-I want to quickly draw your attention to how easy it was to speed up our program by changing the implementation of `update_counts`. This is abstraction in action! And say that we later we're told to write a function that takes a list of file paths and creates a report for each one of them. Since we've wrapped up the functionality of our program in the `create_report()` function, doing something like that would be easy! We'd just make a new function that would loop through the list of file paths and call `create_report()`, passing the current file path in that iteration of the loop as the argument.
+I want to quickly draw your attention to how easy it was to speed up our program by changing the implementation of `update_counts`. This is abstraction in action! And say that later we're told to write a function that takes a list of file paths and creates a report for each one of them. Since we've wrapped up the functionality of our program in the `create_report()` function, doing something like that would be easy! We'd just make a new function that would loop through the list of file paths and call `create_report()`, passing the current file path in that iteration of the loop as the argument.
 
 Hopefully this example has demonstrated a good workflow to follow when designing programs, and you've learned how to think about problems in an iterative top-down framework.
