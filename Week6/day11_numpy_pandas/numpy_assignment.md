@@ -2,6 +2,8 @@
 
 For the first part of the assignment, we'll solving problems by using `numpy`. Since `Pandas` is built on top of `numpy`, it's good to be familiar with `numpy`, and know what it provides. Below, we'll ask that you solve functions **by using `numpy`**. While you could answer the questions below without using `numpy` arrays, the focus of these questions is for you to use `numpy` arrays. Remember how fast they are compared to the `list` as alternative! 
 
+As a final note, a lot of the questions below are kind of simplistic, and could possibly be written in a single line or two. As such, you might wonder why we're asking you to write functions for them, or why they are even questions at all. As you've hopefully found throughout this course, programming skills increase quite a bit simply through repitition, which is a good majority of the reason we've asked you to write functions for each question below. After tonight, you will hopefully never forget that when we define a function in Python, it starts with `def my_func_name():`.In addition, these one off functions will get you exposure to some of the most common and useful methods available on a `numpy array`. 
+
 # Assignment Questions
 
 1. Write a function that takes in a one-dimensional `numpy array` and normalizes it (i.e. subtracts off the mean and divides by the standard deviation). Return the normalized array. 
