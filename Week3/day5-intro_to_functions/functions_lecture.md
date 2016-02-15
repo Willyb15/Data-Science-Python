@@ -2,9 +2,9 @@
 
 ### Motivation 
 
-Today we are going to learn about functions. In computer science terms, Python functions are known as subroutines. **Subroutines** are defined as a sequence of instructions that perform a specific task, packaged together as a unit (i.e. a small independent piece of code). We'll be talking all about how to define and use functions today; however, it's important to know why we want to use functions.
+Today we are going to learn about functions. In computer science terms, Python functions are known as subroutines. **Subroutines** are defined as a sequence of instructions that perform a specific task, packaged together as a unit (i.e. a small independent piece of code). We'll be talking all about how to define and use functions today. However, it's important to know why we want to use functions.
 
-Our first reason for using functions is *reusability*, and stems from an idea called **Don't Repeat Yourself**, or **DRY** for short. The concept of DRY boils down to the idea that we want to be as concise as possible when writing code; we don't want to write unnecessary instructions. Part of this, as explicitly addressed by DRY, is not wanting to repeat the same or similar instructions over and over. Functions allow us to achieve this goal by giving us a tool in which we can wrap up a set of instructions into a single independent unit. That independent unit can then be used to perform a specific task over and over, without needing to rewrite those instructions. They are written just once, in the function.
+Our first reason for using functions is *reusability*, and stems from an idea called **Don't Repeat Yourself**, or **DRY** for short. The concept of DRY boils down to the idea that we want to be as concise as possible when writing code - we don't want to write unnecessary instructions. Part of this, as explicitly addressed by DRY, is not wanting to repeat the same or similar instructions over and over. Functions allow us to achieve this goal by giving us a tool that we can use to wrap up a set of instructions into a single independent unit. That independent unit can then be used to perform a specific task over and over, without needing to rewrite those instructions. They are written just once, in the function.
 
 The second reason we want to use functions is *abstraction*. Consider a function that we've used already, `type()`. To use it we needed to know:
 
@@ -13,9 +13,9 @@ The second reason we want to use functions is *abstraction*. Consider a function
 3. What the function does
 4. What the function gives back to us (i.e returns)
 
-That's it; that's all we knew about `type()`, and we used it just fine. The key thing here is that we don't need to know anything about how `type()` does what it says it's supposed to do! This is the idea of abstraction - the implementation within a function is hidden from the caller (abstracted away if you will). There are a number of reasons why this trait is desirable.
+That's it - that's all we knew about `type()`, and we used it just fine. The key thing here is that we don't need to know anything about how `type()` does what it says it's supposed to do! This is the idea of abstraction - the implementation within a function is hidden from the caller (abstracted away if you will). There are a number of reasons why this trait is desirable.
 
-First, it allows callers of the function to not be concerned with how the function itself works. Rather, they stay safe in the assumption that the function will work (know, though, that this assumption does not always prove true, in which case you'll have to do some of your own trouble shooting). This allows functionality to be easily shared and makes it easier to build more complex things, since you're able to stand on the shoulders of those who have already written functions that you want to use.
+First, it allows callers of the function to not be concerned with how the function itself works. Rather, they stay safe in the assumption that the function will work (know, though, that this assumption does not always prove true, in which case you'll have to do some of your own trouble shooting). This allows functionality to be easily shared, and makes it easier to build more complex things, since you're able to stand on the shoulders of those who have already written functions that you want to use.
 
 Second, since the implementation is hidden from the caller, that actual implementation can change (so long as those four things listed above stay the same) and the caller wont know the difference. This makes it easy to split up problems into smaller pieces, and when something in one of those pieces needs to change, it wont affect the rest of the system. This is super powerful stuff.
 
@@ -23,7 +23,7 @@ Second, since the implementation is hidden from the caller, that actual implemen
 
 #### Built-in Functions  
 
-In our programming journey so far, we've actually seen a number of functions. We've worked with the `len()` function, which returns the length of an inputted iterable. We've also worked with the `range()` function, which returns a list of numbers from an inputted minimum number to an inputted maximum number. There are many built-in functions that are available in Python, and you can find them [here](https://docs.python.org/2/library/functions.html). Each one of these functions is constructed in a very similar way, and they all take some arbitrary number of arguments. But what if we want to have functions that perform tasks other than those available to us in the built-ins? Tonight we'll learn how to define our own functions in such a way that we can use them as we have been using the built-ins! 
+In our programming journey so far, we've actually seen a number of functions. We've worked with the `len()` function, which returns the length of an inputted iterable. We've also worked with the `range()` function, which returns a list of numbers from an inputted minimum number to an inputted maximum number. There are many built-in functions that are available in Python, and you can find them [here](https://docs.python.org/2/library/functions.html). Each one of these functions is constructed in a very similar way, and they all take some arbitrary number of arguments. What if we want to have functions that perform tasks other than those available to us in the built-ins, though? Tonight, we'll learn how to define our own functions in such a way that we can use them as we have been using the built-ins! 
 
 #### Function Definition Part 1
 
@@ -36,7 +36,7 @@ for element in some_collection:
         evens.append(element)
 ```
 
-Now let's imagine that that `some_collection` is actually just a list of numbers from 0 to 9 (i.e. `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`). Remember that we can use the `range()` function to create this. To get a list of all the even numbers from 0 to 9, then, we can modify our code as follows. 
+Now, let's imagine that that `some_collection` is actually just a list of numbers from 0 to 9 (i.e. `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`). Remember that we can use the `range()` function to create this. To get a list of all the even numbers from 0 to 9, then, we can modify our code as follows. 
 
 ```python 
 evens = []
@@ -49,7 +49,7 @@ for element in range(10):
 
 What if we wanted to put this code into a function, so that we could then get a list of evens from 0 to 9 anytime we wanted? This is a simple but straightforward example of reusability.
 
-While not every function definition in Python will look the same (they'll have different names, different arguments passed to them, etc.), there is a general syntax that every function definition will follow. This syntax will look somewhat similar to the `while` and `for` loops in the sense that we will start off with some line (this line will define the function) followed by an indented block of code. That indented block of code will define what the function does. Okay, awesome! What goes on that first line, though?
+While not every function definition in Python will look the same (they'll have different names, different arguments passed to them, etc.), there is a general syntax that every function definition will follow. This syntax will look somewhat similar to the `while` and `for` loops in the sense that we will start off with some line (this line will define the function), followed by an indented block of code. That indented block of code will define what the function does. Okay, awesome! What goes on that first line, though?
 
 The first line will always start off with a `def` statement followed by a space. What follows will then be the function name, a set of parentheses (without or without function parameters in them), and finally a colon. Let's see what this looks like.
 
@@ -57,9 +57,9 @@ The first line will always start off with a `def` statement followed by a space.
 def my_func():
     pass # This pass just acts as a filler right now. 
 ```
-Let's dive a little more into each of the parts and note what's important about them. First off, the `def` statement. This is what tells Python that what's coming after is a function, and what will make Python store your function in such a way that it is callable later on in your program. Second, the function name. The only real thing to note about this is that function naming conventions follow variable naming conventions (i.e. snakecase, where we lowercase our words and separate them by underscores). Next up are the parentheses. These are going to be filled with an optional and arbitrary number of parameters (which will dive into a little later). Finally, the colon, `:`. This is what is going to signal to Python that the function definition is over, and what follows will be the block of code that makes up the meat of the function. 
+Let's dive a little more into each of the parts and note what's important about them. First off, the `def` statement. This is what tells Python that what's coming after is a function, and what will make Python store your function in such a way that it is callable later on in your program. Second, the function name. The only real thing to note about this is that function naming conventions follow variable naming conventions (i.e. *snakecase*, where we lowercase our words and separate them by underscores). Next up are the parentheses. These are going to be filled with an optional and arbitrary number of parameters (which will dive into a little later). Finally, the colon, `:`. This is what is going to signal to Python that the function definition is over, and what follows will be the block of code that makes up the meat of the function. 
 
-So how would we build our `evens` code from earlier into a function? All we have to do is simply copy and paste that block of code after our function definition. Let's be sure to give it a more descriptive name, though...
+So, how would we build our `evens` code from earlier into a function? Well, all we have to do is simply copy and paste that block of code after our function definition. Let's be sure to give it a more descriptive name, though...
 
 ```python 
 In [1]: def get_evens(): 
@@ -93,7 +93,7 @@ In [2]: get_evens()
 Out[2]: [0, 2, 4, 6, 8]
 ```
 
-Let's take a little bit more time to discuss the `return` statement. It's nice that it allows us to get back something from a function, but we do have to be careful with it, and make sure that we are using it in the way that we want. `return` is similar to the `break` statement that we learned about in Week 1 in the sense that as soon as our function sees the `return` statement during execution, it will immediately exit from the function, giving back whatever output it has when it encounters the `return` statement. Let's alter the `return` statement in our `get_evens()` function to see how this comes into play. 
+Let's take a little bit more time to discuss the `return` statement. It's nice that it allows us to get back something from a function, but we do have to be careful with it, and make sure that we are using it in the way that we want. `return` is similar to the `break` statement that we learned about in Week 1. As soon as our function sees the `return` statement during execution, it will immediately exit from the function, giving back whatever output it has when it encounters the `return` statement. Let's alter the `return` statement in our `get_evens()` function to see how this comes into play. 
 
 ```python
 In [1]: def get_evens(): 
@@ -114,7 +114,7 @@ Okay, cool!
 
 #### Function Definitions Part 2
 
-This is great, but what if we want to have the function act in a different way depending on how I (or somebody else) want to use it? What good is `get_evens()` if I want the evens from 0 to 20? As we've been hinting at, you can define functions in such a way that you can pass values to them. Let's change the `get_evens()` function that we defined above so that it can build an arbitrarily sized list of evens. We'll use our current code as a base and build off of it as we work through defining functions with parameters, and calling functions with arguments passed in. We'll begin this exploration by adding in a parameter to the function definition. This parameter will control the range of numbers that we will grab evens from. 
+This is great, but what if we want to have the function act in a different way depending on how I (or somebody else) want to use it? What good is `get_evens()` if I want the evens from 0 to 20? As we've been hinting at, you can define functions in such a way that you can pass values to them. Let's change the `get_evens()` function that we defined above so that it can build an arbitrarily sized list of evens. We'll use our current code as a base, and build off of it as we work through defining functions with parameters, and calling functions with arguments passed in. We'll begin this exploration by adding in a parameter to the function definition. This parameter will control the range of numbers that we will grab evens from. 
 
 ```python 
 In [1]: def get_evens(n): 
@@ -147,7 +147,7 @@ Out[4]: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
 
 Neat, huh!? Turns out we're just getting started...
 
-In addition to defining our function with the ability to now have arguments passed in, we can also build it so that if our function is called without an argument passed in, our parameter gets a value **by default**. This is useful if you want to build your function to have some default behavior but still allow users to pass in arguments that change the default behavior or build off of it somehow. So how do we specify a default parameter value for our function? It's actually pretty simple. In the function definition itself, we just place an equals sign (`=`)  after the parameter name, and then the default value that we want to specify (*Note*: Python syntax dictates that there should be no spaces surrounding equals signs used in this way).
+In addition to defining our function with the ability to now have arguments passed in, we can also build it so that if our function is called without an argument passed in, our parameter gets a value **by default**. This is useful if you want to build your function to have some default behavior, but still allow users to pass in arguments that change the default behavior or build off of it somehow. So how do we specify a default parameter value for our function? It's actually pretty simple. In the function definition itself, we just place an equals sign (`=`)  after the parameter name, and then the default value that we want to specify (*Note*: Python syntax dictates that there should be no spaces surrounding equals signs used in this way).
 
 ```python
 In [1]: def get_evens(n=5): 
@@ -203,7 +203,7 @@ Out[7]: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
 
 As you can see from our first three examples above, the output of our function hasn't changed - by default we still output a list of the even numbers up to 5, and when we pass in 5 as the value passed to `n` and 2 as the value passed to `divisor`, we also output a list of the evens up to 5. Cool! The other function calls also give us the results that we would expect.
 
-Now let's get down to a syntactic 'rule' that we have to follow when we define functions with default values. When we do this, we have to make sure that any parameters we are giving default values are **after** any parameters that we are not giving default values. Let's check out some examples...
+Now let's get down to a syntactic "rule" that we have to follow when we define functions with default values. When we do this, we have to make sure that any parameters we are giving default values are **after** any parameters that we are not giving default values. Let's check out some examples...
 
 ```python
 In [1]: def get_multiples(n, divisor=2): 
@@ -224,7 +224,7 @@ In [2]: def get_multiples(n=5, divisor):
 SyntaxError: non-default argument follows default argument
 ```
 
-Hopefully this pretty clearly demonstrates this "rule". In the first case, we defined our parameters that have default values (which is only one, `divisor`, here) after defining our parameters that don't have default values (which is only one, `n`, here), just we are supposed to. And everything worked fine! In the second case, we defined a parameter with a default value before a parameter without a default value. That's a no no, and Python let us know! 
+Hopefully this pretty clearly demonstrates this "rule". In the first case, we defined our parameters that have default values (which is only one, `divisor`, here) after defining our parameters that don't have default values (which is only one, `n`, here), just as we are supposed to. And everything worked fine! In the second case, we defined a parameter with a default value before a parameter without a default value. That's a no no, and Python let us know! 
 
 #### Parameters vs Arguments
 
