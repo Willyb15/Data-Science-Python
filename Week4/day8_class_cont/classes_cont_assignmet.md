@@ -35,3 +35,20 @@ Some notes:
 ## Some final thoughts
 
 The above are just suggestions, and you are free to use them or choose to tackle the problem a different way. The end goal of the night is get more practice working in an OOP framework, and coding! And again, we've specifically left this somewhat open-ended in terms of the instructions, since we are hoping that you use some/all of the code that wrote when we took a functional approach to this problem. 
+
+### Extra Credit
+
+1. Alter your `Board` class to use the `__repr__` magic function when being displayed (you can check out the `__repr__` magic function [here](http://www.rafekettler.com/magicmethods.html#representations). 
+2. Alter your `Player` class to also use the `__repr__` magic function. Construct your `__repr__` magic function such that it displays the name of the player when being displayed. 
+3. Now, go back to the `__repr__` magic function that you build in the `Board` class, and alter it so that you have a better looking board. Instead of just displaying board as a list of lists, I'm imagining something like this: 
+
+```
+    0   1   2
+ 0    |   |  
+   -----------
+ 1    |   | 
+   -----------
+ 2    |   | 
+```
+4. Let's allow the game to be a little bit more dynamic. Alter your `Board` class to take in a `board_size` argument, rather than having it just be `3` all the time. This means that you'll have to alter any of your methods that are reliant on this `board_size`, including the `__repr__` magic function that you just build in `3.` above. **Hint**: This shouldn't be as hard as you think - it should just involve finding all the places that reference the `board_size` (or wherever you've hard coded a `3`), and altering those to now be dynamic. 
+5. Dynamic is fun, so let's do even more! Modify your `Game` class to not only play 1 game, but to allow the players to keep playing until they wish to stop. This means that after a win or tie, you'll have to check if the players want to keep playing, and then reinitialize everything if they do (and exit if they don't). To make it a little more interesting, keep track of each players number of wins (use an attribute on the `Player` class), and display the results when the players are all done playing.  
