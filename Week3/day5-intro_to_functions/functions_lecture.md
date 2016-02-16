@@ -300,3 +300,72 @@ NameError: name 'my_local_var' is not defined
 
 Notice that `my_global_var` is accessible anywhere - both inside and outside of our function. This is because it is in the **global scope**. `my_local_var`, on the other hand, was defined within `my_test_func`. As a result, it is enclosed within the scope of `my_test_func`, and not accessible outside of it.   
 
+### List and Dictionary Comprehensions
+
+The last topic we're going to cover today is not on functions, but instead a different way to accomplish something you already know about: constructing list and dictionaries. Consider the frequent task that we perform at the beginning of dealing with lists and dictionaries, constructing them. Thus far we have taken advantage of the mutability inherent to lists and dictionaries to build them up one element or key-value pair, respectively, at a time. However there is a more succinct way to accomplish the vast majority of your list and dictionary construction tasks.
+
+#### List Comprehensions
+
+Before we dive into the specifics about how this new tools works, lets look at a toy question where we build a list so that we can break down the process.
+
+Consider you have the list `[1, 5, 9, 33]` stored in the variable `my_list`. Now you want to make a new list of the squares of all the values in `my_list` and call it `my_squares`. With the tools you know about, code that you'd write to perform this task might look like this:
+
+```python
+my_squares = []
+for num in my_list:
+    my_squares.append(num ** 2)
+```
+
+And now `my_squares` will hold the list `[1, 25, 81, 1089]`. To get is basically what we were doing was specifying a range of stuff that will be added on to the end of the list. So from a high level we can write the framework of creating a list in code as:
+
+```python
+list_were_building = []
+for thing in iterable:
+    list_were_building.append(transform(thing))
+```
+
+Now for the fun part, with this structure in mind we can use the following syntax to perform the same task of building up a list in a single line! Check it out, along with how it would look for the construction of `my_squares`.
+
+```python
+list_were_building = [transform(thing) for thing in iterable]
+my_squares = [num ** 2 for num in my_list]
+```
+
+This last line of code does the exact same thing as the three lines above! In this line the thing that we would pass to the `append()` method on the list we're building up, `transformed_thing_to_append` gets comes at the beginning of the statement in the `[]`, then the loop statement that we had written previously comes after. Neat, huh?? Speaking of which, really what's happening is those `transformed_thing_to_append`s are getting passed to the syntactic sugar  version of the list constructor that you know so well. This is the basic idea behind the [list comprehension](https://en.wikipedia.org/wiki/List_comprehension).
+
+But wait! There's more! Remember, in all the examples where we were getting evens we had a condition to decide when to append a value to a list? We can also use conditions to determine what "transformed things" get added in a list comprehension! In addition, the syntax flows the same as we saw above. After the transformed thing that would be passed to the append method in the old way of constructing a list, you write the same structure as if you were writing the old loops, but without colons and new lines. Lets look at the evens list builder we're all so familiar with and then descriptive fake code to hammer this home.
+
+```python
+# Old way of constructing list of evens
+evens = []
+for num in range(10):
+    if num % 2 == 0:
+        evens.append(num)
+
+# Old way at high level
+list_were_building = []
+for thing in iterable:
+    if condition:
+        list_were_building.append(transform(thing))
+
+# List comprehension way of constructing list of evens
+evens = [num for num in range(10) if num % 2 == 0]
+
+# List comprehension way at high level
+list_were_building = [transform(thing) for thing in iterable if condition]
+```
+
+Same as before, just reading left to right after the thing to append, instead of top down. One thing to note though, while in the evens case we didn't actually "transform" the thing we were appending, that's fine. The way `transform()` was called in the above examples as though it were a function is actually an option when writing list comps. For example, the `my_squares` example could be accomplished in the same way with:
+
+```python
+def square(num):
+    return num ** 2
+
+my_squares = [square(num) for num in my_list]
+```
+
+This might seem silly since we could just write `num ** 2` directly in the list comp as we did above. However, this, calling of a function, in the list comp, becomes a powerful idea when you want to transform the values being iterated over is a complex way.
+
+#### Dictionary Comprehensions 
+
+Just as with list comps being a more succinct way of constructing a list, we have the same ability for dictionaries. Dictionary comprehensions operate in the same way as their list counterparts, except for one fundamental difference.
