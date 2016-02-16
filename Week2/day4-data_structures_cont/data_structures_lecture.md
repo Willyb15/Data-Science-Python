@@ -247,7 +247,7 @@ Indiana
 Colorado
 ```
 
-Notice when we access the keys, they are not printed in order. Remember that dictionaries are unordered. Here we see a direct ramification of that fact; we are not guaranteed any particular order when accessing a dictionaries' keys. It's not necessarily a problem, just a random fact we keep in our pocket for a rainy day.
+Notice when we access the keys, they are not printed in order. Remember that dictionaries are unordered. Here we see a direct ramification of that fact; we are not guaranteed any particular order when accessing a dictionary's keys. It's not necessarily a problem, just a random fact we keep in our pocket for a rainy day.
 
 The natural question that follows is whether we can loop through all of the values? This can be done with the aptly named `values()` method on dictionaries.
 
