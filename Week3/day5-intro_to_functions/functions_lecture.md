@@ -368,4 +368,54 @@ This might seem silly since we could just write `num ** 2` directly in the list 
 
 #### Dictionary Comprehensions 
 
-Just as with list comps being a more succinct way of constructing a list, we have the same ability for dictionaries. Dictionary comprehensions operate in the same way as their list counterparts, except for one fundamental difference.
+Just as list comps are a more succinct way of constructing a list, we have the same ability for dictionaries. Dictionary comprehensions operate in the same way as their list counterparts, except for one fundamental difference. Recall that dictionaries have no `append()` method, and that a new key-value pair is added to the dictionary with the syntax: `my_dict[new_key] = new_value`. In this way it makes sense that we need syntax to pass both the key and value to the dictionary comprehension. 
+
+Luckily Python gives a simple way to pass a key and value pair, and it is already very familiar to you! You just separate the key and value that you want to enter into the dictionary with a colon, like we did when we were hardcoding the contents in the `{}` dictionary constructor, i.e. `my_dict = {1: 1, 2: 4}`. Lets look at an example where we make a dictionary where the keys are the numbers 1 - 5 and the values are the squares of the keys. We'll do this with both the old way of constructing a dictionary then with a dictionary comprehension so you can see the similarities.
+
+```python
+In [1]: squares_dict = {}
+
+In [2]: for num in range(1, 6):
+   ...:     squares_dict[num] = num ** 2
+   ...:
+
+In [3]: squares_dict
+Out[3]: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
+In [4]: squares_dict = {num: num ** 2 for num in range(1, 6)} 
+
+In [4]: squares_dict
+Out[4]: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+```
+
+We can see that in both cases we're going through the numbers 1 -5 with `range(1, 6)` and those `num`s are being assigned as keys with the values being their square with `squares_dict[num] = num ** 2` and `num: num ** 2`, respectively. Just as with list comprehensions, dictionary comprehensions read as the first thing being the `key: value` pair being added to the dictionary. Then, left to right (top down in the old way) what the loop definition would look like. And, just as with list comps we can add a condition to filter what gets put into the dictionary.
+
+Say we want a dictionary with a random integer between 1 and 10 associated with each of the values in the list of words: `['cow', 'chicken', 'horse', 'moose']`. Let's look at how we'd do that with a dict comp. (We're import from the Python library `random` to get our random integers, we'll talk more about importing later in the course.)
+
+```python
+In [1]: from random import randint
+
+In [2]: animals_list = ['cow', 'chicken', 'horse', 'moose']
+
+In [3]: animals_dict = {animal: randint(1, 10) for animal in animals_list}
+
+In [4]: animals_dict
+Out[4]: {'chicken': 2, 'cow': 10, 'horse': 9, 'moose': 8}
+```
+
+It's as simple as that.
+
+#### Other Comprehensions
+
+You can actually use the syntax from the list comprehensions to construct a tuple in what seems like a dynamic way. Take the example.
+
+```python
+In [1]: my_tuple = tuple(num for num in range(10) if num % 2 == 0)
+
+In [2]: my_tuple
+Out[2]: (0, 2, 4, 6, 8)
+```
+
+All we are doing here is passing `num for num in range(10) if num % 2 == 0` to the tuple constructor. Since the tuple constructor take any iterable, with that statement produces, it makes a tuple out of the contents. Note that it would be impossible to make a tuple with statements like this the "old way" since tuples don't support appending or mutation of any kind!
+
+For this reason, in addition to their readability, comprehensions of all types are considered the most Pythonic way of constructing new data structures.
