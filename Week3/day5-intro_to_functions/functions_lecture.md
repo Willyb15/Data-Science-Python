@@ -302,7 +302,7 @@ Notice that `my_global_var` is accessible anywhere - both inside and outside of 
 
 ### List and Dictionary Comprehensions
 
-The last topic we're going to cover today is not on functions, but instead a different way to accomplish something you already know about: constructing list and dictionaries. Consider the frequent task that we perform at the beginning of dealing with lists and dictionaries, constructing them. Thus far we have taken advantage of the mutability inherent to lists and dictionaries to build them up one element or key-value pair, respectively, at a time. However there is a more succinct way to accomplish the vast majority of your list and dictionary construction tasks.
+The last topic we're going to cover today is not on functions, but instead a different way to accomplish something you already know about: constructing lists and dictionaries. Consider the frequent task that we perform at the beginning of dealing with lists and dictionaries, initializing them. Thus far we have taken advantage of the mutability inherent to lists and dictionaries to build them up one element/one key-value pair at a time. However, there is a more succinct way to accomplish the vast majority of your list and dictionary construction tasks.
 
 #### List Comprehensions
 
@@ -316,7 +316,7 @@ for num in my_list:
     my_squares.append(num ** 2)
 ```
 
-And now `my_squares` will hold the list `[1, 25, 81, 1089]`. To get is basically what we were doing was specifying a range of stuff that will be added on to the end of the list. So from a high level we can write the framework of creating a list in code as:
+And now, `my_squares` will hold the list `[1, 25, 81, 1089]`. To get this we were simply specifying a bunch of stuff that we wanted to add on to the end of the list. So, from a high level, we can write the framework of creating a list in code as:
 
 ```python
 list_were_building = []
@@ -324,16 +324,16 @@ for thing in iterable:
     list_were_building.append(transform(thing))
 ```
 
-Now for the fun part, with this structure in mind we can use the following syntax to perform the same task of building up a list in a single line! Check it out, along with how it would look for the construction of `my_squares`.
+With this structure in mind, we can use the following syntax to perform the same task of building up a list in a single line! Check it out, along with how it would look for the construction of `my_squares`.
 
 ```python
 list_were_building = [transform(thing) for thing in iterable]
 my_squares = [num ** 2 for num in my_list]
 ```
 
-This last line of code does the exact same thing as the three lines above! In this line the thing that we would pass to the `append()` method on the list we're building up, `transformed_thing_to_append` gets comes at the beginning of the statement in the `[]`, then the loop statement that we had written previously comes after. Neat, huh?? Speaking of which, really what's happening is those `transformed_thing_to_append`s are getting passed to the syntactic sugar  version of the list constructor that you know so well. This is the basic idea behind the [list comprehension](https://en.wikipedia.org/wiki/List_comprehension).
+This last line of code does the exact same thing as the three lines above! In this line, the thing that we would pass to the `append()` method on the list we're building up, `transformed_thing_to_append`, comes at the beginning of the statement in the `[]`. Then, the loop statement that we had written previously comes after. Neat, huh?? Speaking of which, what's really happening is that those `transformed_thing_to_append`s are getting passed to the syntactic sugar  version of the list constructor that you know so well. This is the basic idea behind the [list comprehension](https://en.wikipedia.org/wiki/List_comprehension).
 
-But wait! There's more! Remember, in all the examples where we were getting evens we had a condition to decide when to append a value to a list? We can also use conditions to determine what "transformed things" get added in a list comprehension! In addition, the syntax flows the same as we saw above. After the transformed thing that would be passed to the append method in the old way of constructing a list, you write the same structure as if you were writing the old loops, but without colons and new lines. Lets look at the evens list builder we're all so familiar with and then descriptive fake code to hammer this home.
+But wait! There's more! Remember in all the examples where we were getting evens, we had a condition to decide when to append a value to a list? We can also use conditions to determine what "transformed things" get added in a list comprehension! In addition, the syntax flows the same as we saw above. After the transformed thing that would be passed to the append method in the old way of constructing a list, you write the same structure as if you were writing the old loops, but without colons and new lines. Let's look at the evens list builder to hammer this home.
 
 ```python
 # Old way of constructing list of evens
@@ -355,7 +355,7 @@ evens = [num for num in range(10) if num % 2 == 0]
 list_were_building = [transform(thing) for thing in iterable if condition]
 ```
 
-Same as before, just reading left to right after the thing to append, instead of top down. One thing to note though, while in the evens case we didn't actually "transform" the thing we were appending, that's fine. The way `transform()` was called in the above examples as though it were a function is actually an option when writing list comps. For example, the `my_squares` example could be accomplished in the same way with:
+Same as before, just reading left to right after the thing to append, instead of top down. One thing to note, though, is that while in the evens case we didn't actually "transform" the thing we were appending, that's fine. The way `transform()` was called in the above examples, as though it were a function, is an option when writing list comps. For example, the `my_squares` example could be accomplished in the same way with:
 
 ```python
 def square(num):
@@ -364,13 +364,13 @@ def square(num):
 my_squares = [square(num) for num in my_list]
 ```
 
-This might seem silly since we could just write `num ** 2` directly in the list comp as we did above. However, this, calling of a function, in the list comp, becomes a powerful idea when you want to transform the values being iterated over is a complex way.
+This might seem silly, since we could just write `num ** 2` directly in the list comp as we did above. However, this calling of a function in the list comp becomes a powerful idea when you want to transform the values being iterated over in a complex way.
 
 #### Dictionary Comprehensions 
 
-Just as list comps are a more succinct way of constructing a list, we have the same ability for dictionaries. Dictionary comprehensions operate in the same way as their list counterparts, except for one fundamental difference. Recall that dictionaries have no `append()` method, and that a new key-value pair is added to the dictionary with the syntax: `my_dict[new_key] = new_value`. In this way it makes sense that we need syntax to pass both the key and value to the dictionary comprehension. 
+Just as list comps are a more succinct way of constructing a list, we have the same ability for dictionaries. Dictionary comprehensions operate in the same way as their list counterparts, except for one fundamental difference. Recall that dictionaries have no `append()` method, and that a new key-value pair is added to the dictionary with the syntax: `my_dict[new_key] = new_value`. In this way, it makes sense that we need syntax to pass both the key and value to the dictionary comprehension. 
 
-Luckily Python gives a simple way to pass a key and value pair, and it is already very familiar to you! You just separate the key and value that you want to enter into the dictionary with a colon, like we did when we were hardcoding the contents in the `{}` dictionary constructor, i.e. `my_dict = {1: 1, 2: 4}`. Lets look at an example where we make a dictionary where the keys are the numbers 1 - 5 and the values are the squares of the keys. We'll do this with both the old way of constructing a dictionary then with a dictionary comprehension so you can see the similarities.
+Luckily, Python gives a simple way to pass a key and value pair, and it is already very familiar to you! You just separate the key and value that you want to enter into the dictionary with a colon, like we did when we were hardcoding the contents in the `{}` dictionary constructor, i.e. `my_dict = {1: 1, 2: 4}`. Let's look at an example where we make a dictionary with the keys as the numbers 1 - 5, and the values as the squares of the keys. We'll do this with both the old way of constructing a dictionary, and then with a dictionary comprehension so that we can see the similarities.
 
 ```python
 In [1]: squares_dict = {}
@@ -388,9 +388,9 @@ In [4]: squares_dict
 Out[4]: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 ```
 
-We can see that in both cases we're going through the numbers 1 -5 with `range(1, 6)` and those `num`s are being assigned as keys with the values being their square with `squares_dict[num] = num ** 2` and `num: num ** 2`, respectively. Just as with list comprehensions, dictionary comprehensions read as the first thing being the `key: value` pair being added to the dictionary. Then, left to right (top down in the old way) what the loop definition would look like. And, just as with list comps we can add a condition to filter what gets put into the dictionary.
+We can see that in both cases, we're going through the numbers 1 -5 with `range(1, 6)` and those `num`s are being assigned as keys, with the values being their square with `squares_dict[num] = num ** 2` and `num: num ** 2`, respectively. Just as with list comprehensions, dictionary comprehensions read as the first thing being the `key: value` pair being added to the dictionary. Then, left to right (top down in the old way), we have what the loop definition would look like. And, just as with list comps, we can add a condition to filter what gets put into the dictionary.
 
-Say we want a dictionary with a random integer between 1 and 10 associated with each of the values in the list of words: `['cow', 'chicken', 'horse', 'moose']`. Let's look at how we'd do that with a dict comp. (We're import from the Python library `random` to get our random integers, we'll talk more about importing later in the course.)
+Say that we want a dictionary with a random integer between 1 and 10, associated with each of the values in the list of words: `['cow', 'chicken', 'horse', 'moose']`. Let's look at how we'd do that with a dict comp. (We're importing from the Python library `random` to get our random integers. We'll talk more about importing later in the course.)
 
 ```python
 In [1]: from random import randint
@@ -416,6 +416,6 @@ In [2]: my_tuple
 Out[2]: (0, 2, 4, 6, 8)
 ```
 
-All we are doing here is passing `num for num in range(10) if num % 2 == 0` to the tuple constructor. Since the tuple constructor take any iterable, with that statement produces, it makes a tuple out of the contents. Note that it would be impossible to make a tuple with statements like this the "old way" since tuples don't support appending or mutation of any kind!
+All we are doing here is passing `num for num in range(10) if num % 2 == 0` to the tuple constructor. Since the tuple constructor takes any iterable, which that statement produces, it makes a tuple out of the contents. Note that it would be impossible to make a tuple with statements like this the "old way", since tuples don't support appending or mutation of any kind!
 
 For this reason, in addition to their readability, comprehensions of all types are considered the most Pythonic way of constructing new data structures.
