@@ -241,7 +241,7 @@ Why is it more Pythonic? That's a good question. When we say that something is m
 
 Well, we can see that it is more readable since we don't have to index into our string anymore. This means that there is less to follow along with and keep track of; rather than keeping track of both the current index we are on and what letter that index corresponds to in our string, all we have to keep track of is the current letter we're on. We can also note that our code just looks cleaner and more simple, too. In terms of making our code more optimal, since we no longer have to index into the string to grab characters, we have fewer steps in each iteration of the loop. This means less work for Python to do.
 
-#### A quick aside on string formatting 
+#### A Quick Aside on String Formatting 
 
 There's one more thing that we should talk about before moving on from our discussion of strings, and that's string formatting. Why is this important? Well, it's what's going to allow us to format strings in certain ways. Probably most usefully, it's going to allow us to insert variable contents into strings dynamically. We'll get an idea of how and when this is most useful as we work through this course. For now, let's just look at the syntax of it all.  
 
@@ -255,7 +255,17 @@ In [3]: print 'Hello {}'.format(my_name)
 Hello Sean
 ```
 
-Oh, neat! So, how is this working? Well, in each case, it's filling in a given part of our string with the value of our variable. In the first case, we use a `%` sign to denote where the replacement should happen, followed by a letter to denote what type of variable will be passed in there (`s` is used for string, `d` is for a decimal, etc.). You can find what each letter denotes [here](https://docs.python.org/2/library/stdtypes.html#string-formatting). In the second case, we use brackets `{}` to denote where the replacement should take place. We can also place numbers, or even variable names themselves inside these brackets. This is something that we don't use much past pretty simple cases, but there are many more things you can do with it - you can read about them [here](https://docs.python.org/2/library/string.html#format-specification-mini-language). 
+Oh, neat! So, how is this working? Well, in each case, it's filling in a given part of our string with the value of our variable. In the first case, we use a `%` sign to denote where the replacement should happen, followed by a letter to denote what type of variable will be passed in there (`s` is used for string, `d` is for a decimal, etc.). You can find what each letter denotes [here](https://docs.python.org/2/library/stdtypes.html#string-formatting). In the second case, we use brackets `{}` to denote where the replacement should take place. We can also place numbers, or even variable names themselves inside these brackets and referece them in the `format()` method. i.e.
+
+```python
+In [1]: print 'Hello {0}'.format(my_name)
+Hello Sean 
+
+In [2]: print 'Hello {name}'.format(name=my_name)
+Hello Sean 
+```
+
+This is something that we don't use much past pretty simple cases, but there are many more things you can do with it - you can read about them [here](https://docs.python.org/2/library/string.html#format-specification-mini-language). In general, though, string formatting is much more readable and dynamic as compared to a bunch of concatenation.
 
 ### Lists
 
