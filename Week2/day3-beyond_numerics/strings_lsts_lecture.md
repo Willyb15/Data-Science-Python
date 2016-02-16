@@ -4,7 +4,7 @@ Last week we learned about how to use Python's power with `while` loops and cond
 
 ### Strings
 
-Today we are going to learn about another common data type, strings. From a high-level perspective, a string is just a bit of text. This could be text that you have read in from a file, html that you have pulled from the Internet, or any other text. From Python's perspective, a string (type `str`) is simply a collection of encoded characters. Wait, what's an encoding...?
+First we are going to learn about another common data type, strings. From a high-level perspective, a string is just a bit of text. This could be text that you have read in from a file, html that you have pulled from the Internet, or any other text. From Python's perspective, a string (type `str`) is simply a collection of encoded characters. Wait, what's an encoding...?
 
 An encoding is just a fancy way of us saying that the characters in our string follow a certain format, or structure. The reason it matters for us in terms of our Python programs, though, is that Python expects our strings to be in one of a couple of different encodings (either `ASCII`, `utf-8`, or `unicode`). This isn't something you will run into often, and especially not when defining your own strings (it's probably most prevalent when pulling text from the Internet). However, it's worth noting because there is a good chance that sometime in your Python career, you will end up with Python telling you it doesn't recognize a certain character in one of your strings, and an unexpected encoding will most likely be at the heart of that error.
 
@@ -247,7 +247,7 @@ We've been talking about this idea of iterables for a while now and have seen ou
 
 #### Intro to Lists
 
-Lists are a more complex type of data structure. From a high level, lists are a collection of ordered items. These items can be any type, and a list can contain items of different types, or all the same type. You can construct a list in one of two ways. The first is simply by passing an arbitrary number of items into square brackets, `[]`. The second is by passing an iterable into the `list()` constructor (we'll discuss exactly what an iterable and constructor are later). For example...
+Lists are a more complex type of data structure. From a high level, lists are collections of ordered items. These items can be of any type, and a list can contain items of different types, or all the same type. You can construct a list in one of two ways. The first is simply by passing an arbitrary number of items into square brackets, `[]`, separated by commas. The second is by passing an iterable into the `list()` constructor (we'll discuss exactly what an iterable and constructor are later). For example...
 
 ```python
 In [1]: my_first_lst = [1, 'hello', 3, 'goodbye']
@@ -314,7 +314,7 @@ my_lst.extend   my_lst.pop      my_lst.sort
 
 #### Working with Individual Elements in Lists
 
-Working with individual elements in a list works the same way as working with them in strings.
+Working with individual elements in a list works the same way as working with characters in strings.
 
 ```python
 In [1]: my_lst = [1, 2, 'hello', 'goodbye']
@@ -334,7 +334,7 @@ Out[5]: 'goodbye'
 
 **Note**: Remember that the ending index is non-inclusive.
 
-Just as with strings, we can also add a 3rd number to our list indexing to step through the list and only grab certain elements.
+Just as with strings, we can also add a 3rd number to our list indexing to step through the list and only grab elements at regular intervals.
 
 ```python
 In [1]: my_lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -370,7 +370,7 @@ Just as in the case of iterating through our strings, our `for` loop iterates ov
 
 What if I absolutely need the indices, though? Is there a way that I can still iterate through using a for loop without `range()` and `len()`, the way you're telling me is Pythonic, and still get the indices, too?? Yes!
 
-There is a function, `enumerate()`, that will allow you to iterate through a list or string (grabbing each of the individual elements in the list or characters in the string) while at the same time keeping track of the index. The trick is that instead of using just one variable (such as `num` above) to store the elements of the list as you loop through them, you use two variables. One of these variables stores the current index, and the other stores the current element of the list you're on. Let's see how it works...
+There is a function, `enumerate()`, that will allow you to iterate through a list or string (grabbing each of the individual elements in the list or characters in the string) while at the same time keeping track of the index. The trick is that instead of using just one variable (such as `num` above) to store the elements of the list as you loop through them, you use two variables. The first of these variables stores the current index, and the second stores the corresponding element in the list. Let's see how it works...
 
 ```python
 In [1]: my_lst = [1, 2, 3, 4, 5]
@@ -389,4 +389,4 @@ Neat, huh!? The trick here is that when we call `enumerate()` on our list, `enum
 
 ### The Magic of Iterables
 
-Strings and lists are two kinds of iterables that we have looked at today. There are many other kinds of iterables that we'll work with in Python, and you can even define your own iterable if you'd like. The important thing that we want to note for now, though, is that the `for` loops that we have looked at today will work for any iterable. You can simply write `for <variable name> in iterable:`, and at each iteration through the loop you will be able to access another element from that iterable. Also, as mentioned above, the `list()` constructor accepts any iterable as an argument, and then creates a `list`, where each element in the iterable is a single element in the `list`.
+Strings and lists are two kinds of iterables that we have looked at today. There are many other kinds of iterables that we'll work with in Python, and you can even define your own iterable if you'd like. The important thing that we want to note for now, though, is that the `for` loops that we have looked at today will work for any iterable. You can simply write `for <variable name> in <iterable>:`, and at each iteration through the loop you will be able to access another element from that iterable via `variable name`. Also, as mentioned above, the `list()` constructor accepts any iterable as an argument, and then creates a `list`, where each element in the iterable is a single element in the `list`.
