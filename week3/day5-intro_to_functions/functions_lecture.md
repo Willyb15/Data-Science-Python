@@ -23,7 +23,7 @@ Second, since the implementation is hidden from the caller, that actual implemen
 
 #### Built-in Functions  
 
-In our programming journey so far, we've actually seen a number of functions. We've worked with the `len()` function, which returns the length of an inputted iterable. We've also worked with the `range()` function, which returns a list of numbers from an inputted minimum number to an inputted maximum number. There are many built-in functions that are available in Python, and you can find them [here](https://docs.python.org/2/library/functions.html). Each one of these functions is constructed in a very similar way, and they all take some arbitrary number of arguments. What if we want to have functions that perform tasks other than those available to us in the built-ins, though? Tonight, we'll learn how to define our own functions in such a way that we can use them as we have been using the built-ins! 
+In our programming journey so far, we've actually seen a number of functions. We've worked with the `len()` function, which returns the length of an inputted iterable. We've also worked with the `range()` function, which returns a list of numbers from an inputted minimum number to an inputted maximum number. There are many built-in functions that are available in Python, and you can find them [here](https://docs.python.org/2/library/functions.html). Each one of these functions is constructed in a very similar way, and they all take some arbitrary number of arguments. What if we want to have functions that perform tasks other than those available to us in the built-ins, though? Tonight, we'll learn how to define our own functions in such a way that we can use them as we have been using the built-ins!
 
 #### Function Definition Part 1
 
@@ -36,7 +36,7 @@ for element in some_collection:
         evens.append(element)
 ```
 
-Now, let's imagine that that `some_collection` is actually just a list of numbers from 0 to 9 (i.e. `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`). Remember that we can use the `range()` function to create this. To get a list of all the even numbers from 0 to 9, then, we can modify our code as follows. 
+Now, let's imagine that that `some_collection` is actually just a list of numbers from 0 to 9 (i.e. `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`). Remember that we can use the `range()` function to create this. To get a list of all the even numbers from 0 to 9, then, we can modify our code as follows.
 
 ```python
 evens = []
@@ -57,7 +57,7 @@ The first line will always start off with a `def` statement followed by a space.
 def my_func():
     pass # This pass just acts as a filler right now.
 ```
-Let's dive a little more into each of the parts and note what's important about them. First off, the `def` statement. This is what tells Python that what's coming after is a function, and what will make Python store your function in such a way that it is callable later on in your program. Second, the function name. The only real thing to note about this is that function naming conventions follow variable naming conventions (i.e. *snakecase*, where we lowercase our words and separate them by underscores). Next up are the parentheses. These are going to be filled with an optional and arbitrary number of parameters (which will dive into a little later). Finally, the colon, `:`. This is what is going to signal to Python that the function definition is over, and what follows will be the block of code that makes up the meat of the function. 
+Let's dive a little more into each of the parts and note what's important about them. First off, the `def` statement. This is what tells Python that what's coming after is a function, and what will make Python store your function in such a way that it is callable later on in your program. Second, the function name. The only real thing to note about this is that function naming conventions follow variable naming conventions (i.e. *snakecase*, where we lowercase our words and separate them by underscores). Next up are the parentheses. These are going to be filled with an optional and arbitrary number of parameters (which will dive into a little later). Finally, the colon, `:`. This is what is going to signal to Python that the function definition is over, and what follows will be the block of code that makes up the meat of the function.
 
 So, how would we build our `evens` code from earlier into a function? Well, all we have to do is simply copy and paste that block of code after our function definition. Let's be sure to give it a more descriptive name, though...
 
@@ -93,7 +93,7 @@ In [2]: get_evens()
 Out[2]: [0, 2, 4, 6, 8]
 ```
 
-Let's take a little bit more time to discuss the `return` statement. It's nice that it allows us to get back something from a function, but we do have to be careful with it, and make sure that we are using it in the way that we want. `return` is similar to the `break` statement that we learned about in Week 1. As soon as our function sees the `return` statement during execution, it will immediately exit from the function, giving back whatever output it has when it encounters the `return` statement. Let's alter the `return` statement in our `get_evens()` function to see how this comes into play. 
+Let's take a little bit more time to discuss the `return` statement. It's nice that it allows us to get back something from a function, but we do have to be careful with it, and make sure that we are using it in the way that we want. `return` is similar to the `break` statement that we learned about in Week 1. As soon as our function sees the `return` statement during execution, it will immediately exit from the function, giving back whatever output it has when it encounters the `return` statement. Let's alter the `return` statement in our `get_evens()` function to see how this comes into play.
 
 ```python
 In [1]: def get_evens():
@@ -114,7 +114,7 @@ Okay, cool!
 
 #### Function Definitions Part 2
 
-This is great, but what if we want to have the function act in a different way depending on how I (or somebody else) want to use it? What good is `get_evens()` if I want the evens from 0 to 20? As we've been hinting at, you can define functions in such a way that you can pass values to them. Let's change the `get_evens()` function that we defined above so that it can build an arbitrarily sized list of evens. We'll use our current code as a base, and build off of it as we work through defining functions with parameters, and calling functions with arguments passed in. We'll begin this exploration by adding in a parameter to the function definition. This parameter will control the range of numbers that we will grab evens from. 
+This is great, but what if we want to have the function act in a different way depending on how I (or somebody else) want to use it? What good is `get_evens()` if I want the evens from 0 to 20? As we've been hinting at, you can define functions in such a way that you can pass values to them. Let's change the `get_evens()` function that we defined above so that it can build an arbitrarily sized list of evens. We'll use our current code as a base. We'll begin this exploration by adding in a parameter to the function definition. This parameter be the non-inclusive maximum for which we will append to our list of even numbers.
 
 ```python
 In [1]: def get_evens(n):
@@ -125,7 +125,7 @@ In [1]: def get_evens(n):
    ...:     return evens
 ```
 
-With this implementation of our function, we can now pass in an arbitrary number to our function call, and then we will search for evens in a `range()` built with that arbitrary number. How exactly does this work, though? Well, we've told Python that our function should expect one and only one argument to be passed to it. When we call the function and pass in that argument, it will get assigned to whatever name we have given in the function definition (here it's `n`). Then, anytime we reference that given name (`n`) within the function, it will replace that given name with the value that we passed in. Let's check out a couple of different calls with this function, and see what they return.
+With this implementation of our function, we can now pass in an arbitrary number to our function call, and then we will search for evens in a `range()` built with that arbitrary number. How exactly does this work, though? Well, we've told Python that our function should expect one and only one argument. When we call the function and pass in that argument, it will get assigned to whatever name we have given in the function definition (here it's `n`). Then, anytime we reference that given name (`n`) within the function, it will replace that given name with the value that we passed to our function. Let's check out a couple of different calls with this function, and see what they return.
 
 ```python
 In [1]: def get_evens(n):
@@ -170,9 +170,9 @@ In [5]: get_evens(20)
 Out[5]: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
 ```
 
-Here, we've specified the default value for `n` to be 5. That is, if no value is passed in for `n`, we assign the value of 5 to it. So you'll notice in the first function call to `get_evens()` where we pass no arguments, we get the same output as if we pass in the value 5 (which makes sense, since we set 5 as the default). Meanwhile, when we pass in other values (14 and 20), we get the same results as before. This is the point of setting a default parameter value - if the caller of the function specifies a value for that parameter, then that is the value used in the function; otherwise, the default value that was specified is used.
+Here, we've specified the default value for `n` to be 5. That is, if no value is passed in for `n`, we assign the value of 5. You'll notice in the first function call to `get_evens()` where we pass no arguments, we get the same output as if we pass in the value 5 (which makes sense, since we set 5 as the default). Meanwhile, when we pass in other values (14 and 20), we get the same results as we saw when no default value was passed. This is the point of setting a default parameter value - if the caller of the function specifies a value for that parameter, then that is the value used in the function; otherwise, the specified default value is used.
 
-Okay, so those are the basics! We can of course define our functions with multiple parameters, and then pass in multiple arguments for those parameters when calling the function. And just like we can specify a default value for a single parameter, we can also specify default values for multiple parameters if we would like. Let's first modify our function so that we by default return a list of evens from the user inputted range (defined by `n`), but also give the user the option to input a different divisor (instead of 2) that will then return numbers in the inputted range that are divisible by the inputted divisor (i.e. the multiples of that number). We'll also change our function name and the name of the returned list (`evens`) so that they become more descriptive (our function is no longer outputting just evens).  
+Okay, so those are the basics! We can also define our functions with multiple parameters, and then pass in multiple arguments for those parameters when calling the function. Similar to specifying a default value for a single parameter, we can specify default values for multiple parameters. Let's first modify our function so that we by default return a list of evens from the user inputted range (defined by `n`), but also give the user the option to input a different divisor (instead of 2) that will then return numbers in the inputted range that are divisible by the inputted divisor (i.e. the multiples of that number). We'll also change our function name and the name of the returned list (`evens`) so that they become more descriptive (our function is no longer outputting just evens).  
 
 ```python
 In [1]: def get_multiples(n=5, divisor=2):
@@ -223,7 +223,7 @@ In [2]: def get_multiples(n=5, divisor):
     def get_multiple(n=5, divisor):
 SyntaxError: non-default argument follows default argument
 ```
-Hopefully this pretty clearly demonstrates this "rule". In the first case, we defined our parameters that have default values (which is only one, `divisor`, here) after defining our parameters that don't have default values (which is only one, `n`, here), just as we are supposed to. And everything worked fine! In the second case, we defined a parameter with a default value before a parameter without a default value. That's a no no, and Python let us know! 
+Hopefully this pretty clearly demonstrates this "rule". In the first case, we defined our parameters that have default values (which is only one, `divisor`, here) after defining our parameters that don't have default values (which is only one, `n`, here), just as we are supposed to. And everything worked fine! In the second case, we defined a parameter with a default value before a parameter without a default value. That's a no no, and Python let us know!
 
 #### Parameters vs Arguments
 
@@ -298,6 +298,8 @@ NameError: name 'my_local_var' is not defined
 ```
 
 Notice that `my_global_var` is accessible anywhere - both inside and outside of our function. This is because it is in the **global scope**. `my_local_var`, on the other hand, was defined within `my_test_func`. As a result, it is enclosed within the scope of `my_test_func`, and not accessible outside of it.   
+<<<<<<< HEAD:Week3/day5-intro_to_functions/functions_lecture.md
+=======
 
 ### List and Dictionary Comprehensions
 
@@ -305,7 +307,7 @@ The last topic we're going to cover today is not on functions, but instead a dif
 
 #### List Comprehensions
 
-Before we dive into the specifics about how this new tools works, lets look at a toy question where we build a list so that we can break down the process.
+Before we dive into the specifics about how this new tools works, let's look at a toy question where we build a list so that we can break down the process.
 
 Consider you have the list `[1, 5, 9, 33]` stored in the variable `my_list`. Now you want to make a new list of the squares of all the values in `my_list` and call it `my_squares`. With the tools you know about, code that you'd write to perform this task might look like this:
 
@@ -365,9 +367,9 @@ my_squares = [square(num) for num in my_list]
 
 This might seem silly, since we could just write `num ** 2` directly in the list comp as we did above. However, this calling of a function in the list comp becomes a powerful idea when you want to transform the values being iterated over in a complex way.
 
-#### Dictionary Comprehensions 
+#### Dictionary Comprehensions
 
-Just as list comps are a more succinct way of constructing a list, we have the same ability for dictionaries. Dictionary comprehensions operate in the same way as their list counterparts, except for one fundamental difference. Recall that dictionaries have no `append()` method, and that a new key-value pair is added to the dictionary with the syntax: `my_dict[new_key] = new_value`. In this way, it makes sense that we need syntax to pass both the key and value to the dictionary comprehension. 
+Just as list comps are a more succinct way of constructing a list, we have the same ability for dictionaries. Dictionary comprehensions operate in the same way as their list counterparts, except for one fundamental difference. Recall that dictionaries have no `append()` method, and that a new key-value pair is added to the dictionary with the syntax: `my_dict[new_key] = new_value`. In this way, it makes sense that we need syntax to pass both the key and value to the dictionary comprehension.
 
 Luckily, Python gives a simple way to pass a key and value pair, and it is already very familiar to you! You just separate the key and value that you want to enter into the dictionary with a colon, like we did when we were hardcoding the contents in the `{}` dictionary constructor, i.e. `my_dict = {1: 1, 2: 4}`. Let's look at an example where we make a dictionary with the keys as the numbers 1 - 5, and the values as the squares of the keys. We'll do this with both the old way of constructing a dictionary, and then with a dictionary comprehension so that we can see the similarities.
 
@@ -381,7 +383,7 @@ In [2]: for num in range(1, 6):
 In [3]: squares_dict
 Out[3]: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 
-In [4]: squares_dict = {num: num ** 2 for num in range(1, 6)} 
+In [4]: squares_dict = {num: num ** 2 for num in range(1, 6)}
 
 In [4]: squares_dict
 Out[4]: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
