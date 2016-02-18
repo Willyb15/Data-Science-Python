@@ -126,7 +126,7 @@ Out[2]: 6
 
 Notice how the first line is formatted. Python knows that the `=` means variable assignment, so when it sees the first line it evaluates the right side of the equals and then puts that value in `x`, even though `x` is part of the calculation on the right side.
 
-Changing variables in this way occurs so commonly that there is built-in shorthand for it. The result of the first line could have been achieved with `x += 5`. This *syntatic sugar* is available for all the simple operations `+`, `-`, `*`, `/`, `**`, and `%` that we covered earlier.
+Changing variables in this way occurs so commonly that there is built-in shorthand for it. The result of the first line could have been achieved with `x += 5`. This *syntactic sugar* is available for all the simple operations `+`, `-`, `*`, `/`, `**`, and `%` that we covered earlier.
 
 ### Logic
 
@@ -345,6 +345,7 @@ if not (x <= 10 and x >= 5):
 Notice how the first `if` in the above code snippet uses an `or`, printing `x` if it is greater than 10 or less than 5. Inherently this statement is also saying that it will print `x` if `x` is not between 5 and 10, which is expressed in the second `if` statement. This illustrates an important point - there is always more than one way to accomplish the same thing in programming.
 
 ### Looping
+
 We are now prepared to learn about another extremely powerful programming construct. Everything that we learned in the last section on logic is part of an idea called **control flow**. Flow refers to the order in which statements in your program are executed. Controlling this flow can be done in many ways; so far we have learned about `if`-`elif`-`else` statements, but there are a number of others.
 
 One thing that we find in programming is that we want to do something over and over (and over), possibly under the same circumstances each time, but frequently under slightly different circumstances each time. With the tools that we currently possess, we have to write out a line of Python for each time that we want to do that something. Let's go through a more concrete example.
@@ -360,9 +361,9 @@ While this definitely works, there are a couple of things I want to draw your at
 
 Instead of having all of these **hard coded** values in our definition of `sum_1_8`, we could instead **abstract** away part of our problem. What is this abstraction? In programming, we talk about abstraction when we want to refer to an idea whose implementation is more general and/or hidden from us. In the above example, we see exactly what we're doing to sum the numbers 1 through 8. This isn't abstracted at all. So how are we to solve this problem more abstractly?
 
-This is a question that you will frequently be faced with; how do you do something... in code? A good strategy to solve these problems is to approach the problem from a high level (i.e. in plain english, no code).
+This is a question that you will frequently be faced with; how do you do something... in code? A good strategy to solve these problems is to approach the problem from a high level (i.e. in plain English, no code).
 
-So let's do that with our coding problem above. We were asked to add together the numbers 1 through 8. This can be thought of as given a starting number, 1, and then adding on the next number, 2, to get 3. Then we can repeat this process, taking the next number, 3, and adding it on, giving us 6. We could then continue this process until we reach the final number ,8, and then stop. (This is inherently what we were doing in that single line of Python when we said `1 + 2 + 3 + 4 + 5 + 6 + 7 + 8`, but that implementation is what we call **brittle** - it only works for that specific case and breaks whenever we want to do something even slightly different.)
+So let's do that with our coding problem above. We were asked to add together the numbers 1 through 8. This can be thought of as given a starting number, 1, and then adding on the next number, 2, to get 3. Then we can repeat this process, taking the next number, 3, and adding it on, giving us 6. We could then continue this process until we reach the final number, 8, and then stop. (This is inherently what we were doing in that single line of Python when we said `1 + 2 + 3 + 4 + 5 + 6 + 7 + 8`, but that implementation is what we call **brittle** - it only works for that specific case and breaks whenever we want to do something even slightly different.)
 
 #### While Loops
 
@@ -381,29 +382,29 @@ As with  `if`, a `while` statement has a condition; unlike the `if`, the while b
 Let's look at how we can harness this new structure to solve our previous problem. Take a look at the following code.
 
 ```python
-total, x = 0, 0
-while x < 8:
-    x += 1
+total, x = 0, 1
+while x <= 8:
     total += x
+    x += 1
 print(total)
 ```
 
-Let's break down this code to see what is going on. On the first line, we declare a couple of variables (that is the syntax in Python used to do multiple assignments on a single line), `total` and `x`. `total` is the variable that we are going to aggregate our sum into, and `x` is the first number that we start our adding at. The next line declares the start of our newly learned `while` block. It's condition is x < 8, and naturally reads as: "while x is less than 8", do stuff in the block. The block then says we are to add the current value of `x` to total, then add one to `x`.
+Let's break down this code to see what is going on. On the first line, we declare a couple of variables (here you see the Python syntax used to do multiple assignments in a single line), `total` and `x`. `total` is the variable that we are going to aggregate our sum into, and `x` is the first number that we start our adding at. The next line declares the start of our newly learned `while` block. It's condition is x <= 8, and naturally reads as: "while x is less than or equal to 8", do stuff in the block. The block then says we are to add the current value of `x` to total, then add one to `x`.
 
 We know that this `while` statement will loop through the `while` block many times, but the values of `total` and `x` will change each time through the loop. So, let's take a look at what the values of both of these variables are throughout the execution of the loop.
 
-| After loop #  |   total   |   x   |   x < 8    |
+| After loop #  |   total   |   x   |   x <= 8   |
 | ------------- |:---------:|:-----:|:----------:|
-| 1             |  1        |   1   |    True    |
-| 2             |  3        |   2   |    True    |
-| 3             |  6        |   3   |    True    |
-| 4             |  10       |   4   |    True    |
-| 5             |  15       |   5   |    True    |
-| 6             |  21       |   6   |    True    |
-| 7             |  28       |   7   |    True    |
-| 8             |  36       |   8   |    False   |
+| 1             |  1        |   2   |    True    |
+| 2             |  3        |   3   |    True    |
+| 3             |  6        |   4   |    True    |
+| 4             |  10       |   5   |    True    |
+| 5             |  15       |   6   |    True    |
+| 6             |  21       |   7   |    True    |
+| 7             |  28       |   8   |    True    |
+| 8             |  36       |   9   |    False   |
 
-We see that as we continue through the loop, `total` is growing by the current value of `x`, and this continues until the condition `x < 8` evaluates to `False`. This happens when `x` is 8, at which point we exit the loop, and `total` has accrued the sum of the numbers 1 through 8. Magic!!
+We see that as we continue through the loop, `total` is growing by the value of `x` from the previous execution of the loop, and this continues until the condition `x <= 8` evaluates to `False`. This happens when `x` is 9, at which point we exit the loop, and `total` has accrued the sum of the numbers 1 through 8. Magic!!
 
 To solidify this idea in the framework of control flow, take a look at the structure of the `while` loop as a flow diagram.
 
@@ -419,7 +420,7 @@ Notice that our condition in the `while` loop example made sense because we were
 
 Let's take a look at what the loop table would look like in this situation.
 
-| After loop #  |   total   |   x   |   x < 8    |
+| After loop #  |   total   |   x   |   x <= 8   |
 | ------------- |:---------:|:-----:|:----------:|
 | 1             |  1        |   1   |    True    |
 | 2             |  2        |   1   |    True    |
@@ -427,9 +428,9 @@ Let's take a look at what the loop table would look like in this situation.
 | 4             |  4        |   1   |    True    |
 | Etc.          |  Etc.     |  Etc. | **Always** True |
 
-Aside from the obvious problem that we aren't solving the problem of summing the values 1 through 8, we run into another, very egregious issue. Will the condition `x < 8` ever evaluate to `False`? No. So how do we get out of the loop?? We can't!
+Aside from the obvious problem that we aren't finding the sum of the values 1 through 8, we run into another, very egregious issue. Will the condition `x <= 8` ever evaluate to `False`? No. So will the loop ever finish executing?? It won't!!
 
-We call this idea getting stuck in an *infinite loop*. They are almost **always** bad, and they usually manifest themselves as your programming running for way longer than you would expect it to run. The common cause of these infinite loops is almost always having a condition that always evaluates to `True`.
+We call this idea getting stuck in an **infinite loop**. They are almost *always* bad, and they usually manifest themselves as your program running for way longer than you would expect it to run, at which point you realize that something weird is happening. The common cause of these infinite loops is almost always having a condition that always evaluates to `True`.
 
 #### More Control Flow
 
@@ -440,65 +441,67 @@ So what if we want even more control over how the body of our loop is executed? 
 Enter `continue`. What `continue` does is simply tell Python that it should skip the rest of the body of the `while` block, and jump (`continue`) to the next iteration of the loop. Let's take a look at `continue` in action.
 
 ```python
-total, x = 0, 0
-while x < 8:
-    x += 1
+total, x = 0, 1
+while x <= 8:
     if x == 5:
+        x += 1
         continue
     total += x
-    print (x, total)
-print(total)
+    x += 1
+    print total, x
+print total
 ```
 
-In this updated program we can see that we will, at each iteration of the loop, check to see if the current value that we're about to add on to `total` is 5. If it isn't, we go on with our aggregation of `total`. If it is, we execute a `continue`, telling Python to skip over the rest of the loops' body (in this case not add `x` to total) and jump immediately to the next iteration of the loop. Let's see how this would look in the loop table.
+In this updated program we can see that we will, at each iteration of the loop, check to see if the current value that we're about to add on to `total` is 5. If it isn't, we go on with our aggregation of `total`. If `x` is 5, we add one to `x` (do you see why we need to do this?), and skip adding `x` to total by executing a `continue`, jumping immediately to the next iteration of the loop. Let's see how this would look in the loop table.
 
-| After loop #  |   total   |   x   |   x < 8    |    x == 5   |
+| After loop #  |   total   |   x   |   x <= 8   |    x == 5   |
 | ------------- |:---------:|:-----:|:----------:|:-----------:|
-| 1             |  1        |   1   |    True    |    False    |
-| 2             |  3        |   2   |    True    |    False    |
-| 3             |  6        |   3   |    True    |    False    |
-| 4             |  10       |   4   |    True    |    False    |
-| 5             |  10       |   5   |    True    |    True     |
-| 6             |  16       |   6   |    True    |    False    |
-| 7             |  23       |   7   |    True    |    False    |
-| 8             |  31       |   8   |    False   |    False    |
+| 1             |  1        |   2   |    True    |    False    |
+| 2             |  3        |   3   |    True    |    False    |
+| 3             |  6        |   4   |    True    |    False    |
+| 4             |  10       |   5   |    True    |    False    |
+| 5             |  10       |   6   |    True    |    True     |
+| 6             |  16       |   7   |    True    |    False    |
+| 7             |  23       |   8   |    True    |    False    |
+| 8             |  31       |   9   |    False   |    False    |
 
-During the fifth iteration of the loop, when `x` is 5, we see that `total` does not get 5 added to it.  Therefore, the final answer is as we'd expect, 31.
+During the fourth iteration of the loop, when `x` is 5, we see that `total` does not get 5 added to it.  Therefore, the final answer is, as we'd expect, 31.
 
 ##### Break
 
-We have another, more aggressive, method to control the flow of our program - `break`. Where `continue` allowed us to skip the rest of the loop's code block and jump directly to the next iteration of the loop, `break` allows us to manually leave the loop entirely.
+In addition to the continue, we have another, more aggressive, method to control the flow of our programs - `break`. Where `continue` allowed us to skip the rest of the loop's code block and jump directly to the next iteration of the loop, `break` allows us to manually leave the loop entirely.
 
 Time for an illustrative example. Consider trying to write a program that adds the numbers 1 to 8, but only up to 25. If the sum exceeds 25, the total is set to 25 and the message, "The sum exceeded the max value of 25." is printed. We could certainly complete this task with the tools that we already possess, but `break` is better suited to meet the needs of this situation. Let's take a look at what this implementation would look like.
 
 ```python
-total, x = 0, 0
-while x < 8:
-    x += 1
+total, x = 0, 1
+while x <= 8:
     if total > 25:
         total = 25
         print('The sum exceeded the max value of 25.')
         break
     total += x
+    x += 1
 print(total)
 ```
 
 At this point I'm confident that you are tired of looking at tables of values, but let's do this one last time for consistency under the above program specifications.
 
-| After loop #  |   total   |   x   |   x < 8    | total > 25  |
+| After loop #  |   total   |   x   |   x <= 8   | total > 25  |
 | ------------- |:---------:|:-----:|:----------:|:-----------:|
-| 1             |  1        |   1   |    True    |    False    |
-| 2             |  3        |   2   |    True    |    False    |
-| 3             |  6        |   3   |    True    |    False    |
-| 4             |  10       |   4   |    True    |    False    |
-| 5             |  15       |   5   |    True    |    False    |
-| 6             |  21       |   6   |    True    |    False    |
-| 7             |  28       |   7   |    True    |    True     |
+| 1             |  1        |   2   |    True    |    False    |
+| 2             |  3        |   3   |    True    |    False    |
+| 3             |  6        |   4   |    True    |    False    |
+| 4             |  10       |   5   |    True    |    False    |
+| 5             |  15       |   6   |    True    |    False    |
+| 6             |  21       |   7   |    True    |    False    |
+| 7             |  28       |   8   |    True    |    True     |
 
 At this point `total` is set to 25 and the message "The sum exceeded the max value of 25." is printed. The loop is exited and then 25 (the value of `total` now) is printed to the screen.
 
 ##### Pass
-There's one more statement that allows us control over our programs: it's `pass`. All `pass` does is tell Python to do nothing. Because of this, it is rarely used for control flow, since the same result could be achieved by doing nothing. Instead, it is offered as a place holder, since Python will complain about empty code blocks.
+
+There's one more statement that allows us control over our programs - `pass`. All `pass` does is tell Python to do nothing. Because of this, it is rarely used for control flow, since the same result could be achieved by doing nothing. Instead, it is frequently offered as a place holder, since Python will complain about empty code blocks.
 
 So while you're building up the skeleton of a program, `pass` can be useful as a method to get the framework written up without focusing on implementation. To illustrate...
 

@@ -102,8 +102,8 @@ This is awesome! We now have a script that will solve a problem for arbitrary in
 2.  Write a script that determines whether or not a user inputted number is a [prime](https://en.wikipedia.org/wiki/Prime_number) and prints `'The number you inputted is a prime/ not a prime number.'` depending on what your script finds.
 3.  Write a script that computes and prints all of the divisors of a user inputted number.
 4.  Write a script that computes the least common multiple between two user inputted numbers
-(*Hint: Use `raw_input()` twice*).
-5.  Write a script that computes the greatest common divisor between two user inputted numbers (*Hint: Use `raw_input()` twice*).
+(**Hint**: Use `raw_input()` twice).
+5.  Write a script that computes the greatest common divisor between two user inputted numbers (**Hint**: Use `raw_input()` twice).
 6.  One can use loops to compute the elements of a mathematical series. Series can be defined recursively with the value of each element depending on the one that comes before it. Consider the series created by the rules:  
 
     ![series](imgs/series_pic.png)  
@@ -112,4 +112,4 @@ This is awesome! We now have a script that will solve a problem for arbitrary in
 
 ### Extra Credit
 
-Try to break your scripts by passing them something other than a number. Make your scripts robust to poorly formatted input. Hint: Look at the [isinstance()](https://docs.python.org/2/library/functions.html#isinstance) function. How can we use this function and conditionals to guarantee only good input (i.e. an `int`), will be processed? If the input ends up being bad, print a message notifying the user.
+Try to break your scripts by passing them something other than a number. Make your scripts robust to poorly formatted input. **Hint**: Look at the [isinstance()](https://docs.python.org/2/library/functions.html#isinstance) function. How can we use this function and conditionals to guarantee only good input (i.e. an `int`), will be processed? If the input ends up being bad, print a message notifying the user.
