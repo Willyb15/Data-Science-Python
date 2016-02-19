@@ -1,4 +1,4 @@
-#Introduction to DataFrames, Pandas, Statsmodels and SciKit Learn 
+# Introduction to Data Science Tools
 
 At the end of Day 11:
 
@@ -7,15 +7,15 @@ At the end of Day 11:
 	* use numpy statements on columns and rows of your DataFrame
 * You will understand:
 	* different types of merges
+    * how and why you would create different views of your data
 
 At the end of Day 12:
 
 * You will be able to:
-	* use scikit learn and statsmodels to fit linear models
-	* decide which you should use in different situations
+	* use scikit-learn to fit linear models
+	* decide which model to use in different situations
 * You will understand:
-	* how to interpret the results of linear models
-	* the process for fitting and obtaining predictions from 
-	  scikit learn's linear model
+	* the process for fitting and obtaining predictions from scikit-learn's linear models
+	* how to evaluate the efficacy of linear models
 
 
