@@ -38,11 +38,11 @@ class OurClass():
 1. The first thing you are going to do is to remove the `add_question_asked` method from `OurClass`. You can also remove the `questions_asked` attribute that is stored on the class, too. In terms of the `add_question_asked` method though, we are going to end up moving it into the `Member` class we will build, so it might be a good idea to keep that code in your back pocket.  
 2. Next, you should add an attribute to the class called `members`. Modify the `__init__` function so that it takes an additional parameter, called `members`, which will be stored as the `members` attribute on the class. Make the default value in the `__init__` method definition for this `None`. Then, in the `__init__` method itself, if a value for the `members` parameter is passed in, use that to assign to the `members` attribute. Otherwise, initialize the `members` attribute to an empty list (**Note**: We didn't use an empty list as the default value for the `members` attribute because it is bad practice to use mutable data types for default values). 
 3. Now, alter the `add_class_members` method in `OurClass` to not take in a number (e.g. the `num` parameter), but instead a new member. Change the function definition to take in that member parameter, and then add that member to the `members` list attribute of the class. You should keep the rest of the code the same (i.e. adding 1 to the `size` attribute of the class and checking the `at_capacity` attribute of the class).  
-4. Finally, let's refactor our code a little bit. We're checking the capacity twice above, once in the `__init__` method and then once in the `add_class_members` method. Let's instead just build this into the `check_if_at_capacity` method. Change that method so that we simply check if we are over a certain size (lets say 31) and returns a `True` or `False`. After modifying this method, change the code in the `__init__` and `add_class_members` methods to take advantage of it. 
+4. Finally, let's refactor our code a little bit. We're checking the capacity twice above, once in the `__init__` method and then once in the `add_class_members` method. Let's instead just build this into the `check_if_at_capacity` method. Change that method so that we simply check if we are over a certain size (lets say 31) and return a `True` or `False`. After modifying this method, change the code in the `__init__` and `add_class_members` methods to take advantage of it. 
 
 ### Part 2 - Building out the `Member` class
 
-Now we're going to start working on the `Member` class. Then we'll cycle back to actually have the `Member` class interact with the `OurClass` class.
+Now we're going to start working on the `Member` class. Then, we'll cycle back to actually have the `Member` class interact with the `OurClass` class.
 
 1. Start out and define the `Member` class. Construct it such that users of the class need to instantiate it with an inputted `name`, `hair_color`, and `birthdate` (i.e. these will be accepted in the `__init__` method).  
 2. Now, alter the `__init__` such that it creates a `questions_asked` attribute that starts out as an empty list.  
@@ -67,12 +67,12 @@ Now, play with the code that you wrote! Build a list of `Member` objects, and th
 
 # Extra Credit
 
-1. Create a new class, called `Instructor`, that has two attributes, `name` and `questions_answered`. Here, `name` is an argument that users of the class have to pass in when instantiating it, and `questions_answered` is initialized as an empty list.  
+1. Create a new class, called `Instructor`, that has two attributes - `name` and `questions_answered`. Here, `name` is an argument that users of the class have to pass in when instantiating it, and `questions_answered` is initialized as an empty list.  
 2. Create a method on the `Instructor` class, called `add_question_answered`, that takes in a string (a `question` parameter), and adds it to the `questions_answered` attribute. 
 3. Now, on the `OurClass` class, build a method that calculates the total number of questions answered across all the instructors. This will involve a few things: 
 
     * Adding an `instructors` attribute (here it'll be a list) to the `__init__` method. 
     * Building a method, which we'll call `get_num_questions_answered`, that cycles over the instructors list (which we'll assume is full of a bunch of `Instructor` objects), and calculates the total number of questions answered across all instructors.  
 
-4. Now write a method that checks whether there are any outstanding questions not answered (**Hint**: Use the results from the `get_num_questions_asked` and `get_num_questions_answered` methods that you have already written). 
+4. Now, write a method that checks whether there are any outstanding questions not answered (**Hint**: Use the results from the `get_num_questions_asked` and `get_num_questions_answered` methods that you have already written). 
 
