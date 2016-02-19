@@ -201,7 +201,7 @@ In [7]: get_multiples(100, 10)
 Out[7]: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
 ```
 
-As you can see from our first three examples above, the output of our function hasn't changed - by default we still output a list of the even numbers up to 5, and when we pass in 5 as the value passed to `n` and 2 as the value passed to `divisor`, we also output a list of the evens up to 5. Cool! The other function calls also give us the results that we would expect.
+As you can see from our first three examples above, the output of our function hasn't changed - by default we still output a list of the even numbers up to 5, and when we pass in 5 as the value of `n` and 2 as the value of `divisor`, we also output a list of the evens up to 5. Cool! The other function calls also give us the results that we would expect.
 
 Now let's get down to a syntactic "rule" that we have to follow when we define functions with default values. When we do this, we have to make sure that any parameters we are giving default values are **after** any parameters that we are not giving default values. Let's check out some examples...
 
@@ -223,7 +223,7 @@ In [2]: def get_multiples(n=5, divisor):
     def get_multiple(n=5, divisor):
 SyntaxError: non-default argument follows default argument
 ```
-Hopefully this pretty clearly demonstrates this "rule". In the first case, we defined our parameters that have default values (which is only one, `divisor`, here) after defining our parameters that don't have default values (which is only one, `n`, here), just as we are supposed to. And everything worked fine! In the second case, we defined a parameter with a default value before a parameter without a default value. That's a no no, and Python let us know!
+The above code demonstrates this "rule". In the first case, we defined our parameters that have default values (which is only one, `divisor`) after defining our parameters that don't have default values (which is only one, `n`). And everything worked fine! In the second case, we defined a parameter with a default value before a parameter without a default value. That's a no no, and Python let us know!
 
 #### Parameters vs Arguments
 
@@ -298,8 +298,6 @@ NameError: name 'my_local_var' is not defined
 ```
 
 Notice that `my_global_var` is accessible anywhere - both inside and outside of our function. This is because it is in the **global scope**. `my_local_var`, on the other hand, was defined within `my_test_func`. As a result, it is enclosed within the scope of `my_test_func`, and not accessible outside of it.   
-<<<<<<< HEAD:Week3/day5-intro_to_functions/functions_lecture.md
-=======
 
 ### List and Dictionary Comprehensions
 
