@@ -301,13 +301,13 @@ Notice that `my_global_var` is accessible anywhere - both inside and outside of 
 
 ### List and Dictionary Comprehensions
 
-The last topic we're going to cover today is not on functions, but instead a different way to accomplish something you already know about: constructing lists and dictionaries. Consider the frequent task that we perform at the beginning of dealing with lists and dictionaries, initializing them. Thus far we have taken advantage of the mutability inherent to lists and dictionaries to build them up one element/one key-value pair at a time. However, there is a more succinct way to accomplish the vast majority of your list and dictionary construction tasks.
+The last topic we're going to cover today is not on functions, but instead a different way to accomplish something you already know about: constructing lists and dictionaries. Consider the frequent task that we perform at the beginning of working with lists and dictionaries, initializing them. Thus far we have taken advantage of the mutability inherent to lists and dictionaries to build them up one element/one key-value pair at a time. However, there is a more succinct way to accomplish the vast majority of your list and dictionary construction tasks.
 
 #### List Comprehensions
 
-Before we dive into the specifics about how this new tools works, let's look at a toy question where we build a list so that we can break down the process.
+Before we dive into the specifics about how this new tool (list comprehensions) works, let's look at an example question where we build a list.  We can then show how to perform the same task with our new tool.
 
-Consider you have the list `[1, 5, 9, 33]` stored in the variable `my_list`. Now you want to make a new list of the squares of all the values in `my_list` and call it `my_squares`. With the tools you know about, code that you'd write to perform this task might look like this:
+Consider you have the list `[1, 5, 9, 33]` stored in the variable `my_list`. Now you want to make a new list of the squares of all the values in `my_list` and call it `my_squares`. With the tools we have covered thus far, you might write:
 
 ```python
 my_squares = []
