@@ -327,12 +327,17 @@ With this structure in mind, we can use the following syntax to perform the same
 
 ```python
 list_were_building = [transform(thing) for thing in iterable]
+```
+
+This last line of code does the exact same thing as the three lines above! In this line, the thing that we would pass to the `append()` method, `transformed(thing)`, comes at the beginning of the statement in the `[]`.  These `[]` allow for the final product to be defined as a list. Then, the `for` loop statement that we had written is at the end. Neat, huh?? This is the basic idea behind the [list comprehension](https://en.wikipedia.org/wiki/List_comprehension).
+
+We can build our `my_squares` list using a list comprehension similarly:
+
+```python
 my_squares = [num ** 2 for num in my_list]
 ```
 
-This last line of code does the exact same thing as the three lines above! In this line, the thing that we would pass to the `append()` method on the list we're building up, `transformed_thing_to_append`, comes at the beginning of the statement in the `[]`. Then, the loop statement that we had written previously comes after. Neat, huh?? Speaking of which, what's really happening is that those `transformed_thing_to_append`s are getting passed to the syntactic sugar  version of the list constructor that you know so well. This is the basic idea behind the [list comprehension](https://en.wikipedia.org/wiki/List_comprehension).
-
-But wait! There's more! Remember in all the examples where we were getting evens, we had a condition to decide when to append a value to a list? We can also use conditions to determine what "transformed things" get added in a list comprehension! In addition, the syntax flows the same as we saw above. After the transformed thing that would be passed to the append method in the old way of constructing a list, you write the same structure as if you were writing the old loops, but without colons and new lines. Let's look at the evens list builder to hammer this home.
+But wait! There's more! Remember in all the examples where we were getting evens, we had a condition to decide when to append a value to a list? We can also use conditions to determine what "transformed things" get added in a list comprehension! Let's look at the evens list builder to hammer this home.
 
 ```python
 # Old way of constructing list of evens
@@ -353,8 +358,7 @@ evens = [num for num in range(10) if num % 2 == 0]
 # List comprehension way at high level
 list_were_building = [transform(thing) for thing in iterable if condition]
 ```
-
-Same as before, just reading left to right after the thing to append, instead of top down. One thing to note, though, is that while in the evens case we didn't actually "transform" the thing we were appending, that's fine. The way `transform()` was called in the above examples, as though it were a function, is an option when writing list comps. For example, the `my_squares` example could be accomplished in the same way with:
+The way `transform()` was called in the above examples, as though it were a function, is an option when writing list comps. For example, the `my_squares` example could be accomplished in the same way with:
 
 ```python
 def square(num):
@@ -367,7 +371,7 @@ This might seem silly, since we could just write `num ** 2` directly in the list
 
 #### Dictionary Comprehensions
 
-Just as list comps are a more succinct way of constructing a list, we have the same ability for dictionaries. Dictionary comprehensions operate in the same way as their list counterparts, except for one fundamental difference. Recall that dictionaries have no `append()` method, and that a new key-value pair is added to the dictionary with the syntax: `my_dict[new_key] = new_value`. In this way, it makes sense that we need syntax to pass both the key and value to the dictionary comprehension.
+Just as list comprehensions are a more succinct way of constructing a list, we have the same ability for dictionaries. Dictionary comprehensions operate in the same way as their list counterparts, except for one fundamental difference. Recall that dictionaries have no `append()` method, and that a new key-value pair is added to the dictionary with the syntax: `my_dict[new_key] = new_value`. In this way, it makes sense that we need syntax to pass both the key and value to the dictionary comprehension.
 
 Luckily, Python gives a simple way to pass a key and value pair, and it is already very familiar to you! You just separate the key and value that you want to enter into the dictionary with a colon, like we did when we were hardcoding the contents in the `{}` dictionary constructor, i.e. `my_dict = {1: 1, 2: 4}`. Let's look at an example where we make a dictionary with the keys as the numbers 1 - 5, and the values as the squares of the keys. We'll do this with both the old way of constructing a dictionary, and then with a dictionary comprehension so that we can see the similarities.
 
