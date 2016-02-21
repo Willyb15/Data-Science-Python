@@ -393,7 +393,7 @@ Out[4]: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 
 We can see that in both cases, we're going through the numbers 1 -5 with `range(1, 6)` and those `num`s are being assigned as keys, with the values being their square with `squares_dict[num] = num ** 2` and `num: num ** 2`, respectively. Just as with list comprehensions, dictionary comprehensions read as the first thing being the `key: value` pair being added to the dictionary. Then, left to right (top down in the old way), we have what the loop definition would look like. And, just as with list comps, we can add a condition to filter what gets put into the dictionary.
 
-Say that we want a dictionary with a random integer between 1 and 10, associated with each of the values in the list of words: `['cow', 'chicken', 'horse', 'moose']`. Let's look at how we'd do that with a dict comp. (We're importing from the Python library `random` to get our random integers. We'll talk more about importing later in the course.)
+Say that we want a dictionary with a random integer between 1 and 10, associated with each of the values in the list of words: `['cow', 'chicken', 'horse', 'moose']`. Let's look at how we'd do that with a dictionary comprehension. (We're importing from the Python library `random` to get our random integers. We'll talk more about importing later in the course.)
 
 ```python
 In [1]: from random import randint
