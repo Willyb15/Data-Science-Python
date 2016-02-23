@@ -31,4 +31,4 @@ Now you're going to work with strings, along with your knowledge of `for` loops 
 
 ### Extra Credit
 
-Alter your script in Part 3, Question 3 to accept arbitrary lists. Build it such that the user has to enter 8 numbers (each separated by an enter at the command line) for each list. 
+Alter your script in Part 3, Question 3 to accept arbitrary lists. Build it such that the user has to enter 7 numbers (each separated by an enter at the command line) for each list. 
