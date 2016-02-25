@@ -2,6 +2,10 @@
 
 As with your previous assignment, tonight's will get you practice with the data structures that you learned about in lecture. While most of the problems will be centered around tuples, dictionaries, and sets, they will also build on the structures that you've already learned about.
 
+# Warmup
+
+Tonight we'll also begin by working through some problems that will get you in the mindset necessary to solve tonight's assignment problems. The starter code for these warm-up questions is located in the `warmups` folder for this day. Feel free to edit the scripts in that folder in any way you need to solve these problems. Each of the sections below will get you working and interacting with the data structures we learned about tonight - the `tuple`, `dictionary`, and `set`. 
+
 # Assignment Questions
 
 ### Part 1 - Practice with Tuples
