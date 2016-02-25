@@ -6,6 +6,15 @@ As with your previous assignment, tonight's will get you practice with the data 
 
 Tonight we'll also begin by working through some problems that will get you in the mindset necessary to solve tonight's assignment problems. The starter code for these warm-up questions is located in the `warmups` folder for this day. Feel free to edit the scripts in that folder in any way you need to solve these problems. Each of the sections below will get you working and interacting with the data structures we learned about tonight - the `tuple`, `dictionary`, and `set`. 
 
+1. Tuple warm up: 
+    1. Look at the code in `warmup1.py`. What do you think this `tuple` is storing? If I tell you it is storing the four suits of a standard card deck, can you tell me why it's appropriate that I use a `tuple` for this?
+    2. Run `warmup1.py`, and note what it originally prints. 
+    3. Now, change the print statement to print out the 1st element in the `tuple` (e.g. `diamond`). 
+    4. Now, change the print statement to print out every other element. 
+    5. Why are we able to grab individual elements (or every other element) from the `tuple` just as if it is a `list`?
+    4. Now, alter it so that it prints out each of the elements, one at a time on a new line. Use a `for` loop to do this. Why are we able to use a `for` loop on the `tuple` like this?
+    5.  Now, say that I want to add a new suit to my card deck. Let's call it `gorilla` (who doesn't like a gorilla suit). How would I do this? Why can't we use `append` on a `tuple` like we can on a `list`?
+
 # Assignment Questions
 
 ### Part 1 - Practice with Tuples
