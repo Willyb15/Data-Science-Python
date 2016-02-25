@@ -25,6 +25,14 @@ Tonight we'll also begin by working through some problems that will get you in t
     7. Modify `warmup2.py` to take in a user inputted city. Then, take that user inputted city, and if it is in `my_dct`, print out it's capital. If it's not, then print out 'Capital not found!'. 
     8. Now, modify `warmup2.py` to ask the user for the capital of their inputted city, if it is not already in `my_dct`. 
 
+3. Set warm up: 
+    1. Run `warmup3.py`. Why are we able to use a `for` loop to print out the elements of `my_set`? 
+    2. On the second line, create a new set (you'll have to move the `for` and everything below it down one line). Call it `my_fav_primes`, and enter 3 of your favorite prime numbers.
+    3. Now, move everything down one more line, and create a third set that gives the numbers that `my_primes` and `my_fav_primes` have in common. Alter the `for` loop to print out the numbers in this `set`.  
+    4. Alter the code you wrote in `3` to print the numbers that are in `my_primes` that aren't in `my_fav_primes`. Just as in `3`, store this as a third set, and alter the `for` loop to print out the numbers in this third set. 
+    5. Combine the two sets into one, and name it `my_tot_primes`. Alter the `for` loop to print out its values. 
+    6. Now, modify `warmup3.py` to take in a user inputted prime, and then add it to `my_tot_primes`. 
+
 # Assignment Questions
 
 ### Part 1 - Practice with Tuples
