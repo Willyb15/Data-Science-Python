@@ -15,6 +15,16 @@ Tonight we'll also begin by working through some problems that will get you in t
     4. Now, alter it so that it prints out each of the elements, one at a time on a new line. Use a `for` loop to do this. Why are we able to use a `for` loop on the `tuple` like this?
     5.  Now, say that I want to add a new suit to my card deck. Let's call it `gorilla` (who doesn't like a gorilla suit). How would I do this? Why can't we use `append` on a `tuple` like we can on a `list`?
 
+2. Dictionary warm up: 
+    1. Don't run the code yet! First, examine the code in `warmup2.py`. What do you think it will print when run? Why does it print this? 
+    2. Why is it appropriate to use a dictionary in this scenario?
+    3. Okay, so you will by now have noticed what it printed. Change the `element` variable that is storing the key through each iteration of the loop to be a more descriptive variable name. 
+    4. Now, change the loop so that it not only prints the `key` at every iteration through, but both the `key` and `value` (i.e. I want to see the state as well as the city). 
+    5. Build another dictionary that stores the state and capital of the state you grew up in, as well as the state and capital of the state your neighbor grew up in. Call this `neighbor_dct`, and put it on the second line of the `warmup2.py` script (before the `for` loop). 
+    6. Now, on the third line (where the `for` loop now sits), put a blank line. On that line, combine the `neighbor_dct` with `my_dct`. Store the result of this back in `my_dct` so that the `for` loop that prints still works.  
+    7. Modify `warmup2.py` to take in a user inputted city. Then, take that user inputted city, and if it is in `my_dct`, print out it's capital. If it's not, then print out 'Capital not found!'. 
+    8. Now, modify `warmup2.py` to ask the user for the capital of their inputted city, if it is not already in `my_dct`. 
+
 # Assignment Questions
 
 ### Part 1 - Practice with Tuples
