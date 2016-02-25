@@ -19,18 +19,18 @@ Tonight we'll also begin by working through some problems that will get you in t
     1. Don't run the code yet! First, examine the code in `warmup2.py`. What do you think it will print when run? Why does it print this? 
     2. Why is it appropriate to use a dictionary in this scenario?
     3. Okay, so you will by now have noticed what it printed. Change the `element` variable that is storing the key through each iteration of the loop to be a more descriptive variable name. 
-    4. Now, change the loop so that it not only prints the `key` at every iteration through, but both the `key` and `value` (i.e. I want to see the state as well as the city). 
+    4. Now, change the loop so that it not only prints the `key` at every iteration, but both the `key` and `value` (i.e. print the state as well as the city in the loop). 
     5. Build another dictionary that stores the state and capital of the state you grew up in, as well as the state and capital of the state your neighbor grew up in. Call this `neighbor_dct`, and put it on the second line of the `warmup2.py` script (before the `for` loop). 
-    6. Now, on the third line (where the `for` loop now sits), put a blank line. On that line, combine the `neighbor_dct` with `my_dct`. Store the result of this back in `my_dct` so that the `for` loop that prints still works.  
+    6. Now, add a line before the for loop that adds the key-value pairs in `neighbor_dct` to `my_dct`. `my_dct` should now have the contents from it's previous state and also `neighbor_dct`.
     7. Modify `warmup2.py` to take in a user inputted city. Then, take that user inputted city, and if it is in `my_dct`, print out it's capital. If it's not, then print out 'Capital not found!'. 
-    8. Now, modify `warmup2.py` to ask the user for the capital of their inputted city, if it is not already in `my_dct`. 
+    8. Now, modify `warmup2.py` to ask the user for a state name. If it is not already in `my_dct`, have your script prompt the user for a capital to associate with that state name.
 
 3. Set warm up: 
     1. Run `warmup3.py`. Why are we able to use a `for` loop to print out the elements of `my_set`? 
     2. On the second line, create a new set (you'll have to move the `for` and everything below it down one line). Call it `my_fav_primes`, and enter 3 of your favorite prime numbers.
-    3. Now, move everything down one more line, and create a third set that gives the numbers that `my_primes` and `my_fav_primes` have in common. Alter the `for` loop to print out the numbers in this `set`.  
-    4. Alter the code you wrote in `3` to print the numbers that are in `my_primes` that aren't in `my_fav_primes`. Just as in `3`, store this as a third set, and alter the `for` loop to print out the numbers in this third set. 
-    5. Combine the two sets into one, and name it `my_tot_primes`. Alter the `for` loop to print out its values. 
+    3. Now, move everything down one more line, and create a third set that gives the numbers that `my_set` and `my_fav_primes` have in common. Alter the `for` loop to print out the numbers in this new `set`.  
+    4. Change your code to get only the numbers that are in `my_set` but aren't in `my_fav_primes`. Store these in a third set, and alter the `for` loop to print out the numbers in this third set. 
+    5. Create a new set with the elements from both `my_fav_primes` and `my_set`, and name it `my_tot_primes`. Alter the `for` loop to print out its values. 
     6. Now, modify `warmup3.py` to take in a user inputted prime, and then add it to `my_tot_primes`. 
 
 # Assignment Questions
