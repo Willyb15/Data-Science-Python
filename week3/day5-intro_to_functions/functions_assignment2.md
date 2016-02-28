@@ -39,5 +39,21 @@ def check_elsa_fan(fan):
 
 * Change the function definition so that it **defaults** to the person being a fan. Try calling your function both with and without arguments now - how does this effect what gets printed out? 
 
- 
+For this next set of problems, we're going to give you a block of code that solves some problem (which we'll describe). Your goal is to write a function definition statement that uses that block of code (this is the opposite of what we did in the first two).  
 
+3. Below, I've written a line of code that will print 'Hello, <name>', where `name` will be a parameter in the function definition. Write a function definition that takes in one parameter, `name`, and then uses the line of code below to print 'Hello' to that `name`.   
+
+`print 'Hello %s' %name` 
+
+* Did you write the function definition according to the verb/noun adage? Does your function have a good name that at least hints at what it does?
+* Test out your function by calling it with different values for `name` passed in. Does it return the expected output?
+* Now, alter your function definition such that it **by default** says hello to Sean, Cary, or Josh if no value for `name` is passed in. 
+
+4. Now for something a tad bit more intricate. I've written some code below that relies on two unknowns, `n` and `potential_divisor`. This code returns a `True` or `False` depending on whether or not `n` is divisible by `potential_divisor`. Your first goal is to write a function definition that accepts these two parameters.  
+
+`return n % divisor == 0` 
+
+* First off, how/why does this work? Why does return either a `True` or `False`?
+* After building your function definition, test it out to make sure that it works correctly (remember that it should take in two parameters, `n` and `divisor`).  
+* Now, alter your function definition so that **by default** the `divisor` is equal to 2 (i.e. by default it just checks if the inputted `n` is even). Now that you've made one of the parameters have a default, what stipulations come with that change (*Hint*: Remember order of the parameters now matters).   
+* Now that we've got two parameters, try calling them *by position* and *by keyword*. What stipulations come with these kinds of calls (*Hint*: Remember order matters)?
