@@ -52,7 +52,7 @@ Tuesdays & Thursdays, 6:30 pm – 9:15 pm
   * Second Class: Introduction to Pandas, Dataframes
 * Week 6:
   * First class: DataFrame operations, Numpy
-  * Second Class: Introduction to Statistical Modeling – SciKit Learn and Statsmodels
+  * Second Class: Introduction to Statistical Modeling
 
 ### Meet Your Instructors:
 
