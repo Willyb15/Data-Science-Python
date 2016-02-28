@@ -57,3 +57,20 @@ For this next set of problems, we're going to give you a block of code that solv
 * After building your function definition, test it out to make sure that it works correctly (remember that it should take in two parameters, `n` and `divisor`).  
 * Now, alter your function definition so that **by default** the `divisor` is equal to 2 (i.e. by default it just checks if the inputted `n` is even). Now that you've made one of the parameters have a default, what stipulations come with that change (*Hint*: Remember order of the parameters now matters).   
 * Now that we've got two parameters, try calling them *by position* and *by keyword*. What stipulations come with these kinds of calls (*Hint*: Remember order matters)?
+
+# Assignment Questions
+
+### Part 1 - Basic Practice 
+
+For the first part of the assignment, we're going to get some practice taking something we've already written and translating it to a function. Let's work with a couple of the scripts that we wrote for `intro_python_assignment.md` in Week 1, Day 2. Let's start out and just move numbers three and four into functions (for extra practice you could do this with the rest of the problems that we worked through in those assignments). Below are the original problem statements. To move these to functions, we will no longer take user input, but instead pass an argument(s) into a function and consider that to be the 'user input'. 
+
+1.  Write a function that computes and prints all of the divisors of a user inputted number. 
+
+* Here we won't take a user inputted number, but build a function that takes in one number, and then computes all the divisors of that number. You should have code that does this, but you *might* have to modify it slightly in order to get it to work in a function. 
+* If you don't have code that does this, or didn't make it to this particular problem, then feel free to use the solutions code. While you could also try to solve this problem, the point of this problem is to get you practice with functions by using code you've already written. The idea is that you can get practice moving already existing code into functions. 
+
+2.  Write a function that computes the least common multiple between two user inputted numbers. 
+
+* Here we won't take any user inputted numbers, but build a function that takes in two numbers, and then computes the least common multiple of those two numbers. Again, you should have code that does this, but you *might* have to modify it slightly to get it to work in a function. 
+* If you don't have code that does this, or didn't make it to this particular problem, then feel free to use the solutions code. While you could also try to solve this problem, the point of this problem is to get you practice with functions by using code you've already written. The idea is that you can get practice moving already existing code into functions. 
+
