@@ -2,6 +2,8 @@
 
 Tonight we'll work through building functions and getting practice with their syntax. We'll begin by having you complete function definitions that are already written, and then move on to you writing function definitions for code that is already written. Next, we'll work on translating some of the code we've already written into functions. We'll finish up by writing some functions of our own, from start to finish.  
 
+For each of the functions you build tonight, you should be sure to test them out multiple times to make sure that they work correctly! We would also suggest that you code each function up separately in its own script. 
+
 # Warmup 
 
 For the first set of problems below, fill in the given function definition to achieve the desired results.  
@@ -74,3 +76,20 @@ For the first part of the assignment, we're going to get some practice taking so
 * Here we won't take any user inputted numbers, but build a function that takes in two numbers, and then computes the least common multiple of those two numbers. Again, you should have code that does this, but you *might* have to modify it slightly to get it to work in a function. 
 * If you don't have code that does this, or didn't make it to this particular problem, then feel free to use the solutions code. While you could also try to solve this problem, the point of this problem is to get you practice with functions by using code you've already written. The idea is that you can get practice moving already existing code into functions. 
 
+### Part 2 - Advanced Practice
+
+Now we're going to work our problem solving and programming skills by coding up functions to solve new problems.  
+
+1. Write a function that figures out whether or not we have any beers left on our wall. It should take in a number, and then print 'No beers left' if we are at the end (i.e. there are `0` beers left) or 'Beers left!' if we are not at the end (i.e. there are not `0` beers left). 
+2. Let's imagine that I know who all of the Elsa fans out there, and it's just Cary, Josh, and Sean (it's okay, we're the three best friends anybody could ever have). Write a function that takes in name, and then returns a `True` or `False` as to whether they are an Elsa fan. You can use the knowledge that if they aren't Cary, Josh, or Sean, they aren't an Elsa fan. Also, remember that checking membership using a `set` is incredibly fast! Try to use a `set` if you can. 
+3. Write a function that computes the sum of the numbers in an inputted list. Use a `for` loop to do this. When you're done, look up the [sum](https://docs.python.org/2/library/functions.html#sum) function (and notice that this does the same thing as what you just wrote!). 
+
+* Example: If I input `[1, 2, 3]`, your function should return `6` (1 + 2 + 3 = 6). 
+
+4. Write a function that computes the product of the numbers in an inputted list. Use a `for` loop to do this as well.  
+
+* Example: If I input `[2, 3, 4]`, your function should return `24` (2 * 3 * 4 = 24). 
+
+5. Write a function that takes in an arbitrary list, and returns a list of the numbers in that list that are even. 
+
+* Example: If I input `[2, 4, 5, 7, 10]`, your function should return `[2, 4, 10]`.
