@@ -1,14 +1,14 @@
 # Instructions
 
-Tonight you are going to get some practice writing functions that work together. Much of what we do is programming requires us to break down problems into smaller pieces. So tonight's assignment is aimed at getting you practice doing just that; working on breaking problems down to solve them with functions.
+Tonight you are going to get some practice writing functions that work together. Much of what we do in programming requires us to break down problems into smaller pieces. Tonight's assignment is aimed at getting you practice doing just that - working on breaking problems down to solve them with functions.
 
-To start off you will be given already completed functions and be asked to break them into smaller ones. The next part of the assignment will outline problems, and describe the functions for you to write to solve them. This outline of breaking down the problem into smaller problems will get you used to thinking about the top-down process. Finally, you will get a set of problems to solve with a top-down approach on your own. Let's get started!
+To start off, we'll give you already completed functions, and ask you to break them into smaller ones. The next part of the assignment will outline problems, and describe functions that we want you to write to solve them. This outline of breaking down the problem into smaller problems will get you used to thinking about the top-down process. Finally, you will get a set of problems to solve on your own, using the top down approach. Let's get started!
 
 # Assignment
 
 ### Part 1 - Breaking Code Apart
 
-For this section you will be given a functions that have a decent amount of code in them. You task is to break them apart into more than one function. The first will have the same definition as the one given to you, but now it will call another function that you are going to write. For example, say I have the function below:
+For this section, you will be given functions that have a good amount of code in them. You task is to break them apart into more than one function, such that the original function we give you calls another function (which you'll define). For example, say I have the function below:
 
 ```python
 def my_function(n):
@@ -20,7 +20,7 @@ def my_function(n):
             print('I love Python so much!!!')
 ```
 
-One way that you could break up this function up is to have a separate function that performs a loop over the print statements. This function could then accept a range and a string to print. Check it out.
+One way that we can break up this function is to have a separate function that performs a loop over the print statements. After all, we do have two blocks of code in `my_function` that are both looping over print statements. In the name of the DRY methodology, we should think about building a function that could help us do this. This function could accept an integer and a string to print. Then, it would loop through a range using that integer, printing the string in each iteration (this is exactly what we're doing above). Check it out...
 
 ```python
 def print_n_string(print_times, print_string):
@@ -30,15 +30,15 @@ def print_n_string(print_times, print_string):
 def my_function(n):
     if n > 10:
         print_times = n - 9
-        print_n_string(n - 9, 'I love Python!!!')
+        print_n_string(print_times, 'I love Python!!!')
     else:
         print_times = n
-        print_n_string(n, 'I love Python so much!!!')
+        print_n_string(print_times, 'I love Python so much!!!')
 ```
 
-Notice how the this new implementation of `my_function()` only has a single `for` loop written. This is great since we want to employ DRY programming as much as possible. Also, we can easily see what we are changing in each case in `if`-block. This makes the code a little more readable.
+Notice how the this new implementation only includes a single `for` loop, whereas before we had two. This is great, especially since we want to employ DRY programming as much as possible. Also, we can easily see what we are changing in each case of the `if`-block. This makes the code a little more readable.
 
-You're going to do this for all of the functions given to you in this section. One thing to keep in mind is that it's usually very useful to understand what the code is doing before you break it apart. So, make sure to read the code, or even better come up with a test for it and go through, line by line what each function is doing before you break it apart.
+We want you to do the same for all of the functions given to you in this section. One thing to keep in mind is that it's usually very useful to understand what the code is doing before you break it apart. So, make sure to read the code. Even better, you could come up with a test for it, and then go through it line by line to make sure you are clear on exactly what each function is doing before you break it apart.  
 
 1. Break apart the function:
   
@@ -50,7 +50,7 @@ You're going to do this for all of the functions given to you in this section. O
      '''
      new_books = []
      for book in books:
-         if book in library:
+         if book not in library:
              print('The book, {} is new!'.format(book))
              new_books.append(book)
          library.add(book)
@@ -83,7 +83,7 @@ You're going to do this for all of the functions given to you in this section. O
          elif player_1 == 's' and player_2 == 'p':
              print('Player 1 wins!')
          else:
-             print('Someone didn't play right!')
+             print("Someone didn't play right!")
  ```
  
 3. Break apart the function:
@@ -162,6 +162,8 @@ You're going to do this for all of the functions given to you in this section. O
      # Depending on the category get information about month from correct source and return 
  ```
 
+ *Hint*: While you can simply index into the `full_names`, `month_nums`, or `birth_stones` dictionaries using the month as the key, figuring out the season by each month is a little harder. This is why we want you to put it into another function. 
+
 2. Fill in the following stub code so that the functions operate in the way prescribed by their doc strings.
 
  ```python
@@ -173,14 +175,20 @@ You're going to do this for all of the functions given to you in this section. O
      Return True if num is a perfect square, e.g. 9 = 3 x 3. Return False if num is not
      a perfect square, 8 isn't any integer multiplied by itself.
      '''
+
  def next_perfect_square(num):
      '''
      Input:  Int
      Output: Int
+
+     Ex: `next_perfect_square(10) --> -1`
+         `next_perfect_square(9) ---> 16`
+         `next_perfect_square(25) --> 36`
+         `next_perfect_square(37) --> -1`
  
-     Returns the next perfect square, a number that is the sqaure of an integer (e.g. 81 = 9 x 9)
+     Returns the next perfect square (a number that is the sqaure of an integer e.g. 81 = 9 x 9)
      greater than the inputted number. If the inputted number is not a perfect square, return -1.
-     A.k.a. the inputted number must also be a perfect square.
+     (i.e. the inputted number must also be a perfect square).
      '''
  ```
 
@@ -203,15 +211,15 @@ You're going to do this for all of the functions given to you in this section. O
      Input:  None
      Output: Int - Between 1 and 6
  
-     Using random.randint() perform a die roll and return the number that "comes up".
+     Using random.randint(), perform a die roll and return the number that "comes up".
      '''
      pass
  
  def flip_coin_roll_die(n_times):
      '''
      Input:  Int - number of times to flip a coin and roll a die
-     Output: List - of tuples, length n_times, with the outcomes 
-                    of flips and rolls from each time
+     Output: List - of tuples with the outcomes 
+        of the flips and rolls from each time
      '''
      pass
  ```
