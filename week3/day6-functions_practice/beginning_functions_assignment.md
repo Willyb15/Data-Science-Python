@@ -125,6 +125,7 @@ You're going to do this for all of the functions given to you in this section. O
      decoded_text = ''.join(decoded_chars)
      print '\n' + decoded_text
  ```
+
 ### Part 2 - Beginning to Write Top-Down
 
 1. Fill in the following stub code so that the functions operate in the way prescribed by their doc strings.
@@ -197,20 +198,37 @@ You're going to do this for all of the functions given to you in this section. O
      '''
      pass
  
- def roll_dice():
+ def roll_die():
      '''
      Input:  None
      Output: Int - Between 1 and 6
  
-     Using random.randint() perform a dice roll and return the number that "comes up".
+     Using random.randint() perform a die roll and return the number that "comes up".
      '''
      pass
  
- def flip_coin_roll_dice(n_times):
+ def flip_coin_roll_die(n_times):
      '''
-     Input:  Int - number of times to flip a coin and roll a dice
+     Input:  Int - number of times to flip a coin and roll a die
      Output: List - of tuples, length n_times, with the outcomes 
                     of flips and rolls from each time
      '''
      pass
  ```
+
+### Part 3 - Tying it All Together
+
+For this part of the assignment you are going to be coding up your own functions, no training wheels! Most of the time, when programming, all we have is a problem; and it will be your job to create functions to solve these problems. This may sound daunting, but don't worry, you've been practicing a lot in the previous sections getting your mind used to thinking about splitting up problems into smaller parts. Now you're going to do it all on your own.
+
+1. Write a function that rolls two sets of dice to model players playing a game with dice. It will accept two arguments, the number of dice to roll for the first player, and the number of dice to roll for the second player. The function will model rolling the appropriate number of dice for each player and sum the total values of the corresponding dice rolls. The function will then print which player rolled the higher total. Finally it will return the total sum of each players rolls in a tuple. Here's how we would call it:
+
+ ```python
+ In [1]: player_rolls = model_dice_rolls(3, 2)
+ Player 1 wins!
+ In [2]: player_rolls
+ Out[2]: (13, 7)
+ ```
+
+ Remember, you already have some code that does solves part of this problem. Feel free to use whatever code you have written previously, that's part of the reason we use functions. Hopefully you're beginning to see the advantages of using functions!
+
+2. Things and Stuff 
