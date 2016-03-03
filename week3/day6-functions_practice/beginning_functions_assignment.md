@@ -226,10 +226,17 @@ We want you to do the same for all of the functions given to you in this section
 
 ### Part 3 - Tying it All Together
 
-For this part of the assignment you are going to be coding up your own functions, no training wheels! Most of the time, when programming, all we have is a problem; and it will be your job to create functions to solve these problems. This may sound daunting, but don't worry, you've been practicing a lot in the previous sections getting your mind used to thinking about splitting up problems into smaller parts. Now you're going to do it all on your own.
+For this part of the assignment, you are going to be coding up your own functions from scratch! Most of the time when programming, all we have is a problem. It is then our job to create functions to solve this problem. This may sound daunting, but don't worry, because you've been practicing a lot in the previous sections; you've been getting your mind used to thinking about splitting up problems into smaller parts. 
 
-1. Write a function that rolls two sets of dice to model players playing a game with dice. It will accept two arguments, the number of dice to roll for the first player, and the number of dice to roll for the second player. The function will model rolling the appropriate number of dice for each player and sum the total values of the corresponding dice rolls. The function will then print which player rolled the higher total. Finally it will return the total sum of each players rolls in a tuple. Here's how we would call it:
+1. Write a function that rolls two sets of dice to model players playing a game with dice. It will accept two arguments, the number of dice to roll for the first player, and the number of dice to roll for the second player. Then, the function will do the following: 
 
+* Model rolling the appropriate number of dice for each player.
+* Sum the total values of the corresponding dice rolls. 
+* Print which player rolled the higher total. 
+* Return the total sum of each players rolls in a tuple. 
+
+Here's how we would call it:
+ 
  ```python
  In [1]: player_rolls = model_dice_rolls(3, 2)
  Player 1 wins!
@@ -237,6 +244,20 @@ For this part of the assignment you are going to be coding up your own functions
  Out[2]: (13, 7)
  ```
 
- Remember, you already have some code that does solves part of this problem. Feel free to use whatever code you have written previously, that's part of the reason we use functions. Hopefully you're beginning to see the advantages of using functions!
+ Remember, you already have some code that solves part of this problem. Feel free to use whatever code you have already written - that's part of the reason we use functions. Hopefully you're beginning to see the advantages of using functions!
 
-2. Things and Stuff 
+2. Write a function that will calculate the the total amount of a dinner bill, given the total before tax, the tax rate, and the tip percentage. Your function will accept these three values as arguments. It will then do the following: 
+
+* Apply the tax rate to the total amount. 
+* Apply the tip percentage to the total amount. 
+* Return the total amount of dinner bill that is to be paid. 
+
+Here's an example of how we would call the function: 
+
+```python 
+In [1]: amount_to_pay = calc_total_bill(100, 0.10, 0.10)
+
+In [2]: amount_to_pay
+Out[2]: 121 
+```
+ 
