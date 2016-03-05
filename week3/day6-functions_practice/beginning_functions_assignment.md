@@ -160,6 +160,7 @@ We want you to do the same for all of the functions given to you in this section
                      'sep': 'Sapphire', 'oct': 'Opal', 'nov': 'Topaz', 'dec': 'Turquoise'}
  
      # Depending on the category get information about month from correct source and return 
+     pass
  ```
 
  *Hint*: While you can simply index into the `full_names`, `month_nums`, or `birth_stones` dictionaries using the month as the key, figuring out the season by each month is a little harder. This is why we want you to put it into another function. 
@@ -175,6 +176,7 @@ We want you to do the same for all of the functions given to you in this section
      Return True if num is a perfect square, e.g. 9 = 3 x 3. Return False if num is not
      a perfect square, 8 isn't any integer multiplied by itself.
      '''
+     pass
 
  def next_perfect_square(num):
      '''
@@ -190,6 +192,7 @@ We want you to do the same for all of the functions given to you in this section
      greater than the inputted number. If the inputted number is not a perfect square, return -1.
      (i.e. the inputted number must also be a perfect square).
      '''
+     pass
  ```
 
 3. Fill in the following stub code so that the functions operate in the way prescribed by their doc strings.
@@ -260,4 +263,3 @@ In [1]: amount_to_pay = calc_total_bill(100, 0.10, 0.10)
 In [2]: amount_to_pay
 Out[2]: 121 
 ```
- 
