@@ -181,10 +181,10 @@ We want you to do the same for all of the functions given to you in this section
      Input:  Int
      Output: Int
 
-     Ex: `next_perfect_square(10) --> -1`
-         `next_perfect_square(9) ---> 16`
-         `next_perfect_square(25) --> 36`
-         `next_perfect_square(37) --> -1`
+     Ex: next_perfect_square(10) --> -1
+         next_perfect_square(9) ---> 16
+         next_perfect_square(25) --> 36
+         next_perfect_square(37) --> -1
  
      Returns the next perfect square (a number that is the sqaure of an integer e.g. 81 = 9 x 9)
      greater than the inputted number. If the inputted number is not a perfect square, return -1.
