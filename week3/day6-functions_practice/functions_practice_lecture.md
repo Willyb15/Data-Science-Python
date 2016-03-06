@@ -42,7 +42,7 @@ Let's talk about what this line does. The `open()` (docs [here](https://docs.pyt
 
 At this point, we now have access to the contents of the file via the variable `txt_file` within the scope of the `with` block.  Let's now consider next steps. Step one is reading the documentation for [file objects](https://docs.python.org/2/library/stdtypes.html#bltin-file-objects). Developing the ability to read and interpret the documentation is an important part of any role as a programmer. Next, we might create a small example that allows us to test our function.  This will a test file, which is a great thing to have in general so that we can verify whether the code we are writing is working as we move through solving the problem.
 
-Check out the included `test_text.txt` file, which is filled with a small amount of text. We can use it to test out some of the code we've written inside of IPython. Frequently, we will use `print()` to understand the pieces of our code.  In other occasions, it's necessary to inspect using `type()`, or by calling other functions. Let's take a closer look at the file object obtained using the `with` statement.
+Check out the included `test_text.txt` file, which is filled with a small amount of text. We can use it to test out some of the code we've written inside of IPython. Frequently, we will use `print()` to understand pieces of our code.  In other situations, it's necessary to inspect using `type()`, or by calling other functions. Let's take a closer look at the file object obtained using the `with` statement.
 
 ```python
 In [1]: with open('test_text.txt') as txt_file:
@@ -115,11 +115,11 @@ def create_report(file_path):
 
 **Note**: While the names of the variables that we're passing to `update_counts()` are the same as the names of the parameters we defined in the function definition, this is not necessary. There are occasions where it is useful so that it's easier to follow the flow of variables being passed between functions.  In other cases, parameter names need to be more general because the function is performing a more general task.
 
-Now we need to define what `update_counts()` will do with each line? We need to count the number of words and the number of characters in each line. As for the number of sentences, this is a fairly difficult problem. One way that we might hack together a solution is by counting the number of periods, `.`.  We are then assuming each sentence will end in a period. Admittedly, this is a fairly naive way to solve the problem; sentences may end with other punctuation (ellipses, exclamation points, question marks, etc.).
+Now we need to define what `update_counts()` will do with each line. We need to count the number of words and the number of characters in each line. As for the number of sentences, this is a fairly difficult problem. One way that we might hack together a solution is by counting the number of periods, `.`.  We are then assuming each sentence will end in a period. Admittedly, this is a fairly naive way to solve the problem; sentences may end with other punctuation (ellipses, exclamation points, question marks, etc.).
 
-For now, we will neglect these obvious defects in our solution - we can always go back later to provide a more robust solution. This type of practice is very regular when solving programming problems. As we've discussed, solutions are often built up in an iterative, testing as you go, manner. In addition, there may be other edge cases that we haven't considered. That's part of the beauty of using functions. Since functions abstract away the implementation of counting sentences, words, and characters, we can later go back and change this single piece of our problem.
+For now, we will neglect these obvious defects in our solution - we can always go back later to provide a more robust solution. This type of practice is very regular when solving programming problems. As we've discussed, solutions are often built up in an iterative, testing as you go, manner. In addition, there may be other edge cases that we haven't considered. That's part of the beauty of using functions. Since functions abstract away the implementation of counting sentences, words, and characters, we can later go back and change this single piece of our solution.
 
-Let's set up a small test case so that we can verify the functionality of `update_counts()`. Consider the string 'This is a test string. Only for testing'. We can see that it has 1 well defined sentence, 8 words, and 39 characters (counting spaces). Let's set up a counts dictionary and test this string in an IPython environment.
+Let's set up a small test case so that we can verify the functionality of `update_counts()`. Consider the string `'This is a test string. Only for testing'`. We can see that it has 1 well defined sentence, 8 words, and 39 characters (counting spaces). Let's set up a counts dictionary and test this string in an IPython environment.
 
 ```python
 In [1]: test_string = 'This is a test string. Only for testing'
@@ -211,7 +211,7 @@ In [1]: run txt_file_processing.py
 
 #### Importing Detour
 
-While this works, it turns out that it is generally bad practice. The reason has to do with what happens when we do something called importing. The **import** statement allows us to access code (generally functions and classes) from existing scripts. These scripts may be written by the creators of Python.  We can then access these scripts as libraries included with Python distributions.  We might create our own scripts that we can then access in the same way we would access the libraries written by the creators. Let's see what happens when we try to import the script we've just saved.
+While testing like this works, it turns out that this method is generally considered bad practice. The reason has to do with what happens when we do something called **importing**. The `import` statement allows us to access code (generally functions and classes) from existing scripts. Some scripts have be written by the creators of Python.  We can then access these scripts as libraries included with Python distributions. We can also create our own scripts and then access in the same way we would access the libraries written by the creators. Let's see what happens when we try to import the script we've just saved.
 
 ```python
 In [1]: import txt_file_processing
@@ -221,7 +221,7 @@ In [2]: txt_file_processing.create_report('test_text.txt')
 Out[2]: {'characters': 76, 'sentences': 2, 'words': 16}
 ```
 
-We can see importing in action here. First, focus your attention on the first line. When we import a script, Python runs the code that is contained in the imported script. While this is a very useful concept to understand, we can see a  potential downfall in this example. The `print` function that we included in our `txt_file_processing` script was run when the import happened.  In general, we will import a library to use the functions or classes that exist internal to the library.  We do not want output upon importing, as the output would be unrelated to our current use case.
+We can see importing in action here. First, focus your attention on the first line. When we import a script, Python runs the code that is contained in the imported script. While this is a very useful concept to understand, we can see a  potential downfall in this example. The `print` function that we included in our `txt_file_processing` script was run when the import happened. In general we want to import to gain access to code from other libraries/scripts, but we do not want output upon importing.
 
 Luckily, we have a way to avoid this unwanted output, and it's known as a **main-block**. Any code that is defined within a main-block will only be executed when the script is run, as opposed to when it is imported. We can see a main-block defined below.
 
@@ -244,7 +244,7 @@ if __name__ == '__main__':
     print(create_report('test_text.txt'))
 ```
 
-Now, if we import the script we will see that the main-block is not run, but that we still have access to the library contents. Magic!
+Now, if we import the script we will see that the main-block is not run. However, we still have access to the library contents. Magic!
 
 ```python
 In [1]: import txt_file_processing
@@ -272,7 +272,7 @@ In [6]: cr('test_text.txt')
 Out[6]: {'characters': 76, 'sentences': 2, 'words': 16}
 ```
 
-In Python, you will see examples of importing all the time. For now, know that you can and often want to import from within a script to get access to functions from other scripts.
+In Python, you will see examples of importing all the time. For now, know that you can and often want to import from within a script to get access to functions from other scripts/libraries to use the code they contain. This way we don't have to re-invent the wheel each time we go to solve a programming problem.
 
 #### Abstraction Illustration
 
@@ -288,7 +288,7 @@ Notice our steps in `update_counts`:
 
 3. We count the number of characters in `line` with `len()` and add that to the 'characters' entry of `counts_dict`.
 
-How can we make our code run faster? Notice this approach is actually going over the contents of `line` 3 separate times to perform our updates. This isn't efficient.
+How can we make our code run faster? Notice this approach is actually going over the contents of `line` 3 separate times to perform our updates. This is very inefficient.
 
 How can we make all of the necessary updates in fewer passes? We can write a loop to go over the line, character by character, and perform updates to the `sentences`, `words`, and `characters` entries of `counts_dict` within a single loop. Our assumptions being that a space follows the completion of a word and a period completes a sentence. We have no changes necessary to the `characters`. Let's see how this works in IPython.
 
@@ -369,6 +369,6 @@ Success!!!
 
 The above is a very realistic approach to problem solving as a programmer.
 
-I want to quickly draw your attention to how easy it was to speed up our program by changing the implementation of `update_counts`. This is abstraction in action! Since we've wrapped up the functionality of our program in the `create_report()` function, extending our function to create a report for a list of file paths is easily extendable! We'd just make a new function that would loop through the list of file paths and call `create_report()`, passing the current file path in that iteration of the loop as the argument.
+I want to quickly draw your attention to how easy it was to speed up our program by changing the implementation of `update_counts()`. This is abstraction in action! Since we've wrapped up the functionality of our program in the `create_report()` function, extending our function to create a report for a list of file paths is easily extendable! We'd just make a new function that would loop through the list of file paths and call `create_report()`, passing the current file path in that iteration of the loop as the argument.
 
 This example has demonstrated a good workflow to follow when designing programs, and you've learned how to think about problems in an iterative top-down framework.
