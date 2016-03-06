@@ -10,6 +10,8 @@ For each of the classes you build tonight, you should test them out. Try instant
 
 # Warmup
 
+## Part 1
+
 For the first set of problems, we'll give you class constructor and ask that you fill it in according to some specifications. 
 
 1. Let's make a `Dog` class. In this dog class, we've gone ahead and given the skeleton for the `__init__` method, as well as a `wag_tail` method. We want you to fill these in such that: 
@@ -85,3 +87,33 @@ class Cat():
 ```
 
 * Can you change your definition of the `__init__` method so that any instances of our cat have a `laziness_level` of 5 and a `location` of "home" if arguments for those parameters are not passed in at instantiation? 
+
+## Part 2
+
+For the second set of problems, we'll give you blocks of code that we want you to place into methods within a class definition. After building up each of your class definitions, use them to instantiate a couple of instances of your class. Play around with those instances, and make sure that everything is working like you would expect. 
+
+1. Using the following code, we want you to define a `Car` class. We've given you the code for an `__init__` method and a `drive` method. We want you to actually build the class definition, as well as the definitions for these two methods. 
+
+`__init__` method code  
+
+We want there to be three parameters passed in - `model`, `color`, 
+and `tank_size`. 
+
+```python 
+self.model = model 
+self.color = color
+self.tank_size = tank_size
+self.gallons_of_gas = self.tank_size # We're assuming its tank is full. 
+```
+
+`drive` method code 
+
+We want there to be one parameter passed in - `miles_driven`. 
+
+```python
+self.gallons_of_gas -= miles_driven / 10. 
+```
+
+* Note that for each of these methods above, I didn't include a certain parameter that is passed **by deafult** to any method within a class - what is that parameter? Can you describe exactly what it is used for?
+
+
