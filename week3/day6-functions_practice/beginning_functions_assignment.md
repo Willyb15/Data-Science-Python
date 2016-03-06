@@ -160,6 +160,7 @@ We want you to do the same for all of the functions given to you in this section
                      'sep': 'Sapphire', 'oct': 'Opal', 'nov': 'Topaz', 'dec': 'Turquoise'}
  
      # Depending on the category get information about month from correct source and return 
+     pass
  ```
 
  *Hint*: While you can simply index into the `full_names`, `month_nums`, or `birth_stones` dictionaries using the month as the key, figuring out the season by each month is a little harder. This is why we want you to put it into another function. 
@@ -175,21 +176,23 @@ We want you to do the same for all of the functions given to you in this section
      Return True if num is a perfect square, e.g. 9 = 3 x 3. Return False if num is not
      a perfect square, 8 isn't any integer multiplied by itself.
      '''
+     pass
 
  def next_perfect_square(num):
      '''
      Input:  Int
      Output: Int
 
-     Ex: `next_perfect_square(10) --> -1`
-         `next_perfect_square(9) ---> 16`
-         `next_perfect_square(25) --> 36`
-         `next_perfect_square(37) --> -1`
+     Ex: next_perfect_square(10) --> -1
+         next_perfect_square(9) ---> 16
+         next_perfect_square(25) --> 36
+         next_perfect_square(37) --> -1
  
-     Returns the next perfect square (a number that is the sqaure of an integer e.g. 81 = 9 x 9)
+     Returns the next perfect square (a number that is the square of an integer e.g. 81 = 9 x 9)
      greater than the inputted number. If the inputted number is not a perfect square, return -1.
      (i.e. the inputted number must also be a perfect square).
      '''
+     pass
  ```
 
 3. Fill in the following stub code so that the functions operate in the way prescribed by their doc strings.
@@ -230,12 +233,12 @@ For this part of the assignment, you are going to be coding up your own function
 
 1. Write a function that rolls two sets of dice to model players playing a game with dice. It will accept two arguments, the number of dice to roll for the first player, and the number of dice to roll for the second player. Then, the function will do the following: 
 
-* Model rolling the appropriate number of dice for each player.
-* Sum the total values of the corresponding dice rolls. 
-* Print which player rolled the higher total. 
-* Return the total sum of each players rolls in a tuple. 
+ * Model rolling the appropriate number of dice for each player.
+ * Sum the total values of the corresponding dice rolls. 
+ * Print which player rolled the higher total. 
+ * Return the total sum of each players rolls in a tuple. 
 
-Here's how we would call it:
+ Here's how we would call it:
  
  ```python
  In [1]: player_rolls = model_dice_rolls(3, 2)
@@ -243,21 +246,20 @@ Here's how we would call it:
  In [2]: player_rolls
  Out[2]: (13, 7)
  ```
-
+ 
  Remember, you already have some code that solves part of this problem. Feel free to use whatever code you have already written - that's part of the reason we use functions. Hopefully you're beginning to see the advantages of using functions!
 
-2. Write a function that will calculate the the total amount of a dinner bill, given the total before tax, the tax rate, and the tip percentage. Your function will accept these three values as arguments. It will then do the following: 
+2. Write a function that will calculate the total amount of a dinner bill, given the total before tax, the tax rate, and the tip percentage. Your function will accept these three values as arguments. It will then do the following: 
 
-* Apply the tax rate to the total amount. 
-* Apply the tip percentage to the total amount. 
-* Return the total amount of dinner bill that is to be paid. 
+ * Apply the tax rate to the bill total. 
+ * Apply the tip percentage to the total amount. 
+ * Return the total amount of bill before and after tip. 
 
-Here's an example of how we would call the function: 
+ Here's an example of how we would call the function: 
 
-```python 
-In [1]: amount_to_pay = calc_total_bill(100, 0.10, 0.10)
-
-In [2]: amount_to_pay
-Out[2]: 121 
-```
+ ```python 
+ In [1]: bill_with_tax, bill_with_tax_and_tip = calc_total_bill(100, 0.10, 0.10)
  
+ In [2]: bill_with_tax_and_tip
+ Out[2]: 121.0
+ ```
