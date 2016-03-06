@@ -152,3 +152,19 @@ self.destination = self.departure_city
 ```
 
 The one line of code that we gave above for the `fly` method is just shorthand for this same thing. It allows us to do a swap **in place** so that we can avoid having to use a placeholder. 
+
+## Assignment Questions 
+
+Below, we want you to build up a class from scratch. We'll describe the attributes and methods that each class should have available, and ask that you dive in!
+
+1. Let's build a `Company` class, used to represent some company (Denver Beer Co., QDoba, Chipotle, etc.). In this class, we'll have the following attributes: 
+
+* `name` - `str` holding the name of the company 
+* `industry_type` - `str` holding what industry the company belongs to
+* `num_employees` - `int` holding the number of employees the company has
+* `total_revenue` - `float` holding the total revenue of the company 
+
+We'll have the following methods: 
+
+* `serve_customer` - this method will take in a `float` that is equal to the cost of serving some customer, and then adjust the `total_revenue` by that cost. 
+* `gain_employees` - this method will take in a `list` that contains new employees that the company has just brought on, and will update the `num_employees` attribute to take account of that. 
