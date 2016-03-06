@@ -92,7 +92,7 @@ class Cat():
 
 For the second set of problems, we'll give you blocks of code that we want you to place into methods within a class definition. After building up each of your class definitions, use them to instantiate a couple of instances of your class. Play around with those instances, and make sure that everything is working like you would expect. 
 
-1. Using the following code, we want you to define a `Car` class. We've given you the code for an `__init__` method and a `drive` method. We want you to actually build the class definition, as well as the definitions for these two methods. 
+1. Using the following code, we want you to define a `Car` class. We've given you the code for an `__init__` method and a `drive` method. We want you to build the class definition, as well as the definitions for these two methods. 
 
 `__init__` method code  
 
@@ -116,4 +116,39 @@ self.gallons_of_gas -= miles_driven / 10.
 
 * Note that for each of these methods above, I didn't include a certain parameter that is passed **by deafult** to any method within a class - what is that parameter? Can you describe exactly what it is used for?
 
+2. Using the following code, we want you to define a `Plane` class. We've given you the code for an `__init__` method and a `fly` method. We want you to build the class definition, as well as the definition for these two methods.   
 
+`__init__` method code
+
+We want there to be three parameters passed in - `destination`, `departure_city`, and `trip_distance`. 
+
+```python
+self.destination = destination 
+self.departure_city = departure_city
+self.trip_distance = trip_distance
+```
+
+`fly` method code 
+
+We don't want any parameters to be passed in. 
+
+```python 
+self.departure_city, self.destination = self.destination, self.departure_city
+```
+ 
+* In looking at the code for the `fly` method, can you take a guess at what it is doing? It turns out that this is a special way that we can do simultaneous variable assignment so that we don't have to use a placeholder. If we were to try to do the above via the following, we would not get the intended result:  
+
+```python
+self.departure_city = self.destination
+self.destination = self.departure_city
+```
+
+This would result in us with `departure_city` and `destination` being equal to the exact same thing! A way to get around this would be to use a placeholder for the `departure_city` value **before** it gets changed: 
+
+```python 
+placeholder = self.departure_city
+self.departure_city = self.destination
+self.destination = self.departure_city
+```
+
+The one line of code that we gave above for the `fly` method is just shorthand for this same thing. It allows us to do a swap **in place** so that we can avoid having to use a placeholder. 
