@@ -95,9 +95,9 @@ class BookWordCounter():
         return self.num_words
 
 if __name__ == '__main__':
-    flat_land_counter = BookWordCounter('flatland.txt')
+    flat_land_counter = BookWordCounter('books/flatland.txt')
     print flat_land_counter.num_words_in_book()
-    programming_lang_counter = BookWordCounter('programming_languages.txt')
+    programming_lang_counter = BookWordCounter('books/programming_languages.txt')
     print programming_lang_counter.num_words_in_book()
 ```
 
