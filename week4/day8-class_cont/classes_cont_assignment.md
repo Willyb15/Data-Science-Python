@@ -50,7 +50,9 @@ Here, when you get the length of your tracker you are actually going to get the 
 With this in mind, your task is to take the code from the function solution of this problem and write a class `TipOutTracker` that will operate in the way shown above. The things that you should be thinking about as you start solving this problem are:
 
 * What are the attributes, data, that you are going to store on the class?
+    * The data that is being abstracted away from the user of your class?
 * What are the methods, functions, that you are going to operate on the attributes with?
+    * What are the ways that a user of your class will be able to interact with the data it stores?
 
 ### Part 2 - Classes from Scratch
 
@@ -59,10 +61,10 @@ Now that you have a little bit of practice thinking about a problem that takes a
 This time you are going to create a class that allows you to keep track of a to-do list. The kinds of things that we'd want to be able to do with a to-do list (no pun intended) are:
 
 * Add a to-do item.
-* Mark a to-do item as done and remove it.
+* Mark a to-do item as completed and remove it.
 * Print all of your current to-do items.
 
-As you work through this problem a good place to start is by thinking about how you'd want to use this class that you're about to right as was done in the first problem. If you were to be given a `ToDo` class, how would you want to use it? Go ahead and write up a test case where you "use" the class that you're about to write. This will help get you into the mindset of how the class will actually work.
+As you work through this problem a good place to start is by thinking about how you'd want to use this class that you're about to right as was done in the first problem. If you were to be given a `ToDoList` class, how would you want to use it? Go ahead and write up a test case where you "use" the class that you're about to write. This will help get you into the mindset of how the class will actually work.
 
 With that in mind you're going to want to answer the same questions that were posed in the previous question:
 
@@ -73,9 +75,47 @@ Once you have an idea about the answers to these two questions you'll be in a gr
 
 ### Part 3 - Times Not to Use Classes
 
+One thing that should be addressed while you are learning about the power of OOP and classes in Python is that not every problem is fit for being solved with a class. To illustrate this point consider the following code and it's test in the main block.
+
+```python
+class BookWordCounter():
+    def __init__(self, book_path):
+        self.book_path = book_path
+        self.has_counted = False
+        self.num_words = 0
+
+    def count_words(self):
+        with open(self.book_path) as book:
+            for line in book:
+                self.num_words += len(line.split())
+
+    def num_words_in_book(self):
+        if not self.has_counted:
+            self.count_words()
+        return self.num_words
+
+if __name__ == '__main__':
+    flat_land_counter = BookWordCounter('flatland.txt')
+    print flat_land_counter.num_words_in_book()
+    programming_lang_counter = BookWordCounter('programming_languages.txt')
+    print programming_lang_counter.num_words_in_book()
+```
+
+Take a look at what's going on in the class and how it's being used in the main block. Now ask yourself:
+* Is encapsulation being taken advantage of when using the class? 
+* Is there data that is being stored on the class as an attribute?
+    * Is it changing? 
+* Does calling methods on the class allow me to interact with that data?
+* Could this be done with a function???
+
+Try writing a function to solve the same problem that the `BookWordCounter` class solves. Consider how you would would want to use it. Feel free to tear apart the code in `BookWordCounter` when you're making your function(s).
+
+Once your done, consider the pros and cons of solving this problem with a class vs functions. This is an important consideration to make now that you know about the power of both paradigms.
 
 ### Extra Credit
 
-Make it so you can add tipouttrackers
+1. What happens if the coworkers that you give your `TipOutTracker` to accidentally make two instances of the class when they are tracking their tips one night. How could you make it so you can add two `TipOutTracker` instances?
 
-Add a done list of to-do items to the todo list class. Add priority to the todo list items, have these priorities change the way your items are stored and displayed.
+2. Add a list of completed to-do items to the `ToDoList` list class that moves an item from the todo list to the completed list when you mark it completed instead of just removing it. 
+
+3. Add priority to the todo list items, have these priorities change the way your items are stored and displayed.
