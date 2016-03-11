@@ -26,7 +26,7 @@ Desire to learn.
 
 * Bring your laptop and power cable.
 * Install Anaconda with Python version 2.7 on your machine: http://docs.continuum.io/anaconda/install.html
-* Install a text editor: http://www.sublimetext.com/
+* Install a text editor: https://atom.io/
 * If you have trouble with installation, we will assist on the first day.
 
 ### Weekly Agenda:
@@ -36,7 +36,7 @@ Tuesdays & Thursdays, 6:30 pm – 9:15 pm
 ### Full Course Outline:
 
 * Week 1: 
-  * First class: Introduction to git, Github, Unix, Downloading software (Anaconda, git, sublime)
+  * First class: Introduction to git, Github, Unix, Downloading software (Anaconda, git, Atom)
   * Second Class: Variable assignment, Variable declaration, Loops, Control flow, Logic
 * Week 2: 
   * First class: Introduction to Python data structures, Python libraries, Lists, Strings
