@@ -109,7 +109,7 @@ An error! At least Python lets us know that it's related to having no length, a 
 
 ### Using Classes Pragmatically
 
-One question that comes up frequently in languages like Python that don't fall into a single [paradigm](https://en.wikipedia.org/wiki/Programming_paradigm)(such as functional or OOP) is learning when to use the different features of the language. As applied to our current circumstance, when should we be making classes instead of just using functions?
+One question that comes up frequently in languages like Python that don't fall into a single [paradigm](https://en.wikipedia.org/wiki/Programming_paradigm) (such as functional or OOP) is learning when to use the different features of the language. As applied to our current circumstance, when should we be making classes instead of just using functions?
 
 Part of the confusion in answering this question frequently stems from an incomplete understanding OOP's purpose in life - to take advantage of inheritance, encapsulation and polymorphism. With this in mind, let's discuss classes at a high level, and see what kinds of problems lend themselves to being solved with functions (e.g. procedurally) vs. with OOP.
 
