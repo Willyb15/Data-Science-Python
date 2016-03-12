@@ -41,7 +41,7 @@ In [3]: type(complex(3, 4))
 Out[3]: complex
 ```
 
-As you can see, Python assumes that a number with no decimal point is an `int, those with a decimal point a `float`, and (surprise!) those from the `complex()` constructor as `complex`.
+As you can see, Python assumes that a number with no decimal point is an `int`, those with a decimal point a `float`, and (surprise!) those from the `complex()` constructor as `complex`.
 
 While very frequently these subtle differences wont matter too much, there are plenty of occasions where Python hiding this implementation detail will make you think that something will work, when really it won't. Making sure you know how to check is very important.
 
