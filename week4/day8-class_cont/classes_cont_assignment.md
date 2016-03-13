@@ -62,7 +62,7 @@ This time you are going to create a class that allows you to keep track of a to-
 
 * Add a to-do item.
 * Mark a to-do item as completed and remove it.
-* Print all of your current to-do items.
+* Have the length of the to-do list return the number of items you have to do.
 
 As you work through this problem, a good place to start is by thinking about how you'd want to use this class. If you were to be given a `ToDoList` class, how would you want to use it? Go ahead and write up a test case where you "use" the class that you're about to write. This will help get you into the mindset of how the class will actually work.
 
@@ -118,4 +118,6 @@ Once your done, consider the pros and cons of solving this problem with a class 
 
 2. Add a list of completed to-do items to the `ToDoList` class. Then, write a method that moves an item from the todo list to the completed list when you mark it completed. 
 
-3. Add priority to the todo list items, and have these priorities change the way your items are stored and displayed.
+3. Print all of your current to-do items in a pretty way when you pass an instance of the `ToDoList`
+
+4. Add priority to the todo list items, and have these priorities change the way your items are stored and displayed.
