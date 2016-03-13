@@ -116,8 +116,8 @@ Once your done, consider the pros and cons of solving this problem with a class 
 
 1. What happens if the coworkers that you give your `TipOutTracker` to accidentally make two instances of the class when they are tracking their tips one night. How could you make it so you can add two `TipOutTracker` instances?
 
-2. Add a list of completed to-do items to the `ToDoList` class. Then, write a method that moves an item from the todo list to the completed list when you mark it completed. 
+2. Add a list of completed to-do items to the `ToDoList` class. Then, write a method that moves an item from the to-do list to the completed list when you mark it completed. 
 
 3. Print all of your current to-do items in a pretty way when you pass an instance of the `ToDoList`
 
-4. Add priority to the todo list items, and have these priorities change the way your items are stored and displayed.
+4. Add priority to the to-do list items, and have these priorities change the way your items are displayed.
