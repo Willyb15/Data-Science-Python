@@ -45,7 +45,7 @@ tot.add_bill(81.44, 0.20)
 print len(tot)
 ```
 
-Here, when you get the length of your tracker, you are actually going to get the total amount that you're supposed to be tipped out.
+Here, when you get the length of your tracker, you are actually going to get the total number of bills you've served.
 
 With this in mind, your task is to take the code from the function solution of this problem and write a class `TipOutTracker`. This class will operate in the way shown above. You should be thinking about the following as you start solving this problem:
 
