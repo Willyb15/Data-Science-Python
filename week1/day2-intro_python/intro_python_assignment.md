@@ -106,7 +106,7 @@ This is awesome! We now have a script that will solve a problem for arbitrary in
 5.  Write a script that computes the greatest common divisor between two user inputted numbers (**Hint**: Use `raw_input()` twice).
 6.  One can use loops to compute the elements of a mathematical series. Series can be defined recursively with the value of each element depending on the one that comes before it. Consider the series created by the rules:  
 
-    ![series](imgs/series_pic.png)  
+    ![series](misc/series_pic.png)  
 
     Write a script that prints the `nth` element in the series as determined by input from the user. e.g. If the user inputs the number `3`, your script should print the 3rd element in the series, `15`. You're welcome to check the math!
 
