@@ -7,7 +7,7 @@ Let's walk through an example. You should make sure to follow along so you get s
 
     Write a script that prints the sum of the whole numbers between 1 and a user inputted number.
 
-Alright, first we want to open up IPython and our favorite text editor (Sublime if you followed our advice from day 1). I prefer to have these two side by side so that it's easy to look at and work in each.
+Alright, first we want to open up IPython and our favorite text editor (Atom if you followed our advice from day 1). I prefer to have these two side by side so that it's easy to look at and work in each.
 
 We're going to have to start a new file in our text editor to store our script. You should give your script a short name that quickly describes what it does. Python scripts are appended with the file extension `.py`. So, for this problem I would name my script something like `sum_whole_numbers.py`. Now we're off to the races.
 

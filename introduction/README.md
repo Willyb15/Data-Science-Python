@@ -5,7 +5,7 @@ install instructions in the `.md` files in this folder, and install
 these in the following order: 
 
 * [Anaconda](https://www.continuum.io/downloads)
-* [Sublime](http://www.sublimetext.com/) (or some other sort of script editor)
+* [Atom](https://atom.io/docs/v0.191.0/getting-started-installing-atom) (or some other sort of text editor)
 * [git](https://git-scm.com/) 
 * [GitHub](https://github.com/) (there's no `.md` file for this because in reading this README.md you have hopefully already set it up)
 
