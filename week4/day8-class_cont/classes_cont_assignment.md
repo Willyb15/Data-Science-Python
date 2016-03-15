@@ -1,60 +1,123 @@
 # Instructions
 
-Did you ever have the thought during our discussion of classes that the tic-tac-toe game we created would be better implemented with OOP? Well, if you did, you're in luck! Tonight's assignment is going to involve moving that game into a class, or rather, a couple of classes. We'll give you some ideas for classes you should construct, what attributes and methods they should have, and then let you dive in. Since you have already solved this problem in the procedural paradigm and have code to do so, we won't give too stringent of guidelines here, as we hope that you can reuse most/all of the code you wrote when solving this problem before. 
+Tonight we're going to be taking a look at classes, and the OOP paradigm in general. The problems in this assignment are designed to help you develop an intuition for both why we like object oriented programming **and** when we want to use it. The first part of this assignment will revolve around taking a problem that has been solved with functions (which will be given to you) and turning it into a class. The second part will have you write a class from scratch, starting from the mindset of functions. The last part will give you a problem that has been solved with a class; however, it will be a poor choice of using OOP. Here, you'll blow up the class and move the code back into a solely functional programming paradigm. Hopefully this will give you an idea of problems that still ought to be solved with functions. 
 
-As a final note, it might be worth it to read over the entire assignment to get an idea of everything that you are tasked with doing tonight. Then, take a little bit of time to plan out how you are going to approach this problem. While code can always be refactored, an extra 10-15 minutes of planning upfront is usually worth it.
+# Assignment Questions
 
-## The `Board` Class
+### Part 1 - Functions to Class
 
-The first class that I would build would be a `Board` class, as this is the centerpiece of the game. Previously, you likely stored the board as a list of lists. While this usage of lists seemed fairly well suited for the tic-tac-toe problem, now that you know about classes, can you see why it makes more sense to have a class devoted entirely to the board? This will allow you to take advantage of encapsulation.
+Imagine you are waiting tables. At the end of each night, you have to find all you're bills, and total the amount that you will be tipped; this will depend on what a client decided, or 18% if they didn't specify. You always end up spending an extra 10 minutes at the end of your shift calculating how much you made in tips, and as a result you decide to write a Python script to help automate the task.
 
-I would imagine that this class would have two attributes - the `board_size` and the actual `board` data. In terms of methods, the `Board` is probably going to need methods to handle some of the logic that occurs during the game - checking if certain coordinates on the board are taken and/or valid given it's size, actually filling a spot on the board when a player inputs valid coordinates, and then determining whether or not anybody has won. Also, it'd be nice if the `Board` has a method that displays what it looks like.
+After a little trial and error, you come up with the functions below. The `0.18` is for the standard tip your restaurant charges if none is specified.
 
-Some notes: 
+```python
+def get_tips(bills_n_tips):
+    return [bill * tip for bill, tip in bills_n_tips]
 
-* While you can imagine that you could simply get the `board_size` by taking the `len()` of the board, it might make sense to store the `board_size` as an attribute, since you will want to know it pretty frequently (this way we avoid having to call `len()` over and over again when we want to get the size of the board). 
-* In terms of breaking up some of the logic when a player inputs coordinates, I imagine this happening in two steps: (1) Checking to see if the inputs are properly formatted - this check looks at whether or not **two numbers** were inputted, and (2) Checking to see if the inputs are valid, **given** the board - this check looks at what spots are currently taken on the board, and if the inputted coordinates are contained within the board's dimensions. 
+def add_bill_update_tips(new_bill, bills_n_tips, tip_rate=0.18):
+    bills_n_tips.append((new_bill, tip_rate))
+    tip_out = sum(get_tips(bills_n_tips))
+    return tip_out
+```
 
-In an OOP framework, we should be thinking about where to implement checks like these. This is important because there is going to be more than one class in this tic-tac-toe solution, and also in many of your future OOP solutions. Therefore, it's good to get used to thinking about what classes should contain what logic or methods required for a solution. As applied to this problem, since `(1)` doesn't involve the board, I would think that this check shouldn't be done in the `Board` class (we'll figure out where it will be done soon). `(2)` does involve the `Board` class, though, and so I can imagine that it should be done in the `Board` class.
+You then test them out with the following function. Who doesn't like well tested code??
 
-## The `Player` Class
+```python
+def test_tip_out():
+    waiter_bills_n_tips = []
+    print add_bill_update_tips(58.90, waiter_bills_n_tips, 0.15)
+    print add_bill_update_tips(31.58, waiter_bills_n_tips) 
+    print add_bill_update_tips(81.44, waiter_bills_n_tips, 0.20)
+    print get_tips(waiter_bills_n_tips)
+    print len(waiter_bills_n_tips)
+```
 
-After building the `Board` class, I would move on to building a `Player` class, since this is the other part of the game that we need for it to run. Once we have players and a board, we could actually have a game! As you'll see, though, I would suggest that we also build a `Game` class, which will allow our entire tic-tac-toe game to be wrapped up in a nicely encapsulated class.  
+As everything appears to be working, you happily go to work and keep track of your tips. Everything works out, as expected. After all, you did your due diligence and tested your code. However, running the same function over and over (and having to make sure that you we're passing the correct things to your function while you were trying to work) quickly becomes a burden. In addition, some of your coworkers see what you were doing and want to try your code next time you work. You wonder to yourself if there is a simpler way to implement a solution to this problem, one where anyone could easily and intuitively use the program your wrote.
 
-In terms of the `Player` class, I imagine that it will just have a couple of different attributes, and that's it. I think that all the necessary logic for the game should be built into the `Board` and `Game` classes, leaving very few things for our `Player` class. 
+Luckily, you learned about classes in Python recently and realize that this is a great situation to employ them! The first thing you do is sit down and think about how you'd want to use a class in this scenario. You want a class that allows you to track and get information about the status of your tips. Here's an example usage of the class you're going to build:
 
-So, what should the `Player` class have, then? Well, every player is going to need a `name`, and so I would think that should be one of the class' attributes. In the game, every player is also going to have a symbol that they are using (either ' X ' or ' O ' in our game) to make their plays. I think that it would be useful to store that on the `Player` class as well. 
+```python
+tot = TipOutTracker(0.18)
+tot.add_bill(58.90, 0.15)
+tot.add_bill(31.58)
+print tot.total_tip_out()
+tot.add_bill(81.44, 0.20)
+print len(tot)
+```
 
-## The `Game` Class
+Here, when you get the length of your tracker, you are actually going to get the total number of bills you've served.
 
-After building up the `Player` and `Board` class, I would have all the parts of the game that I need. Now, all I would need would be some kind of game engine to run it. While I could code this up solely with functions like we did when we first built our game, I think it makes sense to encapsulate my game within a class. 
+With this in mind, your task is to take the code from the function solution of this problem and write a class `TipOutTracker`. This class will operate in the way shown above. You should be thinking about the following as you start solving this problem:
 
-So, what does the `Game` class need to do? Well, we know that we've already got a `Player` and `Board` class, and that our tic-tac-toe game is going to need to have a `Board` and two `Player`s. This means that our `Game` is going to have to keep track of these - it'll need a `board` attribute and a `players` attribute. I imagine that the `board` attribute is just a `Board` object, and that the `players` attribute is a `tuple` (since the number and specifics of the players won't be changing within the course of a single game) of `Player` objects (2 of them).
+* What are the attributes (data) that you are going to store on the class?
+    * What data is being abstracted away from the user of your class?
+* What are the methods (functions) that you are going to operate on the attributes with?
+    * What are the ways that a user of your class will be able to interact with the data it stores?
 
-Cool... what's next? Or rather, what's left? What else do we need to run this game? Well, we need to have the entire game actually set up - this means our `Game` class will need to instantiate a `Board` object, as well as two `Player` objects. I would think that this should take place when the `Game` object is first initialized.  After that, our `Game` object simply needs to allow our players to play the game! This will involve all the logic that hasn't yet been implemented - asking a player for a coordinate, checking that the coordinate is valid (regardless of the board), telling the board to do what it needs to, and then printing out the final results. Much of this logic can be adapted from your previous solution!
+### Part 2 - Classes from Scratch
 
-Some notes: 
+Now that you have a little bit of practice working through a problem that takes moves functions into a class, you're going to get some practice solving a problem from scratch, using OOP.
 
-* I've mentioned that I think that the `Board` object and two `Player` objects should be created when the `Game` object is first initialized. While this does mean that it should happen **via** the `__init__` method, that would be a lot of code to place directly in the `__init__`  method itself. In situations like this, it is common practice to build the initialization into it's own method (or methods), and then call that method (or methods) from within the `__init__` method. For example, I would personally build one method for initializing the players (call it `_initialize_players()`), and another one for initializing the board (call it `_initialize_board()`). Then, my `__init__` method would involve calling those two initialization methods. 
-* Above, I stated that one of the steps that the `Game` object should implement is to tell the board what it needs to do. This is part of the beauty of OOP - the `Game` object doesn't really have to think about what the `Board` object is doing; it just has to tell the `Board` object what to do, and know what the `Board` object is going to do. So, I wrote above that the `Board` object should check if a set of coordinates is valid, fill in that set of coordinates if it is valid, and finally check if there is a winner. In this case, all the `Game` needs to know is if that process was successful, and if there is a winner (i.e. can/should the players continue playing, do they need to input another coordinate because they inputted an invalid one, is there a winner, etc.).  
+This time you are going to create a class that allows you to keep track of a to-do list. The kinds of things that we'd want to be able to do with a to-do list (no pun intended) are:
 
-## Some final thoughts
+* Add a to-do item.
+* Mark a to-do item as completed and remove it.
+* Have the length of the to-do list return the number of items you have to do.
 
-The above are just suggestions, and you are free to use them or choose to tackle the problem a different way. The end goal of the night is to get more practice working in an OOP framework, and coding! And again, we've specifically left this somewhat open-ended in terms of the instructions, since we are hoping that you use some/all of the code that you wrote when we took a functional approach to this problem. 
+As you work through this problem, a good place to start is by thinking about how you'd want to use this class. If you were to be given a `ToDoList` class, how would you want to use it? Go ahead and write up a test case where you "use" the class that you're about to write. This will help get you into the mindset of how the class will actually work.
+
+With that in mind, you're going to want to answer the same questions that were posed before:
+
+* What are the attributes (data) that you are going to store on the class?
+* What are the methods (functions) that you are going to operate on the attributes with?
+
+Once you have an idea about the answers to these two questions, you'll be in a great place to start writing some code!
+
+### Part 3 - Times Not to Use Classes
+
+One thing that should be addressed while you are learning about OOP is that the use of a class is not appropriate for solving every problem. To illustrate this point, consider the following code, and it's test in the main block.
+
+```python
+class BookWordCounter():
+    def __init__(self, book_path):
+        self.book_path = book_path
+        self.has_counted = False
+        self.num_words = 0
+
+    def count_words(self):
+        with open(self.book_path) as book:
+            for line in book:
+                self.num_words += len(line.split())
+
+    def num_words_in_book(self):
+        if not self.has_counted:
+            self.count_words()
+        return self.num_words
+
+if __name__ == '__main__':
+    flat_land_counter = BookWordCounter('books/flatland.txt')
+    print flat_land_counter.num_words_in_book()
+    programming_lang_counter = BookWordCounter('books/programming_languages.txt')
+    print programming_lang_counter.num_words_in_book()
+```
+
+Now ask yourself:
+* Is encapsulation being taken advantage of when using this class? 
+* Is there data that is being stored on the class as an attribute?
+    * Is it changing? 
+* Does calling methods on the class allow me to interact with that data?
+* Could this be done with a function???
+
+Try writing a function to solve the same problem that the `BookWordCounter` class solves. Consider how you would want to use that function. Feel free to tear apart the code in `BookWordCounter` when you're making your function(s).
+
+Once your done, consider the pros and cons of solving this problem with a class vs functions. This is an important consideration to make now that you know about the power of both paradigms.
 
 ### Extra Credit
 
-1. Alter your `Board` class to use the `__repr__` magic function when being displayed (you can check out the `__repr__` magic function [here](http://www.rafekettler.com/magicmethods.html#representations)). 
-2. Alter your `Player` class to also use the `__repr__` magic function. Construct your `__repr__` magic function such that it displays the name of the player when being displayed. 
-3. Now, go back to the `__repr__` magic function that you built in the `Board` class, and alter it so that you have a better looking board. Instead of just displaying the board as a list of lists, I'm imagining something like this: 
+1. What happens if the coworkers that you give your `TipOutTracker` to accidentally make two instances of the class when they are tracking their tips one night. How could you make it so you can add two `TipOutTracker` instances?
 
- ```
-     0   1   2
- 0    |   |  
-    -----------
- 1    |   | 
-    -----------
- 2    |   | 
-```
-4. Let's allow the game to be a little bit more dynamic. Alter your `Board` class to take in a `board_size` argument, rather than having it just be `3` all the time. This means that you'll have to alter any of your methods that are reliant on this `board_size`, including the `__repr__` magic function that you just built in `3.` above. **Hint**: This shouldn't be as hard as you think - it should just involve finding all the places that reference the `board_size` (or wherever you've hard coded a `3`), and altering those to now be dynamic. 
-5. Dynamic is fun, so let's do even more! Modify your `Game` class to not only play 1 game, but to allow the players to keep playing until they wish to stop. This means that after a win or tie, you'll have to check if the players want to keep playing, and then reinitialize everything if they do (and exit if they don't). To make it a little more interesting, keep track of each player's number of wins (use an attribute on the `Player` class) and display the results when the players are all done playing.  
+2. Add a list of completed to-do items to the `ToDoList` class. Then, write a method that moves an item from the to-do list to the completed list when you mark it completed. 
+
+3. Print all of your current to-do items in a pretty way when you pass an instance of the `ToDoList`
+
+4. Add priority to the to-do list items, and have these priorities change the way your items are displayed.

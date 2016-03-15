@@ -1,4 +1,4 @@
-# Data Science Fundamentals
+# Segue to Data Manipulation Tools
 
 At the end of Day 9:
 
@@ -11,5 +11,5 @@ At the end of Day 10:
 	* obtain summary statistics
 	* obtain visuals using Pandas DataFrames 
 * You will understand:
-	* when, why and how to create visuals 
 	* how to interpret summary statistics
+	* when, why and how to create visuals 

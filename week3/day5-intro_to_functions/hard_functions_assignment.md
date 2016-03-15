@@ -1,6 +1,6 @@
 # Instructions 
 
-Tonight we'll be working through solving more problems, but this time by building functions.  For each of the problems that you work through tonight, you should build a function into your solution. While we'll discuss general workflow in the next class, tonight you can just build each function into it's own file, and then call it with some arguments right after you define it. For example, pretend all of the following is the solution to one of the problems, written in a function first and then called (for testing purposes) below. 
+For this assignment you'll be working through solving more problems, but this time by building functions from scratch. For each problem, you should build a function into your solution. While we'll discuss general workflow in the next class, tonight you can just build each function into it's own file, and then call it with some arguments right after you define it. For example, pretend all of the following is the solution to one of the problems, written in a function first and then called (for testing purposes) below. 
 
 ```python 
 def my_func(param1, param2, param3): 
@@ -13,7 +13,7 @@ print my_func(param14, param24, param34)
 print my_func(param15, param25, param35)
 ```
 
-Note above that I called my function five times after I defined it (and I put a print in front of it so that when I call the script from the command line it'll print the results) - this is to test out that it works correctly with different sets of arguments. You should aim to test yours at least 5 times tonight after you write it. It's good to try to think of tests that your function might not solve correctly (we call these **edge cases**). Not only does thinking like this help you solve the problem, but it also gives you more faith in your solution.
+Note above that `my_func` is called five times after it's definition. The output of each call is printed so running the script from the command line will print the tests. These tests should check that `my_func` works correctly with different sets of arguments. You should aim to test your functions at least 5 times tonight after you write them. It's good to try to think of tests that your function might not solve correctly (we call these **edge cases**). Not only does thinking like this help you solve the problem, but it also gives you more faith in your solution.
 
 You can name each of the scripts you store your solutions and tests in, but know that its bad practice to start the names of scripts with numbers for reasons that we will see in future classes.
 
