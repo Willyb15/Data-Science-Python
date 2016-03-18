@@ -100,7 +100,7 @@ This is awesome! We now have a script that will solve a problem for arbitrary in
 
 1. Write a script that takes a user inputted number and prints whether it is positive, negative or zero, with "The inputted number is (positive/negative/zero)" depending.
 2. Write a script that takes two user inputted numbers and prints "The first number is larger" or "The second number is larger" depending on which is larger. (**Hint**: you'll need to use `raw_input()` twice.)
-3. Write a script that computes the sum from a user inputted number to 0. This will look very much like the example above, you'll just need to change a couple of things.
+3. Write a script that computes the sum from 0 to a user inputted number. This time though, start at the user inputted number and work down. This answer will look very much like the example above, you'll just need to change a couple of things. 
 4. Write a script that computes the factorial of a user inputted number. If you don't know what a factorial is or need a review, check [this](https://en.wikipedia.org/wiki/Factorial) link out. Again, your solution is going to look a lot like the code above. Things you should think about:
     * What is the process of computing a factorial if you were to compute it by hand?
     * What is the common starting place when trying to compute the factorial of any number?
