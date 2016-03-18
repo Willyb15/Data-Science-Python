@@ -98,17 +98,38 @@ This is awesome! We now have a script that will solve a problem for arbitrary in
 
 ## Assignment Questions
 
-1.  Write a script that computes and prints the factorial of a user inputted number.
-2.  Write a script that determines whether or not a user inputted number is a [prime](https://en.wikipedia.org/wiki/Prime_number) and prints `'The number you inputted is a prime/ not a prime number.'` depending on what your script finds.
-3.  Write a script that computes and prints all of the divisors of a user inputted number.
-4.  Write a script that computes the least common multiple between two user inputted numbers
-(**Hint**: Use `raw_input()` twice).
-5.  Write a script that computes the greatest common divisor between two user inputted numbers (**Hint**: Use `raw_input()` twice).
-6.  One can use loops to compute the elements of a mathematical series. Series can be defined recursively with the value of each element depending on the one that comes before it. Consider the series created by the rules:  
+1. Write a script that takes a user inputted number and prints whether it is positive, negative or zero, with "The inputted number is (positive/negative/zero)" depending.
+2. Write a script that takes two user inputted numbers and prints "The first number is larger" or "The second number is larger" depending on which is larger. (**Hint**: you'll need to use `raw_input()` twice.)
+3. Write a script that computes the sum from 0 to a user inputted number. This time though, start at the user inputted number and work down. This answer will look very much like the example above, you'll just need to change a couple of things. 
+4. Write a script that computes the factorial of a user inputted number. If you don't know what a factorial is or need a review, check [this](https://en.wikipedia.org/wiki/Factorial) link out. Again, your solution is going to look a lot like the code above. Things you should think about:
+    * What is the process of computing a factorial if you were to compute it by hand?
+    * What is the common starting place when trying to compute the factorial of any number?
+5.  Write a script that computes and prints all of the divisors of a user inputted number. If you don't know what a divisor is or need a review, check out [this](https://en.wikipedia.org/wiki/Divisor) link. Things to think about:
+    * How do you determine if a single number is a divisor of another?
+    * How do you do this multiple times (**Hint**: it involves a while loop)?
+    * When do you stop the loop?
+6.  Write a script that computes the greatest common divisor between two user inputted numbers. If you don't know what a greatest common divisor is, check out [this](https://en.wikipedia.org/wiki/Greatest_common_divisor) link. Things to think about:
+    * How do you get two numbers from the user?
+    * Where should you start your search for the GCD?
+    * Where/how should you end your search?
+7.  Write a script that computes the least common multiple between two user inputted numbers. If you don't know what a least common multiple is or want a review check [this](https://en.wikipedia.org/wiki/Least_common_multiple) out. Things to think about:
+    * How do you get two numbers from the user?
+    * Where should you start your search for the LCM?
+    * Where/how should you end your search?
+8. Write a script that determines whether or not a user inputted number is a prime number and prints `'The number you inputted is (not) a prime number.'` depending on what your script finds. If you don't know what a prime number is or need a review, check out [this](https://en.wikipedia.org/wiki/Prime_number) link. Things to think about:
+    * How do you check if a number is divisible by another number?
+    * What numbers are a prime number divisible by?
+    * How do you check all of the numbers a number could be divisible by (**Hint**: use a loop)?
+    * When do you stop the loop?
+9.  One can use loops to compute the elements of a mathematical series. Series can be defined recursively with the value of each element depending on the one that comes before it. Consider the series created by the rules:  
 
-    ![series](imgs/series_pic.png)  
+    ![series](misc/series_pic.png)  
 
-    Write a script that prints the `nth` element in the series as determined by input from the user. e.g. If the user inputs the number `3`, your script should print the 3rd element in the series, `15`. You're welcome to check the math!
+    Write a script that prints the `nth` element in the series as determined by input from the user. e.g. If the user inputs the number `3`, your script should print the 3rd element in the series, `15`. You're welcome to check the math! Things to think about:
+    * You know you're going to use a loop to solve this problem, how?
+    * How do you store each of the elements as you calculate them with the loop?
+    * How many elements do you need to keep track of at any one time?
+    * How do you know when to stop the loop?
 
 ### Extra Credit
 
