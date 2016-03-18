@@ -41,7 +41,7 @@ In [3]: type(complex(3, 4))
 Out[3]: complex
 ```
 
-As you can see, Python assumes that a number with no decimal point is an `int, those with a decimal point a `float`, and (surprise!) those from the `complex()` constructor as `complex`.
+As you can see, Python assumes that a number with no decimal point is an `int`, those with a decimal point a `float`, and (surprise!) those from the `complex()` constructor as `complex`.
 
 While very frequently these subtle differences wont matter too much, there are plenty of occasions where Python hiding this implementation detail will make you think that something will work, when really it won't. Making sure you know how to check is very important.
 
@@ -263,7 +263,7 @@ Python gives us two ways to do this. One by offering other conditionals, `elif` 
 In addition to the `if`, Python provides us with two other statements to build out those logical trees, the `elif` and the `else`. The `elif` is just like the `if` - it accepts a condition to check the truth of and has an indented code block that is executed when that condition evaluates to `True`. The `else` is similar, but it doesn't accept a condition. Instead, it mainly acts as a catch all for any other situation that you don't need to cover with your `if`s and `elif`s. Note that there can only be a single `if` and up to a single `else`, but any number of `elif`s in an `if`-`elif`-`else` block. Let's take a closer look at this in the following code block that we'll store in `if_elif_else.py`.
 
 ```python
-x = int(input('Please enter a number: '))
+x = int(raw_input('Please enter a number: '))
 if x < 0:
     print('You entered a negative number.')
 elif x > 0:
@@ -291,7 +291,7 @@ You entered the number 0.
 Let's specifically talk about how the `if`-`elif`-`else` statements work. The programmers of Python designed these statements so that they would execute highly efficiently. They achieved this by making it so that when Python is going through your `if`-`elif`-`else` statements and encounters a condition that evaluates to `True`, it will execute the corresponding conditional code block and then skip to the line directly following the last conditional block. Let's examine this in the following code saved again in `if_elif_else.py`.
 
 ```python
-x = int(input('Please enter a number: '))
+x = int(raw_input('Please enter a number: '))
 if x > 5:
     print('You entered a number bigger than 5.')
 elif x > 0:
