@@ -52,7 +52,7 @@ In [2]: 'Repeating string' * 3
 Out[2]: 'Repeating stringRepeating stringRepeating string'
 ```
 
-Note that Python didn't put spaces between the strings with either the `+` operator or the `*` operator. Why not, you ask? Because it wasn't told to! In this case, and in programming in general, you have to be extremely explicit about what you want the computer to do. To fix this, you can add a space in the middle of the first case, and then add a space to the end of our string in the second case.
+Note that Python didn't put spaces between the strings with either the `+` operator or the `*` operator. Why not? Because it wasn't told to! In this case, and in programming in general, we have to be extremely explicit about what we want the computer to do. To fix this, we can add a space in the middle of the first case, and then add a space to the end of our string in the second case.
 
 ```python
 In [1]: 'My first string' + ' ' + 'My second string'
@@ -62,7 +62,7 @@ In [2]: 'Repeating string ' * 3
 Out[2]: 'Repeating string Repeating string Repeating string '
 ```
 
-Much better! But, what about that pesky little space at the end of our second string: `'Repeating string Repeating string Repeating string '`. Is there a way to remove this? It turns out there is! One of the methods (a name for a function that is attached to a particular object) that we can call on strings is the `strip()` method. Methods are something that we will cover in much more depth later, but for now just note that we call them on our objects through **dot notation**. We simply place a `.` at the end of our object (`str`, `int`, `float`, any variable, etc.), and then call the method like we would call a function. Check this out.
+That looks much better! But, what about that pesky little space at the end of our second string: `'Repeating string Repeating string Repeating string '`. Is there a way to remove this? It turns out there is! One of the methods (a name for a function that is attached to a particular object) that we can call on strings is the `strip()` method. Methods are something that we will cover in much more depth later, but for now just note that we call them on our objects through **dot notation**. We simply place a `.` at the end of our object (`str`, `int`, `float`, any variable, etc.), and then call the method like we would call a function. Here's how the use of this **dot notation** looks in practice.  
 
 ```python
 In [1]: 'Repeating string Repeating string Repeating string '.strip()
@@ -72,7 +72,7 @@ In [1]: ' Repeating string Repeating string Repeating string '.strip()
 Out[2]: 'Repeating string Repeating string Repeating string'
 ```
 
-So what did the `strip()` method do? In the first example, it removed the trailing space from the string. In the second example, it removed both the leading and trailing spaces. In fact this is exactly what the `strip()` method does - by default (without any arguments) it removes leading and trailing whitespace (*note, the method can actually remove any leading or trailing characters if you pass them to `strip()`, but whitespace is the default character that it removes*).
+So, what did the `strip()` method do? In the first example, it removed the trailing space from the string. In the second example, it removed both the leading and trailing spaces. This is exactly what the `strip()` method does - by default (without any arguments) it removes leading and trailing whitespace (*note, the method can actually remove any leading or trailing characters if you pass them to `strip()`, but whitespace is the default character that it removes*).
 
 Are there other things that we can do with strings? There are tons! Let's store our string in a variable below, so we can get some exposure working with strings in variables.
 
