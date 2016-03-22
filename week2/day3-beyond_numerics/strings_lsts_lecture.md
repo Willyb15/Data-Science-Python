@@ -118,7 +118,7 @@ my_str.index       my_str.lower       my_str.split
 
 #### Working with individual characters in strings
 
-We know how to work with an entire string via some of the methods that we've discussed, but what if we wanted to work with the individual characters? There are a couple of ways to do this, but the first we'll focus on is through indexing. We know that to Python, a string is just a collection of characters, and it turns out that we can access the individual characters simply by asking Python for a given numbered element in our collection (i.e. the string).  We do this by placing the element number that we want in square brackets, `[]`,  right after our string (or variable, if it's stored in one). This element number is referred to as the **index** of the character (or element, if it's not a string - more on this soon).
+We know how to work with an entire string via some of the methods that we've discussed, but what if we wanted to work with the individual characters? There are a couple of ways to do this, but the first we'll focus on is through indexing. We know that to Python, a string is just a collection of characters. It turns out that we can access the individual characters simply by asking Python for a given numbered element in our collection (i.e. the string).  We do this by placing the element number that we want in square brackets, `[]`,  right after our string (or variable, if it's stored in one). This element number is referred to as the **index** of the character (or element, if it's not a string - more on this soon).
 
 ```python
 In [1]: my_str_variable = 'Test String'
@@ -132,11 +132,11 @@ Out[3]: 'S'
 In [4]: my_str_variable[-1]
 Out[4]: 'g'
 
-In [5]: my_str_varaible[-3]
+In [5]: my_str_variable[-3]
 Out[5]: 'i'
 ```
 
-Using indices like this, we can access any element of a string. But why is the element at index 1 `e`, and not `T`? After all, `T` is the first element in the string. Also, what are those negative numbers doing? In the case of the former, it turns out that Python (and many programming languages) starts indexing at 0, which means that the first element in our string (and any collection that supports indexing) is accessed via indexing at 0. We refer to languages that work this way as **zero indexed**. As for the negative numbers, this is a way to access elements starting from the end of the string, rather than the beginning. Indexing from the end starts from -1 and continues downwards from there. So we would use -2 to access the `n` in the string.
+Using indices like this, we can access any element of a string. But why is the element at index 1 `e`, and not `T`? After all, `T` is the first element in the string. Also, what are those negative numbers doing? In the case of the former, it turns out that Python (and many programming languages) starts indexing at 0, which means that the first element in our string (and any collection that supports indexing) is accessed via indexing at 0. We refer to languages that work this way as **zero indexed**. As for the negative numbers, this is a way to access elements starting from the end of the string, rather than the beginning. Indexing from the end starts from -1 and continues downwards from there. So, we would use -2 to access the `n` in the string.
 
 Note that we can also access any given number of the characters (any **substring**) by combining multiple index numbers separated by a colon `:`. For example:
 
@@ -159,9 +159,11 @@ In [6]: my_str_variable[:-1]
 Out[6]: 'Test Strin'
 ```
 
-Okay, cool! You might notice, though, that when indexing from `[1:3]`, only the letters at index 1 and 2 are returned; and when indexing from `[5:9]`, we get the letters at indices 5, 6, 7, and 8. This is because the indices that you pass in are inclusive on the left side, and exclusive on the right side. This means that when you index, you will grab letters from the starting index that you give up to but not including letters at the ending index that you give. Also, what about those last two examples, where there isn't an ending index and then no starting one? If you don't give an ending index, then Python assumes that your ending index is the last index in the string, and if you don't give a starting index, Python assumes that your starting index is the first index in the string, which again is the zeroth index in Python (don't worry if this feels confusing, you'll get used to it quickly).
+This indexing turns out to be pretty useful. You might notice, though, that when indexing from `[1:3]`, only the letters at index 1 and 2 are returned; when indexing from `[5:9]`, we get the letters at indices 5, 6, 7, and 8. This is because the indices that you pass in are inclusive on the left side, and exclusive on the right side. This means that when you index, you will grab letters from the starting index that you give up to but not including letters at the ending index that you give. 
 
-Is there a way to grab elements at regular intervals in a string? For example, what if we wanted to grab every second letter? Python allows you to do this by passing in an optional third number while indexing. This optional third number, also separated by a colon (`:`), tells Python the step size by which to move through the string when indexing. So, if you wanted to grab every second letter from the beginning to end, we could index with `[::2]`. If we wanted to grab every 3rd letter from the letter at index 2 to the letter at index 10, we could use the indexing `[2:10:3]`.
+What about those last two examples, where there isn't an ending index or a starting one? If you don't give an ending index, then Python assumes that your ending index is the last index in the string. Similarly, if you don't give a starting index, Python assumes that your starting index is the first index in the string. Remember, this is the zeroth index in Python (don't worry if this feels confusing, you'll get used to it quickly).
+
+Is there a way to grab elements at regular intervals in a string? For example, what if we wanted to grab every second letter? Python allows us to do this by passing in an optional third number while indexing. This optional third number, also separated by a colon (`:`), tells Python the step size by which to move through the string when indexing. So, if we wanted to grab every second letter from the beginning to end, we could index with `[::2]`. If we wanted to grab every 3rd letter from the letter at index 2 to the letter at index 10, we could use the indexing `[2:10:3]`.
 
 ```python
 In [1] my_str_variable = 'Test String'
