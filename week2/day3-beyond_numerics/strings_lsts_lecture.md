@@ -398,9 +398,9 @@ In [2]: for num in my_lst:
 
 Just as in the case of iterating through our strings, our `for` loop iterates over all of the values in our iterable (this time a `list`), and then places those values into the variable name we give (`num`) at each iteration of the loop.
 
-What if I absolutely need the indices, though? Is there a way that I can still iterate through using a for loop without `range()` and `len()`, the way you're telling me is Pythonic, and still get the indices, too?? Yes!
+What if I absolutely need the indices, though? Is there a way that I can still iterate through using a for loop without `range()` and `len()`, the way you're telling me is Pythonic, and still get the indices?? Yes!
 
-There is a function, `enumerate()`, that will allow you to iterate through a list or string (grabbing each of the individual elements in the list or characters in the string) while at the same time keeping track of the index. The trick is that instead of using just one variable (such as `num` above) to store the elements of the list as you loop through them, you use two variables. The first of these variables stores the current index, and the second stores the corresponding element in the list. Let's see how it works...
+There is a function, `enumerate()`, that will allow us to iterate through a list or string (grabbing each of the individual elements in the list or characters in the string) while at the same time keeping track of the index. The trick is that instead of using just one variable (such as `num` above) to store the elements of the list as you loop through them, we use two variables. The first of these variables stores the current index, and the second stores the corresponding element in the list. Let's see how it works...
 
 ```python
 In [1]: my_lst = [1, 2, 3, 4, 5]
@@ -415,7 +415,7 @@ In [2]: for idx, num in enumerate(my_lst):
 4 5
 ```
 
-Neat, huh!? The trick here is that when we call `enumerate()` on our list, `enumerate()` gives us back two values at each iteration through the loop. The first value is the current index (which we chose to store as `idx` above), and the second value is the current element of the list (which we chose to store as `num`). Note how `idx` tracks one behind `num`... this is because `idx` starts at 0 and `num` starts at 1.
+The trick here is that when we call `enumerate()` on our list, `enumerate()` gives us back two values at each iteration through the loop. The first value is the current index (which we chose to store as `idx` above), and the second value is the current element of the list (which we chose to store as `num`). Note how `idx` tracks one behind `num`... this is because `idx` starts at 0 and `num` starts at 1.
 
 ### The Magic of Iterables
 
