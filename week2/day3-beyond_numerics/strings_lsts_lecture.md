@@ -272,11 +272,11 @@ This is something that we don't use much past pretty simple cases, but there are
 
 ### Lists
 
-We've been talking about this idea of iterables for a while now and have seen our first example of it already, the string. So what other data structures does Python have for us to iterate through?
+We've been talking about this idea of iterables for a while now and have seen our first example of it already when looking at strings. What other data structures does Python have for us to iterate through?
 
 #### Intro to Lists
 
-Lists are a more complex type of data structure. From a high level, lists are collections of ordered items. These items can be of any type, and a list can contain items of different types, or all the same type. You can construct a list in one of two ways. The first is simply by passing an arbitrary number of items into square brackets, `[]`, separated by commas. The second is by passing an iterable into the `list()` constructor (we'll discuss exactly what an iterable and constructor are later). For example...
+Lists are a more complex type of data structure. From a high level, lists are collections of ordered items. These items can be of any type, and a list can contain items of different types (or all the same type). You can construct a list in one of two ways. The first is simply by passing an arbitrary number of items into square brackets, `[]`, separated by commas. The second is by passing an iterable into the `list()` constructor (we'll discuss exactly what an iterable and constructor are later). For example...
 
 ```python
 In [1]: my_first_lst = [1, 'hello', 3, 'goodbye']
@@ -298,6 +298,7 @@ In [1]: my_lst_of_lsts = [[1, 2, 3], ['str1', 'str2', 'str3'], [1, 'mixed', 3]]
 In [2]: my_lst_of_lsts
 Out[2]: [[1, 2, 3], ['str1', 'str2', 'str3'], [1, 'mixed', 3]]
 ```
+
 #### List Operations
 
 Just as we have operations (methods) that we can use on strings, we also have some for lists! Here are some of the most common operations that we have available for lists...
