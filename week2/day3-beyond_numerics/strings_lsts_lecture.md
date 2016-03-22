@@ -246,7 +246,7 @@ We can see that it is more readable since we don't have to index into our string
 
 #### A Quick Aside on String Formatting 
 
-There's one more thing that we should talk about before moving on from our discussion of strings, and that's string formatting. Why is this important? Well, it's what's going to allow us to format strings in certain ways. Probably most usefully, it's going to allow us to insert variable contents into strings dynamically. We'll get an idea of how and when this is most useful as we work through this course. For now, let's just look at the syntax of it all.  
+There's one more thing that we should talk about before moving on from our discussion of strings - string formatting. String formatting is going to allow us to format strings in certain ways. Probably most usefully, it's going to allow us to insert variable contents into strings dynamically. We'll get an idea of how and when this is most useful as we work through this course. For now, let's just look at the syntax of it all.  
 
 ```python
 In [1]: my_name = 'Sean'
@@ -258,7 +258,7 @@ In [3]: print 'Hello {}'.format(my_name)
 Hello Sean
 ```
 
-Oh, neat! So, how is this working? Well, in each case, it's filling in a given part of our string with the value of our variable. In the first case, we use a `%` sign to denote where the replacement should happen, followed by a letter to denote what type of variable will be passed in there (`s` is used for string, `d` is for a decimal, etc.). You can find what each letter denotes [here](https://docs.python.org/2/library/stdtypes.html#string-formatting). In the second case, we use brackets `{}` to denote where the replacement should take place. We can also place numbers, or even variable names themselves inside these brackets and referece them in the `format()` method. i.e.
+How is this working? Well, in each case, it's filling in a given part of our string with the value of our variable. In the first case, we use a `%` sign to denote where the replacement should happen, followed by a letter to denote what type of variable will be passed in there (`s` is used for string, `d` is for a decimal, etc.). You can find what each letter denotes [here](https://docs.python.org/2/library/stdtypes.html#string-formatting). In the second case, we use brackets `{}` to denote where the replacement should take place. We can also place numbers, or even variable names themselves inside these brackets and referece them in the `format()` method...
 
 ```python
 In [1]: print 'Hello {0}'.format(my_name)
