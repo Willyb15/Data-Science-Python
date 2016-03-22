@@ -1,10 +1,10 @@
 ## Introduction to Strings and Lists
 
-Last week we learned about how to use Python's power with `while` loops and conditionals, operating on some simple built in numeric types. Today we are going to learn about a couple of data structures that will continue to build up your power in Python, and we'll learn about a new type of loop.
+Last week, we learned about how to use Python's power with `while` loops and conditionals, operating on some simple built in numeric types. Today, we are going to learn about a couple of data structures that will continue to build up your power in Python, and we'll learn about a new type of loop.
 
 ### Strings
 
-First we are going to learn about another common data type, strings. From a high-level perspective, a string is just a bit of text. This could be text that you have read in from a file, html that you have pulled from the Internet, or any other text. From Python's perspective, a string (type `str`) is simply a collection of encoded characters. Wait, what's an encoding...?
+First, we are going to learn about another common data type, strings. From a high-level perspective, a string is just a bit of text. This could be text that you have read in from a file, html that you have pulled from the Internet, or any other text. From Python's perspective, a string (type `str`) is simply a collection of encoded characters. Wait, what's an encoding...?
 
 An encoding is just a fancy way of us saying that the characters in our string follow a certain format, or structure. The reason it matters for us in terms of our Python programs, though, is that Python expects our strings to be in one of a couple of different encodings (either `ASCII`, `utf-8`, or `unicode`). This isn't something you will run into often, and especially not when defining your own strings (it's probably most prevalent when pulling text from the Internet). However, it's worth noting because there is a good chance that sometime in your Python career, you will end up with Python telling you it doesn't recognize a certain character in one of your strings, and an unexpected encoding will most likely be at the heart of that error.
 
@@ -22,7 +22,7 @@ In [3]: 'They told me not to do this, but I didn't listen.'
 SyntaxError: invalid syntax
 ```
 
-Just like we expected, we can use both single and double quotation marks. But what happened in the 3rd case there? Well, we opened the string with a single quotation mark, and Python started looking for the next single quotation mark to close the string. When it found that quotation mark in the word `didn't`, it assumed the string was closed after `didn`. As a result, this left `t listen.'` just hanging out, and Python didn't know how to interpret that, resulting in our error. The solution to this, as mentioned above, is to use double quotation marks in any case where your text will have single quotation marks in it. For example...
+Just like we expected, we can use both single and double quotation marks. What happened in the 3rd case there? Well, we opened the string with a single quotation mark, and Python started looking for the next single quotation mark to close the string. When it found that quotation mark in the word `didn't`, it assumed the string was closed after `didn`. As a result, this left `t listen.'` just hanging out, and Python didn't know how to interpret that, resulting in our error. The solution to this, as mentioned above, is to use double quotation marks in any case where your text will have single quotation marks in it. For example...
 
 ```python
 In [1]: "Now that I've got double quotes, I can use all the contractions!"
