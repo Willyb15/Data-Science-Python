@@ -197,7 +197,7 @@ In [2]: len(my_str)
 Out[2]: 5
 ```
 
-Now we can write our `while` loop to be a little bit more general:
+Now, we can write our `while` loop to be a little bit more general:
 
 ```python
 my_str, idx = 'hello', 0
@@ -206,18 +206,19 @@ while idx < len(my_str):
     idx += 1
 ```
 
-Great! But I did mention that there are other ways to iterate over the letters in our string, and in general we try to stay away from `while` loops in Python, so let's dive into those.
+Great! But we did mention that there are other ways to iterate over the letters in our string, and in general we try to stay away from `while` loops in Python.
 
-The other way that we can iterate over the letters in our string is to use a `for` loop. `for` loops are built off of the same idea of `while` loops (doing something over and over again), but instead of continuing until some condition is no longer met, `for` loops operate directly on iterables, leaving the concern about when to stop for Python to figure out. With a `for` loop, you don't have to care how many iterations/cycles the loop will go through. Let's look at the syntax of a `for` loop.   
+The other way that we can iterate over the letters in our string is to use a `for` loop. `for` loops are built off of the same idea of `while` loops (doing something over and over again), but instead of continuing until some condition is no longer met, `for` loops operate directly on iterables. This leaves the concern about when to stop for Python to figure out. With a `for` loop, we don't have to care how many iterations/cycles the loop will go through. Let's look at the syntax of a `for` loop.   
 
 ```python
 my_str = 'hello'
 for idx in range(len(my_str)):
     print my_str[idx]
 ```
-**Note**: the `range()` function (which we will cover in more depth when we get to functions) as used above simply gives us a list of numbers from 0 up to but not including the inputted number. So here, since `len(my_str)` is 5, `range(len(my_str))` returns a list of integers from 0 to 4.
 
-This `for` loop does the exact same thing as the `while` loop we wrote above, but with slightly different syntax. So how does it work? At each iteration of the loop, `idx` is assigned one of the values in `range(len(my_str))`, and then the code within the indented block is run with that value of `idx`. How does Python know what the values of `idx` will be? Python simply goes through the values of whatever is after the `in` statement **in order**, and assigns those values to `idx`, one at a time through each iteration of the loop. So, since `range(len(my_str))` returns to us a list of integers from 0 to 4, those values get assigned to `idx` as we run through the `for` loop. Let's look at one of our favorite kinds of tables to view this:
+**Note**: the `range()` function (which we will cover in more depth when we get to functions) as used above simply gives us a list of numbers from 0 up to but not including the inputted number. In the case above, since `len(my_str)` is 5, `range(len(my_str))` returns a list of integers from 0 to 4.
+
+This `for` loop does the exact same thing as the `while` loop we wrote above, but with slightly different syntax. How does it work? At each iteration of the loop, `idx` is assigned one of the values in `range(len(my_str))`, and then the code within the indented block is run with that value of `idx`. How does Python know what the values of `idx` will be? Python simply goes through the values of whatever is after the `in` statement **in order**, and assigns those values to `idx`, one at a time through each iteration of the loop. Since `range(len(my_str))` returns to us a list of integers from 0 to 4, those values get assigned to `idx` as we run through the `for` loop. Let's look at one of our favorite kinds of tables to view this:
 
 | After loop # | idx | What's Printed |
 | ------------ |:---:|:--------------:|
@@ -237,11 +238,11 @@ for char in my_str:
     print char
 ```
 
-Woah! What's going on here!? Well, instead of iterating over all of the integers in a `range(len(my_str))` call like we did in our first `for` loop, we've gotten Python to simply iterate over all of the individual characters in our string, `my_str`. So in each iteration of this `for` loop, `char` stores a different letter of `my_str`, and then the call `print char` prints that character.  So, in the end, we get the same result as either of our `while` loops above, and the less Pythonic `for` loop that we wrote above. This way is considered to be the Pythonic way to iterate over a string (or other iterable, which we'll cover next class), and so it's an important concept to grasp.
+What's going on here!? Well, instead of iterating over all of the integers in a `range(len(my_str))` call like we did in our first `for` loop, we've gotten Python to simply iterate over all of the individual characters in our string, `my_str`. In each iteration of this `for` loop, `char` stores a different letter of `my_str`, and then the call `print char` prints that character. In the end, we get the same result as either of our `while` loops above, and the less Pythonic `for` loop that we wrote above. This way is considered to be the Pythonic way to iterate over a string (or other iterable, which we'll cover next class), and so it's an important concept to grasp.
 
 Why is it more Pythonic? That's a good question. When we say that something is more "Pythonic", this means that we are using the language in such a way that makes your code both more readable and simultaneously uses Python's power to make your solutions more optimal. Let's look at how this applies to the final implementation of our `for` loop.
 
-Well, we can see that it is more readable since we don't have to index into our string anymore. This means that there is less to follow along with and keep track of; rather than keeping track of both the current index we are on and what letter that index corresponds to in our string, all we have to keep track of is the current letter we're on. We can also note that our code just looks cleaner and more simple, too. In terms of making our code more optimal, since we no longer have to index into the string to grab characters, we have fewer steps in each iteration of the loop. This means less work for Python to do.
+We can see that it is more readable since we don't have to index into our string anymore. This means that there is less to follow along with and keep track of; rather than keeping track of both the current index we are on and what letter that index corresponds to in our string, all we have to keep track of is the current letter we're on. We can also note that our code just looks cleaner and more simple, too. In terms of making our code more optimal, since we no longer have to index into the string to grab characters, we have fewer steps in each iteration of the loop. This means less work for Python to do.
 
 #### A Quick Aside on String Formatting 
 
