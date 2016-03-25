@@ -130,7 +130,3 @@ This is awesome! We now have a script that will solve a problem for arbitrary in
     * How do you store each of the elements as you calculate them with the loop?
     * How many elements do you need to keep track of at any one time?
     * How do you know when to stop the loop?
-
-### Extra Credit
-
-Try to break your scripts by passing them something other than a number. Make your scripts robust to poorly formatted input. **Hint**: Look at the [isinstance()](https://docs.python.org/2/library/functions.html#isinstance) function. How can we use this function and conditionals to guarantee only good input (i.e. an `int`), will be processed? If the input ends up being bad, print a message notifying the user.
