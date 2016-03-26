@@ -53,17 +53,3 @@ Tuesdays & Thursdays, 6:30 pm – 9:15 pm
 * Week 6:
   * First class: DataFrame operations, Numpy
   * Second Class: Introduction to Statistical Modeling
-
-### Meet Your Instructors:
-
-#### Josh Bernhard
-
-While taking PhD coursework at Iowa State University, Josh developed a passion for analyzing data. He has consulted with companies on problems ranging from customer acquisition to the fight against cancer.  With a passion for education, he consistently works to convey difficult ideas in a very tangible way.
-
-#### Cary Goltermann
-
-Cary graduated from the University of Colorado – Boulder with degrees in Mathematics and Physics. While at CU-Boulder he taught programming in C, but now performs most of his coding pursuits in Python. He is diligent in making us all more efficient programmers.
-
-#### Sean Sall
-
-Before joining the Galvanize team, Sean worked on healthcare microsimulation modeling at the Massachusetts Institute of Technology. Sean is an active member of the Denver and Boulder data science communities. He has a desire to tackle challenging problems and use data for social impact.
