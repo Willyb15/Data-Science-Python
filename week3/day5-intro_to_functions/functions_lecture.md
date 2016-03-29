@@ -115,11 +115,11 @@ Note that this isn't necessarily a bad thing. Sometimes we want a function to re
 
 #### Function Definitions: Part 2
 
-Functions seem great, but what if we want a function to act in different ways depending on the situation? What good is `get_evens()` if I want the evens from 0 to 20? As we've been hinting at, functions can be defined so that their behavior changes depending on what values you **pass** to them. You can pass any data structure(s) to a function, so long as it expects the right number of them. Values that are passed to a function are called **arguments**.
+Up to this point, we have just worked with functions that return the same output every time. What if we want a function to act in different ways depending on some input? As we've hinted at, functions can be defined so that their behavior changes depending on what values are **passed** to them. You can pass any data structure(s) to a function, so long as it expects the right number of them. Values that are passed to a function are called **arguments**.
 
-How, then, does a function "expect" arguments to be passed to it? In the parentheses of a function definition you put the names of variables you expect a user of your function to pass it. We call these special variables **parameters**. This is where functions get their flexibility. When you define a function with a certain number of parameters, you can then refer to those variables within the body of the function. Since those parameters are set when a user passes arguments to the function, they are actually controlling what happens inside the function when they call it! But only in specific, predefined ways.
+How does a function "expect" arguments to be passed to it? In the parentheses of a function definition, we put the names of the variables that we expect a user of our function to pass to it. We call these special variables **parameters**. This is where functions get their flexibility. When you define a function with a certain number of parameters, you can then refer to those parameters within the body of the function. Since those parameters are set when a user passes arguments to the function, they are actually controlling what happens inside the function!
 
-Let's look at how we can make a function flexible and change the `get_evens()` function that we defined above. Instead of only ever creating the list of evens 0 to 10, let's have `get_evens()` build an arbitrarily sized list of evens, from 0 to a number the user passes. Using our current `get_evens()` as a base we'll begin this exploration by adding in a parameter to the function definition. This parameter be the non-inclusive maximum for which we will append to our list of even numbers.
+Let's look at how we can make a function flexible by changing the `get_evens()` function that we defined above. Instead of creating a list of evens from 0 to 10 every time, let's have `get_evens()` build an arbitrarily sized list of evens, from 0 to a number the user passes in. Using our current `get_evens()` as a base, we'll begin by adding in a parameter to the function definition. This parameter will control the size of the evens list that our function builds. 
 
 ```python
 In [1]: def get_evens(n):
@@ -130,7 +130,7 @@ In [1]: def get_evens(n):
    ...:     return evens
 ```
 
-With this implementation of our function, we can now pass in an arbitrary number to our function call, and then we will search for evens in a `range()` built with that arbitrary number. How exactly does this work, though? Well, we've told Python that our function should expect one and only one argument. When we call the function and pass in that argument, it will get assigned to whatever name we have given in the function definition, `n` in this case. Then, anytime we reference that parameter, `n`, within the function, it will be the value that we passed to our function. Let's check out a couple of different calls to this function, and see what they return.
+With this implementation of our function, we can now pass in an arbitrary number to our function call, and then we will search for evens in a `range()` built with that arbitrary number. How exactly does this work, though? We've told Python that our function should expect one and only one argument. When we call the function and pass in that argument, it will get assigned to whatever name we have given in the function definition - `n` in this case. Then, anytime we reference that parameter, `n`, within the function, it will be the value that was passed to the function. Let's check out a couple of different calls to this function and see what they return.
 
 ```python
 In [1]: def get_evens(n):
@@ -152,7 +152,7 @@ Out[4]: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
 
 Neat, huh!? Turns out we're just getting started...
 
-In addition to defining our function with the ability to have arguments passed in, we can also build it so that if our function is called without an argument passed in, our parameter gets a value **by default**. This is useful if you want to build your function to have some default behavior, but still allow users to pass in arguments that change the default behavior or build off of it somehow. So how do we specify a default parameter value for a function? It's actually pretty simple. In the function definition itself, we just place an equals sign (`=`)  after the parameter name, and then the default value that we want to specify (**Note**: Python formatting convention dictates that there should be no spaces surrounding equals signs used in this way).
+In addition to defining our function with the ability to have arguments passed in, we can also build it so that our parameter gets a value **by default** if the function is called without an argument passed in. This is useful if we want to build our function to have some default behavior, but still allow users to pass in arguments that change the default behavior or build off of it somehow. How do we specify a default parameter value for a function? It's actually pretty simple. In the function definition itself, we just place an equals sign (`=`)  after the parameter name, and then the default value that we want to specify (**Note**: Python formatting convention dictates that there should be no spaces surrounding equals signs used in this way).
 
 ```python
 In [1]: def get_evens(n=5):
@@ -206,9 +206,9 @@ In [7]: get_multiples(100, 10)
 Out[7]: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
 ```
 
-As you can see from the first three examples above, the output of our function looks the same as `get_evens()` - by default we still output a list of the even numbers up to 5, and when we pass in 5 as the value of `n` and 2 as the value of `divisor`, we also output a list of the evens up to 5. Cool! The other function calls also give us access to the new, generalized version of `get_evens()`, just as we wanted.
+As you can see from the first three examples above, the output of our function looks the same as `get_evens()` - by default we still output a list of the even numbers up to 5, and when we pass in 5 as the value of `n` and 2 as the value of `divisor`, we also output a list of the evens up to 5. The other function calls also give us access to the new, generalized version of `get_evens()`, just as we wanted.
 
-Now let's get down to a syntactic "rule" that we have to follow when we define functions with default values. When we do this, we have to make sure that any parameters we are giving default values are **after** any parameters that we are not giving default values. Let's check out some examples...
+Let's take a quick look at a syntactic "rule" that we have to follow when we define functions with default values. When we do this, we have to make sure that any parameters we are giving default values are **after** any parameters that we are not giving default values. Let's check out some examples...
 
 ```python
 In [1]: def get_multiples(n, divisor=2):
@@ -228,11 +228,11 @@ In [2]: def get_multiples(n=5, divisor):
     def get_multiple(n=5, divisor):
 SyntaxError: non-default argument follows default argument
 ```
-The above code demonstrates this "rule". In the first case, we defined our parameters that have default values (which is only one, `divisor`) after defining our parameters that don't have default values (which is only one, `n`). And everything worked fine! In the second case, we defined a parameter with a default value before a parameter without a default value. That's a no no, and Python let us know!
+The above code demonstrates this "rule". In the first case, we defined our parameters that have default values (which is only one, `divisor`) after defining our parameters that don't have default values (which is only one, `n`). In this case, everything worked fine! In the second case, we defined a parameter with a default value before a parameter without a default value. That's a no no, and Python let us know!
 
 #### Parameters vs Arguments
 
-As a quick reminder, it may seem like the terms "parameter" and "argument" are being used seemingly interchangeably. What's up with that? Remember, these two terms have specific and distinct definitions. A **parameter** is the name of a variable given in a function definition. An **argument** is the value that is passed to a function when it is called. Phew! Glad that's all cleared up!
+As a quick reminder, it may seem like the terms "parameter" and "argument" are being used seemingly interchangeably. These two terms have specific and distinct definitions. A **parameter** is the name of a variable given in a function definition. An **argument** is the value that is passed to a function when it is called. 
 
 #### Calling Functions with Positional Versus Keyword Arguments
 
