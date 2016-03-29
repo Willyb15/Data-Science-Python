@@ -2,22 +2,22 @@
 
 ### Motivation
 
-Today we are going to learn about functions. In computer science terms, Python functions are known as subroutines. A **Subroutine** is defined as a sequence of instructions that perform a specific task, packaged together as a unit - i.e. a small independent piece of code. We'll be talking all about how to define and use functions today. However, it's important to know why we want to use functions.
+Today we are going to learn about functions. In computer science terms, functions are known as subroutines. A **subroutine** is defined as a sequence of instructions that perform a specific task, packaged together as a unit - i.e. a small independent piece of code. Before we talk about how to define and use functions, it's important to know why we want to use them.
 
-Our first reason for using functions is *reusability*, and stems from an idea called **Don't Repeat Yourself**, or **DRY** for short. The concept of DRY boils down to the idea that we want to be as concise as possible when writing code - we don't want to write unnecessary instructions. Part of this, as explicitly addressed by DRY, is not wanting to repeat the same or similar instructions over and over. Functions allow us to achieve this goal by giving us a tool that we can use to wrap up a set of instructions into a single independent unit. That independent unit can then be used to perform a specific task over and over, without needing to rewrite those instructions. They are written just once, in the function.
+Our first reason for using functions is *reusability*. It stems from a methodology  called **Don't Repeat Yourself** (**DRY** for short). This methodology boils down to the idea that we want to be as concise as possible when writing code - we don't want to write unnecessary instructions, and want to avoid repeating the same or similar instructions over and over. Functions allow us to achieve this goal by giving us a tool that we can use to wrap up a set of instructions into a single independent unit. That independent unit can then be used to perform a specific task over and over, without needing to rewrite those instructions. They are written just once, in the function.
 
-The second reason we want to use functions is *abstraction*. Consider a function that we've used already, `type()`. To use it we needed to know:
+The second reason we want to use functions is *abstraction*. Consider the `type()` function that we have used. To use it we needed to know:
 
 1. What the function is - i.e. its name
 2. What the function expects passed to it - i.e. the arguments
 3. What the function does
-4. What the function gives back to us - i.e returns
+4. What the function gives back to us - i.e. returns
 
-That's it. That's all we knew about `type()`, and we used it just fine. The key thing here is that we don't need to know anything about how `type()` does what it says it's supposed to do! This is the idea of abstraction - the implementation within a function is hidden from the caller (abstracted away if you will). There are a number of reasons why this trait is desirable.
+That's all we knew about `type()`, and we used it without any issues. The key takeaway here is that we don't need to know anything about how `type()` does what it says it's supposed to do! This is the idea of abstraction - the implementation within a function is hidden from the caller (abstracted away, if you will). There are a number of reasons why this trait is desirable.
 
-First, it allows callers of the function to not be concerned with how the function itself works. Rather, they stay safe in the assumption that the function will work (know, though, that this assumption does not always prove true, in which case you'll have to do some of your own trouble shooting). This allows functionality to be easily shared, and makes it easier to build more complex things, since you're able to stand on the shoulders of those who have already written functions that you want to use.
+First, it allows callers of the function to not be concerned with how the function itself works. Rather, they stay safe in the assumption that the function will work (know, though, that this assumption does not always prove true, in which case you'll have to do some of your own trouble shooting). This allows functionality to be easily shared, and makes it easier to build more complex things. By using functions that other people have built, you're able to stand on their shoulders and build more complex programs.
 
-Second, since the implementation is hidden from the caller, that actual implementation can change (so long as those four things listed above stay the same) and the caller won't know the difference. This makes it easy to split up problems into smaller pieces, and when something in one of those pieces needs to change, it won't affect the rest of the pieces. This is super powerful stuff.
+Second, since the implementation is hidden from the caller, that actual implementation can change (so long as those four things listed above stay the same) and the caller won't know the difference. This makes it easy to split up problems into smaller pieces, and when something in one of those pieces needs to change, it won't affect the rest of the pieces.
 
 ### Intro to Functions
 
@@ -36,7 +36,7 @@ for element in some_collection:
         evens.append(element)
 ```
 
-Now, let's imagine that `some_collection` is actually just a list of numbers from 0 to 9 (i.e. `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`). Remember that we can use the `range()` function to create this list. To get a list of all the even numbers from 0 to 9, then, we can modify our code as follows.
+Now, let's imagine that `some_collection` is actually just a list of numbers from 0 to 9 (i.e. `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`). Remember, we can use the `range()` function to create this list. To get a list of all the even numbers from 0 to 9, then, we can modify our code as follows.
 
 ```python
 evens = []
@@ -59,7 +59,7 @@ def my_func():
 ```
 Let's dive a little more into each of the parts and note what's important about them. First off, the `def` statement. This is what tells Python that a function definition is being declared. This is what makes Python store your function so that it is callable later in your program. Second, the function name. The only real thing to note about this is that function naming conventions follow variable naming conventions (i.e. *snakecase*, where we lowercase our words and separate them by underscores). Next up are the parentheses. These are going to be filled with an optional and arbitrary number of parameters (which will dive into a little later). Finally, the colon, `:`. This is what is going to signal to Python that the function definition is over, and what follows will be the block of code that makes up the body of the function.
 
-So, how would we build our `evens` code from earlier into a function? Well, all we have to do is simply copy and paste that block of code after our function definition, and indent all the lines by one level. Let's be sure to give it a more descriptive name, though...
+Given all this information, how would we build our `evens` code from earlier into a function? All we have to do is simply copy and paste that block of code after our function definition, and indent all the lines by one level. Let's be sure to give it a more descriptive name, though...
 
 ```python
 In [1]: def get_evens():
@@ -69,7 +69,7 @@ In [1]: def get_evens():
    ...:             evens.append(element)
 ```
 
-Awesome! Now we can use this function anytime. To do so all we have to do is call it by name, making sure to end with parentheses. **Note**: The parentheses are necessary because calling `get_evens` without the parentheses has Python look for a variable, not a function, called `get_evens`. 
+Awesome! Now we can use this function anytime. To do so, all we have to do is call it by name, making sure to end with parentheses. **Note**: The parentheses are necessary because calling `get_evens` without the parentheses has Python look for a variable called `get_evens`, not a function. 
 
 ```python
 In [2]: get_evens()
@@ -88,14 +88,14 @@ In [1]: def get_evens():
    ...:     return evens
 ```
 
-Now when we call this function, it will actually give us back that list of evens...
+Now, when we call this function, it will actually give us back that list of evens...
 
 ```python
 In [2]: get_evens()
 Out[2]: [0, 2, 4, 6, 8]
 ```
 
-Let's take a little bit more time to discuss the `return` statement. It's nice that it allows us to get back something from a function, but we do have to be careful with it, and make sure that we are using it in the way that we want. `return` is similar to the `break` statement that we learned about in Week 1. As soon as our function sees the `return` statement during execution, it will immediately exit from the function. Whatever the state of the thing being returned at the time is what's handed back. Let's alter the `return` statement in our `get_evens()` function to see how this comes into play.
+Let's take a little bit more time to discuss the `return` statement. It's nice that it allows us to get back something from a function, but we do have to be careful with it, and make sure that we are using it in the way that we want. `return` is similar to the `break` statement that we learned about in Week 1. As soon as our function sees the `return` statement during execution, it will immediately exit from the function. Let's alter the `return` statement in our `get_evens()` function to see how this comes works.
 
 ```python
 In [1]: def get_evens():
@@ -109,9 +109,9 @@ In [2]: get_evens()
 Out[2]: [0]
 ```
 
-So we moved the `return` statement into the `if` block of our function. Now when we call `get_evens()` we get a different result. Why is this? Well, like we discussed, when the function encounters that `return evens` statement, it immediately gives back `evens`. When we called `get_evens()` above, it encountered that `return` statement in our first iteration through our `for` loop, when `element` was equal to `0`. As a result, `0` got appended to the `evens` list, and then in the next line that `evens` list got returned from the function.
+So we moved the `return` statement into the `if` block of our function. Now, when we call `get_evens()`, we get a different result. This is because the function immediately gives back our `evens` list as soon as it encounters that `return evens` statement. When we called `get_evens()` above, it encountered that `return` statement in our first iteration through our `for` loop, when `element` was equal to `0`. As a result, `0` got appended to the `evens` list, and then in the next line that `evens` list got returned from the function.
 
-Note that this isn't necessarily a bad thing. Sometimes we want a function to return something as soon as a condition is met. In this case you definitely want to use the `return` in a similar fashion as shown above. So it's good to know about this quality of the `return`.
+Note that this isn't necessarily a bad thing. Sometimes we want a function to return something as soon as a condition is met. In this case, we'll want to use the `return` in a similar fashion as shown above. Thus, it's good to know about this quality of the `return`.
 
 #### Function Definitions: Part 2
 
