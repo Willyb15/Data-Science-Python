@@ -308,13 +308,13 @@ Notice that `my_global_var` is accessible anywhere - both inside and outside of 
 
 ### List and Dictionary Comprehensions
 
-The last topic we're going to cover today is not on functions, but instead a different way to accomplish something you already know about: constructing lists and dictionaries. Consider the frequent task that we perform at the beginning of working with lists and dictionaries, initializing them. Thus far we have taken advantage of the mutability inherent to lists and dictionaries to build them up one element/key-value pair at a time. However, there is a more succinct way to accomplish the vast majority of your list and dictionary construction tasks.
+The last topic we'll cover today is a different way to construct lists and dictionaries. Up to now, every time that we have built up a list or dictionary, we began by initializing it. We then took advantage of their mutability inherent to build them up one element or key-value pair at a time. However, there is a more succinct way to accomplish the vast majority of your list and dictionary construction tasks.
 
 #### List Comprehensions
 
 Before we dive into the specifics about how this new tool (list comprehensions) works, let's look at an example question where we build a list.  We can then show how to perform the same task with our new tool and learn how it works.
 
-Consider you have the list `[1, 5, 9, 33]` stored in the variable `my_list`. Now you want to make a new list of the squares of all the values in `my_list` and call it `my_squares`. With the tools we have covered so far, you might write:
+Let's imagine that we have the list `[1, 5, 9, 33]` stored in the variable `my_list`. Now, let's assume that we want to make a new list of the squares of all the values in `my_list` and call it `my_squares`. With the tools we have covered so far, you might write:
 
 ```python
 my_squares = []
@@ -322,7 +322,7 @@ for num in my_list:
     my_squares.append(num ** 2)
 ```
 
-And now, `my_squares` will hold the list `[1, 25, 81, 1089]`. To get this we were simply specifying a bunch of stuff that we wanted to add on to the end of the list, with a starting point at `my_list`. So, from a high level, we can write the framework of creating a list in code as:
+Now, `my_squares` will hold the list `[1, 25, 81, 1089]`. To get this, we were simply specifying a bunch of stuff that we wanted to add on to the end of the `my_squares` list, with a starting point at `my_list`. So, from a high level, we can write the framework of creating a list in code as:
 
 ```python
 list_were_building = []
@@ -336,9 +336,9 @@ With this structure in mind, we can use the following syntax to perform the same
 list_were_building = [transform(thing) for thing in iterable]
 ```
 
-This last line of code does the exact same thing as the three lines above! In this line, the thing that we would pass to the `append()` method, `transformed(thing)`, comes at the beginning of the statement in the `[]`.  These `[]` allow for the final product to be defined as a list, just as when we define a list with via syntactic sugar. Then, the `for` loop statement that we had written is at the end. Neat, huh?? This is the basic idea behind the [list comprehension](https://en.wikipedia.org/wiki/List_comprehension).
+This last line of code does the exact same thing as the three lines above! In this line, the thing that we would pass to the `append()` method, `transform(thing)`, comes at the beginning of the statement in the `[]`.  These `[]` allow for the final product to be defined as a list. Then, the `for` loop statement that we had written is at the end. This is the basic idea behind the [list comprehension](https://en.wikipedia.org/wiki/List_comprehension).
 
-We can build our `my_squares` list using a list comprehension similarly:
+Similarly, we can build our `my_squares` list using a list comprehension:
 
 ```python
 my_squares = [num ** 2 for num in my_list]
@@ -398,7 +398,7 @@ In [4]: squares_dict
 Out[4]: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 ```
 
-We can see that in both cases, we're going through the numbers 1 - 5 with `range(1, 6)` and those `num`s are being assigned as keys, with the values being their square with `squares_dict[num] = num ** 2` and `num: num ** 2`, respectively. Just as with list comprehensions, dictionary comprehensions read as the first thing being the `key: value` pair being added to the dictionary. Then, left to right (top down in the old way), we have what the loop definition would look like. And, just as with list comps, we can add a condition to filter what gets put into the dictionary.
+We can see that in both cases, we're going through the numbers 1 - 5 with `range(1, 6)` and those `num`s are being assigned as keys. The values assigned to those keys are the squares of the keys, assigned with `squares_dict[num] = num ** 2` and `num: num ** 2`, respectively. Just as with list comprehensions, dictionary comprehensions read as the first thing being the `key: value` pair being added to the dictionary. Then, left to right (top down in the old way), we have what the loop definition would look like. And, just as with list comps, we can add a condition to filter what gets put into the dictionary.
 
 Say that we want a dictionary with a random integer between 1 and 10, associated with each of the values in the list of words: `['cow', 'chicken', 'horse', 'moose']`. Let's look at how we'd do that with a dictionary comprehension. (We're importing from the Python library `random` to get our random integers. We'll talk more about importing later in the course.)
 
@@ -412,8 +412,6 @@ In [3]: animals_dict = {animal: randint(1, 10) for animal in animals_list}
 In [4]: animals_dict
 Out[4]: {'chicken': 2, 'cow': 10, 'horse': 9, 'moose': 8}
 ```
-
-It's as simple as that.
 
 #### Other Comprehensions
 
