@@ -16,7 +16,7 @@ Your boss comes to you and asks you to write a function, call it `create_report`
 
 #### Starting Slow
 
-There are obvious use cases for the function; therefore, we will want to bundle up the function in a reusable form. Let's start off by opening a new Python script file, `txt_file_processing.py`. Throughout the rest of this lecture, we will update the code in this `.md` file. It is important to understand the way that our solution evolves in the iterative manner discussed above. What's the first thing that we put in `txt_file_processing.py`? The function that we want to write! In order for the code to run and not throw us any errors, we'll use a `pass` whenever we set up a skeleton for a function that isn't actually implemented yet (i.e. we haven't fully written). Our script begins in the following way:
+There are obvious use cases for the function; therefore, we will want to bundle up the function in a reusable form. Let's start off by opening a new Python script file, `txt_file_processing.py`. Throughout the rest of this lecture, we will update the code in this `.md` file. The final version of this script will be in the `misc` folder. It is important to understand the way that our solution evolves in the iterative manner discussed above. What's the first thing that we put in `txt_file_processing.py`? The function that we want to write! In order for the code to run and not throw us any errors, we'll use a `pass` whenever we set up a skeleton for a function that isn't actually implemented yet (i.e. we haven't fully written). Our script begins in the following way:
 
 ```python
 def create_report():
@@ -42,7 +42,7 @@ Let's talk about what this line does. The `open()` (docs [here](https://docs.pyt
 
 At this point, we now have access to the contents of the file via the variable `txt_file` within the scope of the `with` block.  Let's now consider next steps. Step one is reading the documentation for [file objects](https://docs.python.org/2/library/stdtypes.html#bltin-file-objects). Developing the ability to read and interpret the documentation is an important part of any role as a programmer. Next, we might create a small example that allows us to test our function.  This will a test file, which is a great thing to have in general so that we can verify whether the code we are writing is working as we move through solving the problem.
 
-Check out the included `test_text.txt` file, which is filled with a small amount of text. We can use it to test out some of the code we've written inside of IPython. Frequently, we will use `print()` to understand pieces of our code.  In other situations, it's necessary to inspect using `type()`, or by calling other functions. Let's take a closer look at the file object obtained using the `with` statement.
+Check out the included `test_text.txt` file, also located in the `misc` folder, which is filled with a small amount of text. We can use it to test out some of the code we've written inside of IPython. Frequently, we will use `print()` to understand pieces of our code.  In other situations, it's necessary to inspect using `type()`, or by calling other functions. Let's take a closer look at the file object obtained using the `with` statement.
 
 ```python
 In [1]: with open('test_text.txt') as txt_file:
