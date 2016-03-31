@@ -2,22 +2,22 @@
 
 ### Motivation
 
-Today we are going to learn about functions. In computer science terms, Python functions are known as subroutines. A **Subroutine** is defined as a sequence of instructions that perform a specific task, packaged together as a unit - i.e. a small independent piece of code. We'll be talking all about how to define and use functions today. However, it's important to know why we want to use functions.
+Today we are going to learn about functions. In computer science terms, functions are known as subroutines. A **subroutine** is defined as a sequence of instructions that perform a specific task, packaged together as a unit - i.e. a small independent piece of code. Before we talk about how to define and use functions, it's important to know why we want to use them.
 
-Our first reason for using functions is *reusability*, and stems from an idea called **Don't Repeat Yourself**, or **DRY** for short. The concept of DRY boils down to the idea that we want to be as concise as possible when writing code - we don't want to write unnecessary instructions. Part of this, as explicitly addressed by DRY, is not wanting to repeat the same or similar instructions over and over. Functions allow us to achieve this goal by giving us a tool that we can use to wrap up a set of instructions into a single independent unit. That independent unit can then be used to perform a specific task over and over, without needing to rewrite those instructions. They are written just once, in the function.
+Our first reason for using functions is *reusability*. It stems from a methodology  called **Don't Repeat Yourself** (**DRY** for short). This methodology boils down to the idea that we want to be as concise as possible when writing code - we don't want to write unnecessary instructions, and want to avoid repeating the same or similar instructions over and over. Functions allow us to achieve this goal by giving us a tool that we can use to wrap up a set of instructions into a single independent unit. That independent unit can then be used to perform a specific task over and over, without needing to rewrite those instructions. They are written just once, in the function.
 
-The second reason we want to use functions is *abstraction*. Consider a function that we've used already, `type()`. To use it we needed to know:
+The second reason we want to use functions is *abstraction*. Consider the `type()` function that we have used. To use it we needed to know:
 
 1. What the function is - i.e. its name
 2. What the function expects passed to it - i.e. the arguments
 3. What the function does
-4. What the function gives back to us - i.e returns
+4. What the function gives back to us - i.e. returns
 
-That's it. That's all we knew about `type()`, and we used it just fine. The key thing here is that we don't need to know anything about how `type()` does what it says it's supposed to do! This is the idea of abstraction - the implementation within a function is hidden from the caller (abstracted away if you will). There are a number of reasons why this trait is desirable.
+That's all we knew about `type()`, and we used it without any issues. The key takeaway here is that we don't need to know anything about how `type()` does what it says it's supposed to do! This is the idea of abstraction - the implementation within a function is hidden from the caller (abstracted away, if you will). There are a number of reasons why this trait is desirable.
 
-First, it allows callers of the function to not be concerned with how the function itself works. Rather, they stay safe in the assumption that the function will work (know, though, that this assumption does not always prove true, in which case you'll have to do some of your own trouble shooting). This allows functionality to be easily shared, and makes it easier to build more complex things, since you're able to stand on the shoulders of those who have already written functions that you want to use.
+First, it allows callers of the function to not be concerned with how the function itself works. Rather, they stay safe in the assumption that the function will work (know, though, that this assumption does not always prove true, in which case you'll have to do some of your own trouble shooting). This allows functionality to be easily shared, and makes it easier to build more complex things. By using functions that other people have built, you're able to stand on their shoulders and build more complex programs.
 
-Second, since the implementation is hidden from the caller, that actual implementation can change (so long as those four things listed above stay the same) and the caller won't know the difference. This makes it easy to split up problems into smaller pieces, and when something in one of those pieces needs to change, it won't affect the rest of the pieces. This is super powerful stuff.
+Second, since the implementation is hidden from the caller, that actual implementation can change (so long as those four things listed above stay the same) and the caller won't know the difference. This makes it easy to split up problems into smaller pieces, and when something in one of those pieces needs to change, it won't affect the rest of the pieces.
 
 ### Intro to Functions
 
@@ -36,7 +36,7 @@ for element in some_collection:
         evens.append(element)
 ```
 
-Now, let's imagine that `some_collection` is actually just a list of numbers from 0 to 9 (i.e. `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`). Remember that we can use the `range()` function to create this list. To get a list of all the even numbers from 0 to 9, then, we can modify our code as follows.
+Now, let's imagine that `some_collection` is actually just a list of numbers from 0 to 9 (i.e. `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`). Remember, we can use the `range()` function to create this list. To get a list of all the even numbers from 0 to 9, then, we can modify our code as follows.
 
 ```python
 evens = []
@@ -59,7 +59,7 @@ def my_func():
 ```
 Let's dive a little more into each of the parts and note what's important about them. First off, the `def` statement. This is what tells Python that a function definition is being declared. This is what makes Python store your function so that it is callable later in your program. Second, the function name. The only real thing to note about this is that function naming conventions follow variable naming conventions (i.e. *snakecase*, where we lowercase our words and separate them by underscores). Next up are the parentheses. These are going to be filled with an optional and arbitrary number of parameters (which will dive into a little later). Finally, the colon, `:`. This is what is going to signal to Python that the function definition is over, and what follows will be the block of code that makes up the body of the function.
 
-So, how would we build our `evens` code from earlier into a function? Well, all we have to do is simply copy and paste that block of code after our function definition, and indent all the lines by one level. Let's be sure to give it a more descriptive name, though...
+Given all this information, how would we build our `evens` code from earlier into a function? All we have to do is simply copy and paste that block of code after our function definition, and indent all the lines by one level. Let's be sure to give it a more descriptive name, though...
 
 ```python
 In [1]: def get_evens():
@@ -69,7 +69,7 @@ In [1]: def get_evens():
    ...:             evens.append(element)
 ```
 
-Awesome! Now we can use this function anytime. To do so all we have to do is call it by name, making sure to end with parentheses. **Note**: The parentheses are necessary because calling `get_evens` without the parentheses has Python look for a variable, not a function, called `get_evens`. 
+Awesome! Now we can use this function anytime. To do so, all we have to do is call it by name, making sure to end with parentheses. **Note**: The parentheses are necessary because calling `get_evens` without the parentheses has Python look for a variable called `get_evens`, not a function. 
 
 ```python
 In [2]: get_evens()
@@ -88,14 +88,14 @@ In [1]: def get_evens():
    ...:     return evens
 ```
 
-Now when we call this function, it will actually give us back that list of evens...
+Now, when we call this function, it will actually give us back that list of evens...
 
 ```python
 In [2]: get_evens()
 Out[2]: [0, 2, 4, 6, 8]
 ```
 
-Let's take a little bit more time to discuss the `return` statement. It's nice that it allows us to get back something from a function, but we do have to be careful with it, and make sure that we are using it in the way that we want. `return` is similar to the `break` statement that we learned about in Week 1. As soon as our function sees the `return` statement during execution, it will immediately exit from the function. Whatever the state of the thing being returned at the time is what's handed back. Let's alter the `return` statement in our `get_evens()` function to see how this comes into play.
+Let's take a little bit more time to discuss the `return` statement. It's nice that it allows us to get back something from a function, but we do have to be careful with it, and make sure that we are using it in the way that we want. `return` is similar to the `break` statement that we learned about in Week 1. As soon as our function sees the `return` statement during execution, it will immediately exit from the function. Let's alter the `return` statement in our `get_evens()` function to see how this comes works.
 
 ```python
 In [1]: def get_evens():
@@ -109,17 +109,17 @@ In [2]: get_evens()
 Out[2]: [0]
 ```
 
-So we moved the `return` statement into the `if` block of our function. Now when we call `get_evens()` we get a different result. Why is this? Well, like we discussed, when the function encounters that `return evens` statement, it immediately gives back `evens`. When we called `get_evens()` above, it encountered that `return` statement in our first iteration through our `for` loop, when `element` was equal to `0`. As a result, `0` got appended to the `evens` list, and then in the next line that `evens` list got returned from the function.
+So we moved the `return` statement into the `if` block of our function. Now, when we call `get_evens()`, we get a different result. This is because the function immediately gives back our `evens` list as soon as it encounters that `return evens` statement. When we called `get_evens()` above, it encountered that `return` statement in our first iteration through our `for` loop, when `element` was equal to `0`. As a result, `0` got appended to the `evens` list, and then in the next line that `evens` list got returned from the function.
 
-Note that this isn't necessarily a bad thing. Sometimes we want a function to return something as soon as a condition is met. In this case you definitely want to use the `return` in a similar fashion as shown above. So it's good to know about this quality of the `return`.
+Note that this isn't necessarily a bad thing. Sometimes we want a function to return something as soon as a condition is met. In this case, we'll want to use the `return` in a similar fashion as shown above. Thus, it's good to know about this quality of the `return`.
 
 #### Function Definitions: Part 2
 
-Functions seem great, but what if we want a function to act in different ways depending on the situation? What good is `get_evens()` if I want the evens from 0 to 20? As we've been hinting at, functions can be defined so that their behavior changes depending on what values you **pass** to them. You can pass any data structure(s) to a function, so long as it expects the right number of them. Values that are passed to a function are called **arguments**.
+Up to this point, we have just worked with functions that return the same output every time. What if we want a function to act in different ways depending on some input? As we've hinted at, functions can be defined so that their behavior changes depending on what values are **passed** to them. You can pass any data structure(s) to a function, so long as it expects the right number of them. Values that are passed to a function are called **arguments**.
 
-How, then, does a function "expect" arguments to be passed to it? In the parentheses of a function definition you put the names of variables you expect a user of your function to pass it. We call these special variables **parameters**. This is where functions get their flexibility. When you define a function with a certain number of parameters, you can then refer to those variables within the body of the function. Since those parameters are set when a user passes arguments to the function, they are actually controlling what happens inside the function when they call it! But only in specific, predefined ways.
+How does a function "expect" arguments to be passed to it? In the parentheses of a function definition, we put the names of the variables that we expect a user of our function to pass to it. We call these special variables **parameters**. This is where functions get their flexibility. When you define a function with a certain number of parameters, you can then refer to those parameters within the body of the function. Since those parameters are set when a user passes arguments to the function, they are actually controlling what happens inside the function!
 
-Let's look at how we can make a function flexible and change the `get_evens()` function that we defined above. Instead of only ever creating the list of evens 0 to 10, let's have `get_evens()` build an arbitrarily sized list of evens, from 0 to a number the user passes. Using our current `get_evens()` as a base we'll begin this exploration by adding in a parameter to the function definition. This parameter be the non-inclusive maximum for which we will append to our list of even numbers.
+Let's look at how we can make a function flexible by changing the `get_evens()` function that we defined above. Instead of creating a list of evens from 0 to 10 every time, let's have `get_evens()` build an arbitrarily sized list of evens, from 0 to a number the user passes in. Using our current `get_evens()` as a base, we'll begin by adding in a parameter to the function definition. This parameter will control the size of the evens list that our function builds. 
 
 ```python
 In [1]: def get_evens(n):
@@ -130,7 +130,7 @@ In [1]: def get_evens(n):
    ...:     return evens
 ```
 
-With this implementation of our function, we can now pass in an arbitrary number to our function call, and then we will search for evens in a `range()` built with that arbitrary number. How exactly does this work, though? Well, we've told Python that our function should expect one and only one argument. When we call the function and pass in that argument, it will get assigned to whatever name we have given in the function definition, `n` in this case. Then, anytime we reference that parameter, `n`, within the function, it will be the value that we passed to our function. Let's check out a couple of different calls to this function, and see what they return.
+With this implementation of our function, we can now pass in an arbitrary number to our function call, and then we will search for evens in a `range()` built with that arbitrary number. How exactly does this work, though? We've told Python that our function should expect one and only one argument. When we call the function and pass in that argument, it will get assigned to whatever name we have given in the function definition - `n` in this case. Then, anytime we reference that parameter, `n`, within the function, it will be the value that was passed to the function. Let's check out a couple of different calls to this function and see what they return.
 
 ```python
 In [1]: def get_evens(n):
@@ -152,7 +152,7 @@ Out[4]: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
 
 Neat, huh!? Turns out we're just getting started...
 
-In addition to defining our function with the ability to have arguments passed in, we can also build it so that if our function is called without an argument passed in, our parameter gets a value **by default**. This is useful if you want to build your function to have some default behavior, but still allow users to pass in arguments that change the default behavior or build off of it somehow. So how do we specify a default parameter value for a function? It's actually pretty simple. In the function definition itself, we just place an equals sign (`=`)  after the parameter name, and then the default value that we want to specify (**Note**: Python formatting convention dictates that there should be no spaces surrounding equals signs used in this way).
+In addition to defining our function with the ability to have arguments passed in, we can also build it so that our parameter gets a value **by default** if the function is called without an argument passed in. This is useful if we want to build our function to have some default behavior, but still allow users to pass in arguments that change the default behavior or build off of it somehow. How do we specify a default parameter value for a function? It's actually pretty simple. In the function definition itself, we just place an equals sign (`=`)  after the parameter name, and then the default value that we want to specify (**Note**: Python formatting convention dictates that there should be no spaces surrounding equals signs used in this way).
 
 ```python
 In [1]: def get_evens(n=5):
@@ -206,9 +206,9 @@ In [7]: get_multiples(100, 10)
 Out[7]: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
 ```
 
-As you can see from the first three examples above, the output of our function looks the same as `get_evens()` - by default we still output a list of the even numbers up to 5, and when we pass in 5 as the value of `n` and 2 as the value of `divisor`, we also output a list of the evens up to 5. Cool! The other function calls also give us access to the new, generalized version of `get_evens()`, just as we wanted.
+As you can see from the first three examples above, the output of our function looks the same as `get_evens()` - by default we still output a list of the even numbers up to 5, and when we pass in 5 as the value of `n` and 2 as the value of `divisor`, we also output a list of the evens up to 5. The other function calls also give us access to the new, generalized version of `get_evens()`, just as we wanted.
 
-Now let's get down to a syntactic "rule" that we have to follow when we define functions with default values. When we do this, we have to make sure that any parameters we are giving default values are **after** any parameters that we are not giving default values. Let's check out some examples...
+Let's take a quick look at a syntactic "rule" that we have to follow when we define functions with default values. When we do this, we have to make sure that any parameters we are giving default values are **after** any parameters that we are not giving default values. Let's check out some examples...
 
 ```python
 In [1]: def get_multiples(n, divisor=2):
@@ -228,17 +228,17 @@ In [2]: def get_multiples(n=5, divisor):
     def get_multiple(n=5, divisor):
 SyntaxError: non-default argument follows default argument
 ```
-The above code demonstrates this "rule". In the first case, we defined our parameters that have default values (which is only one, `divisor`) after defining our parameters that don't have default values (which is only one, `n`). And everything worked fine! In the second case, we defined a parameter with a default value before a parameter without a default value. That's a no no, and Python let us know!
+The above code demonstrates this "rule". In the first case, we defined our parameters that have default values (which is only one, `divisor`) after defining our parameters that don't have default values (which is only one, `n`). In this case, everything worked fine! In the second case, we defined a parameter with a default value before a parameter without a default value. That's a no no, and Python let us know!
 
 #### Parameters vs Arguments
 
-As a quick reminder, it may seem like the terms "parameter" and "argument" are being used seemingly interchangeably. What's up with that? Remember, these two terms have specific and distinct definitions. A **parameter** is the name of a variable given in a function definition. An **argument** is the value that is passed to a function when it is called. Phew! Glad that's all cleared up!
+As a quick reminder, it may seem like the terms "parameter" and "argument" are being used seemingly interchangeably. These two terms have specific and distinct definitions. A **parameter** is the name of a variable given in a function definition. An **argument** is the value that is passed to a function when it is called. 
 
 #### Calling Functions with Positional Versus Keyword Arguments
 
-So far, when we call a function and pass arguments to it we saw Python assign those arguments to the correct parameters (for example, 5 to `n` and 2 to `divisor`, above). But how exactly does this happen - how does Python know that when we call `get_multiples(5, 2)`, 5 should get assigned to `n` and 2 should get assigned to `divisor`? 
+So far, when we call a function and pass arguments to it we have seen Python assign those arguments to the correct parameters (for example, 5 to `n` and 2 to `divisor`, above). But how exactly does this happen - how does Python know that when we call `get_multiples(5, 2)`, 5 should get assigned to `n` and 2 should get assigned to `divisor`? 
 
-It turns out that, by default, Python simply matches up the position of the arguments that are passed in with the position of the parameters that are given in the function definition. So, in our `get_multiples(5, 2)` call, it takes the first argument passed, `5`, and assigns that to the first parameter in the function definition, `n`. Similarly, it takes the second argument passed, `2`, and assigns it to the second parameter in the function definition, `divisor`. This method of passing arguments is **by position**, and the arguments `5` and `2` in this example are considered to be **positional arguments**.
+It turns out that, by default, Python simply matches up the position of the arguments that are passed in with the position of the parameters that are given in the function definition. In our `get_multiples(5, 2)` call, it takes the first argument passed, `5`, and assigns that to the first parameter in the function definition, `n`. Similarly, it takes the second argument passed, `2`, and assigns it to the second parameter in the function definition, `divisor`. This method of passing arguments is **by position**, and the arguments `5` and `2` in this example are considered to be **positional arguments**.
 
 As you might have guessed from the title of this section, there is another method of passing arguments, and that is **by keyword**. The way this works is that instead of passing just the values in the function call, we call the values with the parameter name that they correspond to followed by an equals sign. Building off of our example above, using **keyword arguments** would mean our function call would look like this: `get_multiples(n=5, divisor=2)`.
 
@@ -308,13 +308,13 @@ Notice that `my_global_var` is accessible anywhere - both inside and outside of 
 
 ### List and Dictionary Comprehensions
 
-The last topic we're going to cover today is not on functions, but instead a different way to accomplish something you already know about: constructing lists and dictionaries. Consider the frequent task that we perform at the beginning of working with lists and dictionaries, initializing them. Thus far we have taken advantage of the mutability inherent to lists and dictionaries to build them up one element/key-value pair at a time. However, there is a more succinct way to accomplish the vast majority of your list and dictionary construction tasks.
+The last topic we'll cover today is a different way to construct lists and dictionaries. Up to now, every time that we have built up a list or dictionary, we began by initializing it. We then took advantage of their mutability inherent to build them up one element or key-value pair at a time. However, there is a more succinct way to accomplish the vast majority of your list and dictionary construction tasks.
 
 #### List Comprehensions
 
 Before we dive into the specifics about how this new tool (list comprehensions) works, let's look at an example question where we build a list.  We can then show how to perform the same task with our new tool and learn how it works.
 
-Consider you have the list `[1, 5, 9, 33]` stored in the variable `my_list`. Now you want to make a new list of the squares of all the values in `my_list` and call it `my_squares`. With the tools we have covered so far, you might write:
+Let's imagine that we have the list `[1, 5, 9, 33]` stored in the variable `my_list`. Now, let's assume that we want to make a new list of the squares of all the values in `my_list` and call it `my_squares`. With the tools we have covered so far, you might write:
 
 ```python
 my_squares = []
@@ -322,7 +322,7 @@ for num in my_list:
     my_squares.append(num ** 2)
 ```
 
-And now, `my_squares` will hold the list `[1, 25, 81, 1089]`. To get this we were simply specifying a bunch of stuff that we wanted to add on to the end of the list, with a starting point at `my_list`. So, from a high level, we can write the framework of creating a list in code as:
+Now, `my_squares` will hold the list `[1, 25, 81, 1089]`. To get this, we were simply specifying a bunch of stuff that we wanted to add on to the end of the `my_squares` list, with a starting point at `my_list`. So, from a high level, we can write the framework of creating a list in code as:
 
 ```python
 list_were_building = []
@@ -336,9 +336,9 @@ With this structure in mind, we can use the following syntax to perform the same
 list_were_building = [transform(thing) for thing in iterable]
 ```
 
-This last line of code does the exact same thing as the three lines above! In this line, the thing that we would pass to the `append()` method, `transformed(thing)`, comes at the beginning of the statement in the `[]`.  These `[]` allow for the final product to be defined as a list, just as when we define a list with via syntactic sugar. Then, the `for` loop statement that we had written is at the end. Neat, huh?? This is the basic idea behind the [list comprehension](https://en.wikipedia.org/wiki/List_comprehension).
+This last line of code does the exact same thing as the three lines above! In this line, the thing that we would pass to the `append()` method, `transform(thing)`, comes at the beginning of the statement in the `[]`.  These `[]` allow for the final product to be defined as a list. Then, the `for` loop statement that we had written is at the end. This is the basic idea behind the [list comprehension](https://en.wikipedia.org/wiki/List_comprehension).
 
-We can build our `my_squares` list using a list comprehension similarly:
+Similarly, we can build our `my_squares` list using a list comprehension:
 
 ```python
 my_squares = [num ** 2 for num in my_list]
@@ -398,7 +398,7 @@ In [4]: squares_dict
 Out[4]: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 ```
 
-We can see that in both cases, we're going through the numbers 1 - 5 with `range(1, 6)` and those `num`s are being assigned as keys, with the values being their square with `squares_dict[num] = num ** 2` and `num: num ** 2`, respectively. Just as with list comprehensions, dictionary comprehensions read as the first thing being the `key: value` pair being added to the dictionary. Then, left to right (top down in the old way), we have what the loop definition would look like. And, just as with list comps, we can add a condition to filter what gets put into the dictionary.
+We can see that in both cases, we're going through the numbers 1 - 5 with `range(1, 6)` and those `num`s are being assigned as keys. The values assigned to those keys are the squares of the keys, assigned with `squares_dict[num] = num ** 2` and `num: num ** 2`, respectively. Just as with list comprehensions, dictionary comprehensions read as the first thing being the `key: value` pair being added to the dictionary. Then, left to right (top down in the old way), we have what the loop definition would look like. And, just as with list comps, we can add a condition to filter what gets put into the dictionary.
 
 Say that we want a dictionary with a random integer between 1 and 10, associated with each of the values in the list of words: `['cow', 'chicken', 'horse', 'moose']`. Let's look at how we'd do that with a dictionary comprehension. (We're importing from the Python library `random` to get our random integers. We'll talk more about importing later in the course.)
 
@@ -412,8 +412,6 @@ In [3]: animals_dict = {animal: randint(1, 10) for animal in animals_list}
 In [4]: animals_dict
 Out[4]: {'chicken': 2, 'cow': 10, 'horse': 9, 'moose': 8}
 ```
-
-It's as simple as that.
 
 #### Other Comprehensions
 
