@@ -24,7 +24,7 @@ While OOP does enjoy the benefits of the above design principles, it also kind o
 
 Before we get to actually learning how to build a class, it'll be helpful to define some of the terminology surrounding classes/OOP. Often times, the terminology can be the most confusing part of learning OOP. 
 
-1. **Class** - used to refer to the abstract concept of an object.
+1. **Class** - Used to refer to the abstract concept of an object.
 2. **Object** - An actual instance of a class.
 3. **Instance** - What Python returns when you tell it to create a class.
 4. **Instantiation** - A fancy way of saying that we're going to create an instance of a class. 
@@ -54,7 +54,7 @@ Like we mentioned above, **instantiation** is just a fancy word for saying that 
 our_class = OurClass() 
 ```
 
-Okay, cool! Let's revisit some of the terminology that we discussed above. We've shown you how to define a class, and **instantiate** it using a **constructor**. What we've done directly above is created an **instance** of `OurClass` that we've stored in the `our_class` variable. This variable is an object that theoretically has **attributes** and **methods**, which we can use to interact with it (we say theoretically because we didn't actually define any attributes or methods above). Awesome! Now let's look at how to actually build a class that does something.   
+Okay, cool! Let's revisit some of the terminology that we discussed above. We've shown you how to define a class, and **instantiate** it using a **constructor**. What we've done directly above is created an **instance** of `OurClass` that we've stored in the `our_class` variable. This variable is an object that theoretically has **attributes** and **methods**, which we can use to interact with it (we say theoretically because we didn't actually define any attributes or methods above). Now let's look at how to actually build a class that does something.   
 
 #### Inner Workings (defining attributes and methods) 
 
@@ -76,9 +76,11 @@ In [3]: our_class.name
 Out[3]: 'Intro Python'
 ```
 
-First things first - how does the `__init__()` method work? As mentioned above, it is called by default whenever we instantiate an instance of `OurClass()` (or whatever class it is a part of). In addition, any arguments that we pass to the `OurClass()` constructor that we use during instantiation are passed to the `__init__()` method. But wait... In the `__init__()` method definition you have it accepting the `self` parameter, but don't pass any arguments during instantiation? The reason for this is that by default, Python passes a reference to the class itself (which is what `self` is) as the first argument in any method that is defined within the class. Let's dive into this a little deeper...   
+How does the `__init__()` method work? As mentioned above, it is called by default whenever we instantiate an instance of `OurClass()` (or whatever class it is a part of). In addition, any arguments that we pass to the `OurClass()` constructor that we use during instantiation are passed to the `__init__()` method. But wait... In the `__init__()` method definition you have it accepting the `self` parameter, but don't pass any arguments during instantiation? The reason for this is that by default, Python passes a reference to the class itself (which is what `self` is) as the first argument in any method that is defined within the class. Let's dive into this a little deeper...   
 
 `self` is what we use inside of the class to access attributes or methods of the class. Notice that we do this with dot notation - e.g. by placing a period after `self`, and then the name of the attribute or method that we want to access. When we write `self.name = 'Intro Python'`, then, what we are doing is accessing `self.name` and then assigning it the value of 'Intro Python'. Outside of the class, we access this attribute (or any attribute/method) again via dot notation, but replacing `self` with the variable name that holds our instantiated object (above this is `our_class`). 
+
+Let's now take a look at what it looks like to pass arguments into the `__init__()` method. 
 
 ```python 
 In [1]: class OurClass(): 
@@ -105,11 +107,11 @@ TypeError                    Traceback (most recent call last)
 TypeError: __init__() takes exactly 2 arguments (1 given)
 ```
 
-Cool! So what's happening here? Well, in our `__init__()` method, we have included another parameter in addition to `self`. In doing so, when we instantiate our class, the constructor expects an argument (in addition to `self`, which, remember, is automatically passed by default). It then takes that expected argument and assigns it to the `name` attribute. Then, we access that `name` attribute via dot notation, prefaced with  `self` inside of the class and the variable name of your object outside of the class.
+So, what's happening here? In our `__init__()` method, we have included another parameter in addition to `self`. In doing so, when we instantiate our class, the constructor expects an argument (in addition to `self`, which is automatically passed by default). It then takes that expected argument and assigns it to the `name` attribute. Then, we access that `name` attribute via dot notation, prefaced with  `self` inside of the class and the variable name of your object outside of the class.
 
 What happened in that last example, though? Here, we tried to instantiate the class without an argument and got an error. This is because we didn't pass in an argument for the `name` parameter. Methods within classes work exactly like functions (in fact they are functions, we just call them methods since they are inside classes). As a result, we have to pass the expected number of arguments in when we call them (with the caveat that `self` is passed by default, and that `__init__()` is called by default when a class is instantiated).
 
-Let's look at one last example to hammer home the `__init__()` method. Remember that it's just like a function (a kind of special function). This means that we can pass it multiple arguments, and even give parameters default values. Awesome! 
+Let's look at one last example to hammer home the `__init__()` method. Remember that it's just like a function (a kind of special function). This means that we can pass it multiple arguments, and even give parameters default values.
 
 ```python 
 In [1]: class OurClass(): 
@@ -130,7 +132,7 @@ In [5]: our_ds_class.name, our_ds_class.location, our_ds_class.size
 Out[5]: ('Data Science', 'Platte', 15)
 ```
 
-Here we see the use of multiple parameters in the definition of the `__init__()` method, along with the use of default values for one of those parameters. When we look at the instantiation of the two `OurClass()` objects with multiple arguments passed to the constructors, we see the realization of these multiple parameters and default values.
+Here, we see the use of multiple parameters in the definition of the `__init__()` method, along with the use of default values for one of those parameters. When we look at the instantiation of the two `OurClass()` objects, we see the realization of these multiple parameters and default values.
 
 As a brief aside before diving into defining other methods inside our functions, the `__init__()` method is a special type of method that we refer to as a **magic method**. We'll go into these in depth in the next class, but for now it's important to note that all **magic methods** begin and end with double underscores (like `__init__()`).  
 
