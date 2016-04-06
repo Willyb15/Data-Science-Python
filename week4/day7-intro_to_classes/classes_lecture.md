@@ -31,7 +31,7 @@ Before we get to actually learning how to build a class, it'll be helpful to def
 5. **Constructor** - What we call to instantiate a class. 
 6. **self** - Inside of a class, a variable for the instance/object being accessed (i.e. it holds a reference to the instance/object of that class).
 7. **attribute**/**field**/**property** - A piece of data that a class has, stored in a variable. Inside of a class definition, all attributes/fields/properties are accessed via `self.<attribute>`, while on an instance, they are accessed via `<variable name>.<attribute>`.
-8. **method**/**procedure** - A block of code that is accessible via the class, and typically acts on or with the classes' attributes/fields/properties. Inside of a class definition, all methods/procedures are created via `def.` (they are really just functions) and accessible via `self.<method>()`, while on an instance, they are accessed via `<variable name>.<method>()`. 
+8. **method**/**procedure** - A block of code that is accessible via the class, and typically acts on or with the classes' attributes/fields/properties. Inside of a class definition, all methods/procedures are created via `def` (they are really just functions), and accessible via `self.<method>()`, while on an instance, they are accessed via `<variable name>.<method>()`. 
 
 Don't worry if this terminology isn't 100% clear at this point in time. It should become more clear as we work through these notes, and should be a useful reference. From here on out, we'll treat attribute, field, and property as interchangeable, and we'll do the same with method and procedure.
 
@@ -62,7 +62,7 @@ As review, remember that inside of a class, we can have both attributes and meth
 
 ##### The `__init__()`
 
-Almost every class you ever write will have an `__init__()` method. This method gets called every time that you create a new instance of a class, and handles any kind of setup that the class may require. Setup typically just involves assigning values to variables, which we can do with or without values passed in (similar to how we interact with functions). Let's look at defining a class and instantiating a class in both of these cases. 
+Almost every class you ever write will have an `__init__()` method. This method gets called every time that you create a new instance of a class, and handles any kind of setup that the class may require. Setup typically just involves assigning values to arguments, which we can do with or without values passed in (similar to how we interact with functions). Let's look at defining a class and instantiating a class in both of these cases. 
 
 ```python 
 In [1]: class OurClass(): 
@@ -76,9 +76,9 @@ In [3]: our_class.name
 Out[3]: 'Intro Python'
 ```
 
-How does the `__init__()` method work? As mentioned above, it is called by default whenever we instantiate an instance of `OurClass()` (or whatever class it is a part of). In addition, any arguments that we pass to the `OurClass()` constructor that we use during instantiation are passed to the `__init__()` method. But wait... In the `__init__()` method definition you have it accepting the `self` parameter, but don't pass any arguments during instantiation? The reason for this is that by default, Python passes a reference to the class itself (which is what `self` is) as the first argument in any method that is defined within the class. Let's dive into this a little deeper...   
+How does the `__init__()` method work? As mentioned above, it is called by default whenever we instantiate an instance of `OurClass()` (or whatever class it is a part of). In addition, any arguments that we pass to the `OurClass()` constructor that we use during instantiation are passed to the `__init__()` method. But wait... In the `__init__()` method definition you have it accepting the `self` parameter, but don't pass any arguments during instantiation? The reason for this is that by default, Python passes a reference to the instance (which is what `self` is) as the first argument in any method that is defined within the class. Let's dive into this a little deeper...   
 
-`self` is what we use inside of the class to access attributes or methods of the class. Notice that we do this with dot notation - e.g. by placing a period after `self`, and then the name of the attribute or method that we want to access. When we write `self.name = 'Intro Python'`, then, what we are doing is accessing `self.name` and then assigning it the value of 'Intro Python'. Outside of the class, we access this attribute (or any attribute/method) again via dot notation, but replacing `self` with the variable name that holds our instantiated object (above this is `our_class`). 
+`self` is what we use inside of the class to access attributes or methods of the class. Notice that we do this with dot notation - e.g. by placing a period after `self`, and then the name of the attribute or method that we want to access. When we write `self.name = 'Intro Python'`, then, what we are doing is accessing `self.name` and then assigning it the value of 'Intro Python'. Outside of the class, we access this attribute (or any attribute/method) again via dot notation, but replacing `self` with the variable name that holds a reference our instantiated object (above this is `our_class`). 
 
 Let's now take a look at what it looks like to pass arguments into the `__init__()` method. 
 
