@@ -40,7 +40,7 @@ Speaking of which. How do we define these "magic" methods?? End detour.
 
 Defining a magic method is as easy as defining any other method in a class. We actually did it last time with the `__init__()` method. So, all you have to do is start with a `def`, and then the name of the magic method with the double underscores. **Note**: All methods with names beginning and ending with double underscores are magic methods, and this naming convention is reserved for them.
 
-Let's take a look at this with the `OurClass` class we created last time. I'm going to add a `__len__()` implementation to the code from last lecture. Considering that the `len()` function should return a number, it seems reasonable to have it return the number of questions asked. Instead of putting our code directly into IPython, this time we're going to store it in a script, `lecture.py`, and get some practice importing. Let's take a look.
+Let's take a look at this with the `OurClass` class we created last time. I'm going to add a `__len__()` implementation to the code from last lecture. Considering that the `len()` function should return a number, it seems reasonable to have it return the number of questions asked. Instead of putting our code directly into IPython, this time we're going to store it in a script, `lecture_code.py` (it will be located in the `misc` folder), and get some practice importing. Let's take a look.
 
 ```python
 class OurClass(): 
@@ -74,7 +74,7 @@ class OurClass():
 Now we can have `len()` interact with instances of `OurClass`.
 
 ```python
-In [1]: from lecture import OurClass
+In [1]: from lecture_code import OurClass
 
 In [2]: our_class = OurClass('Intro Python', 'Platte', 15)
 
@@ -92,7 +92,7 @@ Out[6]: 2
 Just as we'd expect, we get the number of questions when calling `len()`. For reference, check out what would happen if we hadn't defined an implementation for `__len__()`.
 
 ```python
-In [1]: from lecture import OurClass
+In [1]: from lecture_code import OurClass
 
 In [2]: our_class = OurClass('Intro Python', 'Platte', 15)
 
@@ -387,10 +387,10 @@ class ReportCreator():
         return len(self.vocabulary)
 ```
 
-Now that we have all that done and stored in `lecture.py`, let's test it out in IPython. We'll use the same test text file that we used last week. This time, though, let's pass the text file's path twice to the `create_reports()` method. As a reminder, the stats from that file when we used our `create_report()` function were `{'words': 16, 'characters': 76, 'sentences': 2}`.
+Now that we have all that done and stored in `lecture_code.py`, let's test it out in IPython. We'll use the same test text file that we used last week. This time, though, let's pass the text file's path twice to the `create_reports()` method. As a reminder, the stats from that file when we used our `create_report()` function were `{'words': 16, 'characters': 76, 'sentences': 2}`.
 
 ```python
-In [1]: from lecture import ReportCreator
+In [1]: from lecture_code import ReportCreator
 
 In [2]: rc = ReportCreator()
 
