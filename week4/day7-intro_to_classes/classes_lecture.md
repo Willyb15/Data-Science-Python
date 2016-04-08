@@ -62,7 +62,7 @@ As review, remember that inside of a class, we can have both attributes and meth
 
 ##### The `__init__()`
 
-Almost every class you ever write will have an `__init__()` method. This method gets called every time that you create a new instance of a class, and handles any kind of setup that the class may require. Setup typically just involves assigning values to arguments, which we can do with or without values passed in (similar to how we interact with functions). Let's look at defining a class and instantiating a class in both of these cases. 
+Almost every class you ever write will have an `__init__()` method. This method gets called every time that you create a new instance of a class, and handles any kind of setup that the class may require. Setup typically just involves assigning values to attributes, which we can do with or without values passed in (similar to how we interact with functions). Let's look at defining a class and instantiating a class in both of these cases. 
 
 ```python 
 In [1]: class OurClass(): 
