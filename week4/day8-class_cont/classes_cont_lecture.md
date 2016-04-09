@@ -109,11 +109,11 @@ An error! At least Python lets us know that it's related to having no length, a 
 
 #### Other Magic Methods
 
-It turns out that there are many other magic methods that you can implement on you custom classes. In fact, we've already seen one! The `__init__()`, which is called when the class constructor is called, this is why it always performs the class setup.
+It turns out that there are many other magic methods that we can implement on our custom classes. In fact, we've already seen one! The `__init__()` method is a magic method - this is why it is called when the class is constructed and always performs class setup.
 
-As discussed above most of the magic methods allow for you to make your classes interact with already existing features in Python. This process is called operator overloading, and implementing magic methods on our classes is how we do it. 
+Most of the magic methods allow for you to make your classes interact with already existing features in Python. This process is called operator overloading, and implementing magic methods on our classes is how we do it. 
 
-For example, have you tried printing one of your custom classes? If you try with an instance of the `OurClass` class you'd get something like: `<__main__.OurClass instance at 0x10a157a28>`. This isn't very informative. How do we get a more useful printout of our classes, then? With the `__str__()` method! This is the method that is called when you try to cast an object as a string with the `str()` constructor. Non-coincidentally, objects are cast as strings by Python when you call `print()`, as Python only knows how to represent strings on the screen. Let's take a look at what a `__str__()` method could look like so we can print an instance of `OurClass` and get something useful.
+For example, let's take a look at what happens if we try printing one of our own custom classes? If we try with an instance of the `OurClass` class, we get something like: `<__main__.OurClass instance at 0x10a157a28>`. This isn't very informative. How do we get a more useful printout of our classes, then? We can use the `__str__()` method! This is the method that is called when you try to cast an object as a string with the `str()` constructor. Non-coincidentally, objects are cast as strings by Python when you call `print()`, as Python only knows how to represent strings on the screen. Let's take a look at what a `__str__()` method could look like. Then, we can use it to print an instance of `OurClass` and get something useful.
 
 ```python
 class OurClass(): 
@@ -145,7 +145,7 @@ class OurClass():
         return self.at_capacity
 ```
 
-Note, the return type from the `__str__()` method must be a string when you implement your own. Now when we try to print an instance of `OurClass` we actually get something useful.
+Note, the return type from the `__str__()` method must be a string when we implement our own. Now, when we try to print an instance of `OurClass` we actually get something useful.
 
 ```python
 In [1]: from lecture_code import OurClass
@@ -158,13 +158,13 @@ Out[3]: Intro Python, location: Platte
 
 #### Magic Methods for the Win
 
-If we can decide if two numbers, or strings, etc. are equal with the equality operator, `==`, why can't we make a custom class do the same? Turns out we can! With the magic `__eq__()` method we can enable two instances of our class to be compared. 
+If we can decide if two numbers, or strings, etc. are equal with the equality operator, `==`, why can't we make a custom class do the same? Turns out we can! With the magic `__eq__()` method, we can enable two instances of our class to be compared. 
 
-So how would our class know that it's getting compared to another object to check to equality? If you take a look at the specification for how python will use the magic `__eq__()` method [here](https://docs.python.org/2/reference/datamodel.html#object.__eq__) it specifies that the arguments to be passed look like: `object.__eq__(self, other)`. We already know that `self` is a reference to the instance that the method is being called on and it turns out that `other` is a reference to an instance as well. 
+How would our class know that it's getting compared to another object to check equality? If you take a look at the specification for how python will use the magic `__eq__()` method [here](https://docs.python.org/2/reference/datamodel.html#object.__eq__), it specifies that the arguments to be passed look like: `object.__eq__(self, other)`. We already know that `self` is a reference to the instance that the method is being called on. It turns out that `other` is a reference to an instance as well. 
 
-The way that Python evaluates an expression like `x == y` is that it calls the `__eq__()` method on the first argument to the expression, `x` and passes a reference to that variable, then it looks on the other side of the `==` and passes a reference to that variable as the second argument to `__eq__()`. So, the `other` argument that we see above is just a reference to another instance! Since it's a reference to another instance we can access attributes and methods of that instance via the name `other`!
+The way that Python evaluates an expression like `x == y` is that it calls the `__eq__()` method on the first argument to the expression (`x`) and passes a reference to that variable as the first argument to the `__eq__()` method. Then, it looks on the other side of the `==` and passes a reference to that variable as the second argument to `__eq__()` (here it's `y`). So, the `other` argument that we see above is just a reference to another instance! Since it's a reference to another instance, we can access attributes and methods of that instance via the name `other`!
 
-For example, we might consider two instances of `OurClass` equal if they have the same name and location. The way that we would have out class implement this behavior is by overloading the `==` via implementing the `__eq__()` method. Let's take a look.
+For example, we might consider two instances of `OurClass` equal if they have the same name and location. The way that we would have our class implement this behavior is by overloading the `==` via implementing the `__eq__()` method. Let's take a look...
 
 ```python
 class OurClass(): 
@@ -195,11 +195,11 @@ class OurClass():
         return self.at_capacity
 ```
 
-Notice that we easily have access to information about the other instance through dot notation. Also, as we would expect the `==` operator to return a boolean we should take special care to make sure that we return things from our magic methods that make sense in context!
+Notice that we easily have access to information about the other instance through dot notation. Also, as we would expect that the `==` operator return a boolean, we should take special care to make sure that we return things from our magic methods that make sense within the context!
 
 #### Tons of Magic Methods
 
-For the most part, any of the seemingly simple functionality that is built into Python data structures, and that we take for granted, can be implemented via a magic method in our custom classes. Take a look at [this](https://docs.python.org/2/reference/datamodel.html#special-method-names) link to get a sense for all the things magic methods can do.
+For the most part, any of the seemingly simple functionality that is built into Python data structures can be implemented via a magic method in our custom classes. Take a look at [this](https://docs.python.org/2/reference/datamodel.html#special-method-names) link to get a sense for all the things magic methods can do.
 
 ### Using Classes Pragmatically
 
