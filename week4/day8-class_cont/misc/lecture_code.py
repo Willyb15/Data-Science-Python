@@ -12,6 +12,13 @@ class OurClass():
     def __len__(self):
         return len(self.questions_asked)
 
+    def __str__(self):
+        our_class_string = '{}, location: {}'
+        return our_class_string.format(self.name, self.location)
+
+    def __eq__(self, other):
+        return self.name == other.name and self.location == other.location
+
     def add_question_asked(self, question): 
         self.questions_asked.append(question)
     

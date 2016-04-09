@@ -32,7 +32,7 @@ What's happening under the hood when we pass a data structure to the `len()` fun
 
 The above example is a great example of **polymorphism**, an idea we quickly discussed last class. Let's take a moment to get a better handle on this idea. **Polymorphism** is defined as the provision of the same interface for entities of different types.
 
-We see that idea in direct action in the above example. Though we were passing different types of entities to the `len()` function, because it implements the `__len__()` method on whatever object was passed to it, and any object can implement that method, we see this notion of the same interface. And, even further, we see the benefits of setting up a paradigm with this design principle implemented. To make something work with `len()`, all you have to do is make sure it defines the `__len()__` method. And, tada! The general structure of the interface, polymorphism in action, takes care of the rest.
+We see that idea in direct action in the above example. Though we were passing different types of entities to the `len()` function, because it implements the `__len__()` method on whatever object was passed to it, and any object can implement that method, we see this notion of the same interface. And, even further, we see the benefits of setting up a paradigm with this design principle implemented. To make something work with `len()`, all you have to do is make sure it implements the `__len__()` method. And, tada! The general structure of the interface, polymorphism in action, takes care of the rest.
 
 Speaking of which. How do we define these "magic" methods?? End detour.
 
@@ -40,7 +40,7 @@ Speaking of which. How do we define these "magic" methods?? End detour.
 
 Defining a magic method is as easy as defining any other method in a class. We actually did it last time with the `__init__()` method. So, all you have to do is start with a `def`, and then the name of the magic method with the double underscores. **Note**: All methods with names beginning and ending with double underscores are magic methods, and this naming convention is reserved for them.
 
-Let's take a look at this with the `OurClass` class we created last time. I'm going to add a `__len__()` implementation to the code from last lecture. Considering that the `len()` function should return a number, it seems reasonable to have it return the number of questions asked. Instead of putting our code directly into IPython, this time we're going to store it in a script, `lecture.py`, and get some practice importing. Let's take a look.
+Let's take a look at this with the `OurClass` class we created last time. I'm going to add a `__len__()` implementation to the code from last lecture. Considering that the `len()` function should return a number, it seems reasonable to have it return the number of questions asked. Instead of putting our code directly into IPython, this time we're going to store it in a script, `lecture_code.py` (it will be located in the `misc` folder), and get some practice importing. Let's take a look.
 
 ```python
 class OurClass(): 
@@ -74,7 +74,7 @@ class OurClass():
 Now we can have `len()` interact with instances of `OurClass`.
 
 ```python
-In [1]: from lecture import OurClass
+In [1]: from lecture_code import OurClass
 
 In [2]: our_class = OurClass('Intro Python', 'Platte', 15)
 
@@ -92,7 +92,7 @@ Out[6]: 2
 Just as we'd expect, we get the number of questions when calling `len()`. For reference, check out what would happen if we hadn't defined an implementation for `__len__()`.
 
 ```python
-In [1]: from lecture import OurClass
+In [1]: from lecture_code import OurClass
 
 In [2]: our_class = OurClass('Intro Python', 'Platte', 15)
 
@@ -106,6 +106,100 @@ TypeError: object of type 'OurClass' has no len()
 ```
 
 An error! At least Python lets us know that it's related to having no length, a problem that we now know how to fix!
+
+#### Other Magic Methods
+
+It turns out that there are many other magic methods that we can implement on our custom classes. In fact, we've already seen one! The `__init__()` method is a magic method - this is why it is called when the class is constructed and always performs class setup.
+
+Most of the magic methods allow for you to make your classes interact with already existing features in Python. This process is called operator overloading, and implementing magic methods on our classes is how we do it. 
+
+For example, let's take a look at what happens if we try printing one of our own custom classes? If we try with an instance of the `OurClass` class, we get something like: `<__main__.OurClass instance at 0x10a157a28>`. This isn't very informative. How do we get a more useful printout of our classes, then? We can use the `__str__()` method! This is the method that is called when you try to cast an object as a string with the `str()` constructor. Non-coincidentally, objects are cast as strings by Python when you call `print()`, as Python only knows how to represent strings on the screen. Let's take a look at what a `__str__()` method could look like. Then, we can use it to print an instance of `OurClass` and get something useful.
+
+```python
+class OurClass(): 
+    def __init__(self, name, location, size=0): 
+        self.name = name
+        self.location = location
+        self.size = size
+        self.questions_asked = []
+        if self.size >= 20: 
+            self.at_capacity = True
+        else: 
+            self.at_capacity = False
+
+    def __str__(self):
+        our_class_string = '{}, location: {}'
+        return our_class_string.format(self.name, self.location)
+
+    def add_question_asked(self, question): 
+        self.questions_asked.append(question)
+    
+    def add_class_members(self, num): 
+        self.size += num
+
+        if self.size >= 20: 
+            print 'Capacity Reached!!'
+            self.at_capacity = True
+
+    def check_if_at_capacity(self): 
+        return self.at_capacity
+```
+
+Note, the return type from the `__str__()` method must be a string when we implement our own. Now, when we try to print an instance of `OurClass` we actually get something useful.
+
+```python
+In [1]: from lecture_code import OurClass
+
+In [2]: our_class = OurClass('Intro Python', 'Platte', 15)
+
+In [3]: print our_class
+Out[3]: Intro Python, location: Platte
+```
+
+#### Magic Methods for the Win
+
+If we can decide if two numbers, or strings, etc. are equal with the equality operator, `==`, why can't we make a custom class do the same? Turns out we can! With the magic `__eq__()` method, we can enable two instances of our class to be compared. 
+
+How would our class know that it's getting compared to another object to check equality? If you take a look at the specification for how python will use the magic `__eq__()` method [here](https://docs.python.org/2/reference/datamodel.html#object.__eq__), it specifies that the arguments to be passed look like: `object.__eq__(self, other)`. We already know that `self` is a reference to the instance that the method is being called on. It turns out that `other` is a reference to an instance as well. 
+
+The way that Python evaluates an expression like `x == y` is that it calls the `__eq__()` method on the first argument to the expression (`x`) and passes a reference to that variable as the first argument to the `__eq__()` method. Then, it looks on the other side of the `==` and passes a reference to that variable as the second argument to `__eq__()` (here it's `y`). So, the `other` argument that we see above is just a reference to another instance! Since it's a reference to another instance, we can access attributes and methods of that instance via the name `other`!
+
+For example, we might consider two instances of `OurClass` equal if they have the same name and location. The way that we would have our class implement this behavior is by overloading the `==` via implementing the `__eq__()` method. Let's take a look...
+
+```python
+class OurClass(): 
+    def __init__(self, name, location, size=0): 
+        self.name = name
+        self.location = location
+        self.size = size
+        self.questions_asked = []
+        if self.size >= 20: 
+            self.at_capacity = True
+        else: 
+            self.at_capacity = False
+
+    def __eq__(self, other):
+        return self.name == other.name and self.location == other.location
+
+    def add_question_asked(self, question): 
+        self.questions_asked.append(question)
+    
+    def add_class_members(self, num): 
+        self.size += num
+
+        if self.size >= 20: 
+            print 'Capacity Reached!!'
+            self.at_capacity = True
+
+    def check_if_at_capacity(self): 
+        return self.at_capacity
+```
+
+Notice that we easily have access to information about the other instance through dot notation. Also, as we would expect that the `==` operator return a boolean, we should take special care to make sure that we return things from our magic methods that make sense within the context!
+
+#### Tons of Magic Methods
+
+For the most part, any of the seemingly simple functionality that is built into Python data structures can be implemented via a magic method in our custom classes. Take a look at [this](https://docs.python.org/2/reference/datamodel.html#special-method-names) link to get a sense for all the things magic methods can do.
 
 ### Using Classes Pragmatically
 
@@ -387,10 +481,10 @@ class ReportCreator():
         return len(self.vocabulary)
 ```
 
-Now that we have all that done and stored in `lecture.py`, let's test it out in IPython. We'll use the same test text file that we used last week. This time, though, let's pass the text file's path twice to the `create_reports()` method. As a reminder, the stats from that file when we used our `create_report()` function were `{'words': 16, 'characters': 76, 'sentences': 2}`.
+Now that we have all that done and stored in `lecture_code.py`, let's test it out in IPython. We'll use the same test text file that we used last week. This time, though, let's pass the text file's path twice to the `create_reports()` method. As a reminder, the stats from that file when we used our `create_report()` function were `{'words': 16, 'characters': 76, 'sentences': 2}`.
 
 ```python
-In [1]: from lecture import ReportCreator
+In [1]: from lecture_code import ReportCreator
 
 In [2]: rc = ReportCreator()
 
