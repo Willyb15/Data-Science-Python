@@ -309,7 +309,7 @@ class ReportCreator():
             pass
 ```
 
-Nice and easy. Wow we want to transition our functions to methods so that they will be accessible within the class. Remember that we need to pass `self` as the first parameter to methods.
+Nice and easy. Now we want to transition our functions to methods so that they will be accessible within the class. Remember that we need to pass `self` as the first parameter to methods.
 
 ```python
 class ReportCreator():
