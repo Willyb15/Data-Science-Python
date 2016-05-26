@@ -459,8 +459,8 @@ In this updated program we can see that we will, at each iteration of the loop, 
 | 1             |  1        |   2   |    True    |    False    |
 | 2             |  3        |   3   |    True    |    False    |
 | 3             |  6        |   4   |    True    |    False    |
-| 4             |  10       |   5   |    True    |    False    |
-| 5             |  10       |   6   |    True    |    True     |
+| 4             |  10       |   5   |    True    |    True     |
+| 5             |  10       |   6   |    True    |    False    |
 | 6             |  16       |   7   |    True    |    False    |
 | 7             |  23       |   8   |    True    |    False    |
 | 8             |  31       |   9   |    False   |    False    |
