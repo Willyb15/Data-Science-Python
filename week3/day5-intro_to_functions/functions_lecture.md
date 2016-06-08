@@ -69,13 +69,13 @@ In [1]: def get_evens():
    ...:             evens.append(element)
 ```
 
-Awesome! Now we can use this function anytime. To do so, all we have to do is call it by name, making sure to end with parentheses. **Note**: The parentheses are necessary because calling `get_evens` without the parentheses has Python look for a variable called `get_evens`, not a function. 
+Awesome! Now we can use this function anytime. To do so, all we have to do is call it by name, making sure to end with parentheses. **Note**: The parentheses are necessary because calling `get_evens` without the parentheses has Python look for a variable called `get_evens`, not a function.
 
 ```python
 In [2]: get_evens()
 ```
 
-Hmmm, we didn't get anything back out, though? Weren't we expecting the list of evens, 0 to 10? Why aren't we getting anything back? It's because we didn't tell it to give us anything back! Remember, we have to be explicit about what we want Python to do when we program. The computer won't know that we want our evens list back unless we tell it to give it back. 
+Hmmm, we didn't get anything back out, though? Weren't we expecting the list of evens, 0 to 10? Why aren't we getting anything back? It's because we didn't tell it to give us anything back! Remember, we have to be explicit about what we want Python to do when we program. The computer won't know that we want our evens list back unless we tell it to give it back.
 
 How do we do this, then? Python offers a special keyword, `return`, that we use to specifically return something back from a function. (**Note**: This `return` keyword is specific to functions, and Python will throw an error if you try to use it outside of a function.) With this in mind, let's fix up our function to actually return our list of evens.
 
@@ -95,7 +95,7 @@ In [2]: get_evens()
 Out[2]: [0, 2, 4, 6, 8]
 ```
 
-Let's take a little bit more time to discuss the `return` statement. It's nice that it allows us to get back something from a function, but we do have to be careful with it, and make sure that we are using it in the way that we want. `return` is similar to the `break` statement that we learned about in Week 1. As soon as our function sees the `return` statement during execution, it will immediately exit from the function. Let's alter the `return` statement in our `get_evens()` function to see how this comes works.
+Let's take a little bit more time to discuss the `return` statement. It's nice that it allows us to get back something from a function, but we do have to be careful with it, and make sure that we are using it in the way that we want. `return` is similar to the `break` statement that we learned about in Week 1. As soon as our function sees the `return` statement during execution, it will immediately exit from the function. Let's alter the `return` statement in our `get_evens()` function to see how this works.
 
 ```python
 In [1]: def get_evens():
@@ -119,7 +119,7 @@ Up to this point, we have just worked with functions that return the same output
 
 How does a function "expect" arguments to be passed to it? In the parentheses of a function definition, we put the names of the variables that we expect a user of our function to pass to it. We call these special variables **parameters**. This is where functions get their flexibility. When you define a function with a certain number of parameters, you can then refer to those parameters within the body of the function. Since those parameters are set when a user passes arguments to the function, they are actually controlling what happens inside the function!
 
-Let's look at how we can make a function flexible by changing the `get_evens()` function that we defined above. Instead of creating a list of evens from 0 to 10 every time, let's have `get_evens()` build an arbitrarily sized list of evens, from 0 to a number the user passes in. Using our current `get_evens()` as a base, we'll begin by adding in a parameter to the function definition. This parameter will control the size of the evens list that our function builds. 
+Let's look at how we can make a function flexible by changing the `get_evens()` function that we defined above. Instead of creating a list of evens from 0 to 10 every time, let's have `get_evens()` build an arbitrarily sized list of evens, from 0 to a number the user passes in. Using our current `get_evens()` as a base, we'll begin by adding in a parameter to the function definition. This parameter will control the size of the evens list that our function builds.
 
 ```python
 In [1]: def get_evens(n):
@@ -232,11 +232,11 @@ The above code demonstrates this "rule". In the first case, we defined our param
 
 #### Parameters vs Arguments
 
-As a quick reminder, it may seem like the terms "parameter" and "argument" are being used seemingly interchangeably. These two terms have specific and distinct definitions. A **parameter** is the name of a variable given in a function definition. An **argument** is the value that is passed to a function when it is called. 
+As a quick reminder, it may seem like the terms "parameter" and "argument" are being used seemingly interchangeably. These two terms have specific and distinct definitions. A **parameter** is the name of a variable given in a function definition. An **argument** is the value that is passed to a function when it is called.
 
 #### Calling Functions with Positional Versus Keyword Arguments
 
-So far, when we call a function and pass arguments to it we have seen Python assign those arguments to the correct parameters (for example, 5 to `n` and 2 to `divisor`, above). But how exactly does this happen - how does Python know that when we call `get_multiples(5, 2)`, 5 should get assigned to `n` and 2 should get assigned to `divisor`? 
+So far, when we call a function and pass arguments to it we have seen Python assign those arguments to the correct parameters (for example, 5 to `n` and 2 to `divisor`, above). But how exactly does this happen - how does Python know that when we call `get_multiples(5, 2)`, 5 should get assigned to `n` and 2 should get assigned to `divisor`?
 
 It turns out that, by default, Python simply matches up the position of the arguments that are passed in with the position of the parameters that are given in the function definition. In our `get_multiples(5, 2)` call, it takes the first argument passed, `5`, and assigns that to the first parameter in the function definition, `n`. Similarly, it takes the second argument passed, `2`, and assigns it to the second parameter in the function definition, `divisor`. This method of passing arguments is **by position**, and the arguments `5` and `2` in this example are considered to be **positional arguments**.
 
