@@ -40,9 +40,9 @@ def create_report(file_path):
 
 Let's talk about what this line does. The `open()` (docs [here](https://docs.python.org/2/library/functions.html#open)), takes a file path and returns a "file object" which we are storing in the variable `txt_file`. Notice that we're in an indented block for the body of the `with` - when we end that block, the file will automatically be closed for us.  For this reason, this is considered the Pythonic way to handle files.
 
-At this point, we now have access to the contents of the file via the variable `txt_file` within the scope of the `with` block.  Let's now consider next steps. Step one is reading the documentation for [file objects](https://docs.python.org/2/library/stdtypes.html#bltin-file-objects). Developing the ability to read and interpret the documentation is an important part of any role as a programmer. Next, we might create a small example that allows us to test our function.  This will a test file, which is a great thing to have in general so that we can verify whether the code we are writing is working as we move through solving the problem.
+At this point, we now have access to the contents of the file via the variable `txt_file` within the scope of the `with` block.  Let's now consider next steps. Step one is reading the documentation for [file objects](https://docs.python.org/2/library/stdtypes.html#bltin-file-objects). Developing the ability to read and interpret the documentation is an important part of any role as a programmer. Next, we might create a small example that allows us to test our function.  This will use a test file, which is a great thing to have in general so that we can verify whether the code we are writing is working as we move through solving the problem.
 
-Check out the included `test_text.txt` file, also located in the `misc` folder, which is filled with a small amount of text. We can use it to test out some of the code we've written inside of IPython. Frequently, we will use `print()` to understand pieces of our code.  In other situations, it's necessary to inspect using `type()`, or by calling other functions. Let's take a closer look at the file object obtained using the `with` statement.
+Check out the included `test_text.txt` file, also located in the `misc` folder, which is filled with a small amount of text. We can use it to test out some of the code we've written inside of IPython. Frequently, we will use `print()` to understand pieces of our code.  In other situations, it's necessary to inspect objects using `type()`, or by calling other functions. Let's take a closer look at the file object obtained using the `with` statement.
 
 ```python
 In [1]: with open('test_text.txt') as txt_file:
@@ -211,7 +211,7 @@ In [1]: run txt_file_processing.py
 
 #### Importing Detour
 
-While testing like this works, it turns out that this method is generally considered bad practice. The reason has to do with what happens when we do something called **importing**. The `import` statement allows us to access code (generally functions and classes) from existing scripts. Some scripts have be written by the creators of Python.  We can then access these scripts as libraries included with Python distributions. We can also create our own scripts and then access in the same way we would access the libraries written by the creators. Let's see what happens when we try to import the script we've just saved.
+While testing like this works, it turns out that this method is generally considered bad practice. The reason has to do with what happens when we do something called **importing**. The `import` statement allows us to access code (generally functions and classes) from existing scripts. Some scripts have to be written by the creators of Python.  We can then access these scripts as libraries included with Python distributions. We can also create our own scripts and then access them in the same way we would access the libraries written by the creators. Let's see what happens when we try to import the script we've just saved.
 
 ```python
 In [1]: import txt_file_processing
