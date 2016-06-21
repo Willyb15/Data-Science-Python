@@ -24,7 +24,7 @@ In [4]: len(my_dict)
 Out[4]: 2
 ```
 
-Here, we are using the `len()` function (a Python built-in), passing it a list and then a dictionary. This might seem fairly natural now, but if you take a moment to think about how this works, you may run into some logical stops. One question that might come to mind is how we are able to pass two different data structures to `len()`, and have that `len()` function know what we're asking? Furthermore, how does it reason about how "long" these different data structures are? Given our knowledge of how functions work, how does this `len()` function do what it does above? 
+Here, we are using the `len()` function (a Python built-in), passing it a list and then a dictionary. This might seem fairly natural now, but if you take a moment to think about how this works, you may run into some logical stops. One question that might come to mind is how we are able to pass two different data structures to `len()`, and have that `len()` function know what we're asking? Furthermore, how does it reason about how "long" these different data structures are? Given our knowledge of how functions work, how does this `len()` function do what it does above?
 
 What's happening under the hood when we pass a data structure to the `len()` function is that Python is going to that object and running its `__len__()` method. Ok, that sounds cool, but what does it all mean? This is an example of a **magic method**, and we will dive into them shortly. For now, know that magic methods allow us to give more robust functionality to our classes in terms of how they interact with Python. So, just as the `__len__()` method was called when both a list and a dictionary were passed to the `len()` function, we can define a `__len__()` method on our custom classes. Then, Python will know what to do when you pass an instance of that class to the `len()` method (the exact implementation of how that `__len__()` works is entirely up to you!)
 
@@ -43,31 +43,31 @@ Defining a magic method is as easy as defining any other method in a class. We a
 Let's take a look at this with the `OurClass` class we created last time. I'm going to add a `__len__()` implementation to the code from last lecture. Considering that the `len()` function should return a number, it seems reasonable to have it return the number of questions asked. Instead of putting our code directly into IPython, this time we're going to store it in a script, `lecture_code.py` (it will be located in the `misc` folder), and get some practice importing. Let's take a look.
 
 ```python
-class OurClass(): 
-    def __init__(self, name, location, size=0): 
+class OurClass():
+    def __init__(self, name, location, size=0):
         self.name = name
         self.location = location
         self.size = size
         self.questions_asked = []
-        if self.size >= 20: 
+        if self.size >= 20:
             self.at_capacity = True
-        else: 
+        else:
             self.at_capacity = False
 
     def __len__(self):
         return len(self.questions_asked)
 
-    def add_question_asked(self, question): 
+    def add_question_asked(self, question):
         self.questions_asked.append(question)
-    
-    def add_class_members(self, num): 
+
+    def add_class_members(self, num):
         self.size += num
 
-        if self.size >= 20: 
+        if self.size >= 20:
             print 'Capacity Reached!!'
             self.at_capacity = True
 
-    def check_if_at_capacity(self): 
+    def check_if_at_capacity(self):
         return self.at_capacity
 ```
 
@@ -111,37 +111,37 @@ An error! At least Python lets us know that it's related to having no length, a 
 
 It turns out that there are many other magic methods that we can implement on our custom classes. In fact, we've already seen one! The `__init__()` method is a magic method - this is why it is called when the class is constructed and always performs class setup.
 
-Most of the magic methods allow for you to make your classes interact with already existing features in Python. This process is called operator overloading, and implementing magic methods on our classes is how we do it. 
+Most of the magic methods allow for you to make your classes interact with already existing features in Python. This process is called operator overloading, and implementing magic methods on our classes is how we do it.
 
 For example, let's take a look at what happens if we try printing one of our own custom classes? If we try with an instance of the `OurClass` class, we get something like: `<__main__.OurClass instance at 0x10a157a28>`. This isn't very informative. How do we get a more useful printout of our classes, then? We can use the `__str__()` method! This is the method that is called when you try to cast an object as a string with the `str()` constructor. Non-coincidentally, objects are cast as strings by Python when you call `print()`, as Python only knows how to represent strings on the screen. Let's take a look at what a `__str__()` method could look like. Then, we can use it to print an instance of `OurClass` and get something useful.
 
 ```python
-class OurClass(): 
-    def __init__(self, name, location, size=0): 
+class OurClass():
+    def __init__(self, name, location, size=0):
         self.name = name
         self.location = location
         self.size = size
         self.questions_asked = []
-        if self.size >= 20: 
+        if self.size >= 20:
             self.at_capacity = True
-        else: 
+        else:
             self.at_capacity = False
 
     def __str__(self):
         our_class_string = '{}, location: {}'
         return our_class_string.format(self.name, self.location)
 
-    def add_question_asked(self, question): 
+    def add_question_asked(self, question):
         self.questions_asked.append(question)
-    
-    def add_class_members(self, num): 
+
+    def add_class_members(self, num):
         self.size += num
 
-        if self.size >= 20: 
+        if self.size >= 20:
             print 'Capacity Reached!!'
             self.at_capacity = True
 
-    def check_if_at_capacity(self): 
+    def check_if_at_capacity(self):
         return self.at_capacity
 ```
 
@@ -158,40 +158,40 @@ Out[3]: Intro Python, location: Platte
 
 #### Magic Methods for the Win
 
-If we can decide if two numbers, or strings, etc. are equal with the equality operator, `==`, why can't we make a custom class do the same? Turns out we can! With the magic `__eq__()` method, we can enable two instances of our class to be compared. 
+If we can decide if two numbers, or strings, etc. are equal with the equality operator, `==`, why can't we make a custom class do the same? Turns out we can! With the magic `__eq__()` method, we can enable two instances of our class to be compared.
 
-How would our class know that it's getting compared to another object to check equality? If you take a look at the specification for how python will use the magic `__eq__()` method [here](https://docs.python.org/2/reference/datamodel.html#object.__eq__), it specifies that the arguments to be passed look like: `object.__eq__(self, other)`. We already know that `self` is a reference to the instance that the method is being called on. It turns out that `other` is a reference to an instance as well. 
+How would our class know that it's getting compared to another object to check equality? If you take a look at the specification for how python will use the magic `__eq__()` method [here](https://docs.python.org/2/reference/datamodel.html#object.__eq__), it specifies that the arguments to be passed look like: `object.__eq__(self, other)`. We already know that `self` is a reference to the instance that the method is being called on. It turns out that `other` is a reference to an instance as well.
 
 The way that Python evaluates an expression like `x == y` is that it calls the `__eq__()` method on the first argument to the expression (`x`) and passes a reference to that variable as the first argument to the `__eq__()` method. Then, it looks on the other side of the `==` and passes a reference to that variable as the second argument to `__eq__()` (here it's `y`). So, the `other` argument that we see above is just a reference to another instance! Since it's a reference to another instance, we can access attributes and methods of that instance via the name `other`!
 
 For example, we might consider two instances of `OurClass` equal if they have the same name and location. The way that we would have our class implement this behavior is by overloading the `==` via implementing the `__eq__()` method. Let's take a look...
 
 ```python
-class OurClass(): 
-    def __init__(self, name, location, size=0): 
+class OurClass():
+    def __init__(self, name, location, size=0):
         self.name = name
         self.location = location
         self.size = size
         self.questions_asked = []
-        if self.size >= 20: 
+        if self.size >= 20:
             self.at_capacity = True
-        else: 
+        else:
             self.at_capacity = False
 
     def __eq__(self, other):
         return self.name == other.name and self.location == other.location
 
-    def add_question_asked(self, question): 
+    def add_question_asked(self, question):
         self.questions_asked.append(question)
-    
-    def add_class_members(self, num): 
+
+    def add_class_members(self, num):
         self.size += num
 
-        if self.size >= 20: 
+        if self.size >= 20:
             print 'Capacity Reached!!'
             self.at_capacity = True
 
-    def check_if_at_capacity(self): 
+    def check_if_at_capacity(self):
         return self.at_capacity
 ```
 
@@ -218,10 +218,10 @@ def presidents_by_letter(country_pres_dict, letter):
         for pres in pres_list:
             if pres[0].lower() == letter:
                 letter_pres.append(pres)
-    return letter_pres 
+    return letter_pres
 ```
 
-This seems pretty reasonable. However, we could also make a class for this task. It would contain the dictionary of countries and presidents as an attribute, and have a method that does the same thing as `presidents_by_letter()` above. Maybe it looks like the following: 
+This seems pretty reasonable. However, we could also make a class for this task. It would contain the dictionary of countries and presidents as an attribute, and have a method that does the same thing as `presidents_by_letter()` above. Maybe it looks like the following:
 
 ```python
 class CountriesPresidents():
@@ -234,7 +234,7 @@ class CountriesPresidents():
             for pres in pres_list:
                 if pres[0].lower() == letter:
                     letter_pres.append(pres)
-        return letter_pres 
+        return letter_pres
 ```
 
 So. Which is better - the function or the class??
@@ -286,7 +286,7 @@ def create_reports(file_paths):
 
 This skeleton makes some sense, since for each file path we want to create a report. However, our current code for `create_report()` returns a dictionary of counts. What are we going to do with these counts? How are we going to collect all the counts together so that we can keep a master count? Further, how are we going to create a library of words contained in all the documents??
 
-These are great questions, and to answer them we need to think hard about the structure of our program. If we want to aggregate all of the counts together, we could have a separate dictionary devoted to that task. Then, we would have to ask ourselves where that dictionary should be created, and where the updates to it should be made? 
+These are great questions, and to answer them we need to think hard about the structure of our program. If we want to aggregate all of the counts together, we could have a separate dictionary devoted to that task. Then, we would have to ask ourselves where that dictionary should be created, and where the updates to it should be made?
 
 Questions like this one go a long way in terms of directing decisions on how to structure your programs. One thing to think about when you're answering these questions are that functions should be reusable. This means that a function that creates and returns data structures within it's scope is potentially less general than if it accepts an existing data structure as a parameter. However, another thing to consider is that passing around objects might be unnecessary, since they could just be stored as attributes in a class. Then, the functions that operate on those objects could simply be methods on that class. All of this reads: can you encapsulate the solution to your problem, and do you want to? This brings up an important point - Python allows you to implement both functions and classes, which means that you can choose the one that suits your needs! What's important is that you're aware of both and are consciously weighing the costs and benefits of each when you're writing your programs. Often times, the boundary between choosing one over the other can be a little fuzzy, and so as long as you're actually thinking critically about it, that's a good sign!
 
@@ -338,11 +338,11 @@ class ReportCreator():
         counts_dict['words'] += 1
 ```
 
-Now, we've got access to the functionality we had in our old functions, but as methods within the class. Let's talk about two things real quickly. First off, you might have noticed that `update_counts()` was changed to `_update_counts()`. The leading underscore is a signal to users of our class that this particular method is for use internal only, similar to the double underscores we see with the magic methods (**Note**: The single underscore can also be used with attributes, and it means the same thing). It also makes the method hidden when tab completing on instances of this class, unless you start with an underscore (e.g. In IPython type `<instance of ReportCreator>._<tab>`). It makes sense to make this a hidden method, because realistically a user of this class will never need to explicitly use this class. Second, you might also notice that we'll have to change what happens in the `_update_counts()` method in order to keep track of all the words our class has seen.
+Now, we've got access to the functionality we had in our old functions, but as methods within the class. Let's talk about two things real quickly. First off, you might have noticed that `update_counts()` was changed to `_update_counts()`. The leading underscore is a signal to users of our class that this particular method is for use internal only, similar to the double underscores we see with the magic methods (**Note**: The single underscore can also be used with attributes, and it means the same thing). It also makes the method hidden when tab completing on instances of this class, unless you start with an underscore (e.g. In IPython type `<instance of ReportCreator>._<tab>`). It makes sense to make this a hidden method, because realistically a user of this class will never need to explicitly use this method. Second, you might also notice that we'll have to change what happens in the `_update_counts()` method in order to keep track of all the words our class has seen.
 
 #### Making Our Class Work with Itself
 
-That second part forces us to rethink how we will loop over each line. Currently, we don't store anything about the characters we're looping over within a line in `_update_counts()`. Now we'll need to store them, and add logic to figure out when to add a word to our vocabulary. Let's see if we can make this work... 
+That second part forces us to rethink how we will loop over each line. Currently, we don't store anything about the characters we're looping over within a line in `_update_counts()`. Now we'll need to store them, and add logic to figure out when to add a word to our vocabulary. Let's see if we can make this work...
 
 ```python
 class ReportCreator():
@@ -514,4 +514,4 @@ Holy moly, everything works! Trust me, I'm as surprised as you are!
 
 ### Everything in Python is an Object!
 
-One a final note, it's important to remember that everything in Python is an object. This means that even seemingly simple data structures have attributes and methods stored on them. In addition, they are great starting places to think about when you're building your own custom classes. 
+One a final note, it's important to remember that everything in Python is an object. This means that even seemingly simple data structures have attributes and methods stored on them. In addition, they are great starting places to think about when you're building your own custom classes.
