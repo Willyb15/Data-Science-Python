@@ -60,7 +60,7 @@ In terminal, navigate to your Downloads folder.
 ```bash
 bash Anaconda2-4.1.1-Linux-x86_64.sh
 ```
-(in this case the downloaded file was Anaconda2-4.1.1-Linux-x86_64.sh,
+(in this case the downloaded file was *Anaconda2-4.1.1-Linux-x86_64.sh*
 but replace this with actual file downloaded, and **DO** type **bash**
 in the terminal command above.)
 
