@@ -28,5 +28,5 @@ your Downloads folder and then type
 ```bash
 sudo dpkg -i atom-amd64.deb
 ```
-In this case the downloaded .deb file was atom-amd64.deb, but change it in above bash
+In this case the downloaded .deb file was *atom-amd64.deb* but change it in above bash
 command if your file was different (as it may be for the 32 bit version).
