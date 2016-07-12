@@ -56,7 +56,7 @@ your system specification.
 3.) The anaconda installer will be downloaded to your Downloads folder.
 In terminal, navigate to your Downloads folder.
 
-4.) In terminal in the Downloads directory type:
+4.) In terminal in the Downloads folder type:
 ```bash
 bash Anaconda2-4.1.1-Linux-x86_64.sh
 ```
