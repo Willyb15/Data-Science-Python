@@ -25,13 +25,13 @@ your root directory by typing `cd` into the terminal and pressing enter.
 2.) Enter the following command to download Anaconda: 
 
 ```bash 
-curl -O https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda2-2.4.1-MacOSX-x86_64.sh 
+curl -O http://repo.continuum.io/archive/Anaconda2-4.1.1-MacOSX-x86_64.sh >> ~/Downloads/Anaconda2-4.1.1-MacOSX-x86_64.sh 
 ```
 
-3.) Enter the following command to install Anaconda: 
+3.) Enter the following command to install Anaconda (make sure to say Yes when asked if you want to append `anaconda` to your path!): 
     
 ```bash 
-bash Anaconda2-2.4.1-MacOSX-x86_64.sh
+bash ~/Downloads/Anaconda2-4.1.1-MacOSX-x86_64.sh
 ```
 
 4.) Enter the following command to update all of the packages within Anaconda: 
