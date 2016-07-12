@@ -65,6 +65,5 @@ but replace this with actual file downloaded, and **DO** type **bash**
 in the terminal command above.)
 
 In the ensuing installation menus, **make sure that you 
-have the `Add Anaconda to my PATH environment variable` checked when going 
-through installation...**
+have the `Add Anaconda to my PATH environment variable` checked**
 
