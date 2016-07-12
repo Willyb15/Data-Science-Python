@@ -45,3 +45,23 @@ all your packages are up to date and you are good to go!
 
 
 [Anaconda]:http://docs.continuum.io/anaconda/install#windows-install
+
+## Linux Users
+1.) Navigate to the continuum.io downloads page. 
+[www.continuum.io/downloads](https://www.continuum.io/downloads#_unix)
+2.) Click on the 32 bit or 64 bit **Python 2.7 version**, depending on
+your system specification.
+3.) The anaconda installer will be downloaded to your Downloads folder.
+In terminal, navigate to your Downloads folder.
+4.) In terminal in the Downloads directory type:
+```bash
+bash Anaconda2-4.1.1-Linux-x86_64.sh
+```
+(in this case the downloaded file was Anaconda2-4.1.1-Linux-x86_64.sh,
+but replace this with actual file downloaded, and **DO** type **bash**
+in the terminal command above.)
+
+In the ensuing installation menus, **make sure that you 
+have the `Add Anaconda to my PATH environment variable` checked when going 
+through installation...**
+
