@@ -7,7 +7,7 @@ through which you run commands, interact with your programs, etc. It also
 has the benefit of handling git installation on your Windows machine. Download
 it here: 
 
-[www.git-scm.com/download/vim](https://www.git-scm.com/download/win)
+[www.git-scm.com/download/win](https://www.git-scm.com/download/win)
 
 Follow through the installation instructions. You should be able to just
 click next through all of the instructions, **but** along the way make
