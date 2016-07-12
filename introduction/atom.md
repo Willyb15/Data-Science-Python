@@ -16,6 +16,10 @@ move it into your applications folder. I suggest doing that, and then
 also putting it down in your dock for easy access, or creating a desktop 
 shortcut.
 
+If you would like to be able to open files with Atom directly from the command
+line you should click `Atom > Install Shell Commands` at which point you will
+be prompted to enter your password.
+
 ## Linux Users
 For Ubuntu, go to [https://atom.io/](https://atom.io) and click on the Debian (.deb)
 package to download it into your Downloads folder.  Then, in terminal, navigate to
