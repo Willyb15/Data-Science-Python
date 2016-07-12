@@ -1,7 +1,7 @@
 # Installing Atom
 
 This installation isn't as involved as Anaconda. You just need to navigate
-to the [Atom](https://atom.io/docs/v0.191.0/getting-started-installing-atom) site and download the version of Atom corresponding to your operating system (Windows or Mac OS X).
+to the [Atom](https://atom.io/docs/v0.191.0/getting-started-installing-atom) site and download the version of Atom corresponding to your operating system (Windows, Mac OS X, or Linux).
 
 ## Windows Users
 
@@ -15,3 +15,14 @@ Once you are done installing it, a window should pop up that allows you to
 move it into your applications folder. I suggest doing that, and then 
 also putting it down in your dock for easy access, or creating a desktop 
 shortcut.
+
+## Linux Users
+For Ubuntu, go to [https://atom.io/](https://atom.io) and click on the Debian (.deb)
+package to download it into your Downloads folder.  Then, in terminal, navigate to
+your Downloads folder and then type
+
+```bash
+sudo dpkg -i atom-amd64.deb
+```
+In this case the downloaded .deb file was atom-amd64.deb, but change it in above bash
+command if your file was different (as it may by in the 32 bit version).
