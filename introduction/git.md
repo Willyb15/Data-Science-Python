@@ -67,6 +67,12 @@ usage: git [--version] [--help] [-C <path>] [-c name=value]
            [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
            <command> [<args>]
 ....
-....
-....
 ```
+## Linux Users
+If you use Ubuntu, open the terminal and enter
+
+```bash
+sudo apt-get install git
+```
+For another version of Linux, follow the guide on the following page:
+[www.git-scm.com/download/linux](https://git-scm.com/download/linux)
