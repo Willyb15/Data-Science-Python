@@ -38,9 +38,11 @@ in your directory now?
 
 # Intermediate Practicing with Unix
 
+0.) You will be using some new commands in the steps below. Read the manual for these new commands: `less`, `grep`, and `sort`. You can access the manual using the `man` command. E.g. run `man less` to read the manual for the `less` command. (Tip: To exit `man`, press 'q' on your keyboard.)
+
 1.) Use `cd` to navigate into the `data/` directory. You should see two files: `2015_sp100.csv` and `plot_stock_prices.py`.
 
-2.) Peek at the file (`2015_sp100.csv`) using Atom. It contains daily stock prices for stocks in the [S&P 100 Index](https://en.wikipedia.org/wiki/S%26P_100) for the year 2015. Notice the lines of the file are in random order.
+2.) Use `less` to peek at the file (`2015_sp100.csv`). It contains daily stock prices for stocks in the [S&P 100 Index](https://en.wikipedia.org/wiki/S%26P_100) for the year 2015. Notice the lines of the file are in random order.
 
 3.) Use `grep` to print all the lines having prices for Google (symbol: GOOG). Use *bash file redirection* to store these GOOG lines into a file named `2015_goog.csv`.
 
