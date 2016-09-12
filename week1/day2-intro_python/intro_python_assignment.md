@@ -137,4 +137,34 @@ This is awesome! We now have a script that will solve a problem for arbitrary in
     * You know you're going to use a loop to solve this problem, how?
     * How do you store each of the elements as you calculate them with the loop?
     * How many elements do you need to keep track of at any one time?
-    * How do you know when to stop the loop?
+    * How do you know when to stop the loop?<br><br>
+
+10. Challenge: solve the equation:
+
+    `(a + (b - c) * d - e) * f = 75`
+
+    where a, b, c, d, e, and f are unique integers in the range [1, 6].
+
+    Hints:
+      - Computers are so fast that your program can simply try all possible valid values of a, b, c, d, e, and f until it finds one permutation of 1-6 that solves the challenge! (Btw, there is only *one* permutation that will solve it.)
+      - Use 6 nested for-loops to enumerate all ways of setting each of a, b, c, d, e, and f to the values 1-6.
+      - Use if-statements to ensure all values of a, b, c, d, e, and f are valid. (I.e. to ensure that each value is unique)
+      - Use an if-statement to test if the current permutation solves the challenge.<br><br>
+
+    Want more? Modify your program to solve all these (very similar) equations:
+
+    ```
+    (a + (b - c) * d - e) * f = 22
+    (a + (b - c) * d - e) * f = 38
+    (a + (b - c) * d - e) * f = 46
+    (a + (b - c) * d - e) * f = 57
+    (a + (b - c) * d - e) * f = 78
+    (a + (b - c) * d - e) * f = 80
+    (a + (b - c) * d - e) * f = 81
+    (a + (b - c) * d - e) * f = 88
+    (a + (b - c) * d - e) * f = 92
+    (a + (b - c) * d - e) * f = 100
+    (a + (b - c) * d - e) * f = 102
+    (a + (b - c) * d - e) * f = 104
+    (a + (b - c) * d - e) * f = 105
+    ```
