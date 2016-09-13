@@ -9,7 +9,7 @@ difference is that Unix is open-source, which means that anybody and everybody
 has access to the source code behind it (this isn't true for Windows).
 
 There are a number of different distributions/flavors of Unix. Two of the
-most popular are Mac OS and Linux. While different distributions of Unix will
+most popular are Mac OS X and Linux. While different distributions of Unix will
 have programs that are unique to that distribution, a very large percentage
 of the programs in each Unix distribution will be the same. Today we're going
 to be working with some of the programs that are common across all
