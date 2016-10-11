@@ -31,7 +31,7 @@ Desire to learn.
 
 ### Weekly Agenda:
 
-Tuesdays & Thursdays, 6:30 pm – 9:15 pm
+Tuesdays & Thursdays (or Mondays & Wednesdays), 6:30 pm.
 
 ### Full Course Outline:
 
