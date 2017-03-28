@@ -10,4 +10,4 @@ Objectives
   - Understand the fit/transform interface.
   - Use a `Pipeline` to chain together transformers and regressors/classifiers.
   - Use `FeatureUnion` to concatenate multiple new features.
-  - Write a `PiecewiseLinear` transformer, and use it to fit a more complicated linear model.
+  - Write a `PolynomialExpansion` class to create polynomial features out of a given column.
