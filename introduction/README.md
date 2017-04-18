@@ -1,4 +1,4 @@
-#Installation Tools
+## Installation Tools
 
 The tools that you will need to have set up are below. Follow along with the 
 install instructions in the `.md` files in this folder, and install 
