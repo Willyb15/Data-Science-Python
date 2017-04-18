@@ -1,4 +1,4 @@
-#Getting Around in the Shell
+## Getting Around in the Shell
 
 At the end of Day 1:
 
