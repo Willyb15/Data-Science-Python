@@ -1,4 +1,4 @@
-#Functions and Scope
+# Functions and Scope
 
 At the end of Day 5:
 
