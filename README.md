@@ -24,9 +24,8 @@ Desire to learn.
 
 ### Setup: 
 
-* Bring your laptop and power cable.
-* Install Anaconda with Python version 2.7 on your machine: http://docs.continuum.io/anaconda/install.html
-* Install a text editor: https://atom.io/
+* Bring your laptop and power cable.  
+* See the [Installation Guide](https://github.com/zipfian/python-fundamentals/tree/master/introduction)
 * If you have trouble with installation, we will assist on the first day.
 
 ### Weekly Agenda:
