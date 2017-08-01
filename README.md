@@ -25,7 +25,7 @@ Desire to learn.  Readiness to make mistakes and fail forward.
 ### Setup: 
 
 * Bring your laptop and power cable.  
-* See the [Installation Guide](https://github.com/zipfian/python-fundamentals/tree/master/introduction)
+* See the [Installation Guide](/introduction)
 * If you have trouble with installation, we will assist on the first day.
 
 ### Weekly Agenda:
