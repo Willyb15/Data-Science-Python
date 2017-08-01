@@ -9,9 +9,9 @@ installation of Linux).
 
 ## Mac OS X Users
 
-1.) Open up your terminal application, and navigate to your root directory.
+1.) Open up your terminal application, and navigate to your home directory.
 You can find the terminal application in `Finder`, and you can navigate to
-your root directory by typing `cd` into the terminal and pressing enter.
+your home directory by typing `cd` into the terminal and pressing enter.
 
 2.) Enter the following command to download Anaconda:
 
