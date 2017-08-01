@@ -7,15 +7,6 @@ which installation of Anaconda you're downloading (i.e. the Ubuntu install
 if you're running Ubuntu, or the Linux install if you're running a different
 installation of Linux).
 
-## Windows Users
-
-1.) Download [Anaconda][Anaconda], making sure to select the Windows
-version, and the version using **Python 2.7**. **Make sure that you
-have the `Add Anaconda to my PATH environment variable` checked when going
-through installation...**
-
-![anaconda_img](readme_imgs/anaconda.JPG)
-
 ## Mac OS X Users
 
 1.) Open up your terminal application, and navigate to your root directory.
@@ -66,3 +57,12 @@ in the terminal command above.)
 
 In the ensuing installation menus, **make sure that you
 have the `Add Anaconda to my PATH environment variable` checked**
+
+## Windows Users
+
+1.) Download [Anaconda][Anaconda], making sure to select the Windows
+version, and the version using **Python 2.7**. **Make sure that you
+have the `Add Anaconda to my PATH environment variable` checked when going
+through installation...**
+
+![anaconda_img](readme_imgs/anaconda.JPG)
