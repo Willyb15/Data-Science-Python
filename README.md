@@ -14,13 +14,13 @@ Whether you’ve programmed in other languages or Python is your first, this cla
 * Object Oriented Programming
 * Popular Data Science Libraries including Matplotlib, Pandas, Numpy, Sklearn
 
-### Who Should Take this Class? 
+### Who Should Take this Class?
 
-For those of you interested in learning to program in Python, so you may be better prepared for self study in data science, this course will help you get up to speed.  Those of you who are interested in gaining the skills required for admittance to the Denver Data Science Immersive; this course is designed to help you meet that bar.
+For those of you interested in learning to program in Python, so you may be better prepared for self study in data science, this course will help you get up to speed.  Those of you who are interested in gaining the skills required for admittance to the Data Science Immersive; this course is designed to help you meet that bar.
 
 ### Prerequisites:
 
-Desire to learn.
+Desire to learn.  Readiness to make mistakes and fail forward.
 
 ### Setup: 
 
@@ -30,20 +30,20 @@ Desire to learn.
 
 ### Weekly Agenda:
 
-Tuesdays & Thursdays (or Mondays & Wednesdays), 6:30 pm.
+Tuesdays & Thursdays, 6:30 pm - 9:30 pm
 
 ### Full Course Outline:
 
-* Week 1: 
+* Week 1:
   * First class: Introduction to git, Github, Unix, Downloading software (Anaconda, git, Atom)
   * Second Class: Variable assignment, Variable declaration, Loops, Control flow, Logic
-* Week 2: 
+* Week 2:
   * First class: Introduction to Python data structures, Python libraries, Lists, Strings
   * Second Class: Tuples, Dictionaries, and Sets
-* Week 3: 
+* Week 3:
   * First class: Functions and Scope
   * Second Class: Lab 1: Linking it all together
-* Week 4: 
+* Week 4:
   * First class: Object Oriented Programming (OOP)
   * Second Class: OOP
 * Week 5:
