@@ -31,6 +31,8 @@ bash ~/Downloads/Anaconda3-4.4.0-MacOSX-x86_64.sh
 conda update --all
 ```
 
+If you get the error `-bash: conda: command not found`, try running `source ~/.bash_profile` before running the command above.
+
 If prompted, enter `yes` when prompted. If you aren't prompted, then
 all your packages are up to date and you are good to go!
 
