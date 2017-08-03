@@ -62,16 +62,19 @@ In [3]: 7 * 8
 Out[3]: 56
 
 In [4]: 7 / 8
-Out[4]: 0
+Out[4]: 0.875
 
-In [5]: 7 ** 8
-Out[5]: 5764801
+In [5]: 7 // 8
+Out[5]: 0
+
+In [6]: 7 ** 8
+Out[6]: 5764801
 ```
 
-All of these operations output exactly what we think they would, except one. The fourth one, where we divided 7 by 8, gave us 0, even though we know that it should be 0.875. This happened because the input on both sides of the `/` were integers, so Python decided to cast the output as an integer. Let's visit all aspects of this problem.
+All of these operations output exactly what we think they would, except one. The fifth one, where we divided 7 by 8, gave us 0, even though we know that it should be 0.875. This is because there are two types of division in Python 4: **floor division and floating point division.**
 
 ```python
-n [1]: 7 / 8
+n [1]: 7 // 8
 Out[1]: 0
 
 In [2]: 7 / 8.0
@@ -87,7 +90,9 @@ In [5]: 7 // 8.
 Out[5]: 0.0
 ```
 
-Notice that once we made one of the numbers in the operation a `float`, Python realized that it should return a `float` from the operation, and we got 0.875 as expected. This exact same procedure was followed the third time, but the trailing 0 on the `float` version of 8 was left off. Python doesn't need to see anything following the decimal point to know it should be interpreting the number as a `float`, so long as the "." is there. Similarly, we can manually cast the output of the 4th operation as an `int` by passing the result directly to the `int()` constructor. Manually casting in this way can be very useful when Python is interpreting things differently than you would like it to. The last operation that we performed is called floor division, `//`. Really, all it does is perform division and truncate the result. So, where `7 / 8.` gave us `0.875`, `7 // 8.` cuts off after the `0.` giving us `0.0`.
+Notice the difference between floor division and floating point division.  Floor division truncates the response, leaving out anything after the decimal point, while floating point division returns what's expected.  Also note that `8.0` and `8.` are both identical numbers of type `float` while `8` is assumed to be of type `int`.
+
+We can manually cast the output of the 4th operation as an `int` by passing the result directly to the `int()` constructor. Manually casting in this way can be very useful when Python is interpreting things differently than you would like it to.
 
 The last operation that we will go over is the modular division operator, `%`. This operation is the sibling to `/`. Where `71 / 7` gives us the integer number of times that 7 goes into 71 (10), `71 % 7` gives us the remainder from that integer division (1).
 
@@ -198,7 +203,7 @@ In the above code we don't need to know what the value of `x` is, but we can say
 From what we know so far, this functionality isn't super useful. So let's quickly go over a way that we can make our Python more flexible. Until now, we've had to hard code any variable or value that we want to use in our program. Python has a built in way to accept input from the user of a program. Let's examine this now. Consider that the following code was stored in a file named `print_number.py`.
 
 ```python
-x = raw_input('Please enter a number: ')
+x = input('Please enter a number: ')
 print(x)
 ```
 
@@ -209,7 +214,7 @@ In [1]: run print_number.py
 Please enter a number:
 ```
 
-**Note**: The `raw_input()` function accepts character input from the keyboard, printing the message it is passed as a prompt.
+**Note**: The `input()` function accepts character input from the keyboard, printing the message it is passed as a prompt.
 
 We can then type a number followed by enter, and the script will print that number.
 
@@ -219,18 +224,18 @@ Please enter a number: 3
 3
 ```
 
-**Note**: `raw_input()` halts the execution of your script, so nothing will happen until you type something and press enter.
+**Note**: `input()` halts the execution of your script, so nothing will happen until you type something and press enter.
 
 Now that we have a way to get arbitrary input from the user of our program, we can begin to see the full power of the `if`. Let's combine the last two code blocks from above, and say we stored it in a script named `print_number_with_if.py`.
 
 ```python
-x = int(raw_input('Please enter a number: '))
+x = int(input('Please enter a number: '))
 if x > 5:
     x += 10
 print(x)
 ```
 
-**Note**: `raw_input()` actually interprets the input as strings, so we have to manually tell Python to treat the number we pass as an integer with `int()`. We'll talk about strings more next week.
+**Note**: `input()` actually interprets the input as strings, so we have to manually tell Python to treat the number we pass as an integer with `int()`. We'll talk about strings more next week.
 
 If we then ran the script from IPython as above, let's look at two ways we could interact with it.
 
@@ -263,7 +268,7 @@ Python gives us two ways to do this. One by offering other conditionals, `elif` 
 In addition to the `if`, Python provides us with two other statements to build out those logical trees, the `elif` and the `else`. The `elif` is just like the `if` - it accepts a condition to check the truth of and has an indented code block that is executed when that condition evaluates to `True`. The `else` is similar, but it doesn't accept a condition. Instead, it mainly acts as a catch all for any other situation that you don't need to cover with your `if`s and `elif`s. Note that there can only be a single `if` and up to a single `else`, but any number of `elif`s in an `if`-`elif`-`else` block. Let's take a closer look at this in the following code block that we'll store in `if_elif_else.py`.
 
 ```python
-x = int(raw_input('Please enter a number: '))
+x = int(input('Please enter a number: '))
 if x < 0:
     print('You entered a negative number.')
 elif x > 0:
@@ -291,7 +296,7 @@ You entered the number 0.
 Let's specifically talk about how the `if`-`elif`-`else` statements work. The programmers of Python designed these statements so that they would execute highly efficiently. They achieved this by making it so that when Python is going through your `if`-`elif`-`else` statements and encounters a condition that evaluates to `True`, it will execute the corresponding conditional code block and then skip to the line directly following the last conditional block. Let's examine this in the following code saved again in `if_elif_else.py`.
 
 ```python
-x = int(raw_input('Please enter a number: '))
+x = int(input('Please enter a number: '))
 if x > 5:
     print('You entered a number bigger than 5.')
 elif x > 0:

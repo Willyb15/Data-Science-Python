@@ -70,10 +70,10 @@ while current <= my_num:
     current += 1
 ```
 
-But wait, weren't we asked to take input from the user? And didn't we need to print the result? These aren't hard fixes; remember the `raw_input()` function to get numbers from the user? Let's use that. All we need to do to print the value we computed is pass `sum_result` to `print()`.
+But wait, weren't we asked to take input from the user? And didn't we need to print the result? These aren't hard fixes; remember the `input()` function to get numbers from the user? Let's use that. All we need to do to print the value we computed is pass `sum_result` to `print()`.
 
 ```python
-my_num = int(raw_input('Enter a number to find the sum up to: '))
+my_num = int(input('Enter a number to find the sum up to: '))
 sum_result = 0
 current = 1
 while current <= my_num:
@@ -100,7 +100,7 @@ This is awesome! We now have a script that will solve a problem for arbitrary in
 
 1. Write a script that takes a user inputted number and prints whether it is positive, negative or zero, with "The inputted number is (positive/negative/zero)" depending.
 
-2. Write a script that takes two user inputted numbers and prints "The first number is larger" or "The second number is larger" depending on which is larger. (**Hint**: you'll need to use `raw_input()` twice.)
+2. Write a script that takes two user inputted numbers and prints "The first number is larger" or "The second number is larger" depending on which is larger. (**Hint**: you'll need to use `input()` twice.)
 
 3. Write a script that computes the sum from 0 to a user inputted number. This time though, start at the user inputted number and work down. This answer will look very much like the example above, you'll just need to change a couple of things.
 
