@@ -159,7 +159,7 @@ In [6]: my_str_variable[:-1]
 Out[6]: 'Test Strin'
 ```
 
-This indexing turns out to be pretty useful. You might notice, though, that when indexing from `[1:3]`, only the letters at index 1 and 2 are returned; when indexing from `[5:9]`, we get the letters at indices 5, 6, 7, and 8. This is because the indices that you pass in are inclusive on the left side, and exclusive on the right side. This means that when you index, you will grab letters from the starting index that you give up to but not including letters at the ending index that you give. 
+This indexing turns out to be pretty useful. You might notice, though, that when indexing from `[1:3]`, only the letters at index 1 and 2 are returned; when indexing from `[5:9]`, we get the letters at indices 5, 6, 7, and 8. This is because the indices that you pass in are inclusive on the left side, and exclusive on the right side. This means that when you index, you will grab letters from the starting index that you give up to but not including letters at the ending index that you give.
 
 What about those last two examples, where there isn't an ending index or a starting one? If you don't give an ending index, then Python assumes that your ending index is the last index in the string. Similarly, if you don't give a starting index, Python assumes that your starting index is the first index in the string. Remember, this is the zeroth index in Python (don't worry if this feels confusing, you'll get used to it quickly).
 
@@ -184,7 +184,7 @@ We can cycle through all of the letters in our string (a process called **iterat
 ```python
 my_str, idx = 'hello', 0
 while idx < 5:
-    print my_str[idx]
+    print(my_str[idx])
     idx += 1
 ```
 
@@ -202,7 +202,7 @@ Now, we can write our `while` loop to be a little bit more general:
 ```python
 my_str, idx = 'hello', 0
 while idx < len(my_str):
-    print my_str[idx]
+    print(my_str[idx])
     idx += 1
 ```
 
@@ -213,7 +213,7 @@ The other way that we can iterate over the letters in our string is to use a `fo
 ```python
 my_str = 'hello'
 for idx in range(len(my_str)):
-    print my_str[idx]
+    print(my_str[idx])
 ```
 
 **Note**: the `range()` function (which we will cover in more depth when we get to functions) as used above simply gives us a list of numbers from 0 up to but not including the inputted number. In the case above, since `len(my_str)` is 5, `range(len(my_str))` returns a list of integers from 0 to 4.
@@ -235,37 +235,37 @@ It turns out that the above implementation of our `for` loop is actually conside
 ```python
 my_str = 'hello'
 for char in my_str:
-    print char
+    print(char)
 ```
 
-What's going on here!? Well, instead of iterating over all of the integers in a `range(len(my_str))` call like we did in our first `for` loop, we've gotten Python to simply iterate over all of the individual characters in our string, `my_str`. In each iteration of this `for` loop, `char` stores a different letter of `my_str`, and then the call `print char` prints that character. In the end, we get the same result as either of our `while` loops above, and the less Pythonic `for` loop that we wrote above. This way is considered to be the Pythonic way to iterate over a string (or other iterable, which we'll cover next class), and so it's an important concept to grasp.
+What's going on here!? Well, instead of iterating over all of the integers in a `range(len(my_str))` call like we did in our first `for` loop, we've gotten Python to simply iterate over all of the individual characters in our string, `my_str`. In each iteration of this `for` loop, `char` stores a different letter of `my_str`, and then the call `print(char)` prints that character. In the end, we get the same result as either of our `while` loops above, and the less Pythonic `for` loop that we wrote above. This way is considered to be the Pythonic way to iterate over a string (or other iterable, which we'll cover next class), and so it's an important concept to grasp.
 
 Why is it more Pythonic? That's a good question. When we say that something is more "Pythonic", this means that we are using the language in such a way that makes your code both more readable and simultaneously uses Python's power to make your solutions more optimal. Let's look at how this applies to the final implementation of our `for` loop.
 
 We can see that it is more readable since we don't have to index into our string anymore. This means that there is less to follow along with and keep track of; rather than keeping track of both the current index we are on and what letter that index corresponds to in our string, all we have to keep track of is the current letter we're on. We can also note that our code just looks cleaner and more simple, too. In terms of making our code more optimal, since we no longer have to index into the string to grab characters, we have fewer steps in each iteration of the loop. This means less work for Python to do.
 
-#### A Quick Aside on String Formatting 
+#### A Quick Aside on String Formatting
 
 There's one more thing that we should talk about before moving on from our discussion of strings - string formatting. String formatting is going to allow us to format strings in certain ways. Probably most usefully, it's going to allow us to insert variable contents into strings dynamically. We'll get an idea of how and when this is most useful as we work through this course. For now, let's just look at the syntax of it all.  
 
 ```python
 In [1]: my_name = 'Sean'
 
-In [2]: print 'Hello %s' % my_name
+In [2]: print('Hello %s' % my_name)
 Hello Sean
 
-In [3]: print 'Hello {}'.format(my_name)
+In [3]: print('Hello {}'.format(my_name))
 Hello Sean
 ```
 
 How is this working? Well, in each case, it's filling in a given part of our string with the value of our variable. In the first case, we use a `%` sign to denote where the replacement should happen, followed by a letter to denote what type of variable will be passed in there (`s` is used for string, `d` is for a decimal, etc.). You can find what each letter denotes [here](https://docs.python.org/2/library/stdtypes.html#string-formatting). In the second case, we use brackets `{}` to denote where the replacement should take place. We can also place numbers, or even variable names themselves inside these brackets and referece them in the `format()` method...
 
 ```python
-In [1]: print 'Hello {0}'.format(my_name)
-Hello Sean 
+In [1]: print('Hello {0}'.format(my_name))
+Hello Sean
 
-In [2]: print 'Hello {name}'.format(name=my_name)
-Hello Sean 
+In [2]: print('Hello {name}'.format(name=my_name))
+Hello Sean
 ```
 
 This is something that we don't use much past pretty simple cases, but there are many more things you can do with it - you can read about them [here](https://docs.python.org/2/library/string.html#format-specification-mini-language). In general, though, string formatting is much more readable and dynamic as compared to a bunch of concatenation.
@@ -387,7 +387,7 @@ We can also iterate through lists in the same way that we can iterate through st
 In [1]: my_lst = [1, 2, 3, 4, 5]
 
 In [2]: for num in my_lst:
-   ...:     print num
+   ...:     print(num)
 
 1
 2
@@ -406,7 +406,7 @@ There is a function, `enumerate()`, that will allow us to iterate through a list
 In [1]: my_lst = [1, 2, 3, 4, 5]
 
 In [2]: for idx, num in enumerate(my_lst):
-   ...:     print idx, num
+   ...:     print(idx, num)
    ...:
 0 1
 1 2
