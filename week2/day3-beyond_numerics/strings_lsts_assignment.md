@@ -1,4 +1,4 @@
-input# Instructions
+# Instructions
 
 Tonight we'll be working through problems designed to get your hands on everything you learned tonight - strings and lists (and their methods), along with iteration using for loops. The goal of tonight is to get more comfortable with Python, and working with its data structures. We're also going to work on getting more familiar with some of the methods that are available to us for interacting with strings and lists. Remember that from the IPython terminal, we can find any of the methods that are available on an object via tab completion. That should come in handy tonight!
 
