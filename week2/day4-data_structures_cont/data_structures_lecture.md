@@ -8,7 +8,7 @@ One thing that will come up as an important distinction in the structures we lea
 
 ```python
 # Declare a simple list
-l = range(10)  # [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9]
+l = list(range(10))  # [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9]
 
 # Change the element at the 4th index, the fifth in the list, to 0
 l[4] = 0  # [0, 1, 2, 3, 0, 5, 6, 7, 8 , 9]
@@ -356,7 +356,7 @@ Remember, when discussing dictionaries above, we talked about how checking if an
 We use a set! The reason why lies in the fact that sets in Python are built very similarly to dictionaries. There's an underlying hash table that allows elements to be stored, and, more importantly, queried for membership within a set (*Note, this means that the elements of a set have to be immutable*). This operation happens much faster with sets than with lists ([here's](https://wiki.python.org/moin/TimeComplexity) some coverage on how quickly some Python methods run). Let's take a look at this in action, and simultaneously learn about how to time things in IPython.
 
 ```python
-In [1]: my_list = range(10000)
+In [1]: my_list = list(range(10000))
 
 In [2]: my_set = set(my_list)
 
