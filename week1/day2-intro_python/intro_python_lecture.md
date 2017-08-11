@@ -94,7 +94,7 @@ Notice the difference between floor division and floating point division.  Floor
 
 We can manually cast the output of the 4th operation as an `int` by passing the result directly to the `int()` constructor. Manually casting in this way can be very useful when Python is interpreting things differently than you would like it to.
 
-The last operation that we will go over is the modular division operator, `%`. This operation is the sibling to `/`. Where `71 / 7` gives us the integer number of times that 7 goes into 71 (10), `71 % 7` gives us the remainder from that integer division (1).
+The last operation that we will go over is the modular division operator, `%`. This operation is the sibling to `//`. Where `71 // 7` gives us the integer number of times that 7 goes into 71 (10), `71 % 7` gives us the remainder from that integer division (1).
 
 ### Variables
 
