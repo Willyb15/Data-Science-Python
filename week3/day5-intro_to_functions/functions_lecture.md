@@ -23,7 +23,7 @@ Second, since the implementation is hidden from the caller, that actual implemen
 
 #### Built-in Functions  
 
-In our programming journey so far, we've actually seen a number of functions. We've worked with the `len()` function, which returns the length of an inputted iterable. We've also worked with the `range()` function, which returns a list of numbers from an inputted minimum number to an inputted maximum number. There are many built-in functions that are available in Python, and you can find them [here](https://docs.python.org/2/library/functions.html). Each one of these functions is constructed in a very similar way, and they all take some arbitrary number of arguments. What if we want to have functions that perform tasks other than those available to us in the built-ins, though? Tonight, we'll learn how to define our own functions in such a way that we can use them as we have been using the built-ins!
+In our programming journey so far, we've actually seen a number of functions. We've worked with the `len()` function, which returns the length of an inputted iterable. We've also worked with the `range()` function, which returns a generator of numbers from an inputted minimum number to an inputted maximum number. There are many built-in functions that are available in Python, and you can find them [here](https://docs.python.org/3/library/functions.html). Each one of these functions is constructed in a very similar way, and they all take some arbitrary number of arguments. What if we want to have functions that perform tasks other than those available to us in the built-ins, though? Tonight, we'll learn how to define our own functions in such a way that we can use them as we have been using the built-ins!
 
 #### Function Definitions: Part 1
 
@@ -284,9 +284,9 @@ This is kind of a confusing concept to grasp, so let's look at a concrete exampl
 In [1]: my_global_var = 5
 
 In [2]: def my_test_func():
-   ...:     print "My global variable:",  my_global_var # Accessible and will print.
+   ...:     print("My global variable:",  my_global_var) # Accessible and will print.
    ...:     my_local_var = 10 # Only accessible in my_test_func.
-   ...:     print "My local variable:", my_local_var  
+   ...:     print("My local variable:", my_local_var)  
    ...:
 
 In [3]: my_global_var # Remember it's accessible anywhere.
@@ -296,10 +296,10 @@ In [4]: my_test_func()
 My global variable: 5
 My local variable: 10
 
-In [5]: print my_local_var
+In [5]: print(my_local_var)
 NameError                                 Traceback (most recent call last)
 <ipython-input-4-b0b2b2a41781> in <module>()
-    > 1 print my_local_var
+    > 1 print(my_local_var)
 
 NameError: name 'my_local_var' is not defined
 ```
