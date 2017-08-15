@@ -7,7 +7,7 @@ assignment will be fairly brief, as familiarity with Git and Github will
 come over time as you interact with them more and more.
 
 1.) Open up your browser and navigate to this program's repository on
-[Github](https://github.com/zipfian/DSI-evening-prep).
+[Github](https://github.com/gschool/dsi-python-fundamentals).
 
 2.) Fork this repository, making sure to fork it to your Github
 account (usually it forks to your Github account by default, so if you're not
