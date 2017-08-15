@@ -6,7 +6,7 @@ With this in mind, the rest of the document is devoted to presenting some progra
 
 ## Pieces of a Programming Solution
 
-The aforementioned programming tactics take root in a very simple and natural idea, and break down the problem into smaller pieces. One of the most common, and best ways, that programming is described is as follows: programming is the art of taking a seemingly unsolvable problem and turning it into a series of solvable ones. 
+The aforementioned programming tactics take root in a very simple and natural idea, and break down the problem into smaller pieces. One of the most common, and best ways, that programming is described is as follows: programming is the art of taking a seemingly unsolvable problem and turning it into a series of solvable ones.
 
 With this in mind, you've already been presented one of the key ideas that we will leverage when trying to break our problems up - **abstraction**. Abstraction allows us to break up our larger problem into a number of smaller subproblems, and have each of those subproblems is solved separately from the other ones. By *abstracting* away parts of a programming solution, we can naturally break up a problem into pieces (functions) that perform their own separate part of the overall solution.
 
@@ -39,7 +39,7 @@ def load_data():
     if good_data:
         get_data(data_location)
     else:
-        print "File location not found."
+        print("File location not found.")
 ```
 
 One step at a time we can solve this problem, from the top down.
@@ -52,7 +52,7 @@ We should always strive to have readable code. Part of this originates in giving
 
 ## Iterative Top-Down
 
-Sometimes we won't know how many steps will be involved in implementing a particular function. How are we to use the top-down strategy in these situations?? It turns out that immediately breaking up a function into smaller pieces isn't always feasible or sensible. There's nothing wrong with just writing some code that doesn't call imaginary functions when you start to implement a function. If you end up with a solution quickly, then all the better! 
+Sometimes we won't know how many steps will be involved in implementing a particular function. How are we to use the top-down strategy in these situations?? It turns out that immediately breaking up a function into smaller pieces isn't always feasible or sensible. There's nothing wrong with just writing some code that doesn't call imaginary functions when you start to implement a function. If you end up with a solution quickly, then all the better!
 
 If we don't find ourself at a solution quickly, though, we'll end up writing a bunch of lines of code. This isn't a bad thing. It just means that we should take a step back and try to figure out what it is that that chunk of code is trying to accomplish. Once we put your finger on that idea, we should make a function with a name that describes that task and put the code we've written into it. Now we can call that function from the previous one we were working on and top-down continues.
 
