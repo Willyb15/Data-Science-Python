@@ -193,7 +193,7 @@ Now that we understand conditionals, let's talk about how we can use them with v
 ```python
 if x > 5:
     x += 10
-print x
+print(x)
 ```
 
 **Note**: The print function simply pipes the value passed to it to the console.
