@@ -321,7 +321,7 @@ You entered a number bigger than 5.
 
 In the first example we got something unsurprising. The only condition that evaluates to true when `x` is 5 is the second one. However, the second example yields only 'You entered a number bigger than 5.', even though 6 is greater than 0. This shows that only one of the conditional blocks in an `if`-`elif`-`else` statement will ever be evaluated, and once this happens the rest are skipped.
 
-**Note**: The `else` part of the statement is actually optional. If it is not included, then we'd notice that at most one of the conditional blocks in an `if`-`else` statement will be evaluated.
+**Note**: The `else` part of the statement is actually optional. If it is not included, then we'd notice that at most one of the conditional blocks in an `if`-`elif` statement will be evaluated.
 
 ##### And, Or and Not
 
