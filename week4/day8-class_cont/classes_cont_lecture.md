@@ -64,7 +64,7 @@ class OurClass():
         self.size += num
 
         if self.size >= 20:
-            print 'Capacity Reached!!'
+            print('Capacity Reached!!')
             self.at_capacity = True
 
     def check_if_at_capacity(self):
@@ -138,7 +138,7 @@ class OurClass():
         self.size += num
 
         if self.size >= 20:
-            print 'Capacity Reached!!'
+            print('Capacity Reached!!')
             self.at_capacity = True
 
     def check_if_at_capacity(self):
@@ -152,7 +152,7 @@ In [1]: from lecture_code import OurClass
 
 In [2]: our_class = OurClass('Intro Python', 'Platte', 15)
 
-In [3]: print our_class
+In [3]: print(our_class)
 Out[3]: Intro Python, location: Platte
 ```
 
@@ -188,7 +188,7 @@ class OurClass():
         self.size += num
 
         if self.size >= 20:
-            print 'Capacity Reached!!'
+            print('Capacity Reached!!')
             self.at_capacity = True
 
     def check_if_at_capacity(self):

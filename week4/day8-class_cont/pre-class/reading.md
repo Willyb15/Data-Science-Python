@@ -26,8 +26,8 @@ NTPoint = namedtuple('Point', ['x', 'y'])
 
 my_point = Point(3, 5)
 nt_point = NTPoint(3, 5)
-print 'From Point class: ({}, {})'.format(my_point.x, my_point.y)
-print 'From namedtuple: ({}, {})'.format(nt_point.x, nt_point.y)
+print('From Point class: ({}, {})'.format(my_point.x, my_point.y))
+print('From namedtuple: ({}, {})'.format(nt_point.x, nt_point.y))
 ```
 
 So, what is it that makes classes worthwhile? Much of the power in classes comes from the encapsulation, in that **both** the attributes and methods are housed within the class. This means that, as the writer of a class, we can provide easy ways for the user of our class to interact with it via methods. This is something that can't be done with just attributes or a named tuple.
@@ -41,7 +41,7 @@ If we can't answer these questions, then it's probably better to just use functi
 
 ## What if We Make the "Wrong" Choice?
 
-There will be plenty of times when we're working on a solution and we'll decide that using a different paradigm will be better than our current one. We can always refactor! **Refactoring** is the process of changing your current code (technically) without changing it's external behavior. Note that this is only really possible if we were writing modular, well abstracted code to begin with. This typically means code that used either functions or classes. What refactoring amounts to is changing the implementation within one or more layers of our abstracted solution. At the top layer, though, nothing looks different. 
+There will be plenty of times when we're working on a solution and we'll decide that using a different paradigm will be better than our current one. We can always refactor! **Refactoring** is the process of changing your current code (technically) without changing it's external behavior. Note that this is only really possible if we were writing modular, well abstracted code to begin with. This typically means code that used either functions or classes. What refactoring amounts to is changing the implementation within one or more layers of our abstracted solution. At the top layer, though, nothing looks different.
 
 Refactoring functions into classes usually just looks like making the data we are  passing between each function an attribute on the class, making the functions methods , and adding `self` in a lot of places. Going from a class to functions usually looks like the exact opposite.
 

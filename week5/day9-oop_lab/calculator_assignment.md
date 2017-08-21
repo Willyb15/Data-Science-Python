@@ -18,7 +18,7 @@ However, there are other notations that can be used to express mathematical oper
 
 This method of inputting computations actually makes it easier to write logic to perform the operations (for the computer, anyway). This is because the format lends itself to storing computations in a [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)). A stack is a specific type of *queue* (know as last in, first out, or *LIFO*)  which only supports two types of operations - pushing and popping.
 
-You can think of a stack as a list with less functionality. (**Note**: the [deque](https://docs.python.org/2/library/collections.html#collections.deque) class is the closest native Python class to a stack. When you go to implement you're version of an RPN calculator today, you can choose to use this class instead of a `list`, as it will technically give you speed gains on the pushing and popping operations you will need to perform) What an RPN calculator does is accept input one element at a time and push it onto the stack in turn. These elements can either be values or operations. In Python `list` lingo, pushing to the stack just means appending them to a `list`. When the user wants to perform an operation, the values necessary to perform the operation are [popped](https://docs.python.org/2/tutorial/datastructures.html) off the stack, in turn. The value resulting from that operation is then pushed back onto the stack. If it is the last value on the stack, then that value is returned. Otherwise, the process starts over again.
+You can think of a stack as a list with less functionality. (**Note**: the [deque](https://docs.python.org/3/library/collections.html#collections.deque) class is the closest native Python class to a stack. When you go to implement you're version of an RPN calculator today, you can choose to use this class instead of a `list`, as it will technically give you speed gains on the pushing and popping operations you will need to perform) What an RPN calculator does is accept input one element at a time and push it onto the stack in turn. These elements can either be values or operations. In Python `list` lingo, pushing to the stack just means appending them to a `list`. When the user wants to perform an operation, the values necessary to perform the operation are [popped](https://docs.python.org/3/tutorial/datastructures.html) off the stack, in turn. The value resulting from that operation is then pushed back onto the stack. If it is the last value on the stack, then that value is returned. Otherwise, the process starts over again.
 
 ### RPN Example
 
@@ -57,9 +57,9 @@ With the RPN algorithm for computing a string of numbers and operations in mind,
 
 In line with the top-down tactics that we have previously discussed, consider how this problem can be broken down into smaller pieces that are easier to be solved. What will the big problem be? Consider making a function that will take a string of elements (separated by spaces) and evaluate them with a stack like storage procedure (LIFO queue). Some questions to ask yourself:
 
-* What would that function look like? 
-* What would you call it? 
-* What parts of what it needs to do could be assigned to other functions? 
+* What would that function look like?
+* What would you call it?
+* What parts of what it needs to do could be assigned to other functions?
 * What would they be called?
 * What structure(s) are you going to use to store the data?
 
@@ -108,11 +108,11 @@ Once you get your code to a state where it can run, you're at the point of debug
 
 Don't fret - this is part of the programming process, and even the best programmers have to debug their code. Embrace it. It means you're making mistakes and learning!
 
-There are many methods by which you can debug. You can read through your code for syntax/logic errors, or you can print things out to make it easier to follow the flow of your program as it actually runs. You can also use the Python Debugger, or [pdb](https://docs.python.org/2/library/pdb.html) for short. This tool can be really helpful if you want to interact with your program similarly to the way you interact with IPython. `pdb` allows you to pause the Python interpreter while it is running your script. This gives you the opportunity to poke around and check the state of your program, the variables that exist, what their values are, etc, at any step. You can use `pdb` at any point in your programs execution (you just have to use it the right way). Check out this [blog post](https://pythonconquerstheuniverse.wordpress.com/2009/09/10/debugging-in-python/) for a great introduction on using this tool.
+There are many methods by which you can debug. You can read through your code for syntax/logic errors, or you can print things out to make it easier to follow the flow of your program as it actually runs. You can also use the Python Debugger, or [pdb](https://docs.python.org/3/library/pdb.html) for short. This tool can be really helpful if you want to interact with your program similarly to the way you interact with IPython. `pdb` allows you to pause the Python interpreter while it is running your script. This gives you the opportunity to poke around and check the state of your program, the variables that exist, what their values are, etc, at any step. You can use `pdb` at any point in your programs execution (you just have to use it the right way). Check out this [blog post](https://pythonconquerstheuniverse.wordpress.com/2009/09/10/debugging-in-python/) for a great introduction on using this tool.
 
 #### Step 6: Building the User Interface
 
-Now you have a function that will parse a string of operations. How will a user of your calculator interact with this function? Are they going to be prompted for input, or do they have to give it to the function in the script? The former is suggested, and remember that you can use [raw_input](https://docs.python.org/2/library/functions.html#raw_input) to get this information from the user.
+Now you have a function that will parse a string of operations. How will a user of your calculator interact with this function? Are they going to be prompted for input, or do they have to give it to the function in the script? The former is suggested, and remember that you can use [input](https://docs.python.org/3/library/functions.html#input) to get this information from the user.
 
 In addition, will the user be able to enter more than one calculation? If so, how can you use a loop to have your function called over and over? There's a tactic we use in Python when we can't foresee how long a loop is going to last - we'll use a `while True` statement and have logic in the loop determine when to `break` out of it. Since the `while True` will never trigger `False`, it will not end until it is manually broken out of.
 
@@ -120,7 +120,7 @@ Putting your function in a loop might change the way it needs to interact with t
 
 #### Step 7: A Better Calculator
 
-At this point, you should have a way to calculate an arbitrary RPN style string of operations. But, a real calculator does more - it keeps track of the state of your stack and allows the user to decide when they want to evaluate the stack. It allows them to arbitrarily add values and operations, even if there are still values left on the stack. 
+At this point, you should have a way to calculate an arbitrary RPN style string of operations. But, a real calculator does more - it keeps track of the state of your stack and allows the user to decide when they want to evaluate the stack. It allows them to arbitrarily add values and operations, even if there are still values left on the stack.
 
 In order to implement functionality of this nature, you will need to persist the stack in some way. This can be done with functions or with OOP. Consider the tenants of OOP and how they might fit in with this new version of the problem. Which method of solving the problem do you think will fit better? It seems like OOP fits well, and the rest of the assignment is built on that assumption; however, if you think that functions will be sufficient or easier than OOP, then by all means tackle the problem that way!
 
@@ -136,7 +136,7 @@ You'll probably quickly see that having the stack stored as an attribute will ma
 
 You will almost certainly have to change some implementation details of how your function evaluates RPN, strings since we now have to consider what's on the stack already. This also means that we have to be ok with things remaining on the stack after we try to evaluate it. Making this work will be the crux of getting full calculator-like functionality in your program. Once you get to this section, it might be worth talking to an instructor to discuss different tactics for approaching this problem.
 
-Remember, there are many ways to solve this problem. It is definitely worth you taking the time to struggle through this problem and learn from it while you have the instructors to talk to you about tactics. This will help to build up your problem-solving skills and programming chops. 
+Remember, there are many ways to solve this problem. It is definitely worth you taking the time to struggle through this problem and learn from it while you have the instructors to talk to you about tactics. This will help to build up your problem-solving skills and programming chops.
 
 To get you started off on a potential foot, consider having the starting point of users interacting with your class be a `run()` method. This will enter them into a `while True` loop that continually allows them to interact with the calculator in different ways.
 
@@ -151,7 +151,7 @@ Stack: 9.0
 Operation(s)/Value(s): 7 sqrt
 Operation(s)/Value(s): s
 Stack: 9.0, 7.0, sqrt
-Operation(s)/Value(s): 
+Operation(s)/Value(s):
 Operation(s)/Value(s): s
 Stack: 9.0, 2.64575131106
 Operation(s)/Value(s): c

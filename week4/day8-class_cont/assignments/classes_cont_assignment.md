@@ -1,6 +1,6 @@
 # Instructions
 
-Tonight we're going to be taking a look at classes, and the OOP paradigm in general. The problems in this assignment are designed to help you develop an intuition for both why we like object oriented programming **and** when we want to use it. The first part of this assignment will revolve around taking a problem that has been solved with functions (which will be given to you) and turning it into a class. The second part will have you write a class from scratch, starting from the mindset of functions. The last part will give you a problem that has been solved with a class; however, it will be a poor choice of using OOP. Here, you'll blow up the class and move the code back into a solely functional programming paradigm. Hopefully this will give you an idea of problems that still ought to be solved with functions. 
+Tonight we're going to be taking a look at classes, and the OOP paradigm in general. The problems in this assignment are designed to help you develop an intuition for both why we like object oriented programming **and** when we want to use it. The first part of this assignment will revolve around taking a problem that has been solved with functions (which will be given to you) and turning it into a class. The second part will have you write a class from scratch, starting from the mindset of functions. The last part will give you a problem that has been solved with a class; however, it will be a poor choice of using OOP. Here, you'll blow up the class and move the code back into a solely functional programming paradigm. Hopefully this will give you an idea of problems that still ought to be solved with functions.
 
 # Assignment Questions
 
@@ -25,11 +25,11 @@ You then test them out with the following function. Who doesn't like well tested
 ```python
 def test_tip_out():
     waiter_bills_n_tips = []
-    print add_bill_update_tips(58.90, waiter_bills_n_tips, 0.15)
-    print add_bill_update_tips(31.58, waiter_bills_n_tips) 
-    print add_bill_update_tips(81.44, waiter_bills_n_tips, 0.20)
-    print get_tips(waiter_bills_n_tips)
-    print len(waiter_bills_n_tips)
+    print(add_bill_update_tips(58.90, waiter_bills_n_tips, 0.15))
+    print(add_bill_update_tips(31.58, waiter_bills_n_tips))
+    print(add_bill_update_tips(81.44, waiter_bills_n_tips, 0.20))
+    print(get_tips(waiter_bills_n_tips))
+    print(len(waiter_bills_n_tips))
 ```
 
 As everything appears to be working, you happily go to work and keep track of your tips. Everything works out, as expected. After all, you did your due diligence and tested your code. However, running the same function over and over (and having to make sure that you we're passing the correct things to your function while you were trying to work) quickly becomes a burden. In addition, some of your coworkers see what you were doing and want to try your code next time you work. You wonder to yourself if there is a simpler way to implement a solution to this problem, one where anyone could easily and intuitively use the program your wrote.
@@ -40,9 +40,9 @@ Luckily, you learned about classes in Python recently and realize that this is a
 tot = TipOutTracker(0.18)
 tot.add_bill(58.90, 0.15)
 tot.add_bill(31.58)
-print tot.total_tip_out()
+print(tot.total_tip_out())
 tot.add_bill(81.44, 0.20)
-print len(tot)
+print(len(tot))
 ```
 
 Here, when you get the length of your tracker, you are actually going to get the total number of bills you've served.
@@ -96,15 +96,15 @@ class BookWordCounter():
 
 if __name__ == '__main__':
     flat_land_counter = BookWordCounter('misc/books/flatland.txt')
-    print flat_land_counter.num_words_in_book()
+    print(flat_land_counter.num_words_in_book())
     programming_lang_counter = BookWordCounter('misc/books/programming_languages.txt')
-    print programming_lang_counter.num_words_in_book()
+    print(programming_lang_counter.num_words_in_book())
 ```
 
 Now ask yourself:
-* Is encapsulation being taken advantage of when using this class? 
+* Is encapsulation being taken advantage of when using this class?
 * Is there data that is being stored on the class as an attribute?
-    * Is it changing? 
+    * Is it changing?
 * Does calling methods on the class allow me to interact with that data?
 * Could this be done with a function???
 
@@ -116,7 +116,7 @@ Once your done, consider the pros and cons of solving this problem with a class 
 
 1. What happens if the coworkers that you give your `TipOutTracker` to accidentally make two instances of the class when they are tracking their tips one night. How could you make it so you can add two `TipOutTracker` instances?
 
-2. Add a list of completed to-do items to the `ToDoList` class. Then, write a method that moves an item from the to-do list to the completed list when you mark it completed. 
+2. Add a list of completed to-do items to the `ToDoList` class. Then, write a method that moves an item from the to-do list to the completed list when you mark it completed.
 
 3. Print all of your current to-do items in a pretty way when you pass an instance of the `ToDoList`
 

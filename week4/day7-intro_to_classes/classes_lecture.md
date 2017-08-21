@@ -191,7 +191,7 @@ In [1]: class OurClass():
    ...:         self.size += num
    ...:
    ...:         if self.size >= 20:
-   ...:             print 'Capacity Reached!!'
+   ...:             print('Capacity Reached!!')
    ...:             at_capacity = True
    ...:
    ...:     def check_if_at_capacity(self):
@@ -250,7 +250,7 @@ In [1]: class OurClass():
    ...:         self.size += num
    ...:
    ...:         if self.size >= 20:
-   ...:             print 'Capacity Reached!!'
+   ...:             print('Capacity Reached!!')
    ...:             self.at_capacity = True
    ...:
    ...:     def check_if_at_capacity(self):
@@ -292,7 +292,7 @@ In [1]: class OurClass():
    ...:         self.size += num
    ...:
    ...:         if self.size >= 20:
-   ...:             print 'Capacity Reached!!'
+   ...:             print('Capacity Reached!!')
    ...:             self.at_capacity = True
    ...:
    ...:     def check_if_at_capacity(self):
