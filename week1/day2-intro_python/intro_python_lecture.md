@@ -330,7 +330,7 @@ There are plenty of times when we want to execute some specific code when more t
 ```python
 if x > 5:
     if x < 10:
-        print x
+        print(x)
 ```
 
 We can see that what this **nested** `if` statement is checking for are numbers that lie in the interval (5, 10), and if it finds one it prints it. We can intuitively guess that there is a better way to check for this condition. And there is!!!
@@ -453,8 +453,8 @@ while x <= 8:
         continue
     total += x
     x += 1
-    print total, x
-print total
+    print(total, x)
+print(total)
 ```
 
 In this updated program we can see that we will, at each iteration of the loop, check to see if the current value that we're about to add on to `total` is 5. If it isn't, we go on with our aggregation of `total`. If `x` is 5, we add one to `x` (do you see why we need to do this?), and skip adding `x` to total by executing a `continue`, jumping immediately to the next iteration of the loop. Let's see how this would look in the loop table.
