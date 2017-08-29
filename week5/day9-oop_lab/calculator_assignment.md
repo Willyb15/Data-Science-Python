@@ -122,7 +122,7 @@ Putting your function in a loop might change the way it needs to interact with t
 
 At this point, you should have a way to calculate an arbitrary RPN style string of operations. But, a real calculator does more - it keeps track of the state of your stack and allows the user to decide when they want to evaluate the stack. It allows them to arbitrarily add values and operations, even if there are still values left on the stack.
 
-In order to implement functionality of this nature, you will need to persist the stack in some way. This can be done with functions or with OOP. Consider the tenants of OOP and how they might fit in with this new version of the problem. Which method of solving the problem do you think will fit better? It seems like OOP fits well, and the rest of the assignment is built on that assumption; however, if you think that functions will be sufficient or easier than OOP, then by all means tackle the problem that way!
+In order to implement functionality of this nature, you will need to persist the stack in some way. This can be done with functions or with OOP. Consider the tenets of OOP and how they might fit in with this new version of the problem. Which method of solving the problem do you think will fit better? It seems like OOP fits well, and the rest of the assignment is built on that assumption; however, if you think that functions will be sufficient or easier than OOP, then by all means tackle the problem that way!
 
 With OOP in mind, we now need to move our current functionality into a class. We obviously have some methods, though, that will need to be changed; what attributes will our class need to have?
 
