@@ -4,34 +4,34 @@ As with your previous assignment, tonight's will get you practice with the data 
 
 # Warmup
 
-Tonight we'll also begin by working through some problems that will get you in the mindset necessary to solve tonight's assignment problems. The starter code for these warm-up questions is located in the `warmups` folder for this day. Feel free to edit the scripts in that folder in any way you need to solve these problems. Each of the sections below will get you working and interacting with the data structures we learned about tonight - the `tuple`, `dictionary`, and `set`. 
+Tonight we'll also begin by working through some problems that will get you in the mindset necessary to solve tonight's assignment problems. The starter code for these warm-up questions is located in the `warmups` folder for this day. Feel free to edit the scripts in that folder in any way you need to solve these problems. Each of the sections below will get you working and interacting with the data structures we learned about tonight - the `tuple`, `dictionary`, and `set`.
 
-1. Tuple warm up: 
+1. Tuple warm up:
     1. Look at the code in `warmup1.py`. What do you think this `tuple` is storing? If I tell you it is storing the four suits of a standard card deck, can you tell me why it's appropriate that I use a `tuple` for this?
-    2. Run `warmup1.py`, and note what it originally prints. 
-    3. Now, change the print statement to print out the 1st element in the `tuple` (e.g. `diamond`). 
-    4. Now, change the print statement to print out every other element. 
+    2. Run `warmup1.py`, and note what it originally prints.
+    3. Now, change the print statement to print out the 1st element in the `tuple` (e.g. `diamond`).
+    4. Now, change the print statement to print out every other element.
     5. Why are we able to grab individual elements (or every other element) from the `tuple` just as if it is a `list`?
     4. Now, alter it so that it prints out each of the elements, one at a time on a new line. Use a `for` loop to do this. Why are we able to use a `for` loop on the `tuple` like this?
     5.  Now, say that I want to add a new suit to my card deck. Let's call it `gorilla` (who doesn't like a gorilla suit). How would I do this? Why can't we use `append` on a `tuple` like we can on a `list`?
 
-2. Dictionary warm up: 
-    1. Don't run the code yet! First, examine the code in `warmup2.py`. What do you think it will print when run? Why does it print this? 
+2. Dictionary warm up:
+    1. Don't run the code yet! First, examine the code in `warmup2.py`. What do you think it will print when run? Why does it print this?
     2. Why is it appropriate to use a dictionary in this scenario?
-    3. Okay, so you will by now have noticed what it printed. Change the `element` variable that is storing the key through each iteration of the loop to be a more descriptive variable name. 
-    4. Now, change the loop so that it not only prints the `key` at every iteration, but both the `key` and `value` (i.e. print the state as well as the city in the loop). 
-    5. Build another dictionary that stores the state and capital of the state you grew up in, as well as the state and capital of the state your neighbor grew up in. Call this `neighbor_dct`, and put it on the second line of the `warmup2.py` script (before the `for` loop). 
+    3. Okay, so you will by now have noticed what it printed. Change the `element` variable that is storing the key through each iteration of the loop to be a more descriptive variable name.
+    4. Now, change the loop so that it not only prints the `key` at every iteration, but both the `key` and `value` (i.e. print the state as well as the city in the loop).
+    5. Build another dictionary that stores the state and capital of the state you grew up in, as well as the state and capital of the state your neighbor grew up in. Call this `neighbor_dct`, and put it on the second line of the `warmup2.py` script (before the `for` loop).
     6. Now, add a line before the for loop that adds the key-value pairs in `neighbor_dct` to `my_dct`. `my_dct` should now have the contents from it's previous state and also `neighbor_dct`.
-    7. Modify `warmup2.py` to take in a user inputted state. Then, take that user inputted state, and if it is in `my_dct`, print out it's capital. If it's not, then print out 'Capital not found!'. 
+    7. Modify `warmup2.py` to take in a user inputted state. Then, take that user inputted state, and if it is in `my_dct`, print out it's capital. If it's not, then print out 'Capital not found!'.
     8. Now, modify `warmup2.py` to ask the user for a state name. If it is not already in `my_dct`, have your script prompt the user for a capital to associate with that state name.
 
-3. Set warm up: 
-    1. Run `warmup3.py`. Why are we able to use a `for` loop to print out the elements of `my_set`? 
+3. Set warm up:
+    1. Run `warmup3.py`. Why are we able to use a `for` loop to print out the elements of `my_set`?
     2. On the second line, create a new set (you'll have to move the `for` and everything below it down one line). Call it `my_fav_primes`, and enter 3 of your favorite prime numbers.
     3. Now, move everything down one more line, and create a third set that gives the numbers that `my_set` and `my_fav_primes` have in common. Alter the `for` loop to print out the numbers in this new `set`.  
-    4. Change your code to get only the numbers that are in `my_set` but aren't in `my_fav_primes`. Store these in a third set, and alter the `for` loop to print out the numbers in this third set. 
-    5. Create a new set with the elements from both `my_fav_primes` and `my_set`, and name it `my_tot_primes`. Alter the `for` loop to print out its values. 
-    6. Now, modify `warmup3.py` to take in a user inputted prime, and then add it to `my_tot_primes`. 
+    4. Change your code to get only the numbers that are in `my_set` but aren't in `my_fav_primes`. Store these in a third set, and alter the `for` loop to print out the numbers in this third set.
+    5. Create a new set with the elements from both `my_fav_primes` and `my_set`, and name it `my_tot_primes`. Alter the `for` loop to print out its values.
+    6. Now, modify `warmup3.py` to take in a user inputted prime, and then add it to `my_tot_primes`.
 
 # Assignment Questions
 
@@ -41,7 +41,7 @@ Tonight we'll also begin by working through some problems that will get you in t
 
  Example: If you inputted the numbers `1, 2, 3, 4, 5, 6`, your script should print `[(1, 2), (3, 4), (5, 6)]`. If you inputted the numbers `1, 2, 3, 4, 5`, your script should print `[(1, 2), (3, 4)]`.
 
- **Hint**: Check out the [zip](https://docs.python.org/2/library/functions.html#zip) function. While you don't have to use it, it could make things easier.
+ **Hint**: Check out the [zip](https://docs.python.org/3/library/functions.html#zip) function. While you don't have to use it, it could make things easier.
 
 ### Part 2 - Practice with Dictionaries
 

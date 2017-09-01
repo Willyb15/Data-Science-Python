@@ -95,7 +95,7 @@ In [6]: my_str_variable.split()
 Out[6]: ['this', 'IS', 'my', 'STRING', 'to', 'PLAY', 'around', 'WITH.']
 ```
 
-These are some of the most commonly used string methods. You can see above what they do by default: `capitalize()` capitalizes the first letter of the string and lowercases the rest; `upper()` converts all the letters in the string to uppercase, and `lower()` to lowercase; `replace()` replaces a given substring in your string with another given substring; finally, `split()` splits the string by an inputted string (whitespace by default, just as with `strip()`). There are many more string methods available, and you can check them out in the [docs](https://docs.python.org/2/library/stdtypes.html#string-methods).
+These are some of the most commonly used string methods. You can see above what they do by default: `capitalize()` capitalizes the first letter of the string and lowercases the rest; `upper()` converts all the letters in the string to uppercase, and `lower()` to lowercase; `replace()` replaces a given substring in your string with another given substring; finally, `split()` splits the string by an inputted string (whitespace by default, just as with `strip()`). There are many more string methods available, and you can check them out in the [docs](https://docs.python.org/3/library/stdtypes.html#string-methods).
 
 Alternatively, you can find out what methods are available to call on strings from the IPython terminal itself (this is one of the really awesome features of IPython)! Using tab completion, if you have a string stored in a variable, you can type the variable name followed by a period, and then use tab complete to see all the methods available for strings!
 
@@ -268,7 +268,7 @@ In [2]: print('Hello {name}'.format(name=my_name))
 Hello Sean
 ```
 
-This is something that we don't use much past pretty simple cases, but there are many more things you can do with it - you can read about them [here](https://docs.python.org/2/library/string.html#format-specification-mini-language). In general, though, string formatting is much more readable and dynamic as compared to a bunch of concatenation.
+This is something that we don't use much past pretty simple cases, but there are many more things you can do with it - you can read about them [here](https://docs.python.org/3/library/string.html#format-specification-mini-language). In general, though, string formatting is much more readable and dynamic as compared to a bunch of concatenation.
 
 ### Lists
 
@@ -330,7 +330,7 @@ In [10]: my_lst
 Out[10]: [1, 2, 3]
 ```
 
-For most of these, you might be able to guess what they do: `append()` adds an element to the end of the list; `pop()` removes the last element from the list and returns it; `remove()` will remove a given element from the list; `reverse()` will reverse the elements of the list, in place; and `sort()` will sort the elements of the list, in place. For a more detailed discussion and/or to see all of the methods available for lists, see the [docs](https://docs.python.org/2/tutorial/datastructures.html#more-on-lists).
+For most of these, you might be able to guess what they do: `append()` adds an element to the end of the list; `pop()` removes the last element from the list and returns it; `remove()` will remove a given element from the list; `reverse()` will reverse the elements of the list, in place; and `sort()` will sort the elements of the list, in place. For a more detailed discussion and/or to see all of the methods available for lists, see the [docs](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists).
 
 Just as we can use tab complete in IPython to see all the available methods for strings, we can also do this with lists!
 

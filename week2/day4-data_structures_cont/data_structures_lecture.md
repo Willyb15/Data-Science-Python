@@ -345,7 +345,7 @@ Out[6]: {6, 7}
 
 All of these methods should look fairly intuitive. The `update()` method is like an `add()` en masse. The `union()` method is like adding two sets together, but since there are only unique elements in a set, it removes duplicates. The `intersection()` method returns those elements that the sets have in common.
 
-These are some of the most common set operations you will ever use. If you'd like to take a look at the documentation for all of them, check it out [here](https://docs.python.org/2/library/stdtypes.html#set).
+These are some of the most common set operations you will ever use. If you'd like to take a look at the documentation for all of them, check it out [here](https://docs.python.org/3/library/stdtypes.html#set).
 
 #### Why Do We Need Sets?
 
