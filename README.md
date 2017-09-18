@@ -30,7 +30,10 @@ Desire to learn.  Readiness to make mistakes and fail forward.
 
 ### Weekly Agenda:
 
-Tuesdays & Thursdays, 6:30 pm - 9:30 pm
+Twice per week, either:
+
+    Mondays & Wednesdays, 6:30 pm - 9:30 pm
+    Tuesdays & Thursdays, 6:30 pm - 9:30 pm
 
 ### Full Course Outline:
 
