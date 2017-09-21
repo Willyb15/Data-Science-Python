@@ -71,7 +71,7 @@ In [6]: 7 ** 8
 Out[6]: 5764801
 ```
 
-All of these operations output exactly what we think they would, except one. The fifth one, where we divided 7 by 8, gave us 0, even though we know that it should be 0.875. This is because there are two types of division in Python 4: **floor division and floating point division.**
+All of these operations output exactly what we think they would, except one. The fifth one, where we divided 7 by 8, gave us 0, even though we know that it should be 0.875. This is because there are two types of division in Python 3: **floor division and floating point division.**
 
 ```python
 n [1]: 7 // 8
