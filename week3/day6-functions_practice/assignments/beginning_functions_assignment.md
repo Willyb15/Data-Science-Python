@@ -66,8 +66,8 @@ We want you to do the same for all of the functions given to you in this section
      Input:  Int - number of rounds to play rock paper scissors for
      '''
      for _ in range(n_rounds):
-         player_1 = raw_input('Player 1 play (r/p/s): ')
-         player_2 = raw_input('Player 2 play (r/p/s): ')
+         player_1 = input('Player 1 play (r/p/s): ')
+         player_2 = input('Player 2 play (r/p/s): ')
          if player_1 == player_2:
              print("It's a tie!")
          elif player_1 == 'r' and player_2 == 's':
