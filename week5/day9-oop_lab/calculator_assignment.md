@@ -31,10 +31,10 @@ Say we want to calculate the value resulting from the calculation: `6 + ((5 + 3)
 |   3   |  Push Value  | [ 6, 5, 3 ] |                                                |
 |   +   |     Add      | [ 6, 8 ]    | Pop two values (3 then 5), push result (5 + 3) |
 |   4   |  Push Value  | [ 6, 8, 4 ] |                                                |
-|   /   |    Divide    | [ 6, 2 ]    | Pop two values (8 then 4), push result (8 / 4) |
+|   /   |    Divide    | [ 6, 2 ]    | Pop two values (4 then 8), push result (8 / 4) |
 |   +   |     Add      | [ 8 ]       | Pop two values (2 then 6), push result (6 + 2) |
 |   3   |  Push Value  | [ 8, 3 ]    |                                                |
-|   -   |   Subtract   | [ 5 ]       | Pop two values (3 then 8), push result (8 - 3_ |
+|   -   |   Subtract   | [ 5 ]       | Pop two values (3 then 8), push result (8 - 3) |
 
 If you want to play around with an RPN calculator to get a feel for them and how they operate, check out [this](http://www.meta-calculator.com/learning-lab/reverse-polish-notation-calculator.php) link.
 
@@ -42,9 +42,9 @@ If you want to play around with an RPN calculator to get a feel for them and how
 
 Your assignment is to implement a calculator that operates with Reverse Polish notation. While this is supposed to be an OOP lab, this problem can be done solely with functions. So while you can start off by writing functions that solve the problem, you are encouraged to begin with an OOP approach.
 
-The following steps are suggestions, and while they could possibly make your journey through this programming assignment easier, they do not need to be followed. Remember, there are always multiple ways to solve programming problems. Sometimes there's an obvious solution, and sometimes not so much. Sometimes there's a more elegant solution, and sometimes they all function about the same. At a high level, the purpose of this lab is to have you work through a problem from start to finish so that you can get a good feel for what that process is like. In addition, the instructors will be around if you have any questions or concerns about how you are wanting to implement your solution.
+The following steps are suggestions, and while they could possibly make your journey through this programming assignment easier, they do not need to be followed. Remember, there are always multiple ways to solve programming problems. Sometimes there's an obvious solution, and sometimes not so much. Sometimes there's a more elegant solution, and sometimes they all function about the same. At a high level, the purpose of this lab is to have you work through a problem from start to finish so that you can get a good feel for what that process is like. In addition, the instructor will be around if you have any questions or concerns about how you are wanting to implement your solution.
 
-Rather than reading the assignment straight through and then starting to code, follow the directions as you read them. Thinking about the best approach before reading our suggestions will help you learn how to solve a programming problem. Talk about the problem with your classmates and/or the instructors at any time; frequently, one of the biggest hurdles when trying to solve a problem is trying to figure out what the problem actually is. Trying to explain it to someone, and having a conversation about it, can go a long way towards understanding the problem.
+Rather than reading the assignment straight through and then starting to code, follow the directions as you read them. Thinking about the best approach before reading our suggestions will help you learn how to solve a programming problem. Talk about the problem with your classmates and/or the instructor at any time; frequently, one of the biggest hurdles when trying to solve a problem is trying to figure out what the problem actually is. Trying to explain it to someone, and having a conversation about it, can go a long way towards understanding the problem.
 
 #### Step 1: Interact with the Problem at a High Level
 
@@ -103,7 +103,7 @@ The calculator needs to know about its current state, based on what has already 
 
 #### Step 6: Add More Methods
 
-In addition to `run` and ``__init__`, some other methods you might have are:
+In addition to `run` and `__init__`, some other methods you might have are:
 
 * A method that takes a string of space-separated symbols and evaluates it,
 * A method that takes a single symbol and evaluates it,
