@@ -32,26 +32,25 @@ Desire to learn.  Readiness to make mistakes and fail forward.
 
 Twice per week, either:
 
-    Mondays & Wednesdays, 6:30 pm - 9:30 pm
-    Tuesdays & Thursdays, 6:30 pm - 9:30 pm
+    Monday-Thursday, 6:0 pm - 8:00 pm
 
 ### Full Course Outline:
 
-* Week 1:
+* Day 1 & 2:
   * First class: Introduction to git, Github, Unix, Downloading software (Anaconda, git, Atom)
   * Second Class: Variable assignment, Variable declaration, Loops, Control flow, Logic
-* Week 2:
+* Day 3 & 4:
   * First class: Introduction to Python data structures, Python libraries, Lists, Strings
   * Second Class: Tuples, Dictionaries, and Sets
-* Week 3:
+* Day 5 & 6:
   * First class: Functions and Scope
   * Second Class: Lab 1: Linking it all together
-* Week 4:
+* Day 7 & 8:
   * First class: Object Oriented Programming (OOP)
   * Second Class: OOP
-* Week 5:
+* Day 9 & 10:
   * First class: Lab 2 – OOP
   * Second Class: Introduction to Pandas, Dataframes
-* Week 6:
+* Day 11 & 12:
   * First class: DataFrame operations, Numpy
   * Second Class: Introduction to Statistical Modeling
