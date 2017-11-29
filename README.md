@@ -32,7 +32,7 @@ Desire to learn.  Readiness to make mistakes and fail forward.
 
 4 Days a week:
 
-    Monday-Thursday, 6:0 pm - 8:00 pm
+    Monday-Thursday, 6:00 pm - 8:00 pm
 
 ### Full Course Outline:
 
