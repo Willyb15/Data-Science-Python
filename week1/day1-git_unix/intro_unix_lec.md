@@ -53,16 +53,18 @@ When discussing the pathname of a file or subdirectory, we need to note
 whether it is an absolute path or a relative path:
 
 * An **absolute pathname** begins with the root directory and follows
-  the filesystem tree branch by branch from the root directory. These
-  will always begin with a forward slash `/`.
+  the filesystem tree branch by branch from a designated starting point. These
+  will always begin with a forward slash `/` (meaning start from the root of the system) or a tilde and a slash `~/` (meaning start from your home directory).
 
 * A **relative pathname** begins with the current working directory
   and follows the filesystem tree branch by branch from the current
-  working directory. These will not begin with a forward slash `/`.  
+  working directory. These will not begin with a forward slash `/`.
+  Relative paths may start with the name of a file or folder (e.g.
+  `galvanize/dsi-week-zero`) or with one or two dots. `./` means the current
+  directory, and `../` means the directory *above* the current directory,
+  also known as the *parent* directory.
 
-This distinction often doesn't come into play, but there are times where
-programs expect an absolute pathname, in which case you need to make sure
-to start from the root directory when passing the pathname to the program.
+The distinction between relative and absolute paths is a *vitally important* concept that you *must* understand completely. Ask as many questions as it takes for this to make sense.
 
 2.) `cd` allows you to change from one directory to another by simply placing
 the name of the directory you want to go to after the `cd` command. `cd`
@@ -70,24 +72,30 @@ accepts a relative pathname or an absolute pathname, but if you pass it a
 relative pathname, then that pathname has to be accessible via the current
 working directory.
 
-Assuming that the repo for this class is located at the path
-`/Users/sallamander/galvanize/DSI-evening-prep`, then I can change to it
-via the following:
+Assuming that my username is `guido` and the repo for this class is located at the path `/Users/guido/galvanize/dsi-week-zero`, then I can change to it using
+either of the following absolute paths:
 
 ```bash
-cd galvanize/DSI-evening-prep # To use the cd command in this way,
-                              # /Users/sallamander must be my current
-                              # directory.
-cd /Users/sallamander/galvanize/DSI-evening-prep # This will work from
-                                                 # any current directory.
+cd ~/galvanize/dsi-week-zero
+cd ~guido/galvanize/dsi-week-zero
+cd /Users/guido/galvanize/dsi-week-zero
+```
+
+Note that `~/` is short for "my home directory" and `~guido/` means "`guido`'s home directory"; therefore, if my username is `guido`, then `~/` and `~guido/` mean exactly the same thing.
+
+If I am already in my home directory (`/Users/guido`), I also can use a relative path. Here are two examples of relative paths to the same place:
+
+```bash
+cd ./galvanize/dsi-week-zero
+cd galvanize/dsi-week-zero
 ```
 
 Some special ways of using the `cd` command involve the following:
 
 ```bash
-cd ~ # Change directories to your home directory.
-cd  # Another way to change directories to your home directory. 
-cd .. # Change directory to the directory right above the current directory.
+cd ~  # Change to your home directory.
+cd    # Another way to change to your home directory. 
+cd .. # Change directory to the directory above the current directory.
 ```
 
 3.) `ls` allows you to list the files in the current directory or any
@@ -96,17 +104,16 @@ directory placed after the `ls` command. Similar to the `cd` command,
 it a relative pathname, then that pathname has to be accessible via the
 current working directory.
 
-Assuming that I am in the `galvanize/DSI-evening-prep` folder, I can
-issue the following commands:
+Assuming that I am in the `~/galvanize/dsi-week-zero` folder, I can
+issue the following commands to see what's here:
 
 ```bash
-ls # List all of the files and directories in galvanize/DSI-evening-prep
-ls Introduction # List all of the files and directories in
-                # galvanize/DSI-evening-prep/Introduction
-ls /Users/sallamander/galvanize/DSI-evening-prep/Introduction # Same thing as
-                                                              # ls Introduction
-                                                              # above
+ls     # List the files and directories in galvanize/dsi-week-zero 
+ls -l  # The -l is a dash followed by a lowercase L. Shows details.
+tree   # Show a directory tree of what's here.
 ```
+
+Note: if you're on a Mac with Homebrew and the `tree` command isn't installed, `brew install tree` will install it for you.
 
 #### Creating and Removing files
 
@@ -117,26 +124,19 @@ In terms of creating and removing files, the following commands are used:
 
 1.) In its default usage, `touch` is a command that will open and close a file
 while leaving its contents unchanged. The end result is that it changes
-the access timestamp associated with the file. However, if we use `touch`
-with a non-existent file(s), then the end result will be that the file(s)
-is created.
+the access timestamp associated with the file. However, if we `touch` a non-existent filename, an empty file with that name will be created.
 
 ```bash
-touch already_existent.txt # Assuming already_existent.txt is an existing
-                           # file, then this changes the timestamp on it.
-touch new_file1.txt # Assuming new_file1.txt doesn't exist, this creates a
-                    # file named new_file1.txt in the current directory.
-touch new_file2.txt new_file3.txt # Assuming that both new_file2.txt and
-                                  # new_file3.txt don't exist, this creates
-                                  # them in the current working directory.
+touch existing_file     # Update the timestamp of existing_file
+touch nonexistent_file  # Create nonexistent_file (paradoxical?)
 ```
 
 2.) `rm` is a command that allows us to delete files by simply placing the
 name of the file(s) to delete after the `rm` command.
 
 ```bash
-rm file1.txt # Delete file1.txt
-rm file2.txt file3.txt # Delete both file2.txt and file3.txt
+rm file1.txt  # Delete file1.txt
+rm file2.txt file3.txt  # Delete both file2.txt and file3.txt
 ```
 
 **Note**: The results of the `rm` command are permanent, so **be careful**
@@ -169,8 +169,7 @@ that we want to delete it, then we can add a **recursive** option to the
 `rm` command from above:
 
 ```bash
-rm -r nonempty_dir # Recursively deletes all files in the nonempty_dir,
-                   # and then deletes the nonempty_dir itself.
+rm -r nonempty_dir # Delete nonempty_dir and all of its contents.
 ```
 
 #### Moving files and Directories
@@ -187,21 +186,20 @@ to location). If we are copying a directory, we have to add the `-r`
 recursive option to the `cp` command.
 
 ```bash
-cp file1.txt file2.txt # Copy file1.txt to a new file called file2.txt
-cp file1.txt directory1 # Copy file1.txt to directory1, keeping it named
-                        # as file1.txt within directory1.
-cp file1.txt directory1/file11.txt # Copy file1.txt to directory1, but
-                                   # name the copy file11.txt.
-cp -r dir1 dir2 # Copy dir1 and all its concents into dir2.  
+cp foo.txt bar.txt       # Make a copy of foo.txt called bar.txt
+cp foo.txt spam/         # Copy foo.txt into the spam directory.
+cp foo.txt spam/bar.txt  # Copy foo.txt to spam/ as bar.txt
+                                  
+cp -r dir1 dir2  # Copy dir1 and all its concents into dir2.  
 ```
 
 2.) `mv` allows us to move and rename a file or directory (getting rid of the original). Similar to the `cp` command, it takes two arguments - the name of the file or directory to move or rename, and the name of the file or directory to move it or rename it to.
 
 ```bash
-mv file1.txt file2.txt # Move the contents of file1.txt to file2.txt. This
-                       # effectively just renames file1.txt to file2.txt.
-mv dir1 dir2 # Renames dir1 to dir2 if dir2 doesn't exit, and otherwise
-             # moves dir1 into dir2.
+mv file1.txt file2.txt  # Move the contents of file1.txt to file2.txt. This
+                        # effectively just renames file1.txt to file2.txt.
+mv dir1 dir2  # Renames dir1 to dir2 if dir2 doesn't exit, and otherwise
+              # moves dir1 into dir2.
 ```
 
 **Note**: `mv` will overwrite files if they already exist. If `file2.txt` had
