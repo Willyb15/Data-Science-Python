@@ -30,10 +30,12 @@ Desire to learn.  Readiness to make mistakes and fail forward.
 
 ### Weekly Agenda:
 
-Twice per week, either:
+Twice per week, generally either
 
-    Mondays & Wednesdays, 6:30 pm - 9:30 pm
-    Tuesdays & Thursdays, 6:30 pm - 9:30 pm
+    Mondays & Wednesdays at 6:30 pm, or
+    Tuesdays & Thursdays at 6:30 pm.
+
+The exact dates and times may vary by campus and session.
 
 ### Full Course Outline:
 
