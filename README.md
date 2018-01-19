@@ -30,10 +30,10 @@ Desire to learn.  Readiness to make mistakes and fail forward.
 
 ### Weekly Agenda:
 
-Twice per week, generally either
+Four times per week, generally
 
-    Mondays & Wednesdays at 6:30 pm, or
-    Tuesdays & Thursdays at 6:30 pm.
+    Mondays & Wednesdays at 6:30 pm Guided Lectures,
+    Tuesdays & Thursdays at 6:30 pm Lab Time.
 
 The exact dates and times may vary by campus and session.
 
