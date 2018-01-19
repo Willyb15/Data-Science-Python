@@ -40,20 +40,17 @@ The exact dates and times may vary by campus and session.
 ### Full Course Outline:
 
 * Week 1:
-  * First class: Introduction to git, Github, Unix, Downloading software (Anaconda, git, Atom)
-  * Second Class: Variable assignment, Variable declaration, Loops, Control flow, Logic
+  * Introduction to git, Github, Unix, Downloading software (Anaconda, git, Atom)
+  * Variable assignment, Variable declaration, Loops, Control flow, Logic
+  * Introduction to Python data structures, Python libraries, Lists, Strings
+  * Tuples, Dictionaries, and Sets
 * Week 2:
-  * First class: Introduction to Python data structures, Python libraries, Lists, Strings
-  * Second Class: Tuples, Dictionaries, and Sets
+  * Functions and Scope
+  * Lab 1: Linking it all together
+  * Object Oriented Programming (OOP)
+  * OOP
 * Week 3:
-  * First class: Functions and Scope
-  * Second Class: Lab 1: Linking it all together
-* Week 4:
-  * First class: Object Oriented Programming (OOP)
-  * Second Class: OOP
-* Week 5:
-  * First class: Lab 2 – OOP
-  * Second Class: Introduction to Pandas, Dataframes
-* Week 6:
-  * First class: DataFrame operations, Numpy
-  * Second Class: Introduction to Statistical Modeling
+  * Lab 2 – OOP
+  * Introduction to Pandas, Dataframes
+  * DataFrame operations, Numpy
+  * Introduction to Statistical Modeling
