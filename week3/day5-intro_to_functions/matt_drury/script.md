@@ -3,7 +3,7 @@ Python Fundamentals: Functions
 
 Today we will be learning about one of the most central and important topics in programming: **Functions**.
 
-Functions supply is with many benificial properties for our programs:
+Functions supply is with many beneficial properties for our programs:
 
   - They allow us to re-use code we have written and checked for correctness for other purposes.
   - They allow us to give operations and computations names.
@@ -77,7 +77,7 @@ is_even(2)
 	| This is an argument, we are calling the function!
 ```
 
-  - The person that defines a function does not have to be the same as the person that calls it!  You can define a function, pass it off to a co-worker, and they can use it in thier work without getting into the weeds of how you coded it.  This is called **encapsulation** (or **abstraction**, depending on who you ask)!
+  - The person that defines a function does not have to be the same as the person that calls it!  You can define a function, pass it off to a co-worker, and they can use it in their work without getting into the weeds of how you coded it.  This is called **encapsulation** (or **abstraction**, depending on who you ask)!
 
 #### Example: Is a Number Odd
 
@@ -93,12 +93,12 @@ Write a function with the following properties
 
 #### Example: Get n'th Letter
 
-Ok.  Let's *generalize* the functon from the last example.  Instead of always getting the fist letter, let's:
+Ok.  Let's *generalize* the function from the last example.  Instead of always getting the fist letter, let's:
 
   - Have our function take **two parameters**, `string` and `n`.
   - Return the `n`'th character of the string.
 
-Our `def` should look lik this:
+Our `def` should look like this:
 
 ```python
 def get_nth_letter(string, n):
@@ -108,7 +108,7 @@ def get_nth_letter(string, n):
 ### Default Values
 
 
-Sometimes we want some of our parameters to be unessessary.  The person who calls the function (often called the **caller**) may specify them, but if they do not, they assume some sensible default value.
+Sometimes we want some of our parameters to be unnecessary.  The person who calls the function (often called the **caller**) may specify them, but if they do not, they assume some sensible default value.
 
 #### Discussion: Default Values.
 
@@ -171,7 +171,7 @@ This implementation uses a common pattern, then **builder pattern**
 
   - Initialize an empty collection.
   - Loop over something.
-  - Make some calcualtion for each element in the thing being looped over.
+  - Make some calculation for each element in the thing being looped over.
   - Append the result to the initially empty collection.
   - Return the result.
 
@@ -217,7 +217,7 @@ def is_odd(n):
     return n % 2 == 1
 ```
 
-For now, it's fine to use the `return True` style in your code (as long as you are resiliant to the scoffing of more experienced programmers).  But you will want to be able to recognise the second style, since it is very common in experienced programmer's code.
+For now, it's fine to use the `return True` style in your code (as long as you are resilient to the scoffing of more experienced programmers).  But you will want to be able to recognise the second style, since it is very common in experienced programmer's code.
 
 ### Why We Need `return`
 
@@ -229,7 +229,7 @@ Suppose that, for a certain application, that a valid password must satisfy thes
   - The password must contain a digit (zero through nine)
   - The password must contain one of the symbols `^!#$?-`
 
-Let's build a valid password filterer, which will take a list of canidate passwords, and return a list with only the valid ones:
+Let's build a valid password filterer, which will take a list of candidate passwords, and return a list with only the valid ones:
 
 ```python
 $ possible_passwords = ['moshi', 'm0shi', 'mosh!', 'm0sh!',
@@ -240,14 +240,23 @@ $ get_valid_passwords(possible_passwords)
 
 We could do this all in one go, but let's try to break down the problem:
 
-1. Write a function `get_containing_digit` that filters the list to the canidate passwords containing digits.
+1. Write two functions, `contains_digit` and `contains_symbol` that check whether a **single string** contains either a digit / one of the specified symbols.
+
+```python
+$ contains_digit('mosh!')
+False
+$ contains_symbol('mosh!')
+True
+```
+
+1. Write a function `get_containing_digit` that filters the list to the candidate passwords containing digits.
 
 ```python
 $ get_containing_digit(possible_passwords)
 ['m0shi', 'm0sh!', '^^0shi', '^^0sh!']
 ```
 
-2. Write a function `get_containing_symbol` that filters the list to the canidate passwords containing symbols.
+2. Write a function `get_containing_symbol` that filters the list to the candidate passwords containing symbols.
 
 ```python
 $ get_containing_symbol(possible_passwords)
