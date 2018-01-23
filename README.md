@@ -50,7 +50,7 @@ The exact dates and times may vary by campus and session.
   * Object Oriented Programming (OOP)
   * OOP
 * Week 3:
-  * Lab Project 2 – OOP
+  * Lab Project 2: OOP
   * Introduction to Pandas, Dataframes
   * DataFrame operations, Numpy
   * Introduction to Statistical Modeling
