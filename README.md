@@ -46,11 +46,11 @@ The exact dates and times may vary by campus and session.
   * Tuples, Dictionaries, and Sets
 * Week 2:
   * Functions and Scope
-  * Lab 1: Linking it all together
+  * Lab Project 1: Linking it all together
   * Object Oriented Programming (OOP)
   * OOP
 * Week 3:
-  * Lab 2 – OOP
+  * Lab Project 2 – OOP
   * Introduction to Pandas, Dataframes
   * DataFrame operations, Numpy
   * Introduction to Statistical Modeling
