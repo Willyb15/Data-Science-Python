@@ -249,21 +249,21 @@ $ contains_symbol('mosh!')
 True
 ```
 
-1. Write a function `get_containing_digit` that filters the list to the candidate passwords containing digits.
+2. Write a function `get_containing_digit` that filters the list to the candidate passwords containing digits.
 
 ```python
 $ get_containing_digit(possible_passwords)
 ['m0shi', 'm0sh!', '^^0shi', '^^0sh!']
 ```
 
-2. Write a function `get_containing_symbol` that filters the list to the candidate passwords containing symbols.
+3. Write a function `get_containing_symbol` that filters the list to the candidate passwords containing symbols.
 
 ```python
 $ get_containing_symbol(possible_passwords)
 ['mosh!', 'm0sh!', '^^0shi', '^^0sh!']
 ```
 
-3. Write `get_valid_passwords`.  This should be a **dead simple function**.  Instead of writing a bunch of code, use the `get_containing_digit` and `get_containing_symbol` functions you already have!
+4. Write `get_valid_passwords`.  This should be a **dead simple function**.  Instead of writing a bunch of code, use the `get_containing_digit` and `get_containing_symbol` functions you already have!
 
 This is the point.  Functions transform data into new data.  You can pass the data that comes out of one function into another function, and create pipelines that do simple, understandable things, and get you closer yo your goal.  We will discuss this more next time.
 
