@@ -50,7 +50,7 @@ I.e., dictionaries can contain lists which in turn contain dictionaries.  You ca
 
 We've provided a very simple custom object template (what we will call a **class** very soon) in `stringstamper.py`.  To use it in your python environment, use the `import` statement like this:
 
-```
+```python
 $ from stringstamper import StringStamper
 ```
 
@@ -58,13 +58,13 @@ $ from stringstamper import StringStamper
 
 The `StringStamper` we imported serves as a template for creating new object.  Here's how you can use it to create a new object.
 
-```
+```python
 $ ss = StringStamper("Property of Matt.")
 ```
 
 Now `ss` is an object of type `StringStamper`.  We have a new **type** of object to play with.
 
-```
+```python
 $ type(ss)
 stringstamper.StringStamper
 ```
@@ -76,7 +76,7 @@ Create two `StringSampler` objects containing different messages.
 
 One you have an object to play with, the `dir` function will show all its contents, options, bells and whistles.
 
-```
+```python
 $ dir(ss)
 ```
 
@@ -86,7 +86,7 @@ We will leave the weird contents that begin with double underscores as a topic f
 
 When you called `dir` on the `ss` object hopefully you saw something like this:
 
-```
+```python
 $ dir(ss)
 [...,
  'message',
@@ -95,7 +95,7 @@ $ dir(ss)
 
 Let's look at what `message` is all about.
 
-```
+```python
 $ ss.message
 'Property of Matt.'
 ```
@@ -123,7 +123,7 @@ Try to figure out how to *change the value of an attribute*, then verify that it
 
 There's another attribute of the object, the `stamp` attribute.  This one is a bit special.  Instead of just storing data, it is actually a function.
 
-```
+```python
 $ ss.stamp("The Elements of Statistical Learning.")
 'The Elements of Statistical Learning. Property of Matt.'
 ```
@@ -143,7 +143,7 @@ Change the `message` attribute of your `StringStamper` object a few times, and c
 
 Import the `DiceRoller` class
 
-```
+```python
 from diceroller import DiceRoller
 ```
 
@@ -175,7 +175,7 @@ Let's summarize what we know classes can do, so we can structure our thoughts ab
 
 Our first task is to learn how to construct new objects.  This is done using the `__init__` method.  **Every class needs to have an __init__ method!**
 
-```
+```python
 class EveryClassYouEverWrite:
 
     def __init__(self, ...)  # <- They all start like this.
@@ -215,7 +215,7 @@ Yah, so what is this `self` thing?
 
 `self` is a keyword that refers to the **object currently being created or manipulated**.  So
 
-```
+```python
 self.message = message
    # ^         ^
    # |         This is a piece of data we are storing.
@@ -232,7 +232,7 @@ It is very common to name parameters of `__init__`, and the attributes where we 
 
 There is one difference between our functions from last week, and the methods of this week:  **methods have access to all of the attributes of the object they are attached to!**.
 
-```
+```python
 def stamp(self, string):
     return string + " " + self.message
     #                     ^
@@ -269,7 +269,7 @@ $ rev_list.index(1)
 3
 ```
 
-### Exercise: SymmetricDict
+#### Exercise: SymmetricDict
 
 Ok, this is our final example.  This is a class I have actually used a few times in my own day to day work.
 
