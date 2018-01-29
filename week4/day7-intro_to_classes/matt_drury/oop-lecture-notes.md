@@ -165,7 +165,7 @@ You know what the `StringStamper` class is supposed to do now.  Spend five minue
 
 A custom data type in python is called a **class**, and you create one with the `class` keyword.
 
-Let's summarize what we know classes can do, so we can structure our throughts about how to get them to do it.
+Let's summarize what we know classes can do, so we can structure our thoughts about how to get them to do it.
 
   - You can use a class to create a new object.
   - That new object needs to be able to store some data, so we need a way to feed data into the class.
@@ -224,7 +224,7 @@ self.message = message
 
 **literally** means, store that data `message` on an attribute of the object being created named `message`.
 
-It is very common to name parameters of `__init__`, and the attriutes where we store the corresponding argument, by the same name.  This can be confusing at first, but you should get used to it quickly.
+It is very common to name parameters of `__init__`, and the attributes where we store the corresponding argument, by the same name.  This can be confusing at first, but you should get used to it quickly.
 
 ###  Methods.
 
