@@ -130,6 +130,7 @@ $ ss.stamp("The Elements of Statistical Learning.")
 
 ### Discussion: Ok, what just happened?
 
+
 ### Exercise: Using `stamp`
 
 Call the `stamp` method on different strings.  What stays the same and what changes?
@@ -139,6 +140,7 @@ Call the `stamp` method on different strings.  What stays the same and what chan
 Change the `message` attribute of your `StringStamper` object a few times, and call `stamp` before and afterwards.  What stays the same and what has changed?
 
 ### Exercise: Explore Die Roller
+
 Import the `DiceRoller` class
 
 ```
@@ -146,6 +148,10 @@ from diceroller import DiceRoller
 ```
 
 Create some `DiceRoller`s and investigate their attributes and methods.  Call the methods on your dice roller objects.
+
+### Methods
+
+A function attached to an object like this is called a **method**.  Methods use the data attached to an object (its attributes) to do some computations.
 
 
 ## Classes
@@ -157,25 +163,44 @@ You know what the `StringStamper` class is supposed to do now.  Spend five minue
   
 ###  The `class` keyword
 
-#### Exercise: Assignments in a Class
-Create a new class with the `class` keyword, and assign to a variable within the body of the class.  Like this:
+A custom data type in python is called a **class**, and you create one with the `class` keyword.
 
-```
-class MagicalMysteryTour:
+Let's summarize what we know classes can do, so we can structure our throughts about how to get them to do it.
 
-    i_am = "Walrus"
-```
-
-Create some objects using your class.  What happened to the variable you created?  Can you change the value of this variable?  If you have multiple `MagicalMysterTour` objects, what happens if you change the variable you stored?
+  - You can use a class to create a new object.
+  - That new object needs to be able to store some data, so we need a way to feed data into the class.
+  - Objects can have functions attached (methods), these need access to the data stored on the object.
 
 ###  Constructing new objects: the `__init__` method
 
-  - What data does this class need to store?
-  - The `__init__` method, and the `self.thing = ...` pattern.
-  - Attributes of an object are created in `__int__`
-  - Attributes can be created any time
+Our first task is to learn how to construct new objects.  This is done using the `__init__` method.  **Every class needs to have an __init__ method!**
 
-#### Exercise: Prefix and Suffix
+```
+class EveryClassYouEverWrite:
+
+    def __init__(self, ...)  # <- They all start like this.
+```
+
+When writing the `__init__` method for a class, you need to ask yourself: **What data does this class need to store?**
+
+#### Example: StringStamper `__init__`
+
+The `__init__` method for `StringStamper` looks like this:
+
+```python
+def __init__(self, message):
+    self.message = message
+```
+
+We needed to store a `message` attribute, so:
+
+  - We added a `message` argument to `__init__` to get the message data into the function.
+  - We used a pattern `self.thing = data` to store the data on the resulting object.
+
+We will have more to say about what `self` is soon.  For now, just think of `self.thing = data` as a pattern that means **store `data` on the new object in attribute `thing`**
+
+
+#### Exercise: Prefix and Suffix `__init__`
 Create a `PrefixAndSuffix` class that is like the `StringStamper`, but stamps *both* a prefix and suffix on the string.  For now
 
   1. Think about what data a `PrefixAndSuffixStamper` object needs to store.
@@ -186,35 +211,53 @@ Note that you do *not* yet have to create the `stamp` method, but if you think y
 
 ###  `self` and self-reference
 
-  - So what is this `self` thing.
+Yah, so what is this `self` thing?
+
+`self` is a keyword that refers to the **object currently being created or manipulated**.  So
+
+```
+self.message = message
+   # ^         ^
+   # |         This is a piece of data we are storing.
+   # This is an attribute name, it is where we are storing the data
+```
+
+**literally** means, store that data `message` on an attribute of the object being created named `message`.
+
+It is very common to name parameters of `__init__`, and the attriutes where we store the corresponding argument, by the same name.  This can be confusing at first, but you should get used to it quickly.
 
 ###  Methods.
 
-  - Methods are functions with a pinch of flavor.
-  - How `self` is handled.
+**Methods** are functions attached to object, which are defined inside of classes.  
+
+There is one difference between our functions from last week, and the methods of this week:  **methods have access to all of the attributes of the object they are attached to!**.
+
+```
+def stamp(self, string):
+    return string + " " + self.message
+    #                     ^
+    #                     The stamp method can access the message attribute!
+```
 
 #### Exercise: Prefix and Suffix
+
 Update your `PrefixAndSuffixStamper` class to include a method `stamp` which takes a string as input, and returns the string with the prefix and suffix appended.
 
 #### Exercise: Coffee Cup
+
 Make a `CoffeeCup` class, which can be used to make `CoffeeCup` objects.  The cup should have two states, full or not full.  Create a method `drink` which empties a full cup, and `fill` which fills an empty cup.
 
 #### Exercise: Coffee Cup Revisited
+
 Ok, maybe that was unreasonable, no one drinks a full cup of coffee in one drink.  Modify your `CoffeeCup` class to keep track of *how full* the coffee cup is.  Create a `sip` method which takes a small drink, a `gulp` method which takes a large drink, and a `pour_out` method which empties the cup (along with the `fill` method from before).
 
 #### Exercise: Reverse Indexer
-During our collections and iteration day, we wrote a function that reverse indexes a list.
 
-```python
-$ reverse_index([1, 2, 3, 4], 0)
-4
-$ reverse_index([1, 2, 3, 4], 3)
-1
-$ reverse_index([1, 2, 3, 4], 1)
-3
-```
+Don't forget that you can use any type of data as attributes for a class! In this example, you will store a list as a attribute of a class.
 
-We could just as well express this idea as a class.
+Write a `ReverseList` class.  When you create a `ReverseList` object, it should store a supplied list as an attribute.
+
+Provide `ReverseList` with an `index` method, which looks up an element in the stored list in *reverse order*.  So, you should be able to use your object like this:
 
 ```python
 $ rev_list = ReverseList([1, 2, 3, 4])
@@ -226,69 +269,24 @@ $ rev_list.index(1)
 3
 ```
 
-Create this class.
+### Exercise: SymmetricDict
 
-#### Exercise: Reverse Slicer
-We also wrote a function that reverse slices a list
+Ok, this is our final example.  This is a class I have actually used a few times in my own day to day work.
+
+Create a `SymmetricDict` class.  When you add a key, value pair, you should be able to use the key to lookup the value, or use the value to lookup the key!
+
+Here's an example of what we are gong for:
 
 ```python
-$ reverse_slice([1, 2, 3, 4], 0, 1)
-[3, 4]
-$ reverse_slice([1, 2, 3, 4], 0, 2)
-[2, 3, 4]
-$ reverse_slice([1, 2, 3, 4], 1, 2)
-[2, 3]
+$ sym_dict = SymmerticDict()
+$ sym_dict.add_key_value('Matt', 'Data Scientist')
+$ sym_dict.add_key_value('Jack', 'Physisist')
+$ sym_dict.lookup('Matt')
+'Data Scientist'
+$ sym_dict.lookup('Jack')
+'Physisist'
+$ sym_dict.lookup('Data Scientist')
+'Matt'
+$ sym_dict.lookup('Physisist')
+'Jack'
 ```
-
-Add a `slice` method to your `ReverseList` class that does the same.
-
-##  Magic Methods
-
-###  Magic Methods
-
-  - What's so magic about magic methods.
-  - What is a dunder and why do we care?
-
-###  Pretty printing with `__repr__` and `__str__`
-
-  - How custom objects are displayed by default is not very useful.
-  - `__repr__` and how to use it.
-
-#### Exercise: Repr StringStamper
-Write a `__repr__` method for your `StringStamper` class.  You will find the `.format` method useful.
-
-#### Exercise: Repr CoffeCup
-Write a ``__repr__` for your coffee cup class.  Again, `.format` will be useful.
-
-- `__repr__` vs. `__str__`, why both?
-
-#### Exercise: Repr vs. String
-Would you implement differnet behaviour for `__repr__` vs. `__str__` for either `CoffeeCup` or `StringStamper`?  Why or why not?
-
-#### Exercise: ReverseList Repr and Str
-Add `__repr__` 
-
-###  Indexing with `__getitem__`
-
-  - List or dictionary like behaviour with `__getitem__`.
-
-#### Exercise:  ReverseList indexing. 
-Write a `__getitem__` method for your `ReverseList` class.  Should you keep the `index` method from before, or replace it?
-
-###  Setting with `__setitem__`
-
-  - List or dictionary like behaviour with `__setitem__`.
-
-#### Exercise: RevereSlist Setitem.
-Write a `__setitem__` method for your `ReverseList` class.  Should the behaviour be consistent with `__getitem__`, or should it work just like a regular old list.
-
-###  Arithmetic methods
-
-  - `__add__` and `__sub__` methods for addition and subtraction.
-
-#### Exercise: ReverseList Arithmetic
-Write `__add__` and `__sub__` methods for your `ReverseList` class.  These should have the same result as using `+` and `-` on numpy lists.
-
-###  All the others
-
-  - There are many, many magic methods.  You will have to learn them over time.  A full list is [here](https://www.python-course.eu/python3_magic_methods.php): 
