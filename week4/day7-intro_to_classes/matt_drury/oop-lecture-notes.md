@@ -280,13 +280,13 @@ Here's an example of what we are gong for:
 ```python
 $ sym_dict = SymmerticDict()
 $ sym_dict.add_key_value('Matt', 'Data Scientist')
-$ sym_dict.add_key_value('Jack', 'Physisist')
+$ sym_dict.add_key_value('Jack', 'Physicist')
 $ sym_dict.lookup('Matt')
 'Data Scientist'
 $ sym_dict.lookup('Jack')
-'Physisist'
+'Physicist'
 $ sym_dict.lookup('Data Scientist')
 'Matt'
-$ sym_dict.lookup('Physisist')
+$ sym_dict.lookup('Physicist')
 'Jack'
 ```
