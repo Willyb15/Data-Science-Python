@@ -1,12 +1,5 @@
-# Magic Methods and Interfaces
+# Magic Methods (and Interfaces)
   
-  - Magic Methods
-  - Pretty printing with `__repr__` and `__str__`
-  - Indexing with `__getitem__`
-  - Setting with `__setitem__`
-  - Arithmetic methods
-  - Comparison methods
-
 ## Warmup: Coffee Cup
 
 We're going to be digging into objects and classes more today, so let's warm up with an exercise.
