@@ -225,3 +225,26 @@ What **type of object** should `__add__` return?
 #### Exercise: Implement `__add__`.
 
 Implement the `__add__` method on your `LinearPolynomial` class.
+
+
+### Final Exercise: Currency Converter
+
+Write a currency converter class.  Here's an example of how it should work.
+
+```python
+$ from currencies import CurrencyConverter
+$ v1 = CurrencyConverter(23.43, "EUR")
+$ v2 = CurrencyConverter(19.97, "USD")
+$ print(v1)
+23.43 USD
+$ print(v1.convert("USD"))
+27.72 USD
+$ print(v1 + v2)
+40.62 EUR
+$ print(v2 + v1)
+57.19 USD
+```
+
+You should support at least five currencies.
+
+You will need to look up conversion rates between currencies.  What data structures are useful for storing these conversion rates?
