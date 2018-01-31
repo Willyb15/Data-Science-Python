@@ -37,8 +37,8 @@ $ ['apples', 'oranges'] + ['bananas', 'tomatoes']
 
 We used the same symbol `+` to operate on many different data types.  In each different situation, a different thing happened:
 
-  - When we used `+` on numbers, we did standard arithemetic.
-  - When we used `+` on strings, we concatinated.
+  - When we used `+` on numbers, we did standard arithmetic.
+  - When we used `+` on strings, we concatenated.
   - When we used `+` on lists, we extended the lists.
 
 #### Question: What Else?
@@ -72,9 +72,9 @@ A **magic** method is any method whose name starts and ends with a double unders
 
 There are many more.  [A complete list is here](https://www.python-course.eu/python3_magic_methods.php).
 
-**Note:** you should not feel it neccessary to memorize all of these!  You will learn them over time, and that is fine.
+**Note:** you should not feel it necessary to memorize all of these!  You will learn them over time, and that is fine.
 
-### Making a Dictionary like Obejct
+### Making a Dictionary like Object
 
 Let's start where we left off last class.  We build a dictionary like object which was symmetric.
 
@@ -108,11 +108,11 @@ $ sym_dict['Physicist']
 'Jack'
 ```
 
-This is nice.  Now a user of our class doesnt need to remember that we named our methods `add_key_value` and `lookup`, they can just use thier existing knowledge about dictionaries to get thier work done.  The fact that they are using our custom `SymmetricDict` object dissapears from thier mind.
+This is nice.  Now a user of our class doesn't need to remember that we named our methods `add_key_value` and `lookup`, they can just use their existing knowledge about dictionaries to get their work done.  The fact that they are using our custom `SymmetricDict` object disappears from their mind.
 
 ### `__setitem__` and `__getitem__`
 
-It is actually really easy to accomplish this, now that we have understood what we have to do.  Where we had this code in our calss before:
+It is actually really easy to accomplish this, now that we have understood what we have to do.  Where we had this code in our class before:
 
 ```python
 def add_key_value(self, key, value):
@@ -140,7 +140,7 @@ $ print(sym_dict)
 ```
 This is not so useful.  The only interesting information we get out of this is the name of the class associated with the object.  If we really want our users to feel that our `SymmetricDict` is just like a regular dictionary, it would be good to have print work that way too.
 
-The `__str__` magic method controlls how our object will be converted to a string, which is what happens when we print something.
+The `__str__` magic method controls how our object will be converted to a string, which is what happens when we print something.
 
 ```python
 $ str(sym_dict)
@@ -212,7 +212,7 @@ $ f + g
 TypeError: unsupported operand type(s) for +: 'LinearPolynomial' and 'LinearPolynomial'
 ```
 
-We can add arithmatic behaviour to our classes by implementing the `__add__` and `__sub__` methods.
+We can add arithmetic behaviour to our classes by implementing the `__add__` and `__sub__` methods.
 
 ```
 def __add__(self, other):
