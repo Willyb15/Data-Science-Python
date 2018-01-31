@@ -215,9 +215,13 @@ def __add__(self, other):
 #### Question:
 What **type of object** should `__add__` return?
 
-#### Exercise: Implement `__add__`.
+#### Exercise: Implement `__add__`
 
 Implement the `__add__` method on your `LinearPolynomial` class.
+
+#### Exercise: Implement `__eq__`
+
+What do you think the magic method `__eq__` should do?  What should it return?  Implement it.
 
 
 ### Final Exercise: Currency Converter
