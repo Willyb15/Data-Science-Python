@@ -24,7 +24,7 @@ At the end of Day 2:
     * test these ideas in the console and with scripts
 * You will understand:
 	* variable types
-		* int, float, complex
+		* int, float
 	* programming logic
         * comparison operators
 		* if, elif, else
