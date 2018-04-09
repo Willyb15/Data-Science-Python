@@ -268,3 +268,37 @@ $ get_containing_symbol(possible_passwords)
 This is the point.  Functions transform data into new data.  You can pass the data that comes out of one function into another function, and create pipelines that do simple, understandable things, and get you closer yo your goal.  We will discuss this more next time.
 
 ### Documentation Strings
+
+The last important note about functions is not about writing them, or calling them, but making them understandable.  The *best* thing you can do to help with this is write clear, concise code with descriptive names.
+
+The *next best* thing you can do is write a *documentation string* for all your functions.  Here's an example:
+
+```
+def get_valid_passwords(possible_passwords)
+    """Process a list if password strings and filter out invalid passwords.
+
+    A valid password has the following two properties:
+    
+      - The password must contain a digit (zero through nine)
+      - The password must contain one of the symbols `^!#$?-`
+    
+    Example
+    -------
+    $ possible_passwords = ['moshi', 'm0shi', 'mosh!', 'm0sh!',
+                            '^^oshi', '^^0shi', '^^0sh!']
+    $ get_valid_passwords(possible_passwords)
+    ['m0sh!', '^^0shi', '^^0sh!']
+
+    Arguments
+    ---------
+    possible_passwords: list of strings
+      A list of passwords to check for validity.
+
+    Returns
+    -------
+    valid_passwords: list of strings
+      The sublist of possible_passwords containing exactly the valid passwords.
+    """
+```
+
+It takes some investment of time to write function docstrings, but it is a wise investment.  You should write docstrings for all functions in your programs that you mean to be public facing (i.e. you mean to be called by humans, or other modules in your program).
