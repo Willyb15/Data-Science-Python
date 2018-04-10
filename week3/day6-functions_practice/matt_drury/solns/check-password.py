@@ -3,6 +3,9 @@ import sys
 CAPITALS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 CAPITAL_SUGGESTIONS = {char.lower(): char for char in CAPITALS}
 
+LOWERS = CAPITALS.lower()
+LOWERS_SUGGESTIONS = {char.upper(): char for char in LOWERS}
+
 DIGITS = '0123456789'
 DIGITS_SUGGESTIONS = {'e': '3', 'o': '0', 's': '5', 't': '7', 
                       'E': '3', 'O': '0', 'S': '5', 'T': '7',
@@ -18,6 +21,7 @@ SYMBOLS_SUGGESTIONS = {'a': '@', 'i': '!', 'l': '!', 's': '$',
 
 def check_password(password):
     return (contains_one_of_char(password, CAPITALS) and
+            contains_one_of_char(password, LOWERS) and
             contains_one_of_char(password, DIGITS) and
             contains_one_of_char(password, SYMBOLS))
 
@@ -32,6 +36,8 @@ def suggest_password(password, max_iter=5):
     while not check_password(password) and n_iter < max_iter:
         if not contains_one_of_char(password, CAPITALS):
             password = suggest_replacement(password, CAPITAL_SUGGESTIONS)
+        if not contains_one_of_char(password, LOWERS):
+            password = suggest_replacement(password, LOWERS_SUGGESTIONS)
         if not contains_one_of_char(password, DIGITS):
             password = suggest_replacement(password, DIGITS_SUGGESTIONS)
         if not contains_one_of_char(password, SYMBOLS):
