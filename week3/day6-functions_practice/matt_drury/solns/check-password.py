@@ -43,15 +43,13 @@ def suggest_password(password, max_iter=5):
         if not contains_one_of_char(password, SYMBOLS):
             password = suggest_replacement(password, SYMBOLS_SUGGESTIONS)
         n_iter = n_iter + 1
-    if n_iter == max_iter:
-        print("Warning: Could not find a substitution that works!")
     return password
 
 def suggest_replacement(password, replacement_dict):
     for char in password:
         if char in replacement_dict:
             replacement = replacement_dict[char]
-            password = password.replace(char, replacement)
+            password = password.replace(char, replacement, 1)
             break
     return password
 
@@ -61,5 +59,7 @@ if __name__ == '__main__':
         print("Password is OK!")
     else:
         suggestion = suggest_password(password)
-        print("Password not OK!")
-        print("How about this: ", suggestion)
+        if check_password(suggestion):
+            print("How about this: ", suggestion)
+        else:
+            print("Warning: Could not find a substitution that works!")
