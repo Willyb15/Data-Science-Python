@@ -18,32 +18,34 @@ Suppose we have a situation where we need to supply a new password (a password i
 Our application should be a command line tool which consumes a string and, if it is not a valid password, returns a suggested alternative password that is valid:
 
 ```
-MacBook-Pro-3:solns matthewdrury$ python check-password.py 'moshi'
+$ python check-password.py 'moshi'
 How about this:  ^^0Shi
 ```
 
 Here's another example:
 
 ```
-MacBook-Pro-3:solns matthewdrury$ python check-password.py 'swimswim'
+$ python check-password.py 'swimswim'
 How about this:  5W!mswim
 ```
 
 If we already supplied a valid password, our application should return it unchanged:
 
 ```
-MacBook-Pro-3:solns matthewdrury$ python check-password.py 'Sk8b0ard!ing'
+$ python check-password.py 'Sk8b0ard!ing'
 Password is OK!
 ```
 
 Occasionally, it may be impossible to find a substitution that works.  Our app should inform us of this situation:
 
 ```
-MacBook-Pro-3:solns matthewdrury$ python check-password.py 'coffee'
+$ python check-password.py 'coffee'
 Warning: Could not find a substitution that works!
 ```
 
 ## Tips
+
+### Command Line Arguments
 
 To read arguments from the command line in your program, you can use the `sys` module.
 
@@ -56,6 +58,8 @@ $ python command-line-args.py 'hi' 'there' '100'
 ```
 
 Notice that these always enter our program as *strings*.
+
+### String Replacement
 
 To replace within a sting, use the `replace` method
 
