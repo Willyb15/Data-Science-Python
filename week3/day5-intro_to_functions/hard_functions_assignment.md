@@ -1,3 +1,5 @@
+# Hard Functions Exercise 1
+
 # Instructions
 
 For this assignment you'll be working through solving more problems, but this time by building functions from scratch. For each problem, you should build a function into your solution. While we'll discuss general workflow in the next class, tonight you can just build each function into it's own file, and then call it with some arguments right after you define it. For example, pretend all of the following is the solution to one of the problems, written in a function first and then called (for testing purposes) below.

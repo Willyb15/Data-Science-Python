@@ -1,4 +1,4 @@
-## Introduction to Python
+# Introduction to Python
 
 ### Numeric Variable Types
 Today we are going to learn about base numeric variable types in Python, and learn how to write scripts (programs) that can compute useful things.

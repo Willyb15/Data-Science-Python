@@ -1,3 +1,5 @@
+# Beginning Functions Exercise 1
+
 # Instructions
 
 Tonight we'll work through building functions and getting practice with their syntax. We'll begin by having you complete function definitions that are already written, and then move on to you writing function definitions for code that is already written. Next, we'll work on translating some of the code we've already written into functions. We'll finish up by writing some functions of our own, from start to finish.  
@@ -90,7 +92,7 @@ Now we're going to work our problem solving and programming skills by coding up 
 
 1. Write a function that figures out whether or not we have any beers left on our wall. It should take in a number, and then print 'No beers left' if we are at the end (i.e. there are `0` beers left) or 'Beers left!' if we are not at the end (i.e. there are not `0` beers left).
 2. Let's imagine that I know all of the Elsa fans out there, and they're just Cary, Josh, and Sean (it's okay, we're the three best friends anybody could ever have). Write a function that takes a `name`, and then returns a `True` or `False` as to whether or not they are an Elsa fan. You can use the knowledge that if they aren't Cary, Josh, or Sean, they aren't an Elsa fan. Also, remember that checking membership using a `set` is incredibly fast! Try to use a `set` if you can.
-3. Write a function that computes the sum of the numbers in an inputted list. Use a `for` loop to do this. When you're done, look up the [sum](https://docs.python.org/3/library/functions.html#sum) function (and notice that this does the same thing as what you just wrote!). 
+3. Write a function that computes the sum of the numbers in an inputted list. Use a `for` loop to do this. When you're done, look up the [sum](https://docs.python.org/3/library/functions.html#sum) function (and notice that this does the same thing as what you just wrote!).
 
  * Example: If I input `[1, 2, 3]`, your function should return `6` (1 + 2 + 3 = 6).
 
