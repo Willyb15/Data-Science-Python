@@ -1,4 +1,4 @@
-## Introduction to Strings and Lists
+# Introduction to Strings and Lists
 
 Last week, we learned about how to use Python's power with `while` loops and conditionals, operating on some simple built in numeric types. Today, we are going to learn about a couple of data structures that will continue to build up your power in Python, and we'll learn about a new type of loop.
 
