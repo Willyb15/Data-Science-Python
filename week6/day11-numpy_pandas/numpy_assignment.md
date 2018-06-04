@@ -1,3 +1,5 @@
+# Numpy Exercise
+
 # Instructions 
 
 For the first part of tonight's assignment, we'll be solving problems by using `numpy`. Since `Pandas` is built on top of `numpy`, it's good to be familiar with `numpy` and know what it provides. Below, we'll ask that you solve questions **by using `numpy`**. While you could answer the questions below without using `numpy` arrays, the focus of these questions is for you to use `numpy` arrays and get familiar with their methods (there are a lot of them). Remember how fast they are compared to the `list` as an alternative! 
