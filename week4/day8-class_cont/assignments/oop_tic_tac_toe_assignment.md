@@ -1,3 +1,5 @@
+# Object Oriented Programming (OOP) Exercise
+
 # Instructions
 
 This assignment is designed to get you thinking about problems in an OOP framework. A great way to immediately jump into this mindset is by taking a problem that you've already solved and try to fit it into the OOP box. A perfect problem to get us going with this is the tic-tac-toe game from week 3. This entire problem with revolve around a solution to that problem that was written with functions. So if you haven't worked on that problem yet, you have one of two options. First you can go back and work on a solution for it. This is somewhat advised since programming is very much a game of practice makes perfect. Otherwise, if you want to jump into working with some hard classes you can work from the solution in the solutions repo as a starting point for this assignment.
