@@ -1,4 +1,6 @@
-# Instructions
+# Linear Modeling Assignment
+
+## Instructions
 
 For your assignment tonight you're going to be calling the shots. Similar to the final part of `day10-intro_to_pandas`, you're going to be taking a data set and using it to create a model. You're welcome to use the data set you worked with during that assignment. If, however, you worked with the iris data set, you should pick a new one. Here's a list of links to other data sets (some of which are the same as before), along with the type of target that is in the data:
 
