@@ -154,8 +154,8 @@ The `%` operator does division, but returns the **remainder** of the division (i
 If you end up with more complex mathematical expressions, you can use parentheses to organize them:
 
 ```
-In [14]: (2 + 3) * ((15 - 6)**2 - (14 + 2)**2) + 5
-Out[14]: -870
+In [20]: (2 + (3/2) + (5/4)) * ((15 - 6)**2 - (14 + 2)**2) + 5
+Out[20]: -826.25
 ```
 
 This works just like it should: the innermost parentheses are evaluated first, and then python works outwards.
@@ -172,7 +172,49 @@ Here's a quick summary of what we learned.
 
 ## Giving Things Names
 
+Our last example got a bit out of hand:
 
+```
+In [20]: (2 + (3/2) + (5/4)) * ((15 - 6)**2 - (14 + 2)**2) + 5
+Out[20]: -826.25
+```
+
+There's enough there that it's getting a bit hard to read.  Programs that are hard to read are **the worst**.  A lot of effort in programming is making sure that your code is not an impossible to understand pit of symbols.
+
+The first line of defense for understandability is **giving things names**. Here's a reworked version of this example where I give names to the different components of the expression:
+
+```
+In [24]: first_factor = (2 + (3/2) + (5/4))
+
+In [25]: second_factor = ((15 - 6)**2 - (14 + 2)**2)
+
+In [26]: first_factor * second_factor + 5
+Out[26]: -826.25
+```
+
+The `=` sign is used a bit differently in python than in mathematics, it is called the **assignment operator**, and it is used to give things names.  Giving things names is one of the **most important** things to learn to do well in programming, good names are the mose effective way to help you and others understand your code.
+
+An inportant quirk is that **names are given to values not to expressions**.  If we ask python to tell us what is stored under the name `second_factor` we just get a number:
+
+```
+In [27]: second_factor
+Out[27]: -175
+```
+
+This is the same number we would have seen if we had just computed the value of the expression:
+
+```
+In [28]: ((15 - 6)**2 - (14 + 2)**2)
+Out[28]: -175
+```
+
+You may have expected python to report `((15 - 6)**2 - (14 + 2)**2)` when we asked it to tell us what we had named `second_factor`, but that's not how it works.  When we do:
+
+```
+In [25]: second_factor = ((15 - 6)**2 - (14 + 2)**2)
+```
+
+python first *evaluates* the expression on the right hand side, and then gives the resulting value the name `second_factor`.  There is **no way** to give a name to an expression, only values.
 
 
 ## The Logical Data Type (Booleans)
