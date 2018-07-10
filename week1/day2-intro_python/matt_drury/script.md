@@ -326,7 +326,7 @@ In [48]: (2.0 < 3.0) or (-2.0 > -3.0)
 Out[48]: True
 ```
 
-The `not` operator reverses the `True`thiness of a boolean:
+The `not` operator reverses the `True`thinness of a boolean:
 
 ```
 In [49]: 3.14159 > 2.71828
@@ -373,10 +373,210 @@ I always tend to use the word `is` when I name booleans, to emphasise their natu
 
 ## If Statements (Conditionals)
 
+We now have the power to work with numbers, and ask and answer yes or no questions.  The next step is to learn how to **make decisions** based on the outcome of some question.
+
+The fundamental construct used to choose actions based on conditions in python is the **if statement**.  It looks like this, schematically:
+
+```
+if CONDITION:
+    DO FIRST THING
+    DO SECOND THING
+    DO LAST THING
+else:
+    DO A DIFFERENT FIRST THING
+    DO A DIFFERENT SECOND THING
+    DO A DIFFERENT LAST THING
+```
+
+We'll spend a bit of time deconstructing this.
+
+### If Statements: The Basics
+
+```
+In [65]: if x % 2 == 0:
+    ...:     print("x is even!")
+    ...:
+x is even!
+```
+
+Ok, there is a LOT of new things going on here.  Let's take them step by step.
+
+  - The `if` statement checks if a condition is `True` or `False` and decides what action to take based on the result.
+  - If the condition is `True` we run the code under the `if`.  **Note that the code we run when the condition is true is indented four spaces!**
+
+That last point is really important, so I'm going to repeat it.
+
+**Note that the code we run when the condition is true is indented four spaces!**.  **You must indent the code to run if the condition is true four spaces, always four spaces, and only four spaces!**.
+
+This is important, because we may want to do *multiple* things when the condition is true:
+
+```
+In [66]: if x % 2 == 0:
+    ...:     print("x is even!")
+    ...:     print("for real, I'm telling you that x is even!")
+    ...:     print("why aren't you listening to me?")
+    ...:
+x is even!
+for real, I'm telling you that x is even!
+why aren't you listening to me?
+```
+
+Since `x` is equal to four:
+
+```
+In [67]: x
+Out[67]: 4
+```
+
+The expression `x % 2 == 0` evaluates to `True`:
+
+```
+In [68]: x % 2 == 0
+Out[68]: True
+```
+
+So the `if` statement decides to execute the **block** of code under the `if`.  There are three `print` statements in this block, which just spit a message back out at the user.
+
+In case the condition in the `if` statement is *not* `True`, the block of code does *not* get executed.
+
+```
+In [70]: if x % 2 == 0:
+    ...:     print("x is even!")
+    ...:     print("for real, I'm telling you that x is even!")
+    ...:     print("why aren't you listening to me?")
+    ...:
+```
+
+**Nothing happened!**
+
+### If Statements: The Else Clause
+
+Sometimes you would like to supply an alternate action in case the condition is `False`.  This can be accomplished with the `else` clause:
+
+```
+In [71]: x = 15
+
+In [72]: if x % 2 == 0:
+    ...:     print("x is even!")
+    ...:     print("for real, I'm telling you that x is even!")
+    ...:     print("why aren't you listening to me?")
+    ...: else:
+    ...:     print("x is odd!")
+    ...:     print("for real, I'm telling you that x is odd!")
+    ...:     print("thanks for listening to this very important message!")
+    ...:
+    ...:
+x is odd!
+for real, I'm telling you that x is odd!
+thanks for listening to this very important message!
+```
+
+Notice again, **the code inside the else block is indented four spaces, it must always be indented four spaces!**
+
+### If Statements: Multiple Conditions
+
+Occasionally things are more complicated, and you would like to check multiple conditions in sequence until you find one that evaluated to `True`.  The `elif` (pronounced "else if") construct solves this problem:
+
+```
+In [73]: x = 5
+
+In [74]: if x < 10:
+    ...:     print("x is smaller than ten!")
+    ...: elif x < 20:
+    ...:     print("x is bigger than or equal to ten, and less than twenty!")
+    ...: else:
+    ...:     print("x is bigger than or equal to twenty!")
+    ...:
+x is smaller than ten!
+
+In [75]: x = 15
+
+In [76]: if x < 10:
+    ...:     print("x is smaller than ten!")
+    ...: elif x < 20:
+    ...:     print("x is bigger than or equal to ten, and less than twenty!")
+    ...: else:
+    ...:     print("x is bigger than or equal to twenty!")
+    ...:
+x is bigger than or equal to ten, and less than twenty!
+
+In [77]: x = 22
+
+In [78]: if x < 10:
+    ...:     print("x is smaller than ten!")
+    ...: elif x < 20:
+    ...:     print("x is bigger than or equal to ten, and less than twenty!")
+    ...: else:
+    ...:     print("x is bigger than or equal to twenty!")
+    ...:
+x is bigger than or equal to twenty!
+```
+
 ### The First Assignment Question.
 
 ```
 Write a script that takes a user inputted number and prints whether it is positive, negative or zero, with "The inputted number is (positive/negative/zero)" depending.
 ```
 
-### While Loops
+New things here:
+
+  - Getting user input.
+  - Putting our code in a file.
+  - Running the code in the file.
+
+
+## Repeating Actions: While Loops
+
+Our final topic for the day is how to repeat tasks until some condition is true.
+
+Consider using python to calculate [triangular numbers](https://en.wikipedia.org/wiki/Triangular_number):
+
+```
+In [79]: first_triangular_number = 1
+
+In [80]: second_triangular_number = 1 + 2
+
+In [81]: third_triangular_number = 1 + 2 + 3
+
+In [82]: fourth_triangular_number = 1 + 2 + 3 + 4
+```
+
+This is all well and good, but what if you were tasked with calculating the millionth triangular number.  You couldn't really type all that out in any reasonable amount of time, and even if you could, aren't computers supposed to *save* us work?
+
+Luckily there is a way out.  Notice that the three lines of code above show a lot of repitition:
+
+```
+In [84]: first_triangular_number = 1
+
+In [85]: second_triangular_number = first_triangular_number + 2
+
+In [86]: third_triangular_number = second_triangular_number + 3
+
+In [87]: fourth_triangular_number = third_triangular_number + 4
+```
+
+This doesn't really seem like much of a simplification, but it highlights an important *pattern*:
+
+> The n-th triangular number is equal to the previous (n-1-st one) triangular number plus n.
+
+This pattern allows us to use a **while loop** to compute the n-th triangular number.
+
+```
+In [88]: counter = 1
+
+In [89]: triangular_number = 1
+
+In [90]: n = 4
+
+In [91]: while counter < n:
+    ...:     counter = counter + 1
+    ...:     triangular_number = triangular_number + counter
+    ...:
+
+In [92]: triangular_number
+Out[92]: 10
+```
+
+The **while loop** repeats the indented lines of code **until the condition is true**. Let's map out what is happening in a table.
+
+... Gonna need a whiteboard for this one ...
