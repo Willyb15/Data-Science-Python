@@ -53,7 +53,7 @@ Remember, the goal is to write these by using `for` loops.
 
 Now you're going to work with strings, along with your knowledge of `for` loops and iteration. Remember that you can tab complete to find helpful methods that you can use to operate on strings! For some of these problems, you may not use anything new, but for others, there may be a helpful string method. As a last note, just like with many programming problems, there will be multiple ways to solve these problems.
 
-1. Write a script that obtains the count of a user inputted letter in a user inputted string (**Hint**: Use `input()` twice to get both of the user inputs). Make sure to build this in such a way that it ignores the case of the inputted string and letter.
+1. Write a script that counts the occurrences of a user inputted letter in a string that is also inputted by the user. (**Hint**: Use `input()` twice to get both of the user inputs). Make sure to build this in such a way that it ignores the case of the inputted string and letter. For example if the user inputs `c`, and the string `Chelsea likes candy` your script should print 2.
 2. Write a script that checks if a user inputted string ends in an exclamation point. **If it does**, then print the string in all capital letters. **If it doesn't**, print the string in all lowercase letters.  
 3. Write a script that removes all of the vowels in a user inputted string.
 4. Write a script that makes every other letter of a user inputted string capitalized.
