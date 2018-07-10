@@ -192,9 +192,9 @@ In [26]: first_factor * second_factor + 5
 Out[26]: -826.25
 ```
 
-The `=` sign is used a bit differently in python than in mathematics, it is called the **assignment operator**, and it is used to give things names.  Giving things names is one of the **most important** things to learn to do well in programming, good names are the mose effective way to help you and others understand your code.
+The `=` sign is used a bit differently in python than in mathematics, it is called the **assignment operator**, and it is used to give things names.  Giving things names is one of the **most important** things to learn to do well in programming, good names are the most effective way to help you and others understand your code.
 
-An inportant quirk is that **names are given to values not to expressions**.  If we ask python to tell us what is stored under the name `second_factor` we just get a number:
+An important quirk is that **names are given to values not to expressions**.  If we ask python to tell us what is stored under the name `second_factor` we just get a number:
 
 ```
 In [27]: second_factor
@@ -217,11 +217,161 @@ In [25]: second_factor = ((15 - 6)**2 - (14 + 2)**2)
 python first *evaluates* the expression on the right hand side, and then gives the resulting value the name `second_factor`.  There is **no way** to give a name to an expression, only values.
 
 
+### Review:
+
+Here's a summary of what we learned:
+
+  - To organize calculation, you can give names to values.
+  - Names are only assigned to values, you cannot name expressions.
+
+
 ## The Logical Data Type (Booleans)
+
+The second type of data we will study today is used to represent logical truth (or falseness).  It is called the **boolean** data type (after [George Boole](https://en.wikipedia.org/wiki/George_Boole) who wrote an influential book on logical deduction), and it has only two values: `True` and `False`.
+
+```
+In [29]: True
+Out[29]: True
+
+In [30]: False
+Out[30]: False
+```
 
 ### Using Comparisons to Create Booleans
 
-### If Statements (Conditionals)
+Booleans are usually created in a program by **comparisons** between values.  
+
+There are many different types of comparisons.  The simplest is probably **equality**, the `==` operator is used to test if two values are equal:
+
+```
+In [33]: 2.0 == 2.0
+Out[33]: True
+
+In [34]: 2.0 == 2.1
+Out[34]: False
+```
+
+Note how this works, we're essentially asking a question:
+
+> Is the value 2.0 equal to the value 2.1?
+
+and python is giving us the answer `False`.
+
+There are many other comparisons in python, all of the usual numeric comparisons are supported:
+
+```
+In [34]: 2.0 == 2.1
+Out[34]: False
+
+In [35]: 2.0 <= 2.1
+Out[35]: True
+
+In [36]: 2.0 >= 2.1
+Out[36]: False
+
+In [37]: 2.0 < 2.1
+Out[37]: True
+
+In [38]: 2.0 < 2.0
+Out[38]: False
+```
+
+There's also a **not equals** comparison, though it would be hard to guess how to spell it:
+
+```
+In [39]: 2.0 != 2.0
+Out[39]: False
+
+In [40]: 2.0 != 2.1
+Out[40]: True
+```
+
+#### Exercise:
+
+How would you use these ideas to check if a number is even?  Odd?
+
+### And, Or, and Not
+
+To *create* booleans we can use the comparison operators `==, !=, <, <=, >`, and `>=`, to *combine* booleans we use the logical operators `and`, `or`, and `not`.
+
+```
+In [41]: (2.0 < 3.0) and (-2.0 < -3.0)
+Out[41]: False
+
+In [42]: (2.0 > 3.0) and (-2.0 < -3.0)
+Out[42]: False
+
+In [43]: (2.0 > 3.0) and (-2.0 > -3.0)
+Out[43]: False
+
+In [44]: (2.0 < 3.0) and (-2.0 > -3.0)
+Out[44]: True
+```
+
+Notice that the `and` of two booleans is only `True` when **both** the left-hand and right-hand booleans are `True`, anything else gives `False`.
+
+The `or` operator gives a `True` result when *either* the left-hand or the right-hand boolean is `True` (or both):
+
+```
+In [45]: (2.0 < 3.0) or (-2.0 < -3.0)
+Out[45]: True
+
+In [46]: (2.0 > 3.0) or (-2.0 < -3.0)
+Out[46]: False
+
+In [47]: (2.0 > 3.0) or (-2.0 > -3.0)
+Out[47]: True
+
+In [48]: (2.0 < 3.0) or (-2.0 > -3.0)
+Out[48]: True
+```
+
+The `not` operator reverses the `True`thiness of a boolean:
+
+```
+In [49]: 3.14159 > 2.71828
+Out[49]: True
+
+In [50]: not (3.14159 > 2.71828)
+Out[50]: False
+
+In [51]: 3.14159 < 2.71828
+Out[51]: False
+
+In [52]: not (3.14159 < 2.71828)
+Out[52]: True
+```
+
+### Working with Booleans
+
+Booleans are not so different from numerics in python, you can name them just like you can numbers.
+
+```
+In [56]: x = 4
+
+In [57]: y = 7
+
+In [58]: x_is_odd = (x % 2 == 1)
+
+In [59]: y_is_odd = (y % 2 == 1)
+
+In [60]: x_is_odd
+Out[60]: False
+
+In [61]: y_is_odd
+Out[61]: True
+
+In [62]: x_is_odd or y_is_odd
+Out[62]: True
+
+In [63]: x_is_odd and y_is_odd
+Out[63]: False
+```
+
+I always tend to use the word `is` when I name booleans, to emphasise their nature as the answer to a question.
+
+
+## If Statements (Conditionals)
 
 ### The First Assignment Question.
 
