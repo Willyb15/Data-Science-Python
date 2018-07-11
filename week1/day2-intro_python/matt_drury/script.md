@@ -11,7 +11,6 @@
 
 # Introduction to Python
 
-
 ## Three Ways to Use Python
 
 There are three popular ways to use python:
@@ -512,11 +511,21 @@ In [78]: if x < 10:
 x is bigger than or equal to twenty!
 ```
 
+### Review.
+
+What have we learned?
+
+  - If statements allow us to choose what code to run based on a condition.
+  - When we have multiple conditions to test, use the `elif` (else if) construct.
+  - The `while` construct will run code when none of our conditions is fulfilled.
+
 ### The First Assignment Question.
 
 ```
 Write a script that takes a user inputted number and prints whether it is positive, negative or zero, with "The inputted number is (positive/negative/zero)" depending.
 ```
+
+We now have enough information to solve this problem, so let's do it.
 
 New things here:
 
@@ -543,7 +552,7 @@ In [82]: fourth_triangular_number = 1 + 2 + 3 + 4
 
 This is all well and good, but what if you were tasked with calculating the millionth triangular number.  You couldn't really type all that out in any reasonable amount of time, and even if you could, aren't computers supposed to *save* us work?
 
-Luckily there is a way out.  Notice that the three lines of code above show a lot of repitition:
+Luckily there is a way out.  Notice that the three lines of code above show a lot of repetition:
 
 ```
 In [84]: first_triangular_number = 1
@@ -579,4 +588,21 @@ Out[92]: 10
 
 The **while loop** repeats the indented lines of code **until the condition is true**. Let's map out what is happening in a table.
 
-... Gonna need a whiteboard for this one ...
+| counter | triangular_number | n | counter < n |
+|---------|-------------------|---|-------------|
+| 1       | 1                 | 4 | True        |
+| 2       | 3                 | 4 | True        |
+| 3       | 6                 | 4 | True        |
+| 4       | 10                | 4 | False       |
+
+The code inside the loop is called the *body*, it gets run every time the loop executes.  Notice though, that the values of our variables change each time we execute the code, as we have tracked in the table.  In particular:
+
+  - The `counter` is increased by one each time.  Since we stop when `counter >= 4`, this gruarentees that the body is run exactly four times.
+  - The `triangular_number` is increased by the counter each time.  So the first time through it's increased by 1, the second time its increased by 2, the third time by 3, and the final by 4.
+
+| counter | triangular_number | n | counter < n |
+|---------|-------------------|---|-------------|
+| 1       | 1                 | 4 | True        |
+| 2       | 1 + 2             | 4 | True        |
+| 3       | 1 + 2 + 3         | 4 | True        |
+| 4       | 1 + 2 + 3 + 4     | 4 | False       |
