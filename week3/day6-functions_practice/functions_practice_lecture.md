@@ -80,7 +80,7 @@ def create_report(file_path):
 
 #### Let's Put the FUN in Functions!
 
-Now, we need to take these lines and get the number of sentences, words, and characters contained within each. At this point, we should realize that we need to aggregate these counts. One way would be to have each count stored in it's own variable, but here we're going to do it with a dictionary (we'll see why this is a good idea very soon). Let's initialize one now.
+Now, we need to take these lines and get the number of sentences, words, and characters contained within each. At this point, we should realize that we need to aggregate these counts. One way would be to have each count stored in its own variable, but here we're going to do it with a dictionary (we'll see why this is a good idea very soon). Let's initialize one now.
 
 ```python
 def create_report(file_path):
@@ -94,7 +94,7 @@ Now that we have a place to store the counts that we come across while looping t
 
 Option 1: We may choose to write code inside the body of our loop and later figure out how to convert to a function.
 
-Option 2: We may recognize that what we're about to do in the loop is it's own distinct task and begin writing a function.
+Option 2: We may recognize that what we're about to do in the loop is its own distinct task and begin writing a function.
 
 Let's illustrate the latter option, since we've seen plenty of examples of turning existing code into a function.
 Understand the 'bigger picture' for this example - we're updating our counts with the information from the current line.
