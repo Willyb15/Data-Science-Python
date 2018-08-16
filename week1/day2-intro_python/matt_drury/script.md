@@ -43,14 +43,14 @@ Python knows about both integer and decimal numbers.  These are two two primary 
 
 This is an integer:
 
-```
+```python
 In [1]: 2
 Out[1]: 2
 ```
 
 That's a pretty silly action.  I entered the number `2` to python, and it spit it back to me.  Here's something a bit more interesting:
 
-```
+```python
 In [2]: 2 + 3
 Out[2]: 5
 ```
@@ -59,7 +59,7 @@ I'm using python interactively here.  I typed in an **expression**, and python *
 
 We can also do this with decimals:
 
-```
+```python
 In [3]: 2.0 + 3.0
 Out[3]: 5.0
 ```
@@ -74,7 +74,7 @@ This is a different type of number to python.  Notice that when I added two *int
 
 There are many arithmetic operations supported by python.
 
-```
+```python
 In [4]: 2 - 3
 Out[4]: -1
 
@@ -89,7 +89,7 @@ The two are pretty clear, but the third is a bit more interesting.  Even though 
 
 We may suspect that if the division comes out evenly, they python will give us an integer, but this is not the case:
 
-```
+```python
 In [7]: 4/2
 Out[7]: 2.0
 ```
@@ -98,7 +98,7 @@ Out[7]: 2.0
 
 There are two more arithmetic operations that are encountered more rarely.  **Exponentiation** is spelled with two stars `**`:
 
-```
+```python
 In [8]: 2**4
 Out[8]: 16
 
@@ -108,7 +108,7 @@ Out[9]: 1.4142135623730951
 
 Exponentiation can result in some massive numbers, but python handles them just fine:
 
-```
+```python
 In [10]: 2**100
 Out[10]: 1267650600228229401496703205376
 
@@ -121,7 +121,7 @@ Out[12]: 10715086071862673209484250490600018105614048117055336074437503883703510
 
 There's an interesting quirk to this large number thing though:
 
-```
+```python
 In [13]: 2.0**1000
 Out[13]: 1.0715086071862673e+301
 ```
@@ -132,7 +132,7 @@ While integers can have as many digits as needed, **decimals cannot, you only ge
 
 The final arithmetic operation is called **modular division**.  This sounds gnarly, but it's actually really simple.
 
-```
+```python
 In [15]: 10 % 2
 Out[15]: 0
 
@@ -152,7 +152,7 @@ The `%` operator does division, but returns the **remainder** of the division (i
 
 If you end up with more complex mathematical expressions, you can use parentheses to organize them:
 
-```
+```python
 In [20]: (2 + (3/2) + (5/4)) * ((15 - 6)**2 - (14 + 2)**2) + 5
 Out[20]: -826.25
 ```
@@ -173,7 +173,7 @@ Here's a quick summary of what we learned.
 
 Our last example got a bit out of hand:
 
-```
+```python
 In [20]: (2 + (3/2) + (5/4)) * ((15 - 6)**2 - (14 + 2)**2) + 5
 Out[20]: -826.25
 ```
@@ -182,7 +182,7 @@ There's enough there that it's getting a bit hard to read.  Programs that are ha
 
 The first line of defense for understandability is **giving things names**. Here's a reworked version of this example where I give names to the different components of the expression:
 
-```
+```python
 In [24]: first_factor = (2 + (3/2) + (5/4))
 
 In [25]: second_factor = ((15 - 6)**2 - (14 + 2)**2)
@@ -195,21 +195,21 @@ The `=` sign is used a bit differently in python than in mathematics, it is call
 
 An important quirk is that **names are given to values not to expressions**.  If we ask python to tell us what is stored under the name `second_factor` we just get a number:
 
-```
+```python
 In [27]: second_factor
 Out[27]: -175
 ```
 
 This is the same number we would have seen if we had just computed the value of the expression:
 
-```
+```python
 In [28]: ((15 - 6)**2 - (14 + 2)**2)
 Out[28]: -175
 ```
 
 You may have expected python to report `((15 - 6)**2 - (14 + 2)**2)` when we asked it to tell us what we had named `second_factor`, but that's not how it works.  When we do:
 
-```
+```python
 In [25]: second_factor = ((15 - 6)**2 - (14 + 2)**2)
 ```
 
@@ -228,7 +228,7 @@ Here's a summary of what we learned:
 
 The second type of data we will study today is used to represent logical truth (or falseness).  It is called the **boolean** data type (after [George Boole](https://en.wikipedia.org/wiki/George_Boole) who wrote an influential book on logical deduction), and it has only two values: `True` and `False`.
 
-```
+```python
 In [29]: True
 Out[29]: True
 
@@ -242,7 +242,7 @@ Booleans are usually created in a program by **comparisons** between values.
 
 There are many different types of comparisons.  The simplest is probably **equality**, the `==` operator is used to test if two values are equal:
 
-```
+```python
 In [33]: 2.0 == 2.0
 Out[33]: True
 
@@ -258,7 +258,7 @@ and python is giving us the answer `False`.
 
 There are many other comparisons in python, all of the usual numeric comparisons are supported:
 
-```
+```python
 In [34]: 2.0 == 2.1
 Out[34]: False
 
@@ -277,7 +277,7 @@ Out[38]: False
 
 There's also a **not equals** comparison, though it would be hard to guess how to spell it:
 
-```
+```python
 In [39]: 2.0 != 2.0
 Out[39]: False
 
@@ -293,7 +293,7 @@ How would you use these ideas to check if a number is even?  Odd?
 
 To *create* booleans we can use the comparison operators `==, !=, <, <=, >`, and `>=`, to *combine* booleans we use the logical operators `and`, `or`, and `not`.
 
-```
+```python
 In [41]: (2.0 < 3.0) and (-2.0 < -3.0)
 Out[41]: False
 
@@ -311,7 +311,7 @@ Notice that the `and` of two booleans is only `True` when **both** the left-hand
 
 The `or` operator gives a `True` result when *either* the left-hand or the right-hand boolean is `True` (or both):
 
-```
+```python
 In [45]: (2.0 < 3.0) or (-2.0 < -3.0)
 Out[45]: True
 
@@ -327,7 +327,7 @@ Out[48]: True
 
 The `not` operator reverses the `True`thinness of a boolean:
 
-```
+```python
 In [49]: 3.14159 > 2.71828
 Out[49]: True
 
@@ -345,7 +345,7 @@ Out[52]: True
 
 Booleans are not so different from numerics in python, you can name them just like you can numbers.
 
-```
+```python
 In [56]: x = 4
 
 In [57]: y = 7
@@ -376,7 +376,7 @@ We now have the power to work with numbers, and ask and answer yes or no questio
 
 The fundamental construct used to choose actions based on conditions in python is the **if statement**.  It looks like this, schematically:
 
-```
+```python
 if CONDITION:
     DO FIRST THING
     DO SECOND THING
@@ -391,7 +391,7 @@ We'll spend a bit of time deconstructing this.
 
 ### If Statements: The Basics
 
-```
+```python
 In [65]: if x % 2 == 0:
     ...:     print("x is even!")
     ...:
@@ -409,7 +409,7 @@ That last point is really important, so I'm going to repeat it.
 
 This is important, because we may want to do *multiple* things when the condition is true:
 
-```
+```python
 In [66]: if x % 2 == 0:
     ...:     print("x is even!")
     ...:     print("for real, I'm telling you that x is even!")
@@ -422,14 +422,14 @@ why aren't you listening to me?
 
 Since `x` is equal to four:
 
-```
+```python
 In [67]: x
 Out[67]: 4
 ```
 
 The expression `x % 2 == 0` evaluates to `True`:
 
-```
+```python
 In [68]: x % 2 == 0
 Out[68]: True
 ```
@@ -438,7 +438,7 @@ So the `if` statement decides to execute the **block** of code under the `if`.  
 
 In case the condition in the `if` statement is *not* `True`, the block of code does *not* get executed.
 
-```
+```python
 In [70]: if x % 2 == 0:
     ...:     print("x is even!")
     ...:     print("for real, I'm telling you that x is even!")
@@ -452,7 +452,7 @@ In [70]: if x % 2 == 0:
 
 Sometimes you would like to supply an alternate action in case the condition is `False`.  This can be accomplished with the `else` clause:
 
-```
+```python
 In [71]: x = 15
 
 In [72]: if x % 2 == 0:
@@ -476,7 +476,7 @@ Notice again, **the code inside the else block is indented four spaces, it must 
 
 Occasionally things are more complicated, and you would like to check multiple conditions in sequence until you find one that evaluated to `True`.  The `elif` (pronounced "else if") construct solves this problem:
 
-```
+```python
 In [73]: x = 5
 
 In [74]: if x < 10:
@@ -540,7 +540,7 @@ Our final topic for the day is how to repeat tasks until some condition is true.
 
 Consider using python to calculate [triangular numbers](https://en.wikipedia.org/wiki/Triangular_number):
 
-```
+```python
 In [79]: first_triangular_number = 1
 
 In [80]: second_triangular_number = 1 + 2
@@ -554,7 +554,7 @@ This is all well and good, but what if you were tasked with calculating the mill
 
 Luckily there is a way out.  Notice that the three lines of code above show a lot of repetition:
 
-```
+```python
 In [84]: first_triangular_number = 1
 
 In [85]: second_triangular_number = first_triangular_number + 2
@@ -570,7 +570,7 @@ This doesn't really seem like much of a simplification, but it highlights an imp
 
 This pattern allows us to use a **while loop** to compute the n-th triangular number.
 
-```
+```python
 In [88]: counter = 1
 
 In [89]: triangular_number = 1
