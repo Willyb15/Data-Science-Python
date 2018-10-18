@@ -1,0 +1,9 @@
+grep 2015-10-16 2015_sp100.csv > date.csv
+grep AMZN 2015_sp100.csv > amzn.csv 
+ python plot_stock_prices.py < 2015_goog_sorted.csv 
+ grep GOOG 2015_sp100.csv | sort > 2015_goog.csv | python plot_stock_prices.py > 2015_goog.csv
+
+
+
+grep GOOG 2015_sp100.csv | sort > 2015_goog.csv   
+grep GOOG 2015_sp100.csv > 2015_goog.csv
