@@ -113,16 +113,21 @@
 
 
 
-def isprime():
-    num = abs(int(raw_input('Feed me a number please')))
-    for i in range(2, num):
-        if num % i == 0:
-            print("The number is not prime yo %d" % i)
-            return
-        else:
-            print('Think we got a prime dawg')
+# def isprime():
+#     num = abs(int(raw_input('Feed me a number please')))
+#     for i in range(2, num):
+#         if num % i == 0:
+#             print("The number is not prime yo, its divisible by %d" % i)
+#             return
+#         else:
+#             print('Think we got a prime dawg')
+#
+# isprime()
 
-isprime()
+def series():
+    num = abs(int(raw_input('Feed me a number please')))
+    
+
 
 
 
