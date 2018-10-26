@@ -126,7 +126,7 @@
 
 def series():
     num = abs(int(raw_input('Feed me a number please')))
-    
+
 
 
 
